@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import math
 import re
 import tomllib
 import unicodedata
@@ -13,7 +12,9 @@ from pathlib import Path
 from typing import Any
 
 from .http import HttpClient
+from .features import FeatureExtractor
 from .models import KnowledgeCard, RawItem, utc_now
+from .ranking import CohortRanker
 from .sources import ADAPTERS
 from .summarize import SourceSummary, Summarizer, configured_summarizer
 
@@ -69,11 +70,15 @@ class Pipeline:
         summarizer: Summarizer,
         now: datetime | None = None,
         strict_summaries: bool = False,
+        feature_extractor: FeatureExtractor | None = None,
+        ranker: CohortRanker | None = None,
     ) -> None:
         self.client = client
         self.summarizer = summarizer
         self.now = now or utc_now()
         self.strict_summaries = strict_summaries
+        self.feature_extractor = feature_extractor or FeatureExtractor()
+        self.ranker = ranker or CohortRanker()
 
     @classmethod
     def configured(
@@ -111,10 +116,16 @@ class Pipeline:
                 errors[source["id"]] = f"{type(error).__name__}: {error}"
 
         unique = self._deduplicate(raw_items)
-        ranked = sorted(unique, key=self._score, reverse=True)
+        ranked_results = self.ranker.rank(unique, self.now)
         source_caps = {source["id"]: int(source.get("max_daily", 3)) for source in config.get("sources", [])}
-        selected = self._select(ranked, int(project.get("daily_limit", 15)), source_caps)
-        cards = [self._to_card(item, self._score(item)) for item in selected]
+        content_caps = {key: int(value) for key, value in project.get("content_caps", {}).items()}
+        selected = self._select(
+            ranked_results,
+            int(project.get("daily_limit", 15)),
+            source_caps,
+            content_caps,
+        )
+        cards = [self._to_card(result.item, result.score, result.breakdown) for result in selected]
         payload = {
             "generatedAt": self.now.isoformat(),
             "timezone": project.get("timezone", "Asia/Singapore"),
@@ -146,36 +157,45 @@ class Pipeline:
                 titles[title_key] = key
         return list(merged.values())
 
-    def _score(self, item: RawItem) -> float:
-        age_hours = max(0.0, (self.now - item.published_at).total_seconds() / 3600)
-        recency = max(0.0, 22.0 - math.log2(age_hours + 1) * 4.5)
-        domain = {"量化研究": 24, "AI × 量化": 21, "开源工程": 17, "AI 工具": 12}.get(item.domain, 8)
-        evidence = 8 if any(tag in {"论文", "Release", "机构研究"} for tag in item.tags) else 3
-        text = f"{item.title} {item.summary}".casefold()
-        useful_terms = {
-            "backtest", "trading", "portfolio", "factor", "alpha", "market making", "order book",
-            "execution", "volatility", "risk", "hedg", "asset pricing", "return predict", "causal",
-            "agent", "time series", "forecast", "reinforcement learning", "evaluation", "benchmark",
-            "回测", "交易", "组合", "因子", "风险", "波动", "预测", "智能体",
-        }
-        topic_bonus = min(18, sum(3 for term in useful_terms if term in text))
-        return round(item.priority * 30 + recency + domain + evidence + topic_bonus, 2)
-
     @staticmethod
-    def _select(items: list[RawItem], limit: int, source_caps: dict[str, int]) -> list[RawItem]:
-        selected: list[RawItem] = []
+    def _select(
+        items: list[Any],
+        limit: int,
+        source_caps: dict[str, int],
+        content_caps: dict[str, int] | None = None,
+    ) -> list[Any]:
+        selected: list[Any] = []
         counts: dict[str, int] = {}
-        for item in items:
+        content_counts: dict[str, int] = {}
+        deferred: list[Any] = []
+        caps = content_caps or {}
+        for result in items:
+            item = result.item
             cap = source_caps.get(item.source_id, 3)
             if counts.get(item.source_id, 0) >= cap:
                 continue
-            selected.append(item)
+            content_cap = caps.get(item.content_type)
+            if content_cap is not None and content_counts.get(item.content_type, 0) >= content_cap:
+                deferred.append(result)
+                continue
+            selected.append(result)
             counts[item.source_id] = counts.get(item.source_id, 0) + 1
+            content_counts[item.content_type] = content_counts.get(item.content_type, 0) + 1
             if len(selected) >= limit:
                 break
+        if len(selected) < limit:
+            for result in deferred:
+                item = result.item
+                cap = source_caps.get(item.source_id, 3)
+                if counts.get(item.source_id, 0) >= cap:
+                    continue
+                selected.append(result)
+                counts[item.source_id] = counts.get(item.source_id, 0) + 1
+                if len(selected) >= limit:
+                    break
         return selected
 
-    def _to_card(self, item: RawItem, score: float) -> KnowledgeCard:
+    def _to_card(self, item: RawItem, score: float, score_breakdown: dict[str, object] | None = None) -> KnowledgeCard:
         fallback = SourceSummary()
         try:
             result = self.summarizer.summarize(item)
@@ -197,11 +217,19 @@ class Pipeline:
             key_points=result.key_points,
             why_it_matters=result.why_it_matters,
             limitations=result.limitations,
+            title_en=result.title_en,
+            description_en=result.description_en,
+            summary_en=result.summary_en,
+            key_points_en=result.key_points_en,
+            why_it_matters_en=result.why_it_matters_en,
+            limitations_en=result.limitations_en,
             original_url=canonical_url(item.url),
             published_at=item.published_at,
             retrieved_at=item.retrieved_at,
             tags=result.tags,
+            features=[feature.as_dict() for feature in self.feature_extractor.extract(item)],
             score=score,
+            score_breakdown=score_breakdown or {},
             ai_generated=result.ai_generated,
             summary_provider=result.provider,
             summary_model=result.model,

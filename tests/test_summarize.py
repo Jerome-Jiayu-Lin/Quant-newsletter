@@ -109,6 +109,12 @@ class ProviderResponseTests(unittest.TestCase):
         "key_points": ["包含样本外检验"],
         "why_it_matters": "有助于判断稳健性。",
         "limitations": "尚未核验全文。",
+        "title_en": "Factor Study",
+        "description_en": "An out-of-sample factor test.",
+        "summary_en": "The authors evaluate a factor with out-of-sample data.",
+        "key_points_en": ["Includes an out-of-sample test"],
+        "why_it_matters_en": "Helps assess robustness.",
+        "limitations_en": "The full paper has not been independently verified.",
         "tags": ["因子"],
     }
 
@@ -118,6 +124,7 @@ class ProviderResponseTests(unittest.TestCase):
             result = OpenAIResponsesSummary("test-key").summarize(raw_item())
         self.assertEqual(result.title, "因子研究")
         self.assertEqual(result.provider, "openai")
+        self.assertEqual(result.title_en, "Factor Study")
         sent = json.loads(request.call_args.args[0].data)
         self.assertEqual(sent["text"]["format"]["type"], "json_schema")
 
@@ -127,8 +134,22 @@ class ProviderResponseTests(unittest.TestCase):
             result = DeepSeekChatSummary("test-key").summarize(raw_item())
         self.assertEqual(result.title, "因子研究")
         self.assertEqual(result.provider, "deepseek")
+        self.assertEqual(result.summary_en, "The authors evaluate a factor with out-of-sample data.")
         sent = json.loads(request.call_args.args[0].data)
         self.assertEqual(sent["response_format"], {"type": "json_object"})
+
+    def test_deepseek_repairs_missing_bilingual_fields(self) -> None:
+        incomplete = {key: value for key, value in self.card.items() if not key.endswith("_en")}
+        responses = [
+            FakeResponse({"choices": [{"message": {"content": json.dumps(incomplete, ensure_ascii=False)}}]}),
+            FakeResponse({"choices": [{"message": {"content": json.dumps(self.card, ensure_ascii=False)}}]}),
+        ]
+        with patch("urllib.request.urlopen", side_effect=responses) as request:
+            result = DeepSeekChatSummary("test-key").summarize(raw_item())
+        self.assertEqual(request.call_count, 2)
+        self.assertEqual(result.title_en, "Factor Study")
+        repair = json.loads(request.call_args.args[0].data)
+        self.assertIn("title_en", repair["messages"][-1]["content"])
 
 
 if __name__ == "__main__":

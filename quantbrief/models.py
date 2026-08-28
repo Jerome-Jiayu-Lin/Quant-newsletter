@@ -24,6 +24,8 @@ class RawItem:
     tags: list[str] = field(default_factory=list)
     priority: float = 1.0
     discovered_by: list[str] = field(default_factory=list)
+    content_type: str = "article"
+    metrics: dict[str, float] = field(default_factory=dict)
 
 
 @dataclass(slots=True)
@@ -40,11 +42,19 @@ class KnowledgeCard:
     key_points: list[str]
     why_it_matters: str
     limitations: str
+    title_en: str
+    description_en: str
+    summary_en: str
+    key_points_en: list[str]
+    why_it_matters_en: str
+    limitations_en: str
     original_url: str
     published_at: datetime
     retrieved_at: datetime
     tags: list[str]
+    features: list[dict[str, Any]]
     score: float
+    score_breakdown: dict[str, Any]
     ai_generated: bool
     summary_provider: str
     summary_model: str | None
@@ -60,9 +70,16 @@ class KnowledgeCard:
         payload["originalUrl"] = payload.pop("original_url")
         payload["keyPoints"] = payload.pop("key_points")
         payload["whyItMatters"] = payload.pop("why_it_matters")
+        payload["titleEn"] = payload.pop("title_en")
+        payload["descriptionEn"] = payload.pop("description_en")
+        payload["summaryEn"] = payload.pop("summary_en")
+        payload["keyPointsEn"] = payload.pop("key_points_en")
+        payload["whyItMattersEn"] = payload.pop("why_it_matters_en")
+        payload["limitationsEn"] = payload.pop("limitations_en")
         payload["aiGenerated"] = payload.pop("ai_generated")
         payload["summaryProvider"] = payload.pop("summary_provider")
         payload["summaryModel"] = payload.pop("summary_model")
+        payload["scoreBreakdown"] = payload.pop("score_breakdown")
         payload["discoveredBy"] = payload.pop("discovered_by")
         payload.pop("published_at")
         payload.pop("retrieved_at")

@@ -51,6 +51,13 @@ class SourceAdapter(Protocol):
 
 def _base_item(source: dict[str, Any], now: datetime, **values: Any) -> RawItem:
     tags = values.pop("tags", list(source.get("tags", [])))
+    content_type = values.pop("content_type", source.get("content_type"))
+    if not content_type:
+        content_type = {
+            "论文": "paper",
+            "开源项目": "repository",
+            "视频": "video",
+        }.get(source.get("group"), "article")
     return RawItem(
         source_id=source["id"],
         source_name=source["name"],
@@ -60,6 +67,7 @@ def _base_item(source: dict[str, Any], now: datetime, **values: Any) -> RawItem:
         priority=float(source.get("priority", 1.0)),
         tags=tags,
         discovered_by=[source["name"]],
+        content_type=content_type,
         **values,
     )
 
@@ -124,6 +132,8 @@ class HuggingFaceAdapter:
                 published_at=parse_date(row.get("publishedAt") or paper.get("publishedAt"), now),
                 authors=[author.get("name", "") if isinstance(author, dict) else str(author) for author in authors],
                 tags=list(source.get("tags", [])) + (["热门论文"] if row.get("numUpvotes", 0) else []),
+                content_type="paper",
+                metrics={"upvotes": float(row.get("numUpvotes", 0))},
             ))
         return items
 
@@ -131,6 +141,22 @@ class HuggingFaceAdapter:
 class GitHubAdapter:
     def fetch(self, source: dict[str, Any], client: HttpClient, now: datetime) -> list[RawItem]:
         repo = source["repo"]
+        repository_response = client.get(
+            f"https://api.github.com/repos/{repo}",
+            accept="application/vnd.github+json",
+            headers=client.github_headers(),
+        )
+        repository = json.loads(repository_response.body) if repository_response.status != 304 else {}
+        metrics = {}
+        if "stargazers_count" in repository:
+            metrics["stars"] = float(repository["stargazers_count"])
+        if "forks_count" in repository:
+            metrics["forks"] = float(repository["forks_count"])
+        if "open_issues_count" in repository:
+            metrics["open_issues"] = float(repository["open_issues_count"])
+        if repository.get("created_at"):
+            created_at = parse_date(repository["created_at"], now)
+            metrics["metric_age_days"] = max(1.0, (now - created_at).total_seconds() / 86400)
         url = f"https://api.github.com/repos/{repo}/releases?per_page=5"
         response = client.get(url, accept="application/vnd.github+json", headers=client.github_headers())
         if response.status == 304:
@@ -148,6 +174,8 @@ class GitHubAdapter:
                 published_at=parse_date(release.get("published_at") or release.get("created_at"), now),
                 authors=[(release.get("author") or {}).get("login", "")],
                 tags=list(source.get("tags", [])) + ["Release"],
+                content_type="repository",
+                metrics=metrics,
             ))
         return items
 

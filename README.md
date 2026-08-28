@@ -1,6 +1,6 @@
 # Quant Brief
 
-Daily quant, AI and useful-tool signals turned into traceable Chinese knowledge cards.
+Daily quant, AI and useful-tool signals turned into traceable bilingual knowledge cards.
 
 Quant Brief collects structured feeds and official release data, normalizes and deduplicates them, ranks the most useful items for quantitative research, and publishes a daily card feed. Every card links to an internal summary page and then back to its canonical source.
 
@@ -13,6 +13,8 @@ Quant Brief collects structured feeds and official release data, normalizes and 
 - Source-based summaries when no model key is configured
 - Optional Chinese structured summaries through OpenAI or DeepSeek
 - A responsive card feed with domain filters and traceable detail pages
+- Stable bilingual Features for filtering by platform, artifact, topic, and method
+- Independent Chinese and English editorial fields while preserving the exact original title
 - A scheduled GitHub Actions workflow for the daily edition
 
 The first implementation intentionally leaves Reddit, YouTube transcripts, paywalled newsletters, and aggressive HTML scraping disabled because their access and reuse constraints need separate review.
@@ -53,6 +55,18 @@ GitHub remains the reliable daily runner and public transport for the latest edi
 The script pulls new daily commits and imports every unseen historical version of `web/data/cards.json` into `storage/archive/quant-brief.sqlite3`. It is idempotent, so missed days are recovered the next time your computer is online. Local runtime content is organized under `storage/archive/`, `storage/editions/`, and `storage/state/` according to `AGENTS.md`.
 
 The public website continues to read only the latest sanitized JSON snapshot. API keys, HTTP state, and the local SQLite database are never exposed to visitors.
+
+Each new local card contains structured `features` such as `platform:github`, `artifact:paper`, or
+`topic:quantitative-finance`. A Feature has stable identity, Chinese and English labels, evidence, and confidence;
+free-form model-generated `tags` remain editorial aids and are not used as durable filter keys. The Archive indexes
+Features separately and supports date plus multi-Feature intersection through `CardArchive.search(...)`.
+
+Daily ranking is cohort-based rather than a single cross-format formula. Repositories compete on GitHub stars,
+papers prefer citations and may use platform upvotes when citations are unavailable, and future video adapters use
+views. Raw popularity and age-adjusted velocity are converted to percentiles inside each content type, then combined
+with research relevance and freshness. Every card stores `scoreBreakdown`; missing metrics use an explicit relevance
+fallback instead of being treated as zero. Content caps in `config/sources.toml` prevent one format from occupying the
+whole Edition and relax only when needed to fill the daily limit.
 
 ## Optional AI summaries
 

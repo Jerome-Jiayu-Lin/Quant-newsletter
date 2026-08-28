@@ -7,6 +7,7 @@ from tempfile import TemporaryDirectory
 
 from quantbrief.models import RawItem
 from quantbrief.pipeline import Pipeline, canonical_url
+from quantbrief.ranking import CohortRanker, RankedItem
 from quantbrief.summarize import SourceSummary
 
 
@@ -56,10 +57,13 @@ class PipelineTests(unittest.TestCase):
 
     def test_card_is_traceable(self) -> None:
         item = self.item(source="arXiv", url="https://arxiv.org/abs/2608.12345", title="A New Factor")
-        card = self.pipeline._to_card(item, self.pipeline._score(item)).as_web_dict()
+        ranked = CohortRanker().rank([item], self.now)[0]
+        card = self.pipeline._to_card(item, ranked.score, ranked.breakdown).as_web_dict()
         self.assertEqual(card["originalUrl"], item.url)
         self.assertFalse(card["aiGenerated"])
         self.assertTrue(card["slug"])
+        self.assertEqual(card["titleEn"], item.title)
+        self.assertIn("topic:quantitative-finance", {feature["id"] for feature in card["features"]})
 
     def test_strict_summary_mode_does_not_silently_fallback(self) -> None:
         pipeline = Pipeline(
@@ -70,7 +74,23 @@ class PipelineTests(unittest.TestCase):
         )  # type: ignore[arg-type]
         item = self.item(source="arXiv", url="https://arxiv.org/abs/2608.12345", title="A New Factor")
         with self.assertRaisesRegex(RuntimeError, "AI summary failed"):
-            pipeline._to_card(item, pipeline._score(item))
+            pipeline._to_card(item, 50.0)
+
+    def test_selection_respects_content_caps_before_filling_spare_slots(self) -> None:
+        papers = [
+            RankedItem(self.item(source=f"paper-{index}", url=f"https://example.com/p{index}", title=f"Paper {index}"), 90 - index, {})
+            for index in range(3)
+        ]
+        repository = self.item(source="repo", url="https://example.com/repo", title="Repository")
+        repository.content_type = "repository"
+        ranked = papers + [RankedItem(repository, 50, {})]
+        selected = self.pipeline._select(
+            ranked,
+            limit=3,
+            source_caps={item.item.source_id: 3 for item in ranked},
+            content_caps={"article": 2, "repository": 1},
+        )
+        self.assertEqual([result.item.content_type for result in selected], ["article", "article", "repository"])
 
 
 if __name__ == "__main__":

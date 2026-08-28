@@ -9,8 +9,20 @@ The complete selected set of Knowledge Cards for one Singapore calendar date.
 _Avoid_: Daily data, newsletter dump, batch, result
 
 **Knowledge Card**:
-A classified editorial record containing a Chinese title, short description, structured summary, provenance, and original link.
+A classified bilingual editorial record containing localized titles and summaries, Features, provenance, and an original link.
 _Avoid_: Item, row, article data, card data
+
+**Feature**:
+A stable, searchable characteristic supported by source metadata or content evidence and presented with Chinese and English labels.
+_Avoid_: Free-form tag, keyword, category
+
+**Facet**:
+The controlled dimension that groups comparable Features, such as platform, topic, artifact type, or ranking.
+_Avoid_: Feature type, tag group
+
+**Editorial Tag**:
+A descriptive phrase produced during summarization that aids reading but is not guaranteed to remain stable enough for filtering.
+_Avoid_: Feature, filter
 
 **Edition Snapshot**:
 The immutable-shaped JSON representation of one Edition at its canonical dated local path.
@@ -27,4 +39,3 @@ _Avoid_: Cache data, metadata file, history
 **Public Export**:
 A deliberately sanitized derivative of local content prepared for external website consumption.
 _Avoid_: Public data, web dump, upload file
-

@@ -76,6 +76,28 @@ class CardArchive:
                     for card in cards
                 ],
             )
+            connection.executemany(
+                """
+                INSERT INTO card_features
+                    (edition, card_id, feature_id, facet, value, label_zh, label_en, evidence, confidence)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                [
+                    (
+                        edition,
+                        card["id"],
+                        feature["id"],
+                        feature["facet"],
+                        feature["value"],
+                        feature["label"]["zh"],
+                        feature["label"]["en"],
+                        feature["evidence"],
+                        feature["confidence"],
+                    )
+                    for card in cards
+                    for feature in card.get("features", [])
+                ],
+            )
             if source_commit:
                 connection.execute(
                     "INSERT OR IGNORE INTO imports (source_commit, edition, imported_at) VALUES (?, ?, ?)",
@@ -83,6 +105,33 @@ class CardArchive:
                 )
             connection.commit()
         return len(cards)
+
+    def search(self, *, edition: str | None = None, feature_ids: list[str] | None = None) -> list[dict[str, Any]]:
+        """Return cards matching an optional date and every requested Feature."""
+        if not self.database.exists():
+            return []
+        requested = sorted(set(feature_ids or []))
+        conditions: list[str] = []
+        parameters: list[Any] = []
+        if edition:
+            conditions.append("cards.edition = ?")
+            parameters.append(edition)
+        if requested:
+            placeholders = ",".join("?" for _ in requested)
+            conditions.append(
+                "cards.card_id IN ("
+                "SELECT card_id FROM card_features "
+                "WHERE edition = cards.edition AND feature_id IN (" + placeholders + ") "
+                "GROUP BY card_id HAVING COUNT(DISTINCT feature_id) = ?"
+                ")"
+            )
+            parameters.extend(requested)
+            parameters.append(len(requested))
+        where = " WHERE " + " AND ".join(conditions) if conditions else ""
+        query = "SELECT payload_json FROM cards" + where + " ORDER BY published_at DESC"
+        with closing(sqlite3.connect(self.database)) as connection:
+            self._create_schema(connection)
+            return [json.loads(row[0]) for row in connection.execute(query, parameters)]
 
     def sync_git_history(self, repo: Path, data_path: str = "web/data/cards.json") -> ArchiveReport:
         commits = self._git(repo, "log", "--reverse", "--format=%H", "--", data_path).splitlines()
@@ -143,8 +192,22 @@ class CardArchive:
                 edition TEXT NOT NULL,
                 imported_at TEXT NOT NULL
             );
+            CREATE TABLE IF NOT EXISTS card_features (
+                edition TEXT NOT NULL,
+                card_id TEXT NOT NULL,
+                feature_id TEXT NOT NULL,
+                facet TEXT NOT NULL,
+                value TEXT NOT NULL,
+                label_zh TEXT NOT NULL,
+                label_en TEXT NOT NULL,
+                evidence TEXT NOT NULL,
+                confidence REAL NOT NULL,
+                PRIMARY KEY (edition, card_id, feature_id),
+                FOREIGN KEY (edition, card_id) REFERENCES cards(edition, card_id) ON DELETE CASCADE
+            );
             CREATE INDEX IF NOT EXISTS cards_domain_idx ON cards(domain);
             CREATE INDEX IF NOT EXISTS cards_published_idx ON cards(published_at);
+            CREATE INDEX IF NOT EXISTS card_features_lookup_idx ON card_features(feature_id, edition);
             """
         )
         CardArchive._ensure_column(connection, "cards", "summary_provider", "TEXT NOT NULL DEFAULT 'source'")
