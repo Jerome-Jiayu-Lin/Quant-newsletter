@@ -40,7 +40,7 @@ Copy-Item .env.local.example .env.local
 ./scripts/run-local.ps1
 ```
 
-This local-only command uses its own ignored HTTP state, fetches sources, requires successful Chinese AI summaries, writes the current snapshot to the ignored `data/latest.json`, and appends the edition to `data/quant-brief.sqlite3`. If the key, model, endpoint, or returned JSON is invalid, the command stops instead of silently storing English fallback summaries. The API key remains in the ignored `.env.local` file and is never sent to the website or committed to Git.
+This local-only command uses its own ignored HTTP state, fetches sources, requires successful Chinese AI summaries, writes the daily Edition Snapshot to `storage/editions/YYYY/MM/YYYY-MM-DD/quant-brief-edition.json`, and appends the Edition to `storage/archive/quant-brief.sqlite3`. If the key, model, endpoint, or returned JSON is invalid, the command stops instead of silently storing English fallback summaries. The API key remains in the ignored `.env.local` file and is never sent to the website or committed to Git.
 
 ## Local long-term archive
 
@@ -50,7 +50,7 @@ GitHub remains the reliable daily runner and public transport for the latest edi
 ./scripts/sync-local.ps1
 ```
 
-The script pulls new daily commits and imports every unseen historical version of `web/data/cards.json` into `data/quant-brief.sqlite3`. It is idempotent, so missed days are recovered the next time your computer is online. A local collection can archive immediately with `python -m quantbrief.cli --archive data/quant-brief.sqlite3`.
+The script pulls new daily commits and imports every unseen historical version of `web/data/cards.json` into `storage/archive/quant-brief.sqlite3`. It is idempotent, so missed days are recovered the next time your computer is online. Local runtime content is organized under `storage/archive/`, `storage/editions/`, and `storage/state/` according to `AGENTS.md`.
 
 The public website continues to read only the latest sanitized JSON snapshot. API keys, HTTP state, and the local SQLite database are never exposed to visitors.
 

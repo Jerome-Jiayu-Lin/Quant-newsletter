@@ -12,12 +12,19 @@ if (-not $python) {
 Push-Location $projectRoot
 $runExitCode = 0
 try {
+    $singaporeTimeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById('Singapore Standard Time')
+    $editionDate = [System.TimeZoneInfo]::ConvertTimeFromUtc([DateTime]::UtcNow, $singaporeTimeZone)
+    $editionDirectory = Join-Path $projectRoot (
+        'storage/editions/{0}/{1}/{2}' -f $editionDate.ToString('yyyy'), $editionDate.ToString('MM'), $editionDate.ToString('yyyy-MM-dd')
+    )
+    $editionSnapshot = Join-Path $editionDirectory 'quant-brief-edition.json'
+
     & $python.Source -m quantbrief.cli `
         --env-file .env.local `
         --require-ai `
-        --state data/local-http-state.json `
-        --output data/latest.json `
-        --archive data/quant-brief.sqlite3
+        --state storage/state/local-fetch-state.json `
+        --output $editionSnapshot `
+        --archive storage/archive/quant-brief.sqlite3
     $runExitCode = $LASTEXITCODE
 }
 finally {

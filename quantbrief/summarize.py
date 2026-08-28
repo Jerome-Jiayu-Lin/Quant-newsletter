@@ -106,7 +106,8 @@ class OpenAIResponsesSummary:
             "max_output_tokens": 1200,
             "instructions": (
                 "你是严谨的量化研究编辑。只根据输入内容生成简体中文知识卡，不补造数字、实验、结论或背景。"
-                "标题简短；描述回答新在哪里和为何有用；摘要区分事实与作者观点；局限必须明确证据边界。"
+                "title 使用简体中文，通常 12 至 30 个汉字，明确主题与新发现；禁止重磅、速看、最新等点击诱导词。"
+                "description 回答新在哪里和为何有用；summary 区分事实与作者观点；limitations 必须明确证据边界。"
                 "避免投资建议语气。"
             ),
             "input": json.dumps(content, ensure_ascii=False),
@@ -180,7 +181,8 @@ class DeepSeekChatSummary:
             "你是严谨的量化研究编辑。只根据输入内容生成简体中文知识卡，不补造数字、实验、结论或背景。"
             "必须输出一个 JSON 对象，字段为 title、description、summary、key_points、why_it_matters、"
             "limitations、tags。key_points 和 tags 是字符串数组，其余字段是字符串。"
-            "标题简短；描述回答新在哪里和为何有用；摘要区分事实与作者观点；局限明确证据边界；"
+            "title 使用简体中文，通常 12 至 30 个汉字，明确主题与新发现，禁止重磅、速看、最新等点击诱导词；"
+            "description 回答新在哪里和为何有用；summary 区分事实与作者观点；limitations 明确证据边界；"
             "避免投资建议语气。"
         )
         payload = {

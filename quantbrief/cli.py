@@ -13,7 +13,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Build today's Quant Brief knowledge cards")
     parser.add_argument("--config", type=Path, default=Path("config/sources.toml"))
     parser.add_argument("--output", type=Path, default=Path("web/data/cards.json"))
-    parser.add_argument("--state", type=Path, default=Path("data/http-state.json"))
+    parser.add_argument("--state", type=Path, default=Path("storage/state/local-fetch-state.json"))
     parser.add_argument("--archive", type=Path, help="optionally append this edition to a local SQLite archive")
     parser.add_argument("--env-file", type=Path, help="load local provider settings without overwriting existing variables")
     parser.add_argument("--require-ai", action="store_true", help="fail instead of silently using source summaries")

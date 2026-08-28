@@ -159,7 +159,7 @@ class CardArchive:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Synchronize Git history into the local Quant Brief archive")
-    parser.add_argument("--database", type=Path, default=Path("data/quant-brief.sqlite3"))
+    parser.add_argument("--database", type=Path, default=Path("storage/archive/quant-brief.sqlite3"))
     parser.add_argument("--repo", type=Path, default=Path("."))
     parser.add_argument("--data-path", default="web/data/cards.json")
     return parser
