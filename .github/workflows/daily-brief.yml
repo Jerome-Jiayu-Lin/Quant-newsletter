@@ -1,0 +1,59 @@
+name: Daily Quant Brief
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '10 18 * * *'
+      timezone: 'Asia/Singapore'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-quant-brief
+  cancel-in-progress: false
+
+jobs:
+  build-edition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify collection pipeline
+        run: python -m unittest discover -s tests -v
+
+      - name: Fetch, rank and summarize sources
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5.6-luna
+        run: python -m quantbrief.cli
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+
+      - name: Build website
+        working-directory: web
+        run: pnpm install --frozen-lockfile && pnpm build
+
+      - name: Publish today's data to main
+        run: |
+          git config user.name "quant-brief-bot"
+          git config user.email "quant-brief-bot@users.noreply.github.com"
+          git add web/data/cards.json data/http-state.json
+          git diff --cached --quiet && exit 0
+          git commit -m "data: publish daily brief"
+          git push
+
