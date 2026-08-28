@@ -11,7 +11,7 @@ Quant Brief collects structured feeds and official release data, normalizes and 
 - Quantocracy and selected quantitative-finance newsletters
 - GitHub releases for TradingAgents, Qlib, RD-Agent, Chatbox, Claude Code, and Codex
 - Source-based summaries when no model key is configured
-- Optional Chinese structured summaries through the OpenAI Responses API
+- Optional Chinese structured summaries through OpenAI or DeepSeek
 - A responsive card feed with domain filters and traceable detail pages
 - A scheduled GitHub Actions workflow for the daily edition
 
@@ -33,7 +33,12 @@ The generated edition is written to `web/data/cards.json`. The website uses that
 
 ## Optional AI summaries
 
-Set `OPENAI_API_KEY` in your local environment or add it as a repository Actions secret. The default model is `gpt-5.6-luna`; override it with `OPENAI_MODEL` if needed. When no key is present, the pipeline remains operational and labels cards as source-summary based.
+Choose either provider by adding its key as a repository Actions secret:
+
+- OpenAI: `OPENAI_API_KEY` (default model `gpt-5.6-luna`)
+- DeepSeek: `DEEPSEEK_API_KEY` (default model `deepseek-v4-flash`)
+
+`SUMMARY_PROVIDER` is an optional repository variable with values `auto`, `openai`, or `deepseek`. In `auto` mode, OpenAI is preferred when both keys exist, otherwise DeepSeek is used. You can override DeepSeek with repository variables `DEEPSEEK_MODEL` and `DEEPSEEK_BASE_URL`. When no key is present, the pipeline remains operational and labels cards as source-summary based.
 
 Never commit access tokens or paste them into source files, workflow YAML, or remote URLs. GitHub Actions uses its short-lived built-in `GITHUB_TOKEN` for public GitHub data and committing the generated edition.
 
@@ -44,4 +49,3 @@ Edit `config/sources.toml` to enable, disable, prioritize, or cap a source. New 
 ## Disclaimer
 
 Generated summaries are research navigation aids, not investment advice. Verify claims, datasets, methods, licenses, and conclusions against the linked original source.
-

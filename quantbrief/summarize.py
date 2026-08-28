@@ -140,8 +140,89 @@ class OpenAIResponsesSummary:
         raise ValueError("Responses API returned no output_text")
 
 
+class DeepSeekChatSummary:
+    """Chinese knowledge cards through DeepSeek's OpenAI-compatible Chat API."""
+
+    def __init__(
+        self,
+        api_key: str,
+        model: str = "deepseek-v4-flash",
+        base_url: str = "https://api.deepseek.com",
+        timeout: int = 90,
+    ) -> None:
+        self.api_key = api_key
+        self.model = model
+        self.endpoint = f"{base_url.rstrip('/')}/chat/completions"
+        self.timeout = timeout
+
+    def summarize(self, item: RawItem) -> SummaryResult:
+        content = {
+            "domain": item.domain,
+            "source": item.source_name,
+            "title": item.title,
+            "authors": item.authors,
+            "published_at": item.published_at.isoformat(),
+            "source_summary": item.summary[:12000],
+            "original_url": item.url,
+        }
+        system_prompt = (
+            "你是严谨的量化研究编辑。只根据输入内容生成简体中文知识卡，不补造数字、实验、结论或背景。"
+            "必须输出一个 JSON 对象，字段为 title、description、summary、key_points、why_it_matters、"
+            "limitations、tags。key_points 和 tags 是字符串数组，其余字段是字符串。"
+            "标题简短；描述回答新在哪里和为何有用；摘要区分事实与作者观点；局限明确证据边界；"
+            "避免投资建议语气。"
+        )
+        payload = {
+            "model": self.model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": json.dumps(content, ensure_ascii=False)},
+            ],
+            "response_format": {"type": "json_object"},
+            "thinking": {"type": "disabled"},
+            "max_tokens": 1400,
+            "stream": False,
+        }
+        request = urllib.request.Request(
+            self.endpoint,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(request, timeout=self.timeout) as response:
+            result = json.loads(response.read())
+        output_text = result["choices"][0]["message"]["content"]
+        if not output_text:
+            raise ValueError("DeepSeek API returned empty message content")
+        card = json.loads(output_text)
+        return SummaryResult(
+            title=str(card["title"])[:72],
+            description=str(card["description"])[:240],
+            summary=str(card["summary"])[:2400],
+            key_points=[str(point) for point in card["key_points"][:5]],
+            why_it_matters=str(card["why_it_matters"])[:600],
+            limitations=str(card["limitations"])[:600],
+            tags=[str(tag) for tag in card["tags"][:6]],
+            ai_generated=True,
+        )
+
+
 def configured_summarizer() -> Summarizer:
-    api_key = os.environ.get("OPENAI_API_KEY", "").strip()
-    if not api_key:
-        return SourceSummary()
-    return OpenAIResponsesSummary(api_key, os.environ.get("OPENAI_MODEL", "gpt-5.6-luna"))
+    provider = os.environ.get("SUMMARY_PROVIDER", "").strip().lower() or "auto"
+    openai_key = os.environ.get("OPENAI_API_KEY", "").strip()
+    deepseek_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
+    if provider not in {"auto", "openai", "deepseek"}:
+        raise ValueError("SUMMARY_PROVIDER must be auto, openai, or deepseek")
+    if provider == "openai" and not openai_key:
+        raise ValueError("SUMMARY_PROVIDER=openai requires OPENAI_API_KEY")
+    if provider == "deepseek" and not deepseek_key:
+        raise ValueError("SUMMARY_PROVIDER=deepseek requires DEEPSEEK_API_KEY")
+    if provider == "openai" or (provider == "auto" and openai_key):
+        return OpenAIResponsesSummary(openai_key, os.environ.get("OPENAI_MODEL", "").strip() or "gpt-5.6-luna")
+    if provider == "deepseek" or (provider == "auto" and deepseek_key):
+        return DeepSeekChatSummary(
+            deepseek_key,
+            os.environ.get("DEEPSEEK_MODEL", "").strip() or "deepseek-v4-flash",
+            os.environ.get("DEEPSEEK_BASE_URL", "").strip() or "https://api.deepseek.com",
+        )
+    return SourceSummary()
