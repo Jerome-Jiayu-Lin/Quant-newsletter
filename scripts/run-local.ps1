@@ -15,6 +15,7 @@ try {
     & $python.Source -m quantbrief.cli `
         --env-file .env.local `
         --require-ai `
+        --state data/local-http-state.json `
         --output data/latest.json `
         --archive data/quant-brief.sqlite3
     $runExitCode = $LASTEXITCODE

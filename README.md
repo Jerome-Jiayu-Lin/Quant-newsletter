@@ -40,7 +40,7 @@ Copy-Item .env.local.example .env.local
 ./scripts/run-local.ps1
 ```
 
-This local-only command fetches sources, requires successful Chinese AI summaries, writes the current snapshot to the ignored `data/latest.json`, and appends the edition to `data/quant-brief.sqlite3`. If the key, model, endpoint, or returned JSON is invalid, the command stops instead of silently storing English fallback summaries. The API key remains in the ignored `.env.local` file and is never sent to the website or committed to Git.
+This local-only command uses its own ignored HTTP state, fetches sources, requires successful Chinese AI summaries, writes the current snapshot to the ignored `data/latest.json`, and appends the edition to `data/quant-brief.sqlite3`. If the key, model, endpoint, or returned JSON is invalid, the command stops instead of silently storing English fallback summaries. The API key remains in the ignored `.env.local` file and is never sent to the website or committed to Git.
 
 ## Local long-term archive
 
