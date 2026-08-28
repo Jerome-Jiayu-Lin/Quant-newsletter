@@ -20,6 +20,8 @@ class SummaryResult:
     limitations: str
     tags: list[str]
     ai_generated: bool
+    provider: str
+    model: str | None
 
 
 class Summarizer(Protocol):
@@ -53,17 +55,24 @@ class SourceSummary:
             limitations="当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
             tags=item.tags[:6],
             ai_generated=False,
+            provider="source",
+            model=None,
         )
 
 
 class OpenAIResponsesSummary:
     """Chinese knowledge cards through the Responses API structured-output seam."""
 
-    endpoint = "https://api.openai.com/v1/responses"
-
-    def __init__(self, api_key: str, model: str = "gpt-5.6-luna", timeout: int = 90) -> None:
+    def __init__(
+        self,
+        api_key: str,
+        model: str = "gpt-5.6-luna",
+        base_url: str = "https://api.openai.com/v1",
+        timeout: int = 90,
+    ) -> None:
         self.api_key = api_key
         self.model = model
+        self.endpoint = f"{base_url.rstrip('/')}/responses"
         self.timeout = timeout
 
     def summarize(self, item: RawItem) -> SummaryResult:
@@ -129,6 +138,8 @@ class OpenAIResponsesSummary:
             limitations=card["limitations"][:600],
             tags=card["tags"][:6],
             ai_generated=True,
+            provider="openai",
+            model=self.model,
         )
 
     @staticmethod
@@ -204,10 +215,12 @@ class DeepSeekChatSummary:
             limitations=str(card["limitations"])[:600],
             tags=[str(tag) for tag in card["tags"][:6]],
             ai_generated=True,
+            provider="deepseek",
+            model=self.model,
         )
 
 
-def configured_summarizer() -> Summarizer:
+def configured_summarizer(*, require_ai: bool = False) -> Summarizer:
     provider = os.environ.get("SUMMARY_PROVIDER", "").strip().lower() or "auto"
     openai_key = os.environ.get("OPENAI_API_KEY", "").strip()
     deepseek_key = os.environ.get("DEEPSEEK_API_KEY", "").strip()
@@ -218,11 +231,19 @@ def configured_summarizer() -> Summarizer:
     if provider == "deepseek" and not deepseek_key:
         raise ValueError("SUMMARY_PROVIDER=deepseek requires DEEPSEEK_API_KEY")
     if provider == "openai" or (provider == "auto" and openai_key):
-        return OpenAIResponsesSummary(openai_key, os.environ.get("OPENAI_MODEL", "").strip() or "gpt-5.6-luna")
+        return OpenAIResponsesSummary(
+            openai_key,
+            os.environ.get("OPENAI_MODEL", "").strip() or "gpt-5.6-luna",
+            os.environ.get("OPENAI_BASE_URL", "").strip() or "https://api.openai.com/v1",
+        )
     if provider == "deepseek" or (provider == "auto" and deepseek_key):
         return DeepSeekChatSummary(
             deepseek_key,
             os.environ.get("DEEPSEEK_MODEL", "").strip() or "deepseek-v4-flash",
             os.environ.get("DEEPSEEK_BASE_URL", "").strip() or "https://api.deepseek.com",
+        )
+    if require_ai:
+        raise ValueError(
+            "AI summary is required: set OPENAI_API_KEY or DEEPSEEK_API_KEY in the selected environment file"
         )
     return SourceSummary()

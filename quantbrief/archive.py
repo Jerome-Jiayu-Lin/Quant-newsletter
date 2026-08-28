@@ -56,8 +56,9 @@ class CardArchive:
             connection.executemany(
                 """
                 INSERT INTO cards
-                    (edition, card_id, domain, title, source_name, original_url, published_at, payload_json)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    (edition, card_id, domain, title, source_name, original_url, published_at,
+                     summary_provider, summary_model, payload_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 [
                     (
@@ -68,6 +69,8 @@ class CardArchive:
                         card.get("sourceName"),
                         card.get("originalUrl"),
                         card.get("publishedAt"),
+                        card.get("summaryProvider", "source"),
+                        card.get("summaryModel"),
                         json.dumps(card, ensure_ascii=False, separators=(",", ":")),
                     )
                     for card in cards
@@ -130,6 +133,8 @@ class CardArchive:
                 source_name TEXT,
                 original_url TEXT,
                 published_at TEXT,
+                summary_provider TEXT NOT NULL DEFAULT 'source',
+                summary_model TEXT,
                 payload_json TEXT NOT NULL,
                 PRIMARY KEY (edition, card_id)
             );
@@ -142,6 +147,14 @@ class CardArchive:
             CREATE INDEX IF NOT EXISTS cards_published_idx ON cards(published_at);
             """
         )
+        CardArchive._ensure_column(connection, "cards", "summary_provider", "TEXT NOT NULL DEFAULT 'source'")
+        CardArchive._ensure_column(connection, "cards", "summary_model", "TEXT")
+
+    @staticmethod
+    def _ensure_column(connection: sqlite3.Connection, table: str, column: str, declaration: str) -> None:
+        existing = {row[1] for row in connection.execute(f"PRAGMA table_info({table})")}
+        if column not in existing:
+            connection.execute(f"ALTER TABLE {table} ADD COLUMN {column} {declaration}")
 
 
 def build_parser() -> argparse.ArgumentParser:

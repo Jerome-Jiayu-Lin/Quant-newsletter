@@ -62,14 +62,33 @@ def slug_for(item: RawItem) -> str:
 class Pipeline:
     """Deep module: callers configure paths; collection, ranking and cards stay local."""
 
-    def __init__(self, *, client: HttpClient, summarizer: Summarizer, now: datetime | None = None) -> None:
+    def __init__(
+        self,
+        *,
+        client: HttpClient,
+        summarizer: Summarizer,
+        now: datetime | None = None,
+        strict_summaries: bool = False,
+    ) -> None:
         self.client = client
         self.summarizer = summarizer
         self.now = now or utc_now()
+        self.strict_summaries = strict_summaries
 
     @classmethod
-    def configured(cls, state_path: Path, now: datetime | None = None) -> "Pipeline":
-        return cls(client=HttpClient(state_path), summarizer=configured_summarizer(), now=now)
+    def configured(
+        cls,
+        state_path: Path,
+        now: datetime | None = None,
+        *,
+        require_ai: bool = False,
+    ) -> "Pipeline":
+        return cls(
+            client=HttpClient(state_path),
+            summarizer=configured_summarizer(require_ai=require_ai),
+            now=now,
+            strict_summaries=require_ai,
+        )
 
     def run(self, config_path: Path, output_path: Path) -> PipelineReport:
         config = tomllib.loads(config_path.read_text(encoding="utf-8"))
@@ -160,7 +179,9 @@ class Pipeline:
         fallback = SourceSummary()
         try:
             result = self.summarizer.summarize(item)
-        except Exception:
+        except Exception as error:
+            if self.strict_summaries:
+                raise RuntimeError(f"AI summary failed for {item.source_name}: {item.title}") from error
             result = fallback.summarize(item)
         slug = slug_for(item)
         return KnowledgeCard(
@@ -182,5 +203,7 @@ class Pipeline:
             tags=result.tags,
             score=score,
             ai_generated=result.ai_generated,
+            summary_provider=result.provider,
+            summary_model=result.model,
             discovered_by=item.discovered_by,
         )

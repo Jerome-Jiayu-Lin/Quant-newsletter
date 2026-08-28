@@ -46,6 +46,8 @@ class KnowledgeCard:
     tags: list[str]
     score: float
     ai_generated: bool
+    summary_provider: str
+    summary_model: str | None
     discovered_by: list[str]
 
     def as_web_dict(self) -> dict[str, Any]:
@@ -59,8 +61,9 @@ class KnowledgeCard:
         payload["keyPoints"] = payload.pop("key_points")
         payload["whyItMatters"] = payload.pop("why_it_matters")
         payload["aiGenerated"] = payload.pop("ai_generated")
+        payload["summaryProvider"] = payload.pop("summary_provider")
+        payload["summaryModel"] = payload.pop("summary_model")
         payload["discoveredBy"] = payload.pop("discovered_by")
         payload.pop("published_at")
         payload.pop("retrieved_at")
         return payload
-

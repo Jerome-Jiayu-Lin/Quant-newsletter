@@ -31,6 +31,17 @@ pnpm dev
 
 The generated edition is written to `web/data/cards.json`. The website uses that bundled file locally and reads the latest copy from the public `main` branch when hosted.
 
+## Local API-first run
+
+Copy `.env.local.example` to `.env.local`, add either a DeepSeek or OpenAI key, then run:
+
+```powershell
+Copy-Item .env.local.example .env.local
+./scripts/run-local.ps1
+```
+
+This local-only command fetches sources, requires successful Chinese AI summaries, writes the current snapshot to the ignored `data/latest.json`, and appends the edition to `data/quant-brief.sqlite3`. If the key, model, endpoint, or returned JSON is invalid, the command stops instead of silently storing English fallback summaries. The API key remains in the ignored `.env.local` file and is never sent to the website or committed to Git.
+
 ## Local long-term archive
 
 GitHub remains the reliable daily runner and public transport for the latest edition. Your durable history lives locally in SQLite and is ignored by Git:
@@ -51,6 +62,8 @@ Choose either provider by adding its key as a repository Actions secret:
 - DeepSeek: `DEEPSEEK_API_KEY` (default model `deepseek-v4-flash`)
 
 `SUMMARY_PROVIDER` is an optional repository variable with values `auto`, `openai`, or `deepseek`. In `auto` mode, OpenAI is preferred when both keys exist, otherwise DeepSeek is used. You can override DeepSeek with repository variables `DEEPSEEK_MODEL` and `DEEPSEEK_BASE_URL`. When no key is present, the pipeline remains operational and labels cards as source-summary based.
+
+For local runs, the same variables live in `.env.local`. `OPENAI_BASE_URL` defaults to `https://api.openai.com/v1`; `DEEPSEEK_BASE_URL` defaults to `https://api.deepseek.com`.
 
 Never commit access tokens or paste them into source files, workflow YAML, or remote URLs. GitHub Actions uses its short-lived built-in `GITHUB_TOKEN` for public GitHub data and committing the generated edition.
 

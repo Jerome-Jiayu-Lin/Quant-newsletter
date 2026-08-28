@@ -23,6 +23,8 @@ def dataset(edition: str, card_id: str, title: str) -> dict[str, object]:
                 "sourceName": "arXiv",
                 "originalUrl": f"https://example.com/{card_id}",
                 "publishedAt": f"{edition}T00:00:00Z",
+                "summaryProvider": "deepseek",
+                "summaryModel": "deepseek-v4-flash",
             }
         ],
     }
@@ -38,6 +40,8 @@ class CardArchiveTests(unittest.TestCase):
             with closing(sqlite3.connect(database)) as connection:
                 self.assertEqual(connection.execute("SELECT COUNT(*) FROM editions").fetchone()[0], 2)
                 self.assertEqual(connection.execute("SELECT COUNT(*) FROM cards").fetchone()[0], 2)
+                provider = connection.execute("SELECT summary_provider FROM cards LIMIT 1").fetchone()[0]
+                self.assertEqual(provider, "deepseek")
 
     def test_reimport_replaces_one_edition_without_duplicates(self) -> None:
         with TemporaryDirectory() as directory:

@@ -15,6 +15,11 @@ class DummyClient:
         pass
 
 
+class FailingSummarizer:
+    def summarize(self, item: RawItem):
+        raise RuntimeError("provider unavailable")
+
+
 class PipelineTests(unittest.TestCase):
     def setUp(self) -> None:
         self.now = datetime(2026, 8, 28, 10, tzinfo=timezone.utc)
@@ -56,7 +61,17 @@ class PipelineTests(unittest.TestCase):
         self.assertFalse(card["aiGenerated"])
         self.assertTrue(card["slug"])
 
+    def test_strict_summary_mode_does_not_silently_fallback(self) -> None:
+        pipeline = Pipeline(
+            client=DummyClient(),
+            summarizer=FailingSummarizer(),
+            now=self.now,
+            strict_summaries=True,
+        )  # type: ignore[arg-type]
+        item = self.item(source="arXiv", url="https://arxiv.org/abs/2608.12345", title="A New Factor")
+        with self.assertRaisesRegex(RuntimeError, "AI summary failed"):
+            pipeline._to_card(item, pipeline._score(item))
+
 
 if __name__ == "__main__":
     unittest.main()
-
