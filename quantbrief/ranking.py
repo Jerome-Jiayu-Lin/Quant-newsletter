@@ -10,7 +10,7 @@ from .models import RawItem
 PRIMARY_METRICS = {
     "paper": ("citations", "upvotes"),
     "video": ("views",),
-    "repository": ("stars",),
+    "repository": ("trending_rank_score", "stars_delta_1d", "stars"),
     "article": ("engagement",),
 }
 
@@ -72,6 +72,7 @@ class CohortRanker:
                             "objectiveScore": self._rounded(objective),
                             "relevanceScore": round(relevance, 2),
                             "freshnessScore": round(freshness, 2),
+                            "sourceMetrics": dict(item.metrics),
                         },
                     )
                 )
@@ -116,7 +117,7 @@ class CohortRanker:
             "time series", "reinforcement learning", "回测", "交易", "组合", "因子", "风险", "预测",
         }
         matches = sum(term in text for term in terms)
-        domain_base = {"量化研究": 75, "AI × 量化": 65, "开源工程": 50, "AI 工具": 35}.get(item.domain, 25)
+        domain_base = {"量化研究": 75, "AI × 量化": 70, "开源工程": 55, "AI 工具": 55}.get(item.domain, 35)
         return min(100.0, domain_base + matches * 5)
 
     @staticmethod

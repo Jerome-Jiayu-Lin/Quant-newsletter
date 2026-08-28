@@ -59,6 +59,19 @@ class CohortRankerTests(unittest.TestCase):
             by_title["old"].breakdown["velocityPercentile"],
         )
 
+    def test_trending_repositories_compete_on_stars_today(self) -> None:
+        first = self.item(
+            "first", "repository", {"trending_rank_score": 99, "trending_rank": 1, "stars": 1000, "stars_delta_1d": 100}
+        )
+        second = self.item(
+            "second", "repository", {"trending_rank_score": 98, "trending_rank": 2, "stars": 10000, "stars_delta_1d": 1000}
+        )
+        ranked = CohortRanker().rank([first, second], self.now)
+        by_title = {result.item.title: result for result in ranked}
+        self.assertEqual(by_title["first"].breakdown["primaryMetric"], "trending_rank_score")
+        self.assertEqual(by_title["first"].breakdown["sourceMetrics"]["trending_rank"], 1)
+        self.assertGreater(by_title["first"].score, by_title["second"].score)
+
 
 if __name__ == "__main__":
     unittest.main()

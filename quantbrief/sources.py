@@ -180,8 +180,80 @@ class GitHubAdapter:
         return items
 
 
+class GitHubTrendingAdapter:
+    """GitHub's public daily Trending page with rank and stars-today evidence."""
+
+    RELEVANT_TERMS = {
+        "ai", "llm", "agent", "skill", "quant", "finance", "trading", "research", "science",
+        "data", "automation", "workflow", "productivity", "tool", "browser", "health", "life",
+        "machine learning", "deep learning", "人工智能", "量化", "金融", "效率", "科研",
+    }
+
+    def fetch(self, source: dict[str, Any], client: HttpClient, now: datetime) -> list[RawItem]:
+        response = client.get(source["url"], accept="text/html")
+        if response.status == 304:
+            return []
+        html = response.body.decode("utf-8", errors="replace")
+        items: list[RawItem] = []
+        for rank, article in enumerate(re.findall(r"<article\b[\s\S]*?</article>", html, re.I), start=1):
+            repository_match = re.search(r"<h2\b[\s\S]*?<a[^>]+href=[\"']/([^\"']+)[\"']", article, re.I)
+            if not repository_match:
+                continue
+            repository = clean_html(repository_match.group(1)).replace(" ", "")
+            description_match = re.search(r"<p[^>]*class=[\"'][^\"']*col-9[^\"']*[\"'][^>]*>([\s\S]*?)</p>", article, re.I)
+            description = clean_html(description_match.group(1)) if description_match else ""
+            language_match = re.search(r"itemprop=[\"']programmingLanguage[\"'][^>]*>([\s\S]*?)</span>", article, re.I)
+            language = clean_html(language_match.group(1)) if language_match else ""
+            stars_match = re.search(r"href=[\"']/[^\"']+/stargazers[\"'][^>]*>([\s\S]*?)</a>", article, re.I)
+            stars_today_match = re.search(r"([\d,]+)\s+stars?\s+today", clean_html(article), re.I)
+            stars = self._number(clean_html(stars_match.group(1))) if stars_match else 0.0
+            stars_today = self._number(stars_today_match.group(1)) if stars_today_match else 0.0
+            text = f"{repository} {description} {language}".casefold()
+            if not any(term in text for term in self.RELEVANT_TERMS):
+                continue
+            domain = self._domain(text)
+            items.append(
+                _base_item(
+                    {**source, "domain": domain},
+                    now,
+                    title=repository,
+                    url=f"https://github.com/{repository}",
+                    summary=description or f"GitHub daily trending repository written in {language or 'an unspecified language'}.",
+                    published_at=now,
+                    tags=list(source.get("tags", [])) + ([language] if language else []),
+                    content_type="repository",
+                    metrics={
+                        "trending_rank": float(rank),
+                        "trending_rank_score": max(0.0, 100.0 - float(rank)),
+                        "stars": stars,
+                        "stars_delta_1d": stars_today,
+                        "metric_age_days": 1.0,
+                    },
+                )
+            )
+        return items
+
+    @staticmethod
+    def _number(value: str) -> float:
+        cleaned = re.sub(r"[^\d.]", "", value)
+        return float(cleaned) if cleaned else 0.0
+
+    @staticmethod
+    def _domain(text: str) -> str:
+        quant = any(term in text for term in ("quant", "finance", "trading", "portfolio", "market"))
+        ai = any(term in text for term in ("ai", "llm", "agent", "machine learning", "deep learning"))
+        if quant and ai:
+            return "AI × 量化"
+        if quant:
+            return "量化研究"
+        if ai or "skill" in text:
+            return "AI 工具"
+        return "开源工程"
+
+
 ADAPTERS: dict[str, SourceAdapter] = {
     "rss": RssAdapter(),
     "huggingface": HuggingFaceAdapter(),
     "github": GitHubAdapter(),
+    "github_trending": GitHubTrendingAdapter(),
 }

@@ -9,7 +9,8 @@ Quant Brief collects structured feeds and official release data, normalizes and 
 - arXiv `q-fin`, `cs.LG`, and `cs.CL` feeds
 - Hugging Face Daily Papers
 - Quantocracy and selected quantitative-finance newsletters
-- GitHub releases for TradingAgents, Qlib, RD-Agent, Chatbox, Claude Code, and Codex
+- GitHub Daily Trending repositories relevant to quant, AI, Skills, research, productivity, and useful tools
+- GitHub releases for the quant-focused TradingAgents, Qlib, and RD-Agent projects
 - Source-based summaries when no model key is configured
 - Optional Chinese structured summaries through OpenAI or DeepSeek
 - A responsive card feed with domain filters and traceable detail pages
@@ -61,7 +62,8 @@ Each new local card contains structured `features` such as `platform:github`, `a
 free-form model-generated `tags` remain editorial aids and are not used as durable filter keys. The Archive indexes
 Features separately and supports date plus multi-Feature intersection through `CardArchive.search(...)`.
 
-Daily ranking is cohort-based rather than a single cross-format formula. Repositories compete on GitHub stars,
+Daily ranking is cohort-based rather than a single cross-format formula. Trending repositories first follow GitHub's
+verified daily rank and retain stars-today plus total-star evidence; configured quant repositories use total stars,
 papers prefer citations and may use platform upvotes when citations are unavailable, and future video adapters use
 views. Raw popularity and age-adjusted velocity are converted to percentiles inside each content type, then combined
 with research relevance and freshness. Every card stores `scoreBreakdown`; missing metrics use an explicit relevance

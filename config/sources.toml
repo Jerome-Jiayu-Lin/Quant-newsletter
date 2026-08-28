@@ -4,10 +4,22 @@ daily_limit = 15
 lookback_hours = 72
 
 [project.content_caps]
-paper = 8
-repository = 4
+paper = 7
+repository = 6
 article = 4
 video = 3
+
+[[sources]]
+id = "github-trending-daily"
+name = "GitHub Trending Daily"
+group = "开源项目"
+kind = "github_trending"
+url = "https://github.com/trending?since=daily"
+domain = "开源工程"
+priority = 1.00
+max_daily = 6
+tags = ["GitHub Trending", "日趋势榜"]
+lookback_hours = 24
 
 [[sources]]
 id = "quantocracy"
@@ -159,6 +171,7 @@ priority = 0.56
 max_daily = 1
 tags = ["AI 客户端"]
 lookback_hours = 720
+enabled = false
 
 [[sources]]
 id = "claude-code"
@@ -171,6 +184,7 @@ priority = 0.62
 max_daily = 1
 tags = ["编程 Agent"]
 lookback_hours = 720
+enabled = false
 
 [[sources]]
 id = "codex"
@@ -183,3 +197,4 @@ priority = 0.62
 max_daily = 1
 tags = ["编程 Agent"]
 lookback_hours = 720
+enabled = false

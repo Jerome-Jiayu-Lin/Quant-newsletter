@@ -63,6 +63,9 @@ class FeatureExtractor:
             "Reinforcement Learning",
         ),
         "time-series": (r"\btime series\b|时间序列", "method", "time-series", "时间序列", "Time Series"),
+        "productivity": (r"\bproductivity\b|\bworkflow\b|效率|工作流", "topic", "productivity", "效率工具", "Productivity"),
+        "science": (r"\bscientific\b|\bscience\b|科研|科学", "topic", "science", "科学研究", "Science"),
+        "developer-tools": (r"\bdeveloper tools?\b|\bcoding\b|开发工具|编程", "topic", "developer-tools", "开发工具", "Developer Tools"),
     }
 
     def extract(self, item: RawItem) -> list[Feature]:
@@ -79,6 +82,17 @@ class FeatureExtractor:
         group = self.GROUP_FEATURES.get(item.source_group)
         if group:
             self._add(found, *group, evidence="source.group", confidence=1.0)
+
+        if item.source_id == "github-trending-daily" and "trending_rank" in item.metrics:
+            self._add(
+                found,
+                "ranking",
+                "github-trending-daily",
+                "GitHub 日趋势榜",
+                "GitHub Daily Trending",
+                evidence="source.ranking",
+                confidence=1.0,
+            )
 
         text = f"{item.title} {item.summary} {' '.join(item.tags)}"
         for pattern, facet, value, label_zh, label_en in self.KEYWORD_FEATURES.values():

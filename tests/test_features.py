@@ -47,6 +47,24 @@ class FeatureExtractorTests(unittest.TestCase):
         feature_ids = {feature.id for feature in FeatureExtractor().extract(item)}
         self.assertFalse(any(feature.startswith("ranking:") for feature in feature_ids))
 
+    def test_verified_trending_source_adds_ranking_feature(self) -> None:
+        now = datetime(2026, 8, 28, tzinfo=timezone.utc)
+        item = RawItem(
+            source_id="github-trending-daily",
+            source_name="GitHub Trending Daily",
+            source_group="开源项目",
+            domain="AI 工具",
+            title="scientific-agent-skills",
+            url="https://github.com/example/scientific-agent-skills",
+            summary="Scientific agent skills.",
+            published_at=now,
+            retrieved_at=now,
+            content_type="repository",
+            metrics={"trending_rank": 2, "stars_delta_1d": 498},
+        )
+        feature_ids = {feature.id for feature in FeatureExtractor().extract(item)}
+        self.assertIn("ranking:github-trending-daily", feature_ids)
+
 
 if __name__ == "__main__":
     unittest.main()
