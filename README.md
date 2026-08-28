@@ -31,6 +31,18 @@ pnpm dev
 
 The generated edition is written to `web/data/cards.json`. The website uses that bundled file locally and reads the latest copy from the public `main` branch when hosted.
 
+## Local long-term archive
+
+GitHub remains the reliable daily runner and public transport for the latest edition. Your durable history lives locally in SQLite and is ignored by Git:
+
+```powershell
+./scripts/sync-local.ps1
+```
+
+The script pulls new daily commits and imports every unseen historical version of `web/data/cards.json` into `data/quant-brief.sqlite3`. It is idempotent, so missed days are recovered the next time your computer is online. A local collection can archive immediately with `python -m quantbrief.cli --archive data/quant-brief.sqlite3`.
+
+The public website continues to read only the latest sanitized JSON snapshot. API keys, HTTP state, and the local SQLite database are never exposed to visitors.
+
 ## Optional AI summaries
 
 Choose either provider by adding its key as a repository Actions secret:
