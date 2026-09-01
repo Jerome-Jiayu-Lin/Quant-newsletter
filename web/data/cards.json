@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-31T17:33:10.222097+00:00",
+  "generatedAt": "2026-08-31T15:59:59.999999+00:00",
   "timezone": "Asia/Singapore",
-  "edition": "2026.09.01",
+  "edition": "2026.08.31",
   "cards": [
     {
-      "id": "578fa3a66bfec8fa",
-      "slug": "what-survives-honest-evaluation-leakage-safe-sea-578fa3a66b",
+      "id": "92e056c943da9eb4",
+      "slug": "portbench-a-correlation-aware-full-pipeline-benc-92e056c943",
       "domain": "量化研究",
-      "title": "What survives honest evaluation? Leakage-safe, search-aware assessment of LLM-driven trading strategy discovery",
-      "description": "Large language models (LLMs) are increasingly used to discover trading strategies, and much of the resulting literature shares a methodological weakness: many candidate strategies ",
-      "summary": "Large language models (LLMs) are increasingly used to discover trading strategies, and much of the resulting literature shares a methodological weakness: many candidate strategies are generated, the best is reported, and neither look-ahead bias nor the intensity of the search behind the reported result is corrected for. We present a strategy-discovery system that makes both corrections structural rather than procedural. First, the agent can only act through registry-validated tools whose feature space excludes look-ahead by construction; we show that this guardrail is not redundant with statistical correction: a deliberately leaky oracle posting a Sharpe ratio of 35 survives Deflated Sharpe and probability-of-backtest-overfitting testing completely. Second, the system records every strategy evaluation its search performs and deflates all reported performance by that trial count, tracing how the best in-sample Sharpe ratio climbs with each trial while the deflation threshold, driven by the agent's own search, climbs faster. Across a 453-stock point-in-time US equity universe and a 39-ETF multi-asset universe with realistic transaction, impact, and borrow costs, honest evaluation cer",
+      "title": "PortBench: A Correlation-Aware, Full-Pipeline Benchmark for LLM-Driven Portfolio Management",
+      "description": "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked.",
+      "summary": "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked. Existing benchmarks exhibit two gaps: they are often equity-only and ignore cross-asset correlations; they fail to evaluate the complete PM decision pipeline. We introduce PortBench, a benchmark spanning six heterogeneous asset classes from 2015 to 2025. PortBench comprises a static QA dataset of 6,269 questions across seven task templates and a dynamic five-stage allocation pipeline. To evaluate these layers, we introduce two metrics: a dual-layer correlation score for inter-class hedging and intra-class concentration, and CEPS, which quantifies how reasoning errors compound across pipeline stages. We further evaluate under three stress windows and three risk profiles, and support real-time evaluation to mitigate pretraining contamination on historical markets. Across ten frontier LLMs, strong financial QA performance fails to translate into superior portfolio performance: only 32.5\\% of 120 evaluations beat equal weighting on Sharpe across four market periods. Our source code is available at \\href{https://github.com/AgenticFinLab/por",
       "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
       "tags": [
         "论文",
@@ -28,12 +28,135 @@
           "confidence": 1.0
         },
         {
-          "id": "method:backtesting",
-          "facet": "method",
-          "value": "backtesting",
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
           "label": {
-            "zh": "回测",
-            "en": "Backtesting"
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:quantitative-finance",
+          "facet": "topic",
+          "value": "quantitative-finance",
+          "label": {
+            "zh": "量化金融",
+            "en": "Quantitative Finance"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "score": 88.45,
+      "publishedAt": "2026-09-01T04:00:00+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "arXiv q-fin",
+      "contentType": "paper",
+      "sourceGroup": "论文",
+      "originalTitle": "PortBench: A Correlation-Aware, Full-Pipeline Benchmark for LLM-Driven Portfolio Management",
+      "originalUrl": "https://arxiv.org/abs/2605.27887",
+      "keyPoints": [
+        "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked.",
+        "Existing benchmarks exhibit two gaps: they are often equity-only and ignore cross-asset correlations; they fail to evaluate the complete PM decision pipeline.",
+        "We introduce PortBench, a benchmark spanning six heterogeneous asset classes from 2015 to 2025."
+      ],
+      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
+      "titleEn": "PortBench: A Correlation-Aware, Full-Pipeline Benchmark for LLM-Driven Portfolio Management",
+      "descriptionEn": "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked.",
+      "summaryEn": "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked. Existing benchmarks exhibit two gaps: they are often equity-only and ignore cross-asset correlations; they fail to evaluate the complete PM decision pipeline. We introduce PortBench, a benchmark spanning six heterogeneous asset classes from 2015 to 2025. PortBench comprises a static QA dataset of 6,269 questions across seven task templates and a dynamic five-stage allocation pipeline. To evaluate these layers, we introduce two metrics: a dual-layer correlation score for inter-class hedging and intra-class concentration, and CEPS, which quantifies how reasoning errors compound across pipeline stages. We further evaluate under three stress windows and three risk profiles, and support real-time evaluation to mitigate pretraining contamination on historical markets. Across ten frontier LLMs, strong financial QA performance fails to translate into superior portfolio performance: only 32.5\\% of 120 evaluations beat equal weighting on Sharpe across four market periods. Our source code is available at \\href{https://github.com/AgenticFinLab/por",
+      "keyPointsEn": [
+        "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked.",
+        "Existing benchmarks exhibit two gaps: they are often equity-only and ignore cross-asset correlations; they fail to evaluate the complete PM decision pipeline.",
+        "We introduce PortBench, a benchmark spanning six heterogeneous asset classes from 2015 to 2025."
+      ],
+      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 1143,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 90,
+        "contentValueScore": 83.5,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "arXiv q-fin"
+      ]
+    },
+    {
+      "id": "0d249082a5da82ea",
+      "slug": "autorec-a-reinforcement-learning-platform-for-eq-0d249082a5",
+      "domain": "AI × 量化",
+      "title": "AutoREC: A reinforcement learning platform for equivalent circuit model generation",
+      "description": "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent cir",
+      "summary": "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent circuit models (ECMs) from electrochemical impedance spectroscopy (EIS) data. Although ECMs are widely used to interpret EIS measurements, their identification typically relies on manual trial-and-error, requiring domain expertise and limiting scalability, particularly in autonomous experimental pipelines such as self-driving laboratories. In AutoREC, ECM generation is formulated as a Markov decision process in which an RL agent sequentially modifies a circuit topology based on the current state, available actions, and feedback from the resulting model. The platform supports an end-to-end workflow encompassing EIS preprocessing with selectable impedance representations, agent setup and training, ECM generation for new measurements, and visualization-based evaluation and analysis of agent decision-making. AutoREC implements a configurable Double Deep Q-Network (DDQN) agent with prioritized experience replay and a dedicated dead-loop mitigation strategy for navigating the complex circuit-generation action spac",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "论文",
+        "机器学习"
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "method:reinforcement-learning",
+          "facet": "method",
+          "value": "reinforcement-learning",
+          "label": {
+            "zh": "强化学习",
+            "en": "Reinforcement Learning"
           },
           "evidence": "content.keyword",
           "confidence": 0.8
@@ -61,66 +184,89 @@
           "confidence": 0.8
         },
         {
-          "id": "topic:quantitative-finance",
+          "id": "topic:ai-quant",
           "facet": "topic",
-          "value": "quantitative-finance",
+          "value": "ai-quant",
           "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
           },
           "evidence": "source.domain",
           "confidence": 1.0
+        },
+        {
+          "id": "topic:productivity",
+          "facet": "topic",
+          "value": "productivity",
+          "label": {
+            "zh": "效率工具",
+            "en": "Productivity"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
-      "score": 91.03,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "arXiv q-fin",
+      "score": 86.36,
+      "publishedAt": "2026-09-01T04:00:00+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "arXiv cs.LG",
+      "contentType": "paper",
       "sourceGroup": "论文",
-      "originalTitle": "What survives honest evaluation? Leakage-safe, search-aware assessment of LLM-driven trading strategy discovery",
-      "originalUrl": "https://arxiv.org/abs/2608.27734",
+      "originalTitle": "AutoREC: A reinforcement learning platform for equivalent circuit model generation",
+      "originalUrl": "https://arxiv.org/abs/2604.27266",
       "keyPoints": [
-        "Large language models (LLMs) are increasingly used to discover trading strategies, and much of the resulting literature shares a methodological weakness: many candidate strategies are generated, the best is reported, and neither look-ahead bias nor the intensity of the search behind the reported result is corrected for.",
-        "We present a strategy-discovery system that makes both corrections structural rather than procedural.",
-        "First, the agent can only act through registry-validated tools whose feature space excludes look-ahead by construction; we show that this guardrail is not redundant with statistical correction: a deliberately leaky oracle posting a Sharpe ratio of 35 survives Deflated Sharpe and probability-of-backtest-overfitting testing completely."
+        "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent circuit models (ECMs) from electrochemical impedance spectroscopy (EIS) data.",
+        "Although ECMs are widely used to interpret EIS measurements, their identification typically relies on manual trial-and-error, requiring domain expertise and limiting scalability, particularly in autonomous experimental pipelines such as self-driving laboratories.",
+        "In AutoREC, ECM generation is formulated as a Markov decision process in which an RL agent sequentially modifies a circuit topology based on the current state, available actions, and feedback from the resulting model."
       ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "What survives honest evaluation? Leakage-safe, search-aware assessment of LLM-driven trading strategy discovery",
-      "descriptionEn": "Large language models (LLMs) are increasingly used to discover trading strategies, and much of the resulting literature shares a methodological weakness: many candidate strategies ",
-      "summaryEn": "Large language models (LLMs) are increasingly used to discover trading strategies, and much of the resulting literature shares a methodological weakness: many candidate strategies are generated, the best is reported, and neither look-ahead bias nor the intensity of the search behind the reported result is corrected for. We present a strategy-discovery system that makes both corrections structural rather than procedural. First, the agent can only act through registry-validated tools whose feature space excludes look-ahead by construction; we show that this guardrail is not redundant with statistical correction: a deliberately leaky oracle posting a Sharpe ratio of 35 survives Deflated Sharpe and probability-of-backtest-overfitting testing completely. Second, the system records every strategy evaluation its search performs and deflates all reported performance by that trial count, tracing how the best in-sample Sharpe ratio climbs with each trial while the deflation threshold, driven by the agent's own search, climbs faster. Across a 453-stock point-in-time US equity universe and a 39-ETF multi-asset universe with realistic transaction, impact, and borrow costs, honest evaluation cer",
+      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
+      "titleEn": "AutoREC: A reinforcement learning platform for equivalent circuit model generation",
+      "descriptionEn": "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent cir",
+      "summaryEn": "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent circuit models (ECMs) from electrochemical impedance spectroscopy (EIS) data. Although ECMs are widely used to interpret EIS measurements, their identification typically relies on manual trial-and-error, requiring domain expertise and limiting scalability, particularly in autonomous experimental pipelines such as self-driving laboratories. In AutoREC, ECM generation is formulated as a Markov decision process in which an RL agent sequentially modifies a circuit topology based on the current state, available actions, and feedback from the resulting model. The platform supports an end-to-end workflow encompassing EIS preprocessing with selectable impedance representations, agent setup and training, ECM generation for new measurements, and visualization-based evaluation and analysis of agent decision-making. AutoREC implements a configurable Double Deep Q-Network (DDQN) agent with prioritized experience replay and a dedicated dead-loop mitigation strategy for navigating the complex circuit-generation action spac",
       "keyPointsEn": [
-        "Large language models (LLMs) are increasingly used to discover trading strategies, and much of the resulting literature shares a methodological weakness: many candidate strategies are generated, the best is reported, and neither look-ahead bias nor the intensity of the search behind the reported result is corrected for.",
-        "We present a strategy-discovery system that makes both corrections structural rather than procedural.",
-        "First, the agent can only act through registry-validated tools whose feature space excludes look-ahead by construction; we show that this guardrail is not redundant with statistical correction: a deliberately leaky oracle posting a Sharpe ratio of 35 survives Deflated Sharpe and probability-of-backtest-overfitting testing completely."
+        "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent circuit models (ECMs) from electrochemical impedance spectroscopy (EIS) data.",
+        "Although ECMs are widely used to interpret EIS measurements, their identification typically relies on manual trial-and-error, requiring domain expertise and limiting scalability, particularly in autonomous experimental pipelines such as self-driving laboratories.",
+        "In AutoREC, ECM generation is formulated as a Markov decision process in which an RL agent sequentially modifies a circuit topology based on the current state, available actions, and feedback from the resulting model."
       ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
+      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
       "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
       "aiGenerated": false,
       "summaryProvider": "source",
       "summaryModel": null,
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 349,
+        "comparisonCohortSize": 1143,
         "mode": "relevance-fallback",
-        "primaryMetric": null,
+        "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 90,
-        "freshnessScore": 92.94
+        "relevanceScore": 80,
+        "contentValueScore": 83.65,
+        "contentSignals": {
+          "evidence": 20.0,
+          "actionability": 15.0,
+          "novelty": 8.0,
+          "specificity": 4.65,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
       },
       "discoveredBy": [
-        "arXiv q-fin"
+        "arXiv cs.LG"
       ]
     },
     {
-      "id": "face1843f2544aae",
-      "slug": "market-informed-valuation-of-gmmb-riders-with-su-face1843f2",
+      "id": "02886383fa79af7c",
+      "slug": "end-to-end-neural-shrinkage-of-indefinite-pairwi-02886383fa",
       "domain": "量化研究",
-      "title": "Market-Informed Valuation of GMMB Riders with Surrender Options under a Heston Stochastic-Local Volatility Model",
-      "description": "We develop a market-informed valuation framework for guaranteed minimum maturity benefit (GMMB) riders with rational surrender under the Heston stochastic-local volatility (SLV) mo",
-      "summary": "We develop a market-informed valuation framework for guaranteed minimum maturity benefit (GMMB) riders with rational surrender under the Heston stochastic-local volatility (SLV) model. The guarantee is written on the fee-deducted account value and is considered both in its terminal-only form and in the presence of early surrender rights. The Heston SLV specification combines stochastic volatility with a leverage function calibrated to a prescribed local-volatility surface. The leverage surface is obtained through a forward Markovian-projection equation so that, at the model level, the SLV dynamics are constrained to the same one-dimensional marginals as the corresponding local-volatility (LV) model. The latter is used only as a one-factor benchmark, allowing us to isolate the effect of stochastic volatility on continuation values and surrender decisions while preserving the same option-calibrated local-volatility target. We derive the associated backward pricing equations and propose a hybrid tree/finite-difference algorithm for the SLV model with a calibrated leverage function. Synthetic experiments and a market-informed case study show that SLV and LV valuations are numerically c",
+      "title": "End-to-End Neural Shrinkage of Indefinite Pairwise Correlation Matrices for Small-Cap-Inclusive Portfolios",
+      "description": "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available ",
+      "summary": "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available information. Pairwise-complete estimation preserves the longest overlap for each asset pair, but the resulting correlation matrix can be indefinite because its entries are computed on different samples. This prevents direct use in Markowitz optimization and falls outside the assumptions of standard random-matrix shrinkage. We adapt a rotation-invariant neural covariance estimator to this setting. The model computes mask-aware marginal moments and a pairwise correlation matrix proxy, processes its signed spectrum, and uses a bidirectional gated recurrent unit conditioned on factor-aligned effective sample lengths derived from the overlap matrix and eigenvector loadings. It maps all eigenvalues, including negative ones, to a positive inverse spectrum. The reconstructed covariance is positive definite and is trained end-to-end to minimize five-day realized global-minimum-variance risk. We evaluate 26 expanding-window models from 2000 to 2025 on up to 1,500 U.S. equities in a closing-auction simulator with po",
       "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
       "tags": [
         "论文",
@@ -183,26 +329,27 @@
           "confidence": 0.8
         }
       ],
-      "score": 91.03,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
+      "score": 86.0,
+      "publishedAt": "2026-09-01T04:00:00+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
       "sourceName": "arXiv q-fin",
+      "contentType": "paper",
       "sourceGroup": "论文",
-      "originalTitle": "Market-Informed Valuation of GMMB Riders with Surrender Options under a Heston Stochastic-Local Volatility Model",
-      "originalUrl": "https://arxiv.org/abs/2608.28397",
+      "originalTitle": "End-to-End Neural Shrinkage of Indefinite Pairwise Correlation Matrices for Small-Cap-Inclusive Portfolios",
+      "originalUrl": "https://arxiv.org/abs/2608.30446",
       "keyPoints": [
-        "We develop a market-informed valuation framework for guaranteed minimum maturity benefit (GMMB) riders with rational surrender under the Heston stochastic-local volatility (SLV) model.",
-        "The guarantee is written on the fee-deducted account value and is considered both in its terminal-only form and in the presence of early surrender rights.",
-        "The Heston SLV specification combines stochastic volatility with a leverage function calibrated to a prescribed local-volatility surface."
+        "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available information.",
+        "Pairwise-complete estimation preserves the longest overlap for each asset pair, but the resulting correlation matrix can be indefinite because its entries are computed on different samples.",
+        "This prevents direct use in Markowitz optimization and falls outside the assumptions of standard random-matrix shrinkage."
       ],
       "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Market-Informed Valuation of GMMB Riders with Surrender Options under a Heston Stochastic-Local Volatility Model",
-      "descriptionEn": "We develop a market-informed valuation framework for guaranteed minimum maturity benefit (GMMB) riders with rational surrender under the Heston stochastic-local volatility (SLV) mo",
-      "summaryEn": "We develop a market-informed valuation framework for guaranteed minimum maturity benefit (GMMB) riders with rational surrender under the Heston stochastic-local volatility (SLV) model. The guarantee is written on the fee-deducted account value and is considered both in its terminal-only form and in the presence of early surrender rights. The Heston SLV specification combines stochastic volatility with a leverage function calibrated to a prescribed local-volatility surface. The leverage surface is obtained through a forward Markovian-projection equation so that, at the model level, the SLV dynamics are constrained to the same one-dimensional marginals as the corresponding local-volatility (LV) model. The latter is used only as a one-factor benchmark, allowing us to isolate the effect of stochastic volatility on continuation values and surrender decisions while preserving the same option-calibrated local-volatility target. We derive the associated backward pricing equations and propose a hybrid tree/finite-difference algorithm for the SLV model with a calibrated leverage function. Synthetic experiments and a market-informed case study show that SLV and LV valuations are numerically c",
+      "titleEn": "End-to-End Neural Shrinkage of Indefinite Pairwise Correlation Matrices for Small-Cap-Inclusive Portfolios",
+      "descriptionEn": "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available ",
+      "summaryEn": "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available information. Pairwise-complete estimation preserves the longest overlap for each asset pair, but the resulting correlation matrix can be indefinite because its entries are computed on different samples. This prevents direct use in Markowitz optimization and falls outside the assumptions of standard random-matrix shrinkage. We adapt a rotation-invariant neural covariance estimator to this setting. The model computes mask-aware marginal moments and a pairwise correlation matrix proxy, processes its signed spectrum, and uses a bidirectional gated recurrent unit conditioned on factor-aligned effective sample lengths derived from the overlap matrix and eigenvector loadings. It maps all eigenvalues, including negative ones, to a positive inverse spectrum. The reconstructed covariance is positive definite and is trained end-to-end to minimize five-day realized global-minimum-variance risk. We evaluate 26 expanding-window models from 2000 to 2025 on up to 1,500 U.S. equities in a closing-auction simulator with po",
       "keyPointsEn": [
-        "We develop a market-informed valuation framework for guaranteed minimum maturity benefit (GMMB) riders with rational surrender under the Heston stochastic-local volatility (SLV) model.",
-        "The guarantee is written on the fee-deducted account value and is considered both in its terminal-only form and in the presence of early surrender rights.",
-        "The Heston SLV specification combines stochastic volatility with a leverage function calibrated to a prescribed local-volatility surface."
+        "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available information.",
+        "Pairwise-complete estimation preserves the longest overlap for each asset pair, but the resulting correlation matrix can be indefinite because its entries are computed on different samples.",
+        "This prevents direct use in Markowitz optimization and falls outside the assumptions of standard random-matrix shrinkage."
       ],
       "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
       "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
@@ -211,31 +358,43 @@
       "summaryModel": null,
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 349,
+        "comparisonCohortSize": 1143,
         "mode": "relevance-fallback",
-        "primaryMetric": null,
+        "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 90,
-        "freshnessScore": 92.94
+        "relevanceScore": 100.0,
+        "contentValueScore": 80.0,
+        "contentSignals": {
+          "evidence": 20.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
       },
       "discoveredBy": [
+        "arXiv cs.LG",
         "arXiv q-fin"
       ]
     },
     {
-      "id": "ac74da21138c94b0",
-      "slug": "can-chatgpt-forecast-stock-price-movements-ac74da2113",
+      "id": "8c0911bee23ad893",
+      "slug": "agentic-quantitative-trading-a-survey-of-workflo-8c0911bee2",
       "domain": "量化研究",
-      "title": "Can ChatGPT Forecast Stock Price Movements?",
-      "description": "Large language models were not originally designed to forecast financial markets.",
-      "summary": "Large language models were not originally designed to forecast financial markets. Yet their ability to interpret context and synthesize complex information raises an important question: Can a general-purpose model such as ChatGPT anticipate stock-price reactions to corporate news? Can ChatGPT Forecast Stock Price Movements? was originally published at Alpha Architect . Please read the Alpha Architect disclosures at your convenience.",
+      "title": "Agentic Quantitative Trading: A Survey of Workflows, Systems, and Evaluation",
+      "description": "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback.",
+      "summary": "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback. This survey reviews agentic quantitative trading across five stages: factor mining, signal discovery, portfolio construction, order execution, and risk management. We further examine agentic quant trading systems through architecture, coordination, and adaptation, while comparing benchmarks across strategy construction, offline trading, live market evaluation, and reliability assessment. Our review finds that current systems remain concentrated on signal discovery, while complete integration with portfolio construction, execution, and risk control is still uncommon. Multi-agent systems also rely heavily on aggregation despite increasingly diverse workflow structures. Benchmark evidence further shows that strong model or forecasting capability does not reliably translate into trading performance under live market conditions and reliability controls. We conclude with future directions for more complete trading workflows, stronger coordination, and evaluation matched to the capability being assessed.",
       "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
       "tags": [
-        "机构研究",
-        "实证解读"
+        "论文",
+        "q-fin"
       ],
       "features": [
         {
@@ -261,84 +420,6 @@
           "confidence": 0.8
         },
         {
-          "id": "topic:quantitative-finance",
-          "facet": "topic",
-          "value": "quantitative-finance",
-          "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        }
-      ],
-      "score": 89.95,
-      "publishedAt": "2026-08-31T15:53:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "Alpha Architect",
-      "sourceGroup": "论文",
-      "originalTitle": "Can ChatGPT Forecast Stock Price Movements?",
-      "originalUrl": "https://alphaarchitect.com/chatgpt-forecast-stock-price",
-      "keyPoints": [
-        "Large language models were not originally designed to forecast financial markets.",
-        "Yet their ability to interpret context and synthesize complex information raises an important question: Can a general-purpose model such as ChatGPT anticipate stock-price reactions to corporate news?",
-        "Can ChatGPT Forecast Stock Price Movements?"
-      ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Can ChatGPT Forecast Stock Price Movements?",
-      "descriptionEn": "Large language models were not originally designed to forecast financial markets.",
-      "summaryEn": "Large language models were not originally designed to forecast financial markets. Yet their ability to interpret context and synthesize complex information raises an important question: Can a general-purpose model such as ChatGPT anticipate stock-price reactions to corporate news? Can ChatGPT Forecast Stock Price Movements? was originally published at Alpha Architect . Please read the Alpha Architect disclosures at your convenience.",
-      "keyPointsEn": [
-        "Large language models were not originally designed to forecast financial markets.",
-        "Yet their ability to interpret context and synthesize complex information raises an important question: Can a general-purpose model such as ChatGPT anticipate stock-price reactions to corporate news?",
-        "Can ChatGPT Forecast Stock Price Movements?"
-      ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 349,
-        "mode": "relevance-fallback",
-        "primaryMetric": null,
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 85,
-        "freshnessScore": 99.13
-      },
-      "discoveredBy": [
-        "Alpha Architect"
-      ]
-    },
-    {
-      "id": "810cd9dcc8214e18",
-      "slug": "retailagent-structured-adverse-timing-in-self-co-810cd9dcc8",
-      "domain": "量化研究",
-      "title": "RetailAgent: Structured Adverse Timing in Self-Conditioned Multimodal LLM Trading Agents",
-      "description": "In financial markets, a sequential policy that reacts systematically to price movements may become predictable to other market participants.",
-      "summary": "In financial markets, a sequential policy that reacts systematically to price movements may become predictable to other market participants. This paper studies whether large language model (LLM) agents exhibit such directional structure through RetailAgent, an experimental framework in which an LLM observes anonymized intraday equity price histories and permitted state, then repeatedly chooses long (hold the stock) or flat (stay out) before the subsequent interval return is revealed. We compare returns during long and flat intervals along the same stock's intraday path after removing the overall fraction of long decisions. This exposure-matched measure reveals persistent negative timing across modality, horizon, state, and model family. Shuffling saved action sequences substantially attenuates the effect, showing that alignment between actions and subsequent returns drives the negative score. Feeding self-authored memories into decisions further increases policy persistence, while timing becomes more negative among stock-days on which the agent uses both actions. These results reveal stable, recoverable directional structure in sequential LLM financial decisions and a behavioral si",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "论文",
-        "q-fin"
-      ],
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
           "id": "platform:arxiv",
           "facet": "platform",
           "value": "arxiv",
@@ -361,743 +442,15 @@
           "confidence": 0.8
         },
         {
-          "id": "topic:quantitative-finance",
+          "id": "topic:factors",
           "facet": "topic",
-          "value": "quantitative-finance",
+          "value": "factors",
           "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        }
-      ],
-      "score": 87.78,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "arXiv q-fin",
-      "sourceGroup": "论文",
-      "originalTitle": "RetailAgent: Structured Adverse Timing in Self-Conditioned Multimodal LLM Trading Agents",
-      "originalUrl": "https://arxiv.org/abs/2608.28399",
-      "keyPoints": [
-        "In financial markets, a sequential policy that reacts systematically to price movements may become predictable to other market participants.",
-        "This paper studies whether large language model (LLM) agents exhibit such directional structure through RetailAgent, an experimental framework in which an LLM observes anonymized intraday equity price histories and permitted state, then repeatedly chooses long (hold the stock) or flat (stay out) before the subsequent interval return is revealed.",
-        "We compare returns during long and flat intervals along the same stock's intraday path after removing the overall fraction of long decisions."
-      ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "RetailAgent: Structured Adverse Timing in Self-Conditioned Multimodal LLM Trading Agents",
-      "descriptionEn": "In financial markets, a sequential policy that reacts systematically to price movements may become predictable to other market participants.",
-      "summaryEn": "In financial markets, a sequential policy that reacts systematically to price movements may become predictable to other market participants. This paper studies whether large language model (LLM) agents exhibit such directional structure through RetailAgent, an experimental framework in which an LLM observes anonymized intraday equity price histories and permitted state, then repeatedly chooses long (hold the stock) or flat (stay out) before the subsequent interval return is revealed. We compare returns during long and flat intervals along the same stock's intraday path after removing the overall fraction of long decisions. This exposure-matched measure reveals persistent negative timing across modality, horizon, state, and model family. Shuffling saved action sequences substantially attenuates the effect, showing that alignment between actions and subsequent returns drives the negative score. Feeding self-authored memories into decisions further increases policy persistence, while timing becomes more negative among stock-days on which the agent uses both actions. These results reveal stable, recoverable directional structure in sequential LLM financial decisions and a behavioral si",
-      "keyPointsEn": [
-        "In financial markets, a sequential policy that reacts systematically to price movements may become predictable to other market participants.",
-        "This paper studies whether large language model (LLM) agents exhibit such directional structure through RetailAgent, an experimental framework in which an LLM observes anonymized intraday equity price histories and permitted state, then repeatedly chooses long (hold the stock) or flat (stay out) before the subsequent interval return is revealed.",
-        "We compare returns during long and flat intervals along the same stock's intraday path after removing the overall fraction of long decisions."
-      ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 349,
-        "mode": "relevance-fallback",
-        "primaryMetric": null,
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 85,
-        "freshnessScore": 92.94
-      },
-      "discoveredBy": [
-        "arXiv q-fin"
-      ]
-    },
-    {
-      "id": "17a749f7f6400b73",
-      "slug": "cura-certified-runtime-alarms-for-computer-use-a-17a749f7f6",
-      "domain": "AI × 量化",
-      "title": "CURA: Certified Runtime Alarms for Computer-Use Agents",
-      "description": "Self-report is the cheapest oversight channel a deployer has, and on capable computer-use agents (CUAs) it fails precisely where oversight matters.",
-      "summary": "Self-report is the cheapest oversight channel a deployer has, and on capable computer-use agents (CUAs) it fails precisely where oversight matters. On 361 OSWorld tasks our pipeline, a read-only feasibility gate, a planner, and a GUI executor, reaches a mean task score of 82.9, above the 72.4 human reference, yet 64 of its 71 failures (90%) end with a success claim, 61 acknowledging no blocker, and the explicit failure affordance is never used in roughly 9,100 calls. We introduce CURA (Certified Runtime Alarms for Computer-Use Agents), an external monitor that reads only harness-visible telemetry, with no model internals, extra LLM calls, or prompt changes, and turns the running trajectory into a sequential test with certified false-alarm control. At alpha = 0.10 its CUSUM alarm detects 42.3% of failures a median of 31 steps before termination at a realized false-alarm rate of 0.066, and risk is partly resolvable before the first action (gate probe, 0.69 AUROC). Retrospectively the composite reaches 0.828 AUROC (fold-internal floor 0.802), but its margin over a total-token baseline is not significant (Delta = +0.026, p = 0.101); the separation is online, where CURA recalls more at ",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "论文",
-        "机器学习"
-      ],
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
+            "zh": "因子",
+            "en": "Factors"
           },
           "evidence": "content.keyword",
           "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-quant",
-          "facet": "topic",
-          "value": "ai-quant",
-          "label": {
-            "zh": "AI × 量化",
-            "en": "AI × Quant"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:risk",
-          "facet": "topic",
-          "value": "risk",
-          "label": {
-            "zh": "风险",
-            "en": "Risk"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "score": 87.78,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "arXiv cs.LG",
-      "sourceGroup": "论文",
-      "originalTitle": "CURA: Certified Runtime Alarms for Computer-Use Agents",
-      "originalUrl": "https://arxiv.org/abs/2608.27808",
-      "keyPoints": [
-        "Self-report is the cheapest oversight channel a deployer has, and on capable computer-use agents (CUAs) it fails precisely where oversight matters.",
-        "On 361 OSWorld tasks our pipeline, a read-only feasibility gate, a planner, and a GUI executor, reaches a mean task score of 82.9, above the 72.4 human reference, yet 64 of its 71 failures (90%) end with a success claim, 61 acknowledging no blocker, and the explicit failure affordance is never used in roughly 9,100 calls.",
-        "We introduce CURA (Certified Runtime Alarms for Computer-Use Agents), an external monitor that reads only harness-visible telemetry, with no model internals, extra LLM calls, or prompt changes, and turns the running trajectory into a sequential test with certified false-alarm control."
-      ],
-      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
-      "titleEn": "CURA: Certified Runtime Alarms for Computer-Use Agents",
-      "descriptionEn": "Self-report is the cheapest oversight channel a deployer has, and on capable computer-use agents (CUAs) it fails precisely where oversight matters.",
-      "summaryEn": "Self-report is the cheapest oversight channel a deployer has, and on capable computer-use agents (CUAs) it fails precisely where oversight matters. On 361 OSWorld tasks our pipeline, a read-only feasibility gate, a planner, and a GUI executor, reaches a mean task score of 82.9, above the 72.4 human reference, yet 64 of its 71 failures (90%) end with a success claim, 61 acknowledging no blocker, and the explicit failure affordance is never used in roughly 9,100 calls. We introduce CURA (Certified Runtime Alarms for Computer-Use Agents), an external monitor that reads only harness-visible telemetry, with no model internals, extra LLM calls, or prompt changes, and turns the running trajectory into a sequential test with certified false-alarm control. At alpha = 0.10 its CUSUM alarm detects 42.3% of failures a median of 31 steps before termination at a realized false-alarm rate of 0.066, and risk is partly resolvable before the first action (gate probe, 0.69 AUROC). Retrospectively the composite reaches 0.828 AUROC (fold-internal floor 0.802), but its margin over a total-token baseline is not significant (Delta = +0.026, p = 0.101); the separation is online, where CURA recalls more at ",
-      "keyPointsEn": [
-        "Self-report is the cheapest oversight channel a deployer has, and on capable computer-use agents (CUAs) it fails precisely where oversight matters.",
-        "On 361 OSWorld tasks our pipeline, a read-only feasibility gate, a planner, and a GUI executor, reaches a mean task score of 82.9, above the 72.4 human reference, yet 64 of its 71 failures (90%) end with a success claim, 61 acknowledging no blocker, and the explicit failure affordance is never used in roughly 9,100 calls.",
-        "We introduce CURA (Certified Runtime Alarms for Computer-Use Agents), an external monitor that reads only harness-visible telemetry, with no model internals, extra LLM calls, or prompt changes, and turns the running trajectory into a sequential test with certified false-alarm control."
-      ],
-      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 349,
-        "mode": "relevance-fallback",
-        "primaryMetric": null,
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 85,
-        "freshnessScore": 92.94
-      },
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ]
-    },
-    {
-      "id": "9a7d780212391859",
-      "slug": "pricing-and-calibration-of-bitcoin-inverse-optio-9a7d780212",
-      "domain": "量化研究",
-      "title": "Pricing and Calibration of Bitcoin Inverse Options via the Rough Bergomi Model",
-      "description": "Bitcoin inverse options, traded on the Deribit exchange and settled in the underlying cryptocurrency rather than in fiat currency, combine extreme and genuinely rough volatility dy",
-      "summary": "Bitcoin inverse options, traded on the Deribit exchange and settled in the underlying cryptocurrency rather than in fiat currency, combine extreme and genuinely rough volatility dynamics with a non-linear, currency-dependent payoff structure. This paper develops and empirically validates a pricing and calibration framework for these instruments based on the rough Bergomi (rBergomi) model of Bayer, Friz and Gatheral (2016). We adapt the rBergomi dynamics to the inverse payoff max(S_T - K, 0)/S_T, and implement and compare three computational pipelines that differ in the simulation scheme for the driving fractional Brownian motion (coarse-grid Cholesky vs. the Hybrid Scheme of Bennedsen et al., 2017) and in the Monte Carlo pricing estimator (plain log-Euler vs. the Mixed Estimator of McCrickerd and Pakkanen, 2018). The model is calibrated to thirty implied volatility surfaces extracted from Deribit trade data between May 2022 and March 2025, spanning seven major market-stress events and nine baseline regimes stratified by volatility level. The Hybrid and Mixed pipeline is simultaneously the most accurate (mean unweighted RMSE 22.83 percentage points, versus 41.76 pp for the Cholesky ",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "论文",
-        "q-fin"
-      ],
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:quantitative-finance",
-          "facet": "topic",
-          "value": "quantitative-finance",
-          "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        }
-      ],
-      "score": 84.53,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "arXiv q-fin",
-      "sourceGroup": "论文",
-      "originalTitle": "Pricing and Calibration of Bitcoin Inverse Options via the Rough Bergomi Model",
-      "originalUrl": "https://arxiv.org/abs/2608.27575",
-      "keyPoints": [
-        "Bitcoin inverse options, traded on the Deribit exchange and settled in the underlying cryptocurrency rather than in fiat currency, combine extreme and genuinely rough volatility dynamics with a non-linear, currency-dependent payoff structure.",
-        "This paper develops and empirically validates a pricing and calibration framework for these instruments based on the rough Bergomi (rBergomi) model of Bayer, Friz and Gatheral (2016).",
-        "We adapt the rBergomi dynamics to the inverse payoff max(S_T - K, 0)/S_T, and implement and compare three computational pipelines that differ in the simulation scheme for the driving fractional Brownian motion (coarse-grid Cholesky vs."
-      ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Pricing and Calibration of Bitcoin Inverse Options via the Rough Bergomi Model",
-      "descriptionEn": "Bitcoin inverse options, traded on the Deribit exchange and settled in the underlying cryptocurrency rather than in fiat currency, combine extreme and genuinely rough volatility dy",
-      "summaryEn": "Bitcoin inverse options, traded on the Deribit exchange and settled in the underlying cryptocurrency rather than in fiat currency, combine extreme and genuinely rough volatility dynamics with a non-linear, currency-dependent payoff structure. This paper develops and empirically validates a pricing and calibration framework for these instruments based on the rough Bergomi (rBergomi) model of Bayer, Friz and Gatheral (2016). We adapt the rBergomi dynamics to the inverse payoff max(S_T - K, 0)/S_T, and implement and compare three computational pipelines that differ in the simulation scheme for the driving fractional Brownian motion (coarse-grid Cholesky vs. the Hybrid Scheme of Bennedsen et al., 2017) and in the Monte Carlo pricing estimator (plain log-Euler vs. the Mixed Estimator of McCrickerd and Pakkanen, 2018). The model is calibrated to thirty implied volatility surfaces extracted from Deribit trade data between May 2022 and March 2025, spanning seven major market-stress events and nine baseline regimes stratified by volatility level. The Hybrid and Mixed pipeline is simultaneously the most accurate (mean unweighted RMSE 22.83 percentage points, versus 41.76 pp for the Cholesky ",
-      "keyPointsEn": [
-        "Bitcoin inverse options, traded on the Deribit exchange and settled in the underlying cryptocurrency rather than in fiat currency, combine extreme and genuinely rough volatility dynamics with a non-linear, currency-dependent payoff structure.",
-        "This paper develops and empirically validates a pricing and calibration framework for these instruments based on the rough Bergomi (rBergomi) model of Bayer, Friz and Gatheral (2016).",
-        "We adapt the rBergomi dynamics to the inverse payoff max(S_T - K, 0)/S_T, and implement and compare three computational pipelines that differ in the simulation scheme for the driving fractional Brownian motion (coarse-grid Cholesky vs."
-      ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 349,
-        "mode": "relevance-fallback",
-        "primaryMetric": null,
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 80,
-        "freshnessScore": 92.94
-      },
-      "discoveredBy": [
-        "arXiv q-fin"
-      ]
-    },
-    {
-      "id": "dbe474b5c365e41c",
-      "slug": "does-rank-still-matter-position-bias-when-ai-age-dbe474b5c3",
-      "domain": "量化研究",
-      "title": "Does Rank Still Matter? Position Bias When AI Agents Shop on Our Behalf",
-      "description": "Search rankings are valuable because human attention is scarce and sequential.",
-      "summary": "Search rankings are valuable because human attention is scarce and sequential. Higher-placed alternatives are easier to find, so they are examined and bought more often. Consumers are now delegating search to AI agents that can ingest an entire results page at once. Randomizing the order of one hundred hotel listings across 5,000 AI agent sessions, we compare four large language models against human field data. AI agents search more deeply than humans and never decline to buy. Position still predicts which listings are inspected, but weakly and non-monotonically: the middle of a results page has the lowest probability of inspection, not the bottom. Position reaches the choice stage for some models and not others, a heterogeneity that tracks neither provider nor capability. All models nonetheless converge on the same undominated listing. For agentic search, the attributes displayed on a results page matter more than placement within it.",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "论文",
-        "q-fin"
-      ],
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:quantitative-finance",
-          "facet": "topic",
-          "value": "quantitative-finance",
-          "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        }
-      ],
-      "score": 84.53,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "arXiv q-fin",
-      "sourceGroup": "论文",
-      "originalTitle": "Does Rank Still Matter? Position Bias When AI Agents Shop on Our Behalf",
-      "originalUrl": "https://arxiv.org/abs/2608.22697",
-      "keyPoints": [
-        "Search rankings are valuable because human attention is scarce and sequential.",
-        "Higher-placed alternatives are easier to find, so they are examined and bought more often.",
-        "Consumers are now delegating search to AI agents that can ingest an entire results page at once."
-      ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Does Rank Still Matter? Position Bias When AI Agents Shop on Our Behalf",
-      "descriptionEn": "Search rankings are valuable because human attention is scarce and sequential.",
-      "summaryEn": "Search rankings are valuable because human attention is scarce and sequential. Higher-placed alternatives are easier to find, so they are examined and bought more often. Consumers are now delegating search to AI agents that can ingest an entire results page at once. Randomizing the order of one hundred hotel listings across 5,000 AI agent sessions, we compare four large language models against human field data. AI agents search more deeply than humans and never decline to buy. Position still predicts which listings are inspected, but weakly and non-monotonically: the middle of a results page has the lowest probability of inspection, not the bottom. Position reaches the choice stage for some models and not others, a heterogeneity that tracks neither provider nor capability. All models nonetheless converge on the same undominated listing. For agentic search, the attributes displayed on a results page matter more than placement within it.",
-      "keyPointsEn": [
-        "Search rankings are valuable because human attention is scarce and sequential.",
-        "Higher-placed alternatives are easier to find, so they are examined and bought more often.",
-        "Consumers are now delegating search to AI agents that can ingest an entire results page at once."
-      ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 349,
-        "mode": "relevance-fallback",
-        "primaryMetric": null,
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 80,
-        "freshnessScore": 92.94
-      },
-      "discoveredBy": [
-        "arXiv q-fin"
-      ]
-    },
-    {
-      "id": "7a2859489abe2efe",
-      "slug": "tacit-switch-cost-aware-model-escalation-for-llm-7a2859489a",
-      "domain": "AI × 量化",
-      "title": "TACIT-Switch: Cost-Aware Model Escalation for LLM Agents from Censored Supervision",
-      "description": "Agents with smaller language-model backbones are less expensive but can drift into persistent failure modes, whereas those with larger backbones are generally more reliable but mor",
-      "summary": "Agents with smaller language-model backbones are less expensive but can drift into persistent failure modes, whereas those with larger backbones are generally more reliable but more costly. This reliability-cost trade-off motivates routing methods that decide when to invoke an agent with a larger backbone: before execution, after a fixed trajectory prefix, or locally at individual steps. Our method, TACIT-SWITCH, learns permanent handoff policies from accumulated trajectory evidence and Teacher-Annotated Censored Intervention Times (TACIT). It represents each annotation as an interval-censored observation on a cumulative-risk scale. The resulting mixture-cure threshold model estimates the probability that the paired Strong rollout succeeds and, conditional on success, the handoff threshold; no teacher is required at deployment. In a mechanism-based multi-step simulation, TACIT-SWITCH improves success by 7.4-11.1 percentage points over task-level, step-level, and fixed-prefix routing baselines at comparable cost. Within that controlled simulation, ablations show that task features and cumulative trajectory risk provide complementary information. With operating points selected on dev",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "论文",
-        "机器学习"
-      ],
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-quant",
-          "facet": "topic",
-          "value": "ai-quant",
-          "label": {
-            "zh": "AI × 量化",
-            "en": "AI × Quant"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:risk",
-          "facet": "topic",
-          "value": "risk",
-          "label": {
-            "zh": "风险",
-            "en": "Risk"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "score": 84.53,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "arXiv cs.LG",
-      "sourceGroup": "论文",
-      "originalTitle": "TACIT-Switch: Cost-Aware Model Escalation for LLM Agents from Censored Supervision",
-      "originalUrl": "https://arxiv.org/abs/2608.27911",
-      "keyPoints": [
-        "Agents with smaller language-model backbones are less expensive but can drift into persistent failure modes, whereas those with larger backbones are generally more reliable but more costly.",
-        "This reliability-cost trade-off motivates routing methods that decide when to invoke an agent with a larger backbone: before execution, after a fixed trajectory prefix, or locally at individual steps.",
-        "Our method, TACIT-SWITCH, learns permanent handoff policies from accumulated trajectory evidence and Teacher-Annotated Censored Intervention Times (TACIT)."
-      ],
-      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
-      "titleEn": "TACIT-Switch: Cost-Aware Model Escalation for LLM Agents from Censored Supervision",
-      "descriptionEn": "Agents with smaller language-model backbones are less expensive but can drift into persistent failure modes, whereas those with larger backbones are generally more reliable but mor",
-      "summaryEn": "Agents with smaller language-model backbones are less expensive but can drift into persistent failure modes, whereas those with larger backbones are generally more reliable but more costly. This reliability-cost trade-off motivates routing methods that decide when to invoke an agent with a larger backbone: before execution, after a fixed trajectory prefix, or locally at individual steps. Our method, TACIT-SWITCH, learns permanent handoff policies from accumulated trajectory evidence and Teacher-Annotated Censored Intervention Times (TACIT). It represents each annotation as an interval-censored observation on a cumulative-risk scale. The resulting mixture-cure threshold model estimates the probability that the paired Strong rollout succeeds and, conditional on success, the handoff threshold; no teacher is required at deployment. In a mechanism-based multi-step simulation, TACIT-SWITCH improves success by 7.4-11.1 percentage points over task-level, step-level, and fixed-prefix routing baselines at comparable cost. Within that controlled simulation, ablations show that task features and cumulative trajectory risk provide complementary information. With operating points selected on dev",
-      "keyPointsEn": [
-        "Agents with smaller language-model backbones are less expensive but can drift into persistent failure modes, whereas those with larger backbones are generally more reliable but more costly.",
-        "This reliability-cost trade-off motivates routing methods that decide when to invoke an agent with a larger backbone: before execution, after a fixed trajectory prefix, or locally at individual steps.",
-        "Our method, TACIT-SWITCH, learns permanent handoff policies from accumulated trajectory evidence and Teacher-Annotated Censored Intervention Times (TACIT)."
-      ],
-      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 349,
-        "mode": "relevance-fallback",
-        "primaryMetric": null,
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 80,
-        "freshnessScore": 92.94
-      },
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ]
-    },
-    {
-      "id": "2180229dc69461fd",
-      "slug": "anthropics-claude-code-v2-1-251-2180229dc6",
-      "domain": "AI 工具",
-      "title": "anthropics/claude-code v2.1.251",
-      "description": "## What's changed - Added `PreModelSwitch` and `PostModelSwitch` hook events (block, confirm, or annotate a model switch); `SessionStart` resume hooks now receive session staleness",
-      "summary": "## What's changed - Added `PreModelSwitch` and `PostModelSwitch` hook events (block, confirm, or annotate a model switch); `SessionStart` resume hooks now receive session staleness and the estimated re-cache cost - Added live streaming of a foreground subagent's tool calls and results to Remote Control clients (background subagents, the default, still show status only) - Added a Spend limit bar to `/usage` and a `rate_limits.spend_limit` status line field for developers behind a Claude apps gateway with spend limits - Added a per-session prompt-cache line to `/cost` (hit ratio, misses, tokens re-cached, warm/cold) and a matching `prompt_cache` object for status line scripts - Added `attach`, `logs`, `stop`, `respawn`, and `rm` to `claude --help`; the `--resume` message for a running background session now names the exact `claude attach ` command - Fixed file tools (Read, Write, Edit) following a symlink swapped inside the working directory after the permission check, which could read or write outside the approved location - Fixed plugin commands declared in a marketplace entry being able to point outside the plugin directory; such paths are now rejected with a path-traversal error ",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "编程 Agent",
-        "Release"
-      ],
-      "features": [
-        {
-          "id": "artifact:tool",
-          "facet": "artifact",
-          "value": "tool",
-          "label": {
-            "zh": "工具",
-            "en": "Tool"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-tools",
-          "facet": "topic",
-          "value": "ai-tools",
-          "label": {
-            "zh": "AI 工具",
-            "en": "AI Tools"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "score": 60.96,
-      "publishedAt": "2026-08-28T18:19:32+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "Claude Code",
-      "sourceGroup": "AI 工具",
-      "originalTitle": "anthropics/claude-code v2.1.251",
-      "originalUrl": "https://github.com/anthropics/claude-code/releases/tag/v2.1.251",
-      "keyPoints": [
-        "## What's changed - Added `PreModelSwitch` and `PostModelSwitch` hook events (block, confirm, or annotate a model switch); `SessionStart` resume hooks now receive session staleness and the estimated re-cache cost - Added live streaming of a foreground subagent's tool calls and results to Remote Control clients (background subagents, the default, still show status only) - Added a Spend limit bar to `/usage` and a `rate_limits.spend_limit` status line field for developers behind a Claude apps gateway with spend limits - Added a per-session prompt-cache line to `/cost` (hit ratio, misses, tokens re-cached, warm/cold) and a matching `prompt_cache` object for status line scripts - Added `attach`, `logs`, `stop`, `respawn`, and `rm` to `claude --help`; the `--resume` message for a running background session now names the exact `claude attach ` command - Fixed file tools (Read, Write, Edit) following a symlink swapped inside the working directory after the permission check, which could read or write outside the approved location - Fixed plugin commands declared in a marketplace entry being able to point outside the plugin directory; such paths are now rejected with a path-traversal error - Fixed project settings being able to enable detailed beta tracing or raw API body logging, and a lower-scope beta tracing endpoint bypassing an OTLP collector pinned by managed settings or a host app - Fixed the Workflow tool reading (and quoting in errors) a `scriptPath` outside what the session may read before the permission check ran - Fixed Grep and Glob not applying `Read(...)` deny rules to files reached through a symlinked search path - Fixed conversations getting stuck on \"text content blocks must be non-empty\" errors after a turn where the model produced only thinking - Fixed the first launch on a fresh install starting in default mode instead of auto mode for accounts whose startup default is auto mode - Fixed Opus 5 requests failing with \"effort … is not supported when thinking is disabled\" when effort was xhigh/max and thinking was turned off; effort is now sent as `high` in that case - Fixed replying to a message Claude Desktop delivered from another session: `SendMessage` to that session id now delivers through Claude Desktop instead of failing with \"not reachable\" - Fixed TUI lag with many parallel subagents: per-second progress ticks now replace their predecessor instead of piling up in the transcript - Fixed agent teams: a teammate's final answer not reaching the team lead — it now arrives in the idle notification instead of a content-free \"available\" notice - Fixed background subagents being unable to reply to a message from an unnamed sibling or parent agent (`from` was the agent type, which is not an address) - Fixed managed-settings `disableAutoMode` arriving mid-session not moving an already-running auto-mode session back to default mode - Fixed a \"switch to Opus 1M for 5x more context\" tip that appeared even when the current Opus model already has a 1M context window - Fixed Claude apps gateway sessions treating a stored Anthropic profile (e.g.",
-        "a Console sign-in) as active: listing it in `/status` and retrying gateway 401s with it, though requests never use it - Fixed cloud sessions telling Claude the model had changed when the host was only setting the session's initial model - Fixed Remote Control reporting a failure when an organization's policy disables it; it now shows a single quiet notice instead - Fixed `/mcp reconnect` on Remote Control showing a generic withheld-detail error instead of the real remedy when a server was disabled in another session - Fixed `--input-format stream-json`: client-injected assistant tool calls sent without a message id were merged into the first one and their results lost, including when resuming older sessions - Fixed session transcripts being silently overwritten when a directory change relocated a session onto an existing same-ID transcript - Fixed background sessions and their subagents being unable to edit files inside a git worktree they created with `git worktree add` - Fixed background sessions occasionally starting without any plugin skills (and staying that way) when another Claude Code process was refreshing the plugin marketplace at the same moment - Fixed selecting text in an opened background session inside tmux over SSH: it now copies to the tmux buffer like a foreground session instead of falling back to OSC 52 - Fixed SDK and cloud sessions hanging indefinitely when an SDK MCP server's handshake acknowledgment was lost; the wait now times out after 70 seconds and marks only that server failed - Fixed self-hosted runner leaving a stuck session's Bash tool processes running after the session was force-stopped - Fixed `/usage-credits` for Team and Enterprise members whose admin set the org's usage-credit limit to $0: it now offers to ask the admin instead of saying a cap was reached - Fixed `--worktree --tmux` with a merge-request number on a gitlab.com or"
-      ],
-      "whyItMatters": "可用于判断工具更新是否值得纳入日常研究流程。",
-      "titleEn": "anthropics/claude-code v2.1.251",
-      "descriptionEn": "## What's changed - Added `PreModelSwitch` and `PostModelSwitch` hook events (block, confirm, or annotate a model switch); `SessionStart` resume hooks now receive session staleness",
-      "summaryEn": "## What's changed - Added `PreModelSwitch` and `PostModelSwitch` hook events (block, confirm, or annotate a model switch); `SessionStart` resume hooks now receive session staleness and the estimated re-cache cost - Added live streaming of a foreground subagent's tool calls and results to Remote Control clients (background subagents, the default, still show status only) - Added a Spend limit bar to `/usage` and a `rate_limits.spend_limit` status line field for developers behind a Claude apps gateway with spend limits - Added a per-session prompt-cache line to `/cost` (hit ratio, misses, tokens re-cached, warm/cold) and a matching `prompt_cache` object for status line scripts - Added `attach`, `logs`, `stop`, `respawn`, and `rm` to `claude --help`; the `--resume` message for a running background session now names the exact `claude attach ` command - Fixed file tools (Read, Write, Edit) following a symlink swapped inside the working directory after the permission check, which could read or write outside the approved location - Fixed plugin commands declared in a marketplace entry being able to point outside the plugin directory; such paths are now rejected with a path-traversal error ",
-      "keyPointsEn": [
-        "## What's changed - Added `PreModelSwitch` and `PostModelSwitch` hook events (block, confirm, or annotate a model switch); `SessionStart` resume hooks now receive session staleness and the estimated re-cache cost - Added live streaming of a foreground subagent's tool calls and results to Remote Control clients (background subagents, the default, still show status only) - Added a Spend limit bar to `/usage` and a `rate_limits.spend_limit` status line field for developers behind a Claude apps gateway with spend limits - Added a per-session prompt-cache line to `/cost` (hit ratio, misses, tokens re-cached, warm/cold) and a matching `prompt_cache` object for status line scripts - Added `attach`, `logs`, `stop`, `respawn`, and `rm` to `claude --help`; the `--resume` message for a running background session now names the exact `claude attach ` command - Fixed file tools (Read, Write, Edit) following a symlink swapped inside the working directory after the permission check, which could read or write outside the approved location - Fixed plugin commands declared in a marketplace entry being able to point outside the plugin directory; such paths are now rejected with a path-traversal error - Fixed project settings being able to enable detailed beta tracing or raw API body logging, and a lower-scope beta tracing endpoint bypassing an OTLP collector pinned by managed settings or a host app - Fixed the Workflow tool reading (and quoting in errors) a `scriptPath` outside what the session may read before the permission check ran - Fixed Grep and Glob not applying `Read(...)` deny rules to files reached through a symlinked search path - Fixed conversations getting stuck on \"text content blocks must be non-empty\" errors after a turn where the model produced only thinking - Fixed the first launch on a fresh install starting in default mode instead of auto mode for accounts whose startup default is auto mode - Fixed Opus 5 requests failing with \"effort … is not supported when thinking is disabled\" when effort was xhigh/max and thinking was turned off; effort is now sent as `high` in that case - Fixed replying to a message Claude Desktop delivered from another session: `SendMessage` to that session id now delivers through Claude Desktop instead of failing with \"not reachable\" - Fixed TUI lag with many parallel subagents: per-second progress ticks now replace their predecessor instead of piling up in the transcript - Fixed agent teams: a teammate's final answer not reaching the team lead — it now arrives in the idle notification instead of a content-free \"available\" notice - Fixed background subagents being unable to reply to a message from an unnamed sibling or parent agent (`from` was the agent type, which is not an address) - Fixed managed-settings `disableAutoMode` arriving mid-session not moving an already-running auto-mode session back to default mode - Fixed a \"switch to Opus 1M for 5x more context\" tip that appeared even when the current Opus model already has a 1M context window - Fixed Claude apps gateway sessions treating a stored Anthropic profile (e.g.",
-        "a Console sign-in) as active: listing it in `/status` and retrying gateway 401s with it, though requests never use it - Fixed cloud sessions telling Claude the model had changed when the host was only setting the session's initial model - Fixed Remote Control reporting a failure when an organization's policy disables it; it now shows a single quiet notice instead - Fixed `/mcp reconnect` on Remote Control showing a generic withheld-detail error instead of the real remedy when a server was disabled in another session - Fixed `--input-format stream-json`: client-injected assistant tool calls sent without a message id were merged into the first one and their results lost, including when resuming older sessions - Fixed session transcripts being silently overwritten when a directory change relocated a session onto an existing same-ID transcript - Fixed background sessions and their subagents being unable to edit files inside a git worktree they created with `git worktree add` - Fixed background sessions occasionally starting without any plugin skills (and staying that way) when another Claude Code process was refreshing the plugin marketplace at the same moment - Fixed selecting text in an opened background session inside tmux over SSH: it now copies to the tmux buffer like a foreground session instead of falling back to OSC 52 - Fixed SDK and cloud sessions hanging indefinitely when an SDK MCP server's handshake acknowledgment was lost; the wait now times out after 70 seconds and marks only that server failed - Fixed self-hosted runner leaving a stuck session's Bash tool processes running after the session was force-stopped - Fixed `/usage-credits` for Team and Enterprise members whose admin set the org's usage-credit limit to $0: it now offers to ask the admin instead of saying a cap was reached - Fixed `--worktree --tmux` with a merge-request number on a gitlab.com or"
-      ],
-      "whyItMattersEn": "Helps assess whether a tool update belongs in the daily research workflow.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 13,
-        "mode": "cohort-metric",
-        "primaryMetric": "stars",
-        "primaryMetricValue": 143564.0,
-        "metricPercentile": 83.33,
-        "velocityPercentile": 41.67,
-        "objectiveScore": 66.67,
-        "relevanceScore": 40,
-        "freshnessScore": 62.9
-      },
-      "discoveredBy": [
-        "Claude Code"
-      ]
-    },
-    {
-      "id": "007245eac9729ff5",
-      "slug": "openai-codex-rust-v0-152-0-alpha-7-007245eac9",
-      "domain": "AI 工具",
-      "title": "openai/codex rust-v0.152.0-alpha.7",
-      "description": "Release 0.152.0-alpha.7",
-      "summary": "Release 0.152.0-alpha.7",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "编程 Agent",
-        "Release"
-      ],
-      "features": [
-        {
-          "id": "artifact:tool",
-          "facet": "artifact",
-          "value": "tool",
-          "label": {
-            "zh": "工具",
-            "en": "Tool"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-tools",
-          "facet": "topic",
-          "value": "ai-tools",
-          "label": {
-            "zh": "AI 工具",
-            "en": "AI Tools"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        }
-      ],
-      "score": 58.77,
-      "publishedAt": "2026-08-31T16:18:27+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "OpenAI Codex",
-      "sourceGroup": "AI 工具",
-      "originalTitle": "openai/codex rust-v0.152.0-alpha.7",
-      "originalUrl": "https://github.com/openai/codex/releases/tag/rust-v0.152.0-alpha.7",
-      "keyPoints": [
-        "Release 0.152.0-alpha.7"
-      ],
-      "whyItMatters": "可用于判断工具更新是否值得纳入日常研究流程。",
-      "titleEn": "openai/codex rust-v0.152.0-alpha.7",
-      "descriptionEn": "Release 0.152.0-alpha.7",
-      "summaryEn": "Release 0.152.0-alpha.7",
-      "keyPointsEn": [
-        "Release 0.152.0-alpha.7"
-      ],
-      "whyItMattersEn": "Helps assess whether a tool update belongs in the daily research workflow.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 13,
-        "mode": "cohort-metric",
-        "primaryMetric": "stars",
-        "primaryMetricValue": 120410.0,
-        "metricPercentile": 41.67,
-        "velocityPercentile": 83.33,
-        "objectiveScore": 58.33,
-        "relevanceScore": 40,
-        "freshnessScore": 99.35
-      },
-      "discoveredBy": [
-        "OpenAI Codex"
-      ]
-    },
-    {
-      "id": "8796282624030fc3",
-      "slug": "tauricresearch-tradingagents-v0-4-0-8796282624",
-      "domain": "开源工程",
-      "title": "TauricResearch/TradingAgents v0.4.0",
-      "description": "## Summary Look-ahead and point-in-time fixes across the data and memory layers, clearer decision signals, working CLI checkpoint resume, and the GPT-5.6 / GLM-5.3 models.",
-      "summary": "## Summary Look-ahead and point-in-time fixes across the data and memory layers, clearer decision signals, working CLI checkpoint resume, and the GPT-5.6 / GLM-5.3 models. ## Point-in-time / look-ahead integrity - **FRED macro** requests now pin the data vintage to the as-of date, so a backtest no longer sees later revisions (#1275). - **Social sentiment** (StockTwits, Reddit) is trimmed to the analysis window instead of showing today's chatter, via one shared UTC window rule reused by news (#1220). - **Decision-log memory** records when each outcome became known and only injects lessons resolved by the trade date (#1251); a decision is no longer settled before its holding window fully trades (#1169). - **The latest OHLCV bar** is no longer silently dropped when its close is NaN, and dates are normalized DST- and non-US-market safe (#1201). ## More honest decision signals - An unparseable Portfolio Manager rating surfaces a **REVIEW** sentinel instead of a tradeable Hold (#1170). - Debate openers no longer **fabricate** the opponent's argument when none has been made (#1176). - The **Trader** now receives the technical market report, so entry/stop levels anchor to real price struct",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "Agent",
-        "量化框架",
-        "Release"
-      ],
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "method:backtesting",
-          "facet": "method",
-          "value": "backtesting",
-          "label": {
-            "zh": "回测",
-            "en": "Backtesting"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:open-source-engineering",
-          "facet": "topic",
-          "value": "open-source-engineering",
-          "label": {
-            "zh": "开源工程",
-            "en": "Open-source Engineering"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
         },
         {
           "id": "topic:portfolio",
@@ -1109,146 +462,102 @@
           },
           "evidence": "content.keyword",
           "confidence": 0.8
-        }
-      ],
-      "score": 35.92,
-      "publishedAt": "2026-08-31T03:10:43+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "TradingAgents",
-      "sourceGroup": "开源项目",
-      "originalTitle": "TauricResearch/TradingAgents v0.4.0",
-      "originalUrl": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.4.0",
-      "keyPoints": [
-        "## Summary Look-ahead and point-in-time fixes across the data and memory layers, clearer decision signals, working CLI checkpoint resume, and the GPT-5.6 / GLM-5.3 models.",
-        "## Point-in-time / look-ahead integrity - **FRED macro** requests now pin the data vintage to the as-of date, so a backtest no longer sees later revisions (#1275).",
-        "- **Social sentiment** (StockTwits, Reddit) is trimmed to the analysis window instead of showing today's chatter, via one shared UTC window rule reused by news (#1220)."
-      ],
-      "whyItMatters": "可能影响现有研究工具链的能力、可靠性或复现方式。",
-      "titleEn": "TauricResearch/TradingAgents v0.4.0",
-      "descriptionEn": "## Summary Look-ahead and point-in-time fixes across the data and memory layers, clearer decision signals, working CLI checkpoint resume, and the GPT-5.6 / GLM-5.3 models.",
-      "summaryEn": "## Summary Look-ahead and point-in-time fixes across the data and memory layers, clearer decision signals, working CLI checkpoint resume, and the GPT-5.6 / GLM-5.3 models. ## Point-in-time / look-ahead integrity - **FRED macro** requests now pin the data vintage to the as-of date, so a backtest no longer sees later revisions (#1275). - **Social sentiment** (StockTwits, Reddit) is trimmed to the analysis window instead of showing today's chatter, via one shared UTC window rule reused by news (#1220). - **Decision-log memory** records when each outcome became known and only injects lessons resolved by the trade date (#1251); a decision is no longer settled before its holding window fully trades (#1169). - **The latest OHLCV bar** is no longer silently dropped when its close is NaN, and dates are normalized DST- and non-US-market safe (#1201). ## More honest decision signals - An unparseable Portfolio Manager rating surfaces a **REVIEW** sentinel instead of a tradeable Hold (#1170). - Debate openers no longer **fabricate** the opponent's argument when none has been made (#1176). - The **Trader** now receives the technical market report, so entry/stop levels anchor to real price struct",
-      "keyPointsEn": [
-        "## Summary Look-ahead and point-in-time fixes across the data and memory layers, clearer decision signals, working CLI checkpoint resume, and the GPT-5.6 / GLM-5.3 models.",
-        "## Point-in-time / look-ahead integrity - **FRED macro** requests now pin the data vintage to the as-of date, so a backtest no longer sees later revisions (#1275).",
-        "- **Social sentiment** (StockTwits, Reddit) is trimmed to the analysis window instead of showing today's chatter, via one shared UTC window rule reused by news (#1220)."
-      ],
-      "whyItMattersEn": "May affect the capability, reliability, or reproducibility of the research toolchain.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 13,
-        "mode": "cohort-metric",
-        "primaryMetric": "stars",
-        "primaryMetricValue": 101983.0,
-        "metricPercentile": 16.67,
-        "velocityPercentile": 16.67,
-        "objectiveScore": 16.67,
-        "relevanceScore": 75,
-        "freshnessScore": 92.51
-      },
-      "discoveredBy": [
-        "TradingAgents"
-      ]
-    },
-    {
-      "id": "f6b25021e82ee44c",
-      "slug": "chatboxai-chatbox-v1-22-3-f6b25021e8",
-      "domain": "AI 工具",
-      "title": "ChatboxAI/Chatbox v1.22.3",
-      "description": "## v1.22.3 - 2026.08.09 ### Downloads - macOS (Apple Silicon): [Chatbox-1.22.3-arm64.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.dmg) - macOS (Intel): [Chatbo",
-      "summary": "## v1.22.3 - 2026.08.09 ### Downloads - macOS (Apple Silicon): [Chatbox-1.22.3-arm64.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.dmg) - macOS (Intel): [Chatbox-1.22.3.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3.dmg) - Windows (x64): [Chatbox-1.22.3-Setup.exe](https://download.chatboxai.app/releases/Chatbox-1.22.3-Setup.exe) - Linux (x64 AppImage): [Chatbox-1.22.3-x86_64.AppImage](https://download.chatboxai.app/releases/Chatbox-1.22.3-x86_64.AppImage) - Linux (ARM64 AppImage): [Chatbox-1.22.3-arm64.AppImage](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.AppImage) - Linux (x64 DEB): [Chatbox-1.22.3-amd64.deb](https://download.chatboxai.app/releases/Chatbox-1.22.3-amd64.deb) - Linux (ARM64 DEB): [Chatbox-1.22.3-arm64.deb](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.deb) - Android: [chatbox-1.22.3.apk](https://download.chatboxai.app/releases/chatbox-1.22.3.apk) ### What's Changed 1. Fixed lag when regenerating replies or switching response branches in long conversations 2. Improved backup export compatibility, fixing failures on some devices",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "AI 客户端",
-        "Release"
-      ],
-      "features": [
-        {
-          "id": "artifact:tool",
-          "facet": "artifact",
-          "value": "tool",
-          "label": {
-            "zh": "工具",
-            "en": "Tool"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
         },
         {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:ai-tools",
+          "id": "topic:productivity",
           "facet": "topic",
-          "value": "ai-tools",
+          "value": "productivity",
           "label": {
-            "zh": "AI 工具",
-            "en": "AI Tools"
+            "zh": "效率工具",
+            "en": "Productivity"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:quantitative-finance",
+          "facet": "topic",
+          "value": "quantitative-finance",
+          "label": {
+            "zh": "量化金融",
+            "en": "Quantitative Finance"
           },
           "evidence": "source.domain",
           "confidence": 1.0
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
-      "score": 9.92,
-      "publishedAt": "2026-08-09T04:05:39+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "Chatbox",
-      "sourceGroup": "AI 工具",
-      "originalTitle": "ChatboxAI/Chatbox v1.22.3",
-      "originalUrl": "https://github.com/chatboxai/chatbox/releases/tag/v1.22.3",
+      "score": 83.12,
+      "publishedAt": "2026-09-01T04:00:00+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "arXiv q-fin",
+      "contentType": "paper",
+      "sourceGroup": "论文",
+      "originalTitle": "Agentic Quantitative Trading: A Survey of Workflows, Systems, and Evaluation",
+      "originalUrl": "https://arxiv.org/abs/2608.31041",
       "keyPoints": [
-        "## v1.22.3 - 2026.08.09 ### Downloads - macOS (Apple Silicon): [Chatbox-1.22.3-arm64.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.dmg) - macOS (Intel): [Chatbox-1.22.3.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3.dmg) - Windows (x64): [Chatbox-1.22.3-Setup.exe](https://download.chatboxai.app/releases/Chatbox-1.22.3-Setup.exe) - Linux (x64 AppImage): [Chatbox-1.22.3-x86_64.AppImage](https://download.chatboxai.app/releases/Chatbox-1.22.3-x86_64.AppImage) - Linux (ARM64 AppImage): [Chatbox-1.22.3-arm64.AppImage](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.AppImage) - Linux (x64 DEB): [Chatbox-1.22.3-amd64.deb](https://download.chatboxai.app/releases/Chatbox-1.22.3-amd64.deb) - Linux (ARM64 DEB): [Chatbox-1.22.3-arm64.deb](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.deb) - Android: [chatbox-1.22.3.apk](https://download.chatboxai.app/releases/chatbox-1.22.3.apk) ### What's Changed 1.",
-        "Fixed lag when regenerating replies or switching response branches in long conversations 2.",
-        "Improved backup export compatibility, fixing failures on some devices"
+        "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback.",
+        "This survey reviews agentic quantitative trading across five stages: factor mining, signal discovery, portfolio construction, order execution, and risk management.",
+        "We further examine agentic quant trading systems through architecture, coordination, and adaptation, while comparing benchmarks across strategy construction, offline trading, live market evaluation, and reliability assessment."
       ],
-      "whyItMatters": "可用于判断工具更新是否值得纳入日常研究流程。",
-      "titleEn": "ChatboxAI/Chatbox v1.22.3",
-      "descriptionEn": "## v1.22.3 - 2026.08.09 ### Downloads - macOS (Apple Silicon): [Chatbox-1.22.3-arm64.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.dmg) - macOS (Intel): [Chatbo",
-      "summaryEn": "## v1.22.3 - 2026.08.09 ### Downloads - macOS (Apple Silicon): [Chatbox-1.22.3-arm64.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.dmg) - macOS (Intel): [Chatbox-1.22.3.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3.dmg) - Windows (x64): [Chatbox-1.22.3-Setup.exe](https://download.chatboxai.app/releases/Chatbox-1.22.3-Setup.exe) - Linux (x64 AppImage): [Chatbox-1.22.3-x86_64.AppImage](https://download.chatboxai.app/releases/Chatbox-1.22.3-x86_64.AppImage) - Linux (ARM64 AppImage): [Chatbox-1.22.3-arm64.AppImage](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.AppImage) - Linux (x64 DEB): [Chatbox-1.22.3-amd64.deb](https://download.chatboxai.app/releases/Chatbox-1.22.3-amd64.deb) - Linux (ARM64 DEB): [Chatbox-1.22.3-arm64.deb](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.deb) - Android: [chatbox-1.22.3.apk](https://download.chatboxai.app/releases/chatbox-1.22.3.apk) ### What's Changed 1. Fixed lag when regenerating replies or switching response branches in long conversations 2. Improved backup export compatibility, fixing failures on some devices",
+      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
+      "titleEn": "Agentic Quantitative Trading: A Survey of Workflows, Systems, and Evaluation",
+      "descriptionEn": "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback.",
+      "summaryEn": "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback. This survey reviews agentic quantitative trading across five stages: factor mining, signal discovery, portfolio construction, order execution, and risk management. We further examine agentic quant trading systems through architecture, coordination, and adaptation, while comparing benchmarks across strategy construction, offline trading, live market evaluation, and reliability assessment. Our review finds that current systems remain concentrated on signal discovery, while complete integration with portfolio construction, execution, and risk control is still uncommon. Multi-agent systems also rely heavily on aggregation despite increasingly diverse workflow structures. Benchmark evidence further shows that strong model or forecasting capability does not reliably translate into trading performance under live market conditions and reliability controls. We conclude with future directions for more complete trading workflows, stronger coordination, and evaluation matched to the capability being assessed.",
       "keyPointsEn": [
-        "## v1.22.3 - 2026.08.09 ### Downloads - macOS (Apple Silicon): [Chatbox-1.22.3-arm64.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.dmg) - macOS (Intel): [Chatbox-1.22.3.dmg](https://download.chatboxai.app/releases/Chatbox-1.22.3.dmg) - Windows (x64): [Chatbox-1.22.3-Setup.exe](https://download.chatboxai.app/releases/Chatbox-1.22.3-Setup.exe) - Linux (x64 AppImage): [Chatbox-1.22.3-x86_64.AppImage](https://download.chatboxai.app/releases/Chatbox-1.22.3-x86_64.AppImage) - Linux (ARM64 AppImage): [Chatbox-1.22.3-arm64.AppImage](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.AppImage) - Linux (x64 DEB): [Chatbox-1.22.3-amd64.deb](https://download.chatboxai.app/releases/Chatbox-1.22.3-amd64.deb) - Linux (ARM64 DEB): [Chatbox-1.22.3-arm64.deb](https://download.chatboxai.app/releases/Chatbox-1.22.3-arm64.deb) - Android: [chatbox-1.22.3.apk](https://download.chatboxai.app/releases/chatbox-1.22.3.apk) ### What's Changed 1.",
-        "Fixed lag when regenerating replies or switching response branches in long conversations 2.",
-        "Improved backup export compatibility, fixing failures on some devices"
+        "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback.",
+        "This survey reviews agentic quantitative trading across five stages: factor mining, signal discovery, portfolio construction, order execution, and risk management.",
+        "We further examine agentic quant trading systems through architecture, coordination, and adaptation, while comparing benchmarks across strategy construction, offline trading, live market evaluation, and reliability assessment."
       ],
-      "whyItMattersEn": "Helps assess whether a tool update belongs in the daily research workflow.",
+      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
       "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
       "aiGenerated": false,
       "summaryProvider": "source",
       "summaryModel": null,
       "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 13,
-        "mode": "cohort-metric",
-        "primaryMetric": "stars",
-        "primaryMetricValue": 41623.0,
-        "metricPercentile": 4.17,
-        "velocityPercentile": 4.17,
-        "objectiveScore": 4.17,
-        "relevanceScore": 35,
-        "freshnessScore": 0.0
+        "contentType": "paper",
+        "comparisonCohortSize": 1143,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 100.0,
+        "contentValueScore": 75.89,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 2.89,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
       },
       "discoveredBy": [
-        "Chatbox"
+        "arXiv q-fin"
       ]
     },
     {
-      "id": "e5cfae2c084f7a3a",
-      "slug": "harts-efficient-agentic-reinforcement-learning-f-e5cfae2c08",
+      "id": "8d98d11dfa242088",
+      "slug": "locked-at-the-entrance-open-inside-where-rlvr-na-8d98d11dfa",
       "domain": "AI × 量化",
-      "title": "HARTS: Efficient Agentic Reinforcement Learning for Hybrid-Attention Models over Arbitrary Rollout Trees",
-      "description": "Agentic reinforcement learning (RL) often produces irregular rollout trees with shared histories.",
-      "summary": "Agentic reinforcement learning (RL) often produces irregular rollout trees with shared histories. Training root-to-leaf trajectories independently recomputes these shared prefixes. Existing systems primarily target full-attention models and lack dense, differentiable hybrid-attention execution compatible with activation recomputation. We present HARTS (Hybrid-Attention RL over Tree Structures). HARTS jointly plans microbatches, data-parallel (DP) replica assignments, and microbatch-slot schedules using non-replay compact-token work after prefix compression. For chunkwise linear attention, a linear-time algorithm coordinates chunk-boundary state recovery and replay and produces the minimum number of sequential linear-attention calls under our packed execution model. HARTS preserves the chunkwise state partitioning of trajectory-wise training: it does not repeat projections, MLP/MoE computation, or final outputs, and performs only bounded state replay for numerical alignment. Per round, HARTS batches all branches into one packed call, propagates gradients through differentiable state handoffs, supports activation recomputation, and restores per-token log-probabilities. For determinis",
+      "title": "Locked at the Entrance, Open Inside: Where RLVR Narrows the Solution Space",
+      "description": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the ret",
+      "summary": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling. In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated? To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator, across PPO on Qwen2.5-3B and GRPO on Qwen2.5-3B-Instruct. Across both training setups, solution coverage falls by up to 67%, halving even on problems solved across all checkpoints. We show that this contraction is heavily concentrated at the entrance: per-token likelihood shifts are 11x--16x larger prior to the first arithmetic operation than during downstream reasoning. Supplying only an unselected entrance prefix restores completion rates in low-access families by over an order of magnitude (0.018 -> 0.212 under PPO), demonstrating that alternative solutions remain executable but are no lon",
       "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
       "tags": [
         "论文",
@@ -1300,26 +609,27 @@
           "confidence": 1.0
         }
       ],
-      "score": 84.53,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
+      "score": 83.1,
+      "publishedAt": "2026-09-01T04:00:00+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
       "sourceName": "arXiv cs.LG",
+      "contentType": "paper",
       "sourceGroup": "论文",
-      "originalTitle": "HARTS: Efficient Agentic Reinforcement Learning for Hybrid-Attention Models over Arbitrary Rollout Trees",
-      "originalUrl": "https://arxiv.org/abs/2608.28158",
+      "originalTitle": "Locked at the Entrance, Open Inside: Where RLVR Narrows the Solution Space",
+      "originalUrl": "https://arxiv.org/abs/2608.29188",
       "keyPoints": [
-        "Agentic reinforcement learning (RL) often produces irregular rollout trees with shared histories.",
-        "Training root-to-leaf trajectories independently recomputes these shared prefixes.",
-        "Existing systems primarily target full-attention models and lack dense, differentiable hybrid-attention execution compatible with activation recomputation."
+        "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling.",
+        "In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated?",
+        "To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator, across PPO on Qwen2.5-3B and GRPO on Qwen2.5-3B-Instruct."
       ],
       "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
-      "titleEn": "HARTS: Efficient Agentic Reinforcement Learning for Hybrid-Attention Models over Arbitrary Rollout Trees",
-      "descriptionEn": "Agentic reinforcement learning (RL) often produces irregular rollout trees with shared histories.",
-      "summaryEn": "Agentic reinforcement learning (RL) often produces irregular rollout trees with shared histories. Training root-to-leaf trajectories independently recomputes these shared prefixes. Existing systems primarily target full-attention models and lack dense, differentiable hybrid-attention execution compatible with activation recomputation. We present HARTS (Hybrid-Attention RL over Tree Structures). HARTS jointly plans microbatches, data-parallel (DP) replica assignments, and microbatch-slot schedules using non-replay compact-token work after prefix compression. For chunkwise linear attention, a linear-time algorithm coordinates chunk-boundary state recovery and replay and produces the minimum number of sequential linear-attention calls under our packed execution model. HARTS preserves the chunkwise state partitioning of trajectory-wise training: it does not repeat projections, MLP/MoE computation, or final outputs, and performs only bounded state replay for numerical alignment. Per round, HARTS batches all branches into one packed call, propagates gradients through differentiable state handoffs, supports activation recomputation, and restores per-token log-probabilities. For determinis",
+      "titleEn": "Locked at the Entrance, Open Inside: Where RLVR Narrows the Solution Space",
+      "descriptionEn": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the ret",
+      "summaryEn": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling. In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated? To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator, across PPO on Qwen2.5-3B and GRPO on Qwen2.5-3B-Instruct. Across both training setups, solution coverage falls by up to 67%, halving even on problems solved across all checkpoints. We show that this contraction is heavily concentrated at the entrance: per-token likelihood shifts are 11x--16x larger prior to the first arithmetic operation than during downstream reasoning. Supplying only an unselected entrance prefix restores completion rates in low-access families by over an order of magnitude (0.018 -> 0.212 under PPO), demonstrating that alternative solutions remain executable but are no lon",
       "keyPointsEn": [
-        "Agentic reinforcement learning (RL) often produces irregular rollout trees with shared histories.",
-        "Training root-to-leaf trajectories independently recomputes these shared prefixes.",
-        "Existing systems primarily target full-attention models and lack dense, differentiable hybrid-attention execution compatible with activation recomputation."
+        "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling.",
+        "In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated?",
+        "To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator, across PPO on Qwen2.5-3B and GRPO on Qwen2.5-3B-Instruct."
       ],
       "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
       "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
@@ -1328,7 +638,1049 @@
       "summaryModel": null,
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 349,
+        "comparisonCohortSize": 1143,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 80,
+        "contentValueScore": 79.0,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "arXiv cs.CL",
+        "arXiv cs.LG"
+      ]
+    },
+    {
+      "id": "f892d55eb4083c81",
+      "slug": "one-success-isn-t-reliability-thinkingbox-a-sand-f892d55eb4",
+      "domain": "AI × 量化",
+      "title": "One Success Isn't Reliability: Thinkingbox, a Sandbox and Benchmark for Agents in Stateful Business Workflows",
+      "description": "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling.",
+      "summary": "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling. Yet completing consequential work beyond code requires more than producing a plausible response or valid tool call: agents must gather missing information over multiple turns, follow domain policies, coordinate dependent tools, and realize the correct persistent state transition without collateral effects. In this paper, we introduce Thinkingbox, a sandbox for tool-agent-user interaction that provides isolated MCP-compatible tool sessions, complete execution traces, and outcome evaluation over terminal backend state. Built on this sandbox, Thinkingbox-bench contains 507 policy-conditioned workflows across numerous scenarios, including retail, hospitality, auto insurance, neobank internal IT, and consulting IT/HR support. Each attempt is evaluated by task-specific executable checks that accept valid trajectories while rejecting wrong, missing, or extra effects; designated tasks additionally check required properties of the final response. Across proprietary and open-weight models, the strongest model Claude Opus 5 achieves 66.50% pass",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "论文",
+        "LLM"
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        }
+      ],
+      "score": 82.5,
+      "publishedAt": "2026-09-01T04:00:00+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "arXiv cs.CL",
+      "contentType": "paper",
+      "sourceGroup": "论文",
+      "originalTitle": "One Success Isn't Reliability: Thinkingbox, a Sandbox and Benchmark for Agents in Stateful Business Workflows",
+      "originalUrl": "https://arxiv.org/abs/2608.19741",
+      "keyPoints": [
+        "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling.",
+        "Yet completing consequential work beyond code requires more than producing a plausible response or valid tool call: agents must gather missing information over multiple turns, follow domain policies, coordinate dependent tools, and realize the correct persistent state transition without collateral effects.",
+        "In this paper, we introduce Thinkingbox, a sandbox for tool-agent-user interaction that provides isolated MCP-compatible tool sessions, complete execution traces, and outcome evaluation over terminal backend state."
+      ],
+      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
+      "titleEn": "One Success Isn't Reliability: Thinkingbox, a Sandbox and Benchmark for Agents in Stateful Business Workflows",
+      "descriptionEn": "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling.",
+      "summaryEn": "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling. Yet completing consequential work beyond code requires more than producing a plausible response or valid tool call: agents must gather missing information over multiple turns, follow domain policies, coordinate dependent tools, and realize the correct persistent state transition without collateral effects. In this paper, we introduce Thinkingbox, a sandbox for tool-agent-user interaction that provides isolated MCP-compatible tool sessions, complete execution traces, and outcome evaluation over terminal backend state. Built on this sandbox, Thinkingbox-bench contains 507 policy-conditioned workflows across numerous scenarios, including retail, hospitality, auto insurance, neobank internal IT, and consulting IT/HR support. Each attempt is evaluated by task-specific executable checks that accept valid trajectories while rejecting wrong, missing, or extra effects; designated tasks additionally check required properties of the final response. Across proprietary and open-weight models, the strongest model Claude Opus 5 achieves 66.50% pass",
+      "keyPointsEn": [
+        "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling.",
+        "Yet completing consequential work beyond code requires more than producing a plausible response or valid tool call: agents must gather missing information over multiple turns, follow domain policies, coordinate dependent tools, and realize the correct persistent state transition without collateral effects.",
+        "In this paper, we introduce Thinkingbox, a sandbox for tool-agent-user interaction that provides isolated MCP-compatible tool sessions, complete execution traces, and outcome evaluation over terminal backend state."
+      ],
+      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 1143,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 80,
+        "contentValueScore": 79.0,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 15.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 72.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ]
+    },
+    {
+      "id": "ffbdbc5bbe649a25",
+      "slug": "data-driven-stochastic-optimal-control-for-intra-ffbdbc5bbe",
+      "domain": "量化研究",
+      "title": "Data-Driven Stochastic Optimal Control for Intraday Electricity Trading by Renewable Producers",
+      "description": "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative tradi",
+      "summary": "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative trading strategies. We develop a data-driven continuous-time stochastic optimal control framework for intraday electricity trading using stochastic differential equations with drift terms ensuring mean reversion to deterministic forecast trajectories. Production follows a Jacobi diffusion, while prices follow an asymmetric jump-diffusion to reflect the heavy-tailed behavior observed in intraday markets. The framework accounts for realistic market features by incorporating gate closure and energy-based imbalance settlement over the delivery window, where the path-dependent imbalance cost is handled by state augmentation to preserve the Markovian structure. The value function is characterized via the dynamic programming principle by a three-stage sequence of two linear Kolmogorov backward equations and a nonlinear Hamilton-Jacobi-Bellman partial integro-differential equation. To solve this problem efficiently, we propose a monotone IMEX finite-difference scheme with operator splitting, semi-implicit linearizatio",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "论文",
+        "q-fin"
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "method:forecasting",
+          "facet": "method",
+          "value": "forecasting",
+          "label": {
+            "zh": "预测",
+            "en": "Forecasting"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:quantitative-finance",
+          "facet": "topic",
+          "value": "quantitative-finance",
+          "label": {
+            "zh": "量化金融",
+            "en": "Quantitative Finance"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "score": 82.37,
+      "publishedAt": "2026-09-01T04:00:00+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "arXiv q-fin",
+      "contentType": "paper",
+      "sourceGroup": "论文",
+      "originalTitle": "Data-Driven Stochastic Optimal Control for Intraday Electricity Trading by Renewable Producers",
+      "originalUrl": "https://arxiv.org/abs/2604.27700",
+      "keyPoints": [
+        "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative trading strategies.",
+        "We develop a data-driven continuous-time stochastic optimal control framework for intraday electricity trading using stochastic differential equations with drift terms ensuring mean reversion to deterministic forecast trajectories.",
+        "Production follows a Jacobi diffusion, while prices follow an asymmetric jump-diffusion to reflect the heavy-tailed behavior observed in intraday markets."
+      ],
+      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
+      "titleEn": "Data-Driven Stochastic Optimal Control for Intraday Electricity Trading by Renewable Producers",
+      "descriptionEn": "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative tradi",
+      "summaryEn": "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative trading strategies. We develop a data-driven continuous-time stochastic optimal control framework for intraday electricity trading using stochastic differential equations with drift terms ensuring mean reversion to deterministic forecast trajectories. Production follows a Jacobi diffusion, while prices follow an asymmetric jump-diffusion to reflect the heavy-tailed behavior observed in intraday markets. The framework accounts for realistic market features by incorporating gate closure and energy-based imbalance settlement over the delivery window, where the path-dependent imbalance cost is handled by state augmentation to preserve the Markovian structure. The value function is characterized via the dynamic programming principle by a three-stage sequence of two linear Kolmogorov backward equations and a nonlinear Hamilton-Jacobi-Bellman partial integro-differential equation. To solve this problem efficiently, we propose a monotone IMEX finite-difference scheme with operator splitting, semi-implicit linearizatio",
+      "keyPointsEn": [
+        "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative trading strategies.",
+        "We develop a data-driven continuous-time stochastic optimal control framework for intraday electricity trading using stochastic differential equations with drift terms ensuring mean reversion to deterministic forecast trajectories.",
+        "Production follows a Jacobi diffusion, while prices follow an asymmetric jump-diffusion to reflect the heavy-tailed behavior observed in intraday markets."
+      ],
+      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 1143,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 95,
+        "contentValueScore": 74.82,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 4.07,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "arXiv q-fin"
+      ]
+    },
+    {
+      "id": "26de699d3e5c651e",
+      "slug": "tt-a1i-archify-26de699d3e",
+      "domain": "AI 工具",
+      "title": "tt-a1i/archify",
+      "description": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
+      "summary": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "GitHub Trending",
+        "日趋势榜",
+        "JavaScript"
+      ],
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:ai-tools",
+          "facet": "topic",
+          "value": "ai-tools",
+          "label": {
+            "zh": "AI 工具",
+            "en": "AI Tools"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:productivity",
+          "facet": "topic",
+          "value": "productivity",
+          "label": {
+            "zh": "效率工具",
+            "en": "Productivity"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "score": 72.62,
+      "publishedAt": "2026-08-31T15:59:59.999999+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "GitHub Trending Daily",
+      "contentType": "repository",
+      "sourceGroup": "开源项目",
+      "originalTitle": "tt-a1i/archify",
+      "originalUrl": "https://github.com/tt-a1i/archify",
+      "keyPoints": [
+        "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export."
+      ],
+      "whyItMatters": "可用于判断工具更新是否值得纳入日常研究流程。",
+      "titleEn": "tt-a1i/archify",
+      "descriptionEn": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
+      "summaryEn": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
+      "keyPointsEn": [
+        "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export."
+      ],
+      "whyItMattersEn": "Helps assess whether a tool update belongs in the daily research workflow.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 16,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 98.0,
+        "metricPercentile": 93.33,
+        "velocityPercentile": 93.33,
+        "objectiveScore": 93.33,
+        "relevanceScore": 60,
+        "contentValueScore": 37.39,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 0.39,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 2.0,
+          "trending_rank_score": 98.0,
+          "stars": 40551.0,
+          "stars_delta_1d": 3991.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ]
+    },
+    {
+      "id": "5396844590b05bdf",
+      "slug": "your-coding-agent-keeps-solving-the-same-problem-5396844590",
+      "domain": "AI × 量化",
+      "title": "Your coding agent keeps solving the same problem",
+      "description": "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at",
+      "summary": "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at Oracle, and Casius Lee, AI Developer Advocate at Oracle. Agents don't need to relearn the job every session: give them mechanisms to carry experience forward, and they get faster and more reliable with every run. Today's coding agents can write code, use tools, and carry out multi-step tasks, but each fresh session starts from zero. An agent that spent minutes fixing an environment issue yesterday will burn the same time and tokens rediscovering the fix today. In this course, you'll work with three adaptation layers. For behavior adaptation, you'll build a skill induction pipeline that turns the agent's traces, its conversations, tool calls, errors, and fixes, into reusable skills it applies the next time it sees a similar task, with a human in the loop approving each skill. For knowledge adaptation, you'll build a code knowledge graph that connects files through imports, function calls, and co-edits in git history, so the agent retrieves context by navigating the structure of the codebase instead of rel",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "视频",
+        "机器学习",
+        "AI 工程"
+      ],
+      "features": [
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:developer-tools",
+          "facet": "topic",
+          "value": "developer-tools",
+          "label": {
+            "zh": "开发工具",
+            "en": "Developer Tools"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "score": 72.2,
+      "publishedAt": "2026-08-26T13:00:14+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "DeepLearning.AI",
+      "contentType": "video",
+      "sourceGroup": "视频",
+      "originalTitle": "Your coding agent keeps solving the same problem",
+      "originalUrl": "https://www.youtube.com/watch?v=MbB1gNIj3G0",
+      "keyPoints": [
+        "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at Oracle, and Casius Lee, AI Developer Advocate at Oracle.",
+        "Agents don't need to relearn the job every session: give them mechanisms to carry experience forward, and they get faster and more reliable with every run.",
+        "Today's coding agents can write code, use tools, and carry out multi-step tasks, but each fresh session starts from zero."
+      ],
+      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
+      "titleEn": "Your coding agent keeps solving the same problem",
+      "descriptionEn": "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at",
+      "summaryEn": "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at Oracle, and Casius Lee, AI Developer Advocate at Oracle. Agents don't need to relearn the job every session: give them mechanisms to carry experience forward, and they get faster and more reliable with every run. Today's coding agents can write code, use tools, and carry out multi-step tasks, but each fresh session starts from zero. An agent that spent minutes fixing an environment issue yesterday will burn the same time and tokens rediscovering the fix today. In this course, you'll work with three adaptation layers. For behavior adaptation, you'll build a skill induction pipeline that turns the agent's traces, its conversations, tool calls, errors, and fixes, into reusable skills it applies the next time it sees a similar task, with a human in the loop approving each skill. For knowledge adaptation, you'll build a code knowledge graph that connects files through imports, function calls, and co-edits in git history, so the agent retrieves context by navigating the structure of the codebase instead of rel",
+      "keyPointsEn": [
+        "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at Oracle, and Casius Lee, AI Developer Advocate at Oracle.",
+        "Agents don't need to relearn the job every session: give them mechanisms to carry experience forward, and they get faster and more reliable with every run.",
+        "Today's coding agents can write code, use tools, and carry out multi-step tasks, but each fresh session starts from zero."
+      ],
+      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "video",
+        "comparisonCohortSize": 8,
+        "mode": "cohort-metric",
+        "primaryMetric": "views",
+        "primaryMetricValue": 4907.0,
+        "metricPercentile": 85.71,
+        "velocityPercentile": 85.71,
+        "objectiveScore": 85.71,
+        "relevanceScore": 75,
+        "contentValueScore": 61.3,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 5.0,
+          "novelty": 8.0,
+          "specificity": 9.55,
+          "penalty": 0.0
+        },
+        "freshnessScore": 65.83,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {
+          "views": 4907.0
+        },
+        "selectionLane": "carryover"
+      },
+      "discoveredBy": [
+        "DeepLearning.AI"
+      ]
+    },
+    {
+      "id": "c8f3d928a400ca53",
+      "slug": "k-dense-ai-scientific-agent-skills-c8f3d928a4",
+      "domain": "AI 工具",
+      "title": "K-Dense-AI/scientific-agent-skills",
+      "description": "Turn any AI agent into an AI Scientist.",
+      "summary": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide. 165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "GitHub Trending",
+        "日趋势榜",
+        "Python"
+      ],
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:ai-tools",
+          "facet": "topic",
+          "value": "ai-tools",
+          "label": {
+            "zh": "AI 工具",
+            "en": "AI Tools"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:science",
+          "facet": "topic",
+          "value": "science",
+          "label": {
+            "zh": "科学研究",
+            "en": "Science"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "score": 71.67,
+      "publishedAt": "2026-08-31T15:59:59.999999+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "GitHub Trending Daily",
+      "contentType": "repository",
+      "sourceGroup": "开源项目",
+      "originalTitle": "K-Dense-AI/scientific-agent-skills",
+      "originalUrl": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "keyPoints": [
+        "Turn any AI agent into an AI Scientist.",
+        "The #1 Agent Skills library for science, used by 190,000+ scientists worldwide.",
+        "165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery."
+      ],
+      "whyItMatters": "可用于判断工具更新是否值得纳入日常研究流程。",
+      "titleEn": "K-Dense-AI/scientific-agent-skills",
+      "descriptionEn": "Turn any AI agent into an AI Scientist.",
+      "summaryEn": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide. 165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+      "keyPointsEn": [
+        "Turn any AI agent into an AI Scientist.",
+        "The #1 Agent Skills library for science, used by 190,000+ scientists worldwide.",
+        "165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery."
+      ],
+      "whyItMattersEn": "Helps assess whether a tool update belongs in the daily research workflow.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 16,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 97.0,
+        "metricPercentile": 86.67,
+        "velocityPercentile": 86.67,
+        "objectiveScore": 86.67,
+        "relevanceScore": 60,
+        "contentValueScore": 40.85,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 8.85,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 3.0,
+          "trending_rank_score": 97.0,
+          "stars": 41164.0,
+          "stars_delta_1d": 1980.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ]
+    },
+    {
+      "id": "ceaf2f7365569375",
+      "slug": "thu-maic-openmaic-ceaf2f7365",
+      "domain": "AI 工具",
+      "title": "THU-MAIC/OpenMAIC",
+      "description": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
+      "summary": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "GitHub Trending",
+        "日趋势榜",
+        "TypeScript"
+      ],
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:ai-tools",
+          "facet": "topic",
+          "value": "ai-tools",
+          "label": {
+            "zh": "AI 工具",
+            "en": "AI Tools"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        }
+      ],
+      "score": 70.91,
+      "publishedAt": "2026-08-31T15:59:59.999999+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "GitHub Trending Daily",
+      "contentType": "repository",
+      "sourceGroup": "开源项目",
+      "originalTitle": "THU-MAIC/OpenMAIC",
+      "originalUrl": "https://github.com/THU-MAIC/OpenMAIC",
+      "keyPoints": [
+        "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click"
+      ],
+      "whyItMatters": "可用于判断工具更新是否值得纳入日常研究流程。",
+      "titleEn": "THU-MAIC/OpenMAIC",
+      "descriptionEn": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
+      "summaryEn": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
+      "keyPointsEn": [
+        "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click"
+      ],
+      "whyItMattersEn": "Helps assess whether a tool update belongs in the daily research workflow.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 16,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 99.0,
+        "metricPercentile": 100.0,
+        "velocityPercentile": 100.0,
+        "objectiveScore": 100.0,
+        "relevanceScore": 60,
+        "contentValueScore": 27.27,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 0.27,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 1.0,
+          "trending_rank_score": 99.0,
+          "stars": 28548.0,
+          "stars_delta_1d": 2824.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ]
+    },
+    {
+      "id": "3b574bb64bfe1d82",
+      "slug": "agent-memory-explained-complete-architecture-3b574bb64b",
+      "domain": "AI × 量化",
+      "title": "Agent Memory EXPLAINED - Complete Architecture",
+      "description": "Quick case study persistent memory for AI agents featuring Mem0.",
+      "summary": "Quick case study persistent memory for AI agents featuring Mem0. The architecture of long form memory for agents goes far beyond a vector search. This deep dive explains Mem0's memory stores, ingestion pipeline, hybrid retrieval with semantic search, BM25 and entity boosting, plus practical open models for running the system locally. --- 🔗 *Links* - Mem0 documentation: https://docs.mem0.ai/ - Mem0 source code: https://github.com/mem0ai/mem0 - Hugging Face models: https://huggingface.co/models - Hugging Face embedding models: https://huggingface.co/models?pipeline_tag=feature-extraction - MTEB leaderboard: https://huggingface.co/spaces/mteb/leaderboard --- 👋 *Connect with me* - My website: https://alejandro-ao.com/ - X (Twitter): https://x.com/_alejandroao - LinkedIn: https://www.linkedin.com/in/alejandro-ao/ --- 🤓 *Topics Covered* - Long-term memory architecture for AI agents - Mem0 ingestion, storage and hybrid retrieval - Local LLM and embedding model choices --- ⏱️ *Timestamps* 0:00 Introduction 0:55 What agent memory is 3:28 Persistent memory across agents 4:26 Databases used by Mem0 8:06 Memory ingestion 15:30 Retrieval: queries and semantic search 19:19 Retrieval: BM25 and en",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "视频",
+        "机器学习",
+        "开源 AI"
+      ],
+      "features": [
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        }
+      ],
+      "score": 58.37,
+      "publishedAt": "2026-08-17T03:15:35+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "Hugging Face",
+      "contentType": "video",
+      "sourceGroup": "视频",
+      "originalTitle": "Agent Memory EXPLAINED - Complete Architecture",
+      "originalUrl": "https://www.youtube.com/watch?v=aYfZN8t6AQs",
+      "keyPoints": [
+        "Quick case study persistent memory for AI agents featuring Mem0.",
+        "The architecture of long form memory for agents goes far beyond a vector search.",
+        "This deep dive explains Mem0's memory stores, ingestion pipeline, hybrid retrieval with semantic search, BM25 and entity boosting, plus practical open models for running the system locally."
+      ],
+      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
+      "titleEn": "Agent Memory EXPLAINED - Complete Architecture",
+      "descriptionEn": "Quick case study persistent memory for AI agents featuring Mem0.",
+      "summaryEn": "Quick case study persistent memory for AI agents featuring Mem0. The architecture of long form memory for agents goes far beyond a vector search. This deep dive explains Mem0's memory stores, ingestion pipeline, hybrid retrieval with semantic search, BM25 and entity boosting, plus practical open models for running the system locally. --- 🔗 *Links* - Mem0 documentation: https://docs.mem0.ai/ - Mem0 source code: https://github.com/mem0ai/mem0 - Hugging Face models: https://huggingface.co/models - Hugging Face embedding models: https://huggingface.co/models?pipeline_tag=feature-extraction - MTEB leaderboard: https://huggingface.co/spaces/mteb/leaderboard --- 👋 *Connect with me* - My website: https://alejandro-ao.com/ - X (Twitter): https://x.com/_alejandroao - LinkedIn: https://www.linkedin.com/in/alejandro-ao/ --- 🤓 *Topics Covered* - Long-term memory architecture for AI agents - Mem0 ingestion, storage and hybrid retrieval - Local LLM and embedding model choices --- ⏱️ *Timestamps* 0:00 Introduction 0:55 What agent memory is 3:28 Persistent memory across agents 4:26 Databases used by Mem0 8:06 Memory ingestion 15:30 Retrieval: queries and semantic search 19:19 Retrieval: BM25 and en",
+      "keyPointsEn": [
+        "Quick case study persistent memory for AI agents featuring Mem0.",
+        "The architecture of long form memory for agents goes far beyond a vector search.",
+        "This deep dive explains Mem0's memory stores, ingestion pipeline, hybrid retrieval with semantic search, BM25 and entity boosting, plus practical open models for running the system locally."
+      ],
+      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "video",
+        "comparisonCohortSize": 8,
+        "mode": "cohort-metric",
+        "primaryMetric": "views",
+        "primaryMetricValue": 31913.0,
+        "metricPercentile": 100.0,
+        "velocityPercentile": 42.86,
+        "objectiveScore": 77.14,
+        "relevanceScore": 75,
+        "contentValueScore": 56.75,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 5.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 3.13,
+        "sourceQualityScore": 82.0,
+        "sourceMetrics": {
+          "views": 31913.0
+        },
+        "selectionLane": "carryover"
+      },
+      "discoveredBy": [
+        "Hugging Face"
+      ]
+    },
+    {
+      "id": "ab33c7304d9d3087",
+      "slug": "spec-driven-development-and-local-ai-are-a-natur-ab33c7304d",
+      "domain": "AI × 量化",
+      "title": "Spec-driven development and local AI are a natural pair.",
+      "description": "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work.",
+      "summary": "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work. Paul Everitt worked both into his new course with DeepLearning.AI. Check it out: https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "视频",
+        "机器学习",
+        "AI 工程"
+      ],
+      "features": [
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:developer-tools",
+          "facet": "topic",
+          "value": "developer-tools",
+          "label": {
+            "zh": "开发工具",
+            "en": "Developer Tools"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "score": 54.57,
+      "publishedAt": "2026-08-28T13:30:38+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "DeepLearning.AI",
+      "contentType": "video",
+      "sourceGroup": "视频",
+      "originalTitle": "Spec-driven development and local AI are a natural pair.",
+      "originalUrl": "https://www.youtube.com/shorts/YVluf1-g0wY",
+      "keyPoints": [
+        "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work.",
+        "Paul Everitt worked both into his new course with DeepLearning.AI.",
+        "Check it out: https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local"
+      ],
+      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
+      "titleEn": "Spec-driven development and local AI are a natural pair.",
+      "descriptionEn": "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work.",
+      "summaryEn": "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work. Paul Everitt worked both into his new course with DeepLearning.AI. Check it out: https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local",
+      "keyPointsEn": [
+        "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work.",
+        "Paul Everitt worked both into his new course with DeepLearning.AI.",
+        "Check it out: https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local"
+      ],
+      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "video",
+        "comparisonCohortSize": 8,
+        "mode": "cohort-metric",
+        "primaryMetric": "views",
+        "primaryMetricValue": 2180.0,
+        "metricPercentile": 28.57,
+        "velocityPercentile": 100.0,
+        "objectiveScore": 57.14,
+        "relevanceScore": 70,
+        "contentValueScore": 37.18,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 0.68,
+          "penalty": 0.0
+        },
+        "freshnessScore": 79.31,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {
+          "views": 2180.0
+        },
+        "selectionLane": "carryover"
+      },
+      "discoveredBy": [
+        "DeepLearning.AI"
+      ]
+    },
+    {
+      "id": "5960322c61cd559d",
+      "slug": "recent-quant-links-from-quantocracy-as-of-08-31--5960322c61",
+      "domain": "量化研究",
+      "title": "Recent Quant Links from Quantocracy as of 08/31/2026",
+      "description": "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026.",
+      "summary": "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026. To see our most recent links, visit the Quant Mashup. Read on readers! Does Trading TAA Strategies More Often Improve Performance? [Allocate Smartly] Most Tactical Asset Allocation (TAA) strategies trade once per month. Thats by design. Short-term market movement is mostly […] The post Recent Quant Links from Quantocracy as of 08/31/2026 appeared first on Quantocracy .",
+      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "tags": [
+        "量化博客",
+        "研究雷达"
+      ],
+      "features": [
+        {
+          "id": "topic:quantitative-finance",
+          "facet": "topic",
+          "value": "quantitative-finance",
+          "label": {
+            "zh": "量化金融",
+            "en": "Quantitative Finance"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        }
+      ],
+      "score": 48.2,
+      "publishedAt": "2026-09-01T05:15:05+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "Quantocracy",
+      "contentType": "article",
+      "sourceGroup": "网站与论坛",
+      "originalTitle": "Recent Quant Links from Quantocracy as of 08/31/2026",
+      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-08312026",
+      "keyPoints": [
+        "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026.",
+        "To see our most recent links, visit the Quant Mashup.",
+        "Read on readers!"
+      ],
+      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
+      "titleEn": "Recent Quant Links from Quantocracy as of 08/31/2026",
+      "descriptionEn": "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026.",
+      "summaryEn": "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026. To see our most recent links, visit the Quant Mashup. Read on readers! Does Trading TAA Strategies More Often Improve Performance? [Allocate Smartly] Most Tactical Asset Allocation (TAA) strategies trade once per month. Thats by design. Short-term market movement is mostly […] The post Recent Quant Links from Quantocracy as of 08/31/2026 appeared first on Quantocracy .",
+      "keyPointsEn": [
+        "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026.",
+        "To see our most recent links, visit the Quant Mashup.",
+        "Read on readers!"
+      ],
+      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
+      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
+      "aiGenerated": false,
+      "summaryProvider": "source",
+      "summaryModel": null,
+      "scoreBreakdown": {
+        "contentType": "article",
+        "comparisonCohortSize": 6,
         "mode": "relevance-fallback",
         "primaryMetric": null,
         "primaryMetricValue": null,
@@ -1336,47 +1688,36 @@
         "velocityPercentile": null,
         "objectiveScore": null,
         "relevanceScore": 80,
-        "freshnessScore": 92.94
+        "contentValueScore": 26.0,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 10.0,
+          "penalty": -25.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
       },
       "discoveredBy": [
-        "arXiv cs.LG"
+        "Quantocracy"
       ]
     },
     {
-      "id": "9853374f9519f73e",
-      "slug": "disaffection-at-work-employee-responses-to-job-r-9853374f95",
+      "id": "a5f73d63aa183c52",
+      "slug": "recent-quant-links-from-quantocracy-as-of-08-25--a5f73d63aa",
       "domain": "量化研究",
-      "title": "Disaffection at Work: Employee Responses to Job-Related Information",
-      "description": "Quiet quitting reflects a form of worker disaffection that operates along the intensive margin of labor supply rather than through job exit.",
-      "summary": "Quiet quitting reflects a form of worker disaffection that operates along the intensive margin of labor supply rather than through job exit. We study how alternative workplace narratives shape workers' behavioral responses using a randomized survey experiment on a representative sample of employees in Italy and France. Respondents are exposed to empirically grounded moral framings of work emphasizing either social justice and collective rights or work organization and employment practices. We find that moral framings reallocate behavior across margins: justice-oriented narratives increase detachment while reducing passive disengagement, whereas organization-centered framing generates no systematic effects.",
+      "title": "Recent Quant Links from Quantocracy as of 08/25/2026",
+      "description": "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026.",
+      "summary": "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026. To see our most recent links, visit the Quant Mashup. Read on readers! FX Edge Lives in Other Markets (cross-asset series) [Aligrithm] A currency futures book built from other currency futures scores a Sharpe of 0.16. The same contracts, wired into […] The post Recent Quant Links from Quantocracy as of 08/25/2026 appeared first on Quantocracy .",
       "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
       "tags": [
-        "论文",
-        "q-fin"
+        "量化博客",
+        "研究雷达"
       ],
       "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
         {
           "id": "topic:quantitative-finance",
           "facet": "topic",
@@ -1389,26 +1730,27 @@
           "confidence": 1.0
         }
       ],
-      "score": 81.28,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "arXiv q-fin",
-      "sourceGroup": "论文",
-      "originalTitle": "Disaffection at Work: Employee Responses to Job-Related Information",
-      "originalUrl": "https://arxiv.org/abs/2608.27538",
+      "score": 39.36,
+      "publishedAt": "2026-08-26T05:15:05+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "Quantocracy",
+      "contentType": "article",
+      "sourceGroup": "网站与论坛",
+      "originalTitle": "Recent Quant Links from Quantocracy as of 08/25/2026",
+      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-08252026",
       "keyPoints": [
-        "Quiet quitting reflects a form of worker disaffection that operates along the intensive margin of labor supply rather than through job exit.",
-        "We study how alternative workplace narratives shape workers' behavioral responses using a randomized survey experiment on a representative sample of employees in Italy and France.",
-        "Respondents are exposed to empirically grounded moral framings of work emphasizing either social justice and collective rights or work organization and employment practices."
+        "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026.",
+        "To see our most recent links, visit the Quant Mashup.",
+        "Read on readers!"
       ],
       "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Disaffection at Work: Employee Responses to Job-Related Information",
-      "descriptionEn": "Quiet quitting reflects a form of worker disaffection that operates along the intensive margin of labor supply rather than through job exit.",
-      "summaryEn": "Quiet quitting reflects a form of worker disaffection that operates along the intensive margin of labor supply rather than through job exit. We study how alternative workplace narratives shape workers' behavioral responses using a randomized survey experiment on a representative sample of employees in Italy and France. Respondents are exposed to empirically grounded moral framings of work emphasizing either social justice and collective rights or work organization and employment practices. We find that moral framings reallocate behavior across margins: justice-oriented narratives increase detachment while reducing passive disengagement, whereas organization-centered framing generates no systematic effects.",
+      "titleEn": "Recent Quant Links from Quantocracy as of 08/25/2026",
+      "descriptionEn": "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026.",
+      "summaryEn": "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026. To see our most recent links, visit the Quant Mashup. Read on readers! FX Edge Lives in Other Markets (cross-asset series) [Aligrithm] A currency futures book built from other currency futures scores a Sharpe of 0.16. The same contracts, wired into […] The post Recent Quant Links from Quantocracy as of 08/25/2026 appeared first on Quantocracy .",
       "keyPointsEn": [
-        "Quiet quitting reflects a form of worker disaffection that operates along the intensive margin of labor supply rather than through job exit.",
-        "We study how alternative workplace narratives shape workers' behavioral responses using a randomized survey experiment on a representative sample of employees in Italy and France.",
-        "Respondents are exposed to empirically grounded moral framings of work emphasizing either social justice and collective rights or work organization and employment practices."
+        "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026.",
+        "To see our most recent links, visit the Quant Mashup.",
+        "Read on readers!"
       ],
       "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
       "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
@@ -1416,8 +1758,8 @@
       "summaryProvider": "source",
       "summaryModel": null,
       "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 349,
+        "contentType": "article",
+        "comparisonCohortSize": 6,
         "mode": "relevance-fallback",
         "primaryMetric": null,
         "primaryMetricValue": null,
@@ -1425,99 +1767,21 @@
         "velocityPercentile": null,
         "objectiveScore": null,
         "relevanceScore": 75,
-        "freshnessScore": 92.94
+        "contentValueScore": 23.75,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 10.0,
+          "penalty": -25.0
+        },
+        "freshnessScore": 63.68,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
       },
       "discoveredBy": [
-        "arXiv q-fin"
-      ]
-    },
-    {
-      "id": "7487be69de765d86",
-      "slug": "do-customer-disclosures-affect-suppliers-interna-7487be69de",
-      "domain": "量化研究",
-      "title": "Do Customer Disclosures Affect Suppliers' Internal Capital Allocation Decisions?",
-      "description": "This study examines whether customer disclosures affect how supplier firms allocate capital across business segments.",
-      "summary": "This study examines whether customer disclosures affect how supplier firms allocate capital across business segments. Customer disclosures can shape supplier investment decisions through two competing channels. They can improve suppliers' information about downstream demand, helping suppliers align capital with growth opportunities (\"information channel\"), or erode incumbent suppliers' private information advantage, inducing costly investments to defend customer relationships (\"competitive-threat channel\"). I use the adoption of SFAS 131 as a customer-level disclosure shock. Suppliers exposed to expanded customer disclosures experience increased product-market competition and reallocate capital toward segments with relatively weak growth-opportunity signals. Suppliers that deviate from allocations predicted by growth signals are more likely to preserve market share and expand their customer base in subsequent years. Using a novel approach to link supplier segments to customer segments, I show that this reallocation is driven by investing in capacity in affected segments, rather than by a correction of prior under-investment. Consistent with the competitive-threat channel, the inves",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "论文",
-        "q-fin"
-      ],
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:quantitative-finance",
-          "facet": "topic",
-          "value": "quantitative-finance",
-          "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        }
-      ],
-      "score": 81.28,
-      "publishedAt": "2026-08-31T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T17:33:10.222097+00:00",
-      "sourceName": "arXiv q-fin",
-      "sourceGroup": "论文",
-      "originalTitle": "Do Customer Disclosures Affect Suppliers' Internal Capital Allocation Decisions?",
-      "originalUrl": "https://arxiv.org/abs/2608.27598",
-      "keyPoints": [
-        "This study examines whether customer disclosures affect how supplier firms allocate capital across business segments.",
-        "Customer disclosures can shape supplier investment decisions through two competing channels.",
-        "They can improve suppliers' information about downstream demand, helping suppliers align capital with growth opportunities (\"information channel\"), or erode incumbent suppliers' private information advantage, inducing costly investments to defend customer relationships (\"competitive-threat channel\")."
-      ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Do Customer Disclosures Affect Suppliers' Internal Capital Allocation Decisions?",
-      "descriptionEn": "This study examines whether customer disclosures affect how supplier firms allocate capital across business segments.",
-      "summaryEn": "This study examines whether customer disclosures affect how supplier firms allocate capital across business segments. Customer disclosures can shape supplier investment decisions through two competing channels. They can improve suppliers' information about downstream demand, helping suppliers align capital with growth opportunities (\"information channel\"), or erode incumbent suppliers' private information advantage, inducing costly investments to defend customer relationships (\"competitive-threat channel\"). I use the adoption of SFAS 131 as a customer-level disclosure shock. Suppliers exposed to expanded customer disclosures experience increased product-market competition and reallocate capital toward segments with relatively weak growth-opportunity signals. Suppliers that deviate from allocations predicted by growth signals are more likely to preserve market share and expand their customer base in subsequent years. Using a novel approach to link supplier segments to customer segments, I show that this reallocation is driven by investing in capacity in affected segments, rather than by a correction of prior under-investment. Consistent with the competitive-threat channel, the inves",
-      "keyPointsEn": [
-        "This study examines whether customer disclosures affect how supplier firms allocate capital across business segments.",
-        "Customer disclosures can shape supplier investment decisions through two competing channels.",
-        "They can improve suppliers' information about downstream demand, helping suppliers align capital with growth opportunities (\"information channel\"), or erode incumbent suppliers' private information advantage, inducing costly investments to defend customer relationships (\"competitive-threat channel\")."
-      ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 349,
-        "mode": "relevance-fallback",
-        "primaryMetric": null,
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 75,
-        "freshnessScore": 92.94
-      },
-      "discoveredBy": [
-        "arXiv q-fin"
+        "Quantocracy"
       ]
     }
   ],
