@@ -9,7 +9,8 @@ Quant Brief collects structured feeds and official release data, normalizes and 
 - arXiv `q-fin`, `cs.LG`, and `cs.CL` feeds
 - Hugging Face Daily Papers
 - Quantocracy and selected quantitative-finance newsletters
-- GitHub Daily Trending repositories relevant to quant, AI, Skills, research, productivity, and useful tools
+- The first three history-eligible repositories from GitHub Daily Trending
+- Recent videos from QuantInsti, Hugging Face, and DeepLearning.AI
 - GitHub releases for the quant-focused TradingAgents, Qlib, and RD-Agent projects
 - Source-based summaries when no model key is configured
 - Optional Chinese structured summaries through OpenAI or DeepSeek
@@ -45,6 +46,14 @@ Copy-Item .env.local.example .env.local
 
 This local-only command uses its own ignored HTTP state, fetches sources, requires successful Chinese AI summaries, writes the daily Edition Snapshot to `storage/editions/YYYY/MM/YYYY-MM-DD/quant-brief-edition.json`, and appends the Edition to `storage/archive/quant-brief.sqlite3`. If the key, model, endpoint, or returned JSON is invalid, the command stops instead of silently storing English fallback summaries. The API key remains in the ignored `.env.local` file and is never sent to the website or committed to Git.
 
+The daily local automation updates the previous complete Singapore calendar day through a fixed operator entry point:
+
+```powershell
+./scripts/update-previous-edition.ps1
+```
+
+Website publication uses `./scripts/publish-edition.ps1 -EditionDate YYYY-MM-DD`. It validates and builds the website, then publishes only `web/data/cards.json` to `main` from a clean temporary checkout, so unrelated local changes are never included in the publication commit. For an explicit historical date, run `./scripts/run-local.ps1 -EditionDate YYYY-MM-DD`. Re-running the same date updates the canonical Edition Snapshot and Archive entry idempotently.
+
 ## Local long-term archive
 
 GitHub remains the reliable daily runner and public transport for the latest edition. Your durable history lives locally in SQLite and is ignored by Git:
@@ -62,13 +71,23 @@ Each new local card contains structured `features` such as `platform:github`, `a
 free-form model-generated `tags` remain editorial aids and are not used as durable filter keys. The Archive indexes
 Features separately and supports date plus multi-Feature intersection through `CardArchive.search(...)`.
 
-Daily ranking is cohort-based rather than a single cross-format formula. Trending repositories first follow GitHub's
-verified daily rank and retain stars-today plus total-star evidence; configured quant repositories use total stars,
-papers prefer citations and may use platform upvotes when citations are unavailable, and future video adapters use
-views. Raw popularity and age-adjusted velocity are converted to percentiles inside each content type, then combined
-with research relevance and freshness. Every card stores `scoreBreakdown`; missing metrics use an explicit relevance
-fallback instead of being treated as zero. Content caps in `config/sources.toml` prevent one format from occupying the
-whole Edition and relax only when needed to fill the daily limit.
+Daily ranking compares Cards inside four Content Sections: GitHub, Paper, Article, and Video. The unfiltered top three
+repositories follow GitHub's verified daily order and retain stars-today plus total-star evidence; configured quant
+repositories use total stars, papers prefer citations and may use platform upvotes, and YouTube feeds use views when
+available. Content value rewards empirical evidence, out-of-sample validation, reproducibility, practical use, and
+specific results, while link roundups are discounted. Popularity, content value, source quality, and freshness are
+recorded in `scoreBreakdown`. Section minimums keep every available section represented, and the GitHub top three are
+reserved before the remaining Cards compete for places. No source can contribute material older than 15 days, and
+the pipeline refuses to publish an Edition when a required Content Section or one of the GitHub top three is missing.
+
+Selection uses a 48-hour primary lane and a 15-day unpublished carryover lane. Fresh Cards compete first inside each
+Content Section; carryover Cards fill only capacity that fresh Cards cannot fill. Once a Card has appeared in an
+earlier Edition it is excluded from later Editions. GitHub Trending scans beyond the first three positions when a
+repository has already been covered, preserving list order until three unseen repositories are found. A Trending
+repository may return only when its daily star gain at least doubles to 500 or more, or its total stars grow by at
+least 1,000 and 25%; a new GitHub Release has its own source URL and is naturally treated as new. The Candidate Pool
+lives at `storage/candidates/rolling-candidate-pool.json`, separate from Fetch State, and GitHub Actions persists it
+through the workflow cache.
 
 ## Optional AI summaries
 
@@ -86,6 +105,22 @@ Never commit access tokens or paste them into source files, workflow YAML, or re
 ## Source configuration
 
 Edit `config/sources.toml` to enable, disable, prioritize, or cap a source. New source types belong behind the source-adapter seam in `quantbrief/sources.py`; ranking, deduplication, summaries, and publishing remain behind the `Pipeline` interface.
+
+## Agent-ready development
+
+Start with [`AGENTS.md`](AGENTS.md), then use [`ARCHITECTURE.md`](ARCHITECTURE.md) as the code map and
+[`docs/QUALITY.md`](docs/QUALITY.md) as the enforceable quality contract. Complex, multi-session changes use the
+execution-plan lifecycle in [`docs/exec-plans/index.md`](docs/exec-plans/index.md).
+
+Run the complete local feedback loop before handing off a change:
+
+```powershell
+./scripts/verify-change.ps1
+```
+
+The repository checker validates product-module dependency direction, declared module ownership, navigation-size
+limits, required knowledge files, and root-file placement. Pull requests run the same architecture check plus Python
+tests and website test, lint, and build steps.
 
 ## Disclaimer
 

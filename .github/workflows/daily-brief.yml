@@ -24,8 +24,20 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Restore rolling Candidate Pool
+        uses: actions/cache/restore@v4
+        with:
+          path: storage/candidates/rolling-candidate-pool.json
+          key: quant-brief-candidates-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            quant-brief-candidates-${{ runner.os }}-
+
       - name: Verify collection pipeline
         run: python -m unittest discover -s tests -v
+
+      - name: Resolve previous Singapore Edition date
+        id: edition
+        run: echo "date=$(TZ=Asia/Singapore date -d yesterday +%F)" >> "$GITHUB_OUTPUT"
 
       - name: Fetch, rank and summarize sources
         env:
@@ -36,7 +48,7 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL || 'deepseek-v4-flash' }}
           DEEPSEEK_BASE_URL: ${{ vars.DEEPSEEK_BASE_URL || 'https://api.deepseek.com' }}
-        run: python -m quantbrief.cli --state .github/state/daily-brief-fetch-state.json
+        run: python -m quantbrief.cli --edition-date "${{ steps.edition.outputs.date }}" --state .github/state/daily-brief-fetch-state.json
 
       - uses: pnpm/action-setup@v4
         with:
@@ -60,3 +72,9 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m "data: publish daily brief"
           git push
+
+      - name: Save rolling Candidate Pool
+        uses: actions/cache/save@v4
+        with:
+          path: storage/candidates/rolling-candidate-pool.json
+          key: quant-brief-candidates-${{ runner.os }}-${{ github.run_id }}

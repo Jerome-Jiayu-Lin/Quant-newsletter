@@ -86,13 +86,19 @@ class RssAdapter:
                 if not link:
                     continue
                 authors = [clean_html(node.findtext("{*}name")) for node in entry.findall("{*}author")]
+                media_description = entry.findtext("{*}group/{*}description")
+                statistics = entry.find("{*}group/{*}community/{*}statistics")
+                metrics: dict[str, float] = {}
+                if statistics is not None and statistics.attrib.get("views"):
+                    metrics["views"] = float(statistics.attrib["views"])
                 items.append(_base_item(
                     source, now,
                     title=clean_html(entry.findtext("{*}title")),
                     url=link,
-                    summary=clean_html(entry.findtext("{*}summary") or entry.findtext("{*}content")),
+                    summary=clean_html(entry.findtext("{*}summary") or entry.findtext("{*}content") or media_description),
                     published_at=parse_date(entry.findtext("{*}published") or entry.findtext("{*}updated"), now),
                     authors=[author for author in authors if author],
+                    metrics=metrics,
                 ))
         else:
             for entry in root.findall(".//item"):
@@ -181,13 +187,7 @@ class GitHubAdapter:
 
 
 class GitHubTrendingAdapter:
-    """GitHub's public daily Trending page with rank and stars-today evidence."""
-
-    RELEVANT_TERMS = {
-        "ai", "llm", "agent", "skill", "quant", "finance", "trading", "research", "science",
-        "data", "automation", "workflow", "productivity", "tool", "browser", "health", "life",
-        "machine learning", "deep learning", "人工智能", "量化", "金融", "效率", "科研",
-    }
+    """GitHub's ordered daily list; publication history chooses the first three eligible repositories."""
 
     def fetch(self, source: dict[str, Any], client: HttpClient, now: datetime) -> list[RawItem]:
         response = client.get(source["url"], accept="text/html")
@@ -196,6 +196,8 @@ class GitHubTrendingAdapter:
         html = response.body.decode("utf-8", errors="replace")
         items: list[RawItem] = []
         for rank, article in enumerate(re.findall(r"<article\b[\s\S]*?</article>", html, re.I), start=1):
+            if rank > int(source.get("scan_limit", 25)):
+                break
             repository_match = re.search(r"<h2\b[\s\S]*?<a[^>]+href=[\"']/([^\"']+)[\"']", article, re.I)
             if not repository_match:
                 continue
@@ -209,8 +211,6 @@ class GitHubTrendingAdapter:
             stars = self._number(clean_html(stars_match.group(1))) if stars_match else 0.0
             stars_today = self._number(stars_today_match.group(1)) if stars_today_match else 0.0
             text = f"{repository} {description} {language}".casefold()
-            if not any(term in text for term in self.RELEVANT_TERMS):
-                continue
             domain = self._domain(text)
             items.append(
                 _base_item(

@@ -151,6 +151,18 @@ class ProviderResponseTests(unittest.TestCase):
         repair = json.loads(request.call_args.args[0].data)
         self.assertIn("title_en", repair["messages"][-1]["content"])
 
+    def test_deepseek_retries_when_the_first_repair_is_still_incomplete(self) -> None:
+        incomplete = {key: value for key, value in self.card.items() if key != "title_en"}
+        responses = [
+            FakeResponse({"choices": [{"message": {"content": json.dumps(incomplete, ensure_ascii=False)}}]}),
+            FakeResponse({"choices": [{"message": {"content": json.dumps(incomplete, ensure_ascii=False)}}]}),
+            FakeResponse({"choices": [{"message": {"content": json.dumps(self.card, ensure_ascii=False)}}]}),
+        ]
+        with patch("urllib.request.urlopen", side_effect=responses) as request:
+            result = DeepSeekChatSummary("test-key").summarize(raw_item())
+        self.assertEqual(request.call_count, 3)
+        self.assertEqual(result.title_en, "Factor Study")
+
 
 if __name__ == "__main__":
     unittest.main()

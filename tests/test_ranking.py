@@ -72,6 +72,38 @@ class CohortRankerTests(unittest.TestCase):
         self.assertEqual(by_title["first"].breakdown["sourceMetrics"]["trending_rank"], 1)
         self.assertGreater(by_title["first"].score, by_title["second"].score)
 
+    def test_empirical_content_outranks_a_generic_overview_without_metrics(self) -> None:
+        empirical = self.item("empirical", "paper", {})
+        empirical.summary = (
+            "Out-of-sample walk-forward backtest on 12.36 million observations from 2015 to 2026. "
+            "The model reports AUC 0.706, transaction costs, robustness checks, and reproducible code."
+        )
+        overview = self.item("overview", "paper", {})
+        overview.summary = "A general introduction to quantitative finance and machine learning."
+
+        ranked = CohortRanker().rank([overview, empirical], self.now)
+        by_title = {result.item.title: result for result in ranked}
+
+        self.assertGreater(by_title["empirical"].score, by_title["overview"].score)
+        self.assertGreater(
+            by_title["empirical"].breakdown["contentValueScore"],
+            by_title["overview"].breakdown["contentValueScore"],
+        )
+
+    def test_daily_link_roundup_is_penalized_against_original_analysis(self) -> None:
+        analysis = self.item("analysis", "article", {})
+        analysis.summary = "We backtested 23 walk-forward windows and report Sharpe 1.2 after transaction costs."
+        roundup = self.item("roundup", "article", {})
+        roundup.title = "Recent Quant Links from Quantocracy"
+        roundup.summary = "A daily roundup of selected links and newsletter articles."
+
+        ranked = CohortRanker().rank([roundup, analysis], self.now)
+        self.assertEqual(ranked[0].item.source_id, "analysis")
+        self.assertLess(
+            next(result for result in ranked if result.item.source_id == "roundup").breakdown["contentSignals"]["penalty"],
+            0,
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

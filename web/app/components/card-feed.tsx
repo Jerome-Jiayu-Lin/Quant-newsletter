@@ -5,24 +5,36 @@ import type { KnowledgeCard } from '../../lib/cards';
 import { formatSingaporeTime } from '../../lib/cards';
 
 const toneByDomain: Record<string, string> = {
-  '量化研究': 'signal-amber', 'AI × 量化': 'signal-blue', '开源工程': 'signal-green', 'AI 工具': 'signal-orange',
+  '量化研究': 'tone-lime', 'AI × 量化': 'tone-blue', '开源工程': 'tone-violet', 'AI 工具': 'tone-coral',
 };
+
+const sectionOrder = ['repository', 'paper', 'article', 'video'] as const;
+const sectionLabels: Record<(typeof sectionOrder)[number], string> = {
+  repository: 'GitHub', paper: '论文', article: 'Article', video: 'Video',
+};
+const sectionCodes: Record<(typeof sectionOrder)[number], string> = {
+  repository: 'REP', paper: 'PPR', article: 'ART', video: 'VID',
+};
+
+function contentTypeOf(card: KnowledgeCard): (typeof sectionOrder)[number] {
+  if (card.contentType && sectionOrder.includes(card.contentType)) return card.contentType;
+  if (card.sourceGroup === '论文') return 'paper';
+  if (card.sourceGroup === '开源项目' || card.sourceGroup === 'AI 工具') return 'repository';
+  if (card.sourceGroup === '视频') return 'video';
+  return 'article';
+}
 
 function normalizeSearchText(value: string) {
   return value.normalize('NFKC').toLocaleLowerCase('zh-CN').trim();
 }
 
 export default function CardFeed({ cards }: { cards: KnowledgeCard[] }) {
-  const domains = ['全部', ...Array.from(new Set(cards.map((card) => card.domain)))];
-  const [activeDomain, setActiveDomain] = useState('全部');
+  const [activeSection, setActiveSection] = useState('全部');
   const [query, setQuery] = useState('');
   const deferredQuery = useDeferredValue(query);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchableCards = useMemo(
-    () => cards.map((card) => ({
-      card,
-      fields: [card.title, ...card.tags].map(normalizeSearchText),
-    })),
+    () => cards.map((card) => ({ card, fields: [card.title, ...card.tags].map(normalizeSearchText) })),
     [cards],
   );
   const searchTerms = useMemo(
@@ -31,10 +43,13 @@ export default function CardFeed({ cards }: { cards: KnowledgeCard[] }) {
   );
   const visibleCards = useMemo(() => searchableCards
     .filter(({ card, fields }) => (
-      (activeDomain === '全部' || card.domain === activeDomain)
+      (activeSection === '全部' || contentTypeOf(card) === activeSection)
       && searchTerms.every((term) => fields.some((field) => field.includes(term)))
     ))
-    .map(({ card }) => card), [activeDomain, searchTerms, searchableCards]);
+    .map(({ card }) => card), [activeSection, searchTerms, searchableCards]);
+  const visibleGroups = useMemo(() => sectionOrder
+    .map((section) => ({ section, cards: visibleCards.filter((card) => contentTypeOf(card) === section) }))
+    .filter(({ cards: sectionCards }) => sectionCards.length > 0), [visibleCards]);
 
   useEffect(() => {
     const handleShortcut = (event: KeyboardEvent) => {
@@ -53,67 +68,83 @@ export default function CardFeed({ cards }: { cards: KnowledgeCard[] }) {
 
   return (
     <>
-      <div className="py-6">
-        <div className="flex flex-col gap-3 rounded-[22px] border border-[#173f35]/12 bg-[#fffdf7]/80 p-3 shadow-[0_10px_32px_rgba(29,55,45,0.045)] sm:flex-row sm:items-center">
-          <label className="group flex min-w-0 flex-1 items-center gap-3 rounded-2xl bg-white px-4 py-3 ring-1 ring-[#173f35]/10 transition focus-within:ring-2 focus-within:ring-[#b34f2c]/55" htmlFor="card-search">
-            <svg aria-hidden="true" className="h-5 w-5 shrink-0 text-[#6d7973]" fill="none" viewBox="0 0 24 24">
-              <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" />
-              <path d="m16.5 16.5 4 4" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
-            </svg>
-            <input
-              autoComplete="off"
-              className="min-w-0 flex-1 bg-transparent text-[15px] text-[#1f2a25] outline-none placeholder:text-[#8a938e]"
-              id="card-search"
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="搜索标题或标签…"
-              ref={searchInputRef}
-              type="search"
-              value={query}
-            />
-            {query ? (
-              <button aria-label="清空搜索" className="rounded-lg px-2 py-1 text-xs text-[#6d7973] hover:bg-[#173f35]/6 hover:text-[#173f35]" onClick={() => setQuery('')} type="button">清空</button>
-            ) : <kbd className="hidden rounded-md border border-[#173f35]/12 bg-[#f5f1e8] px-2 py-1 text-[11px] text-[#7b867f] sm:inline">Ctrl K</kbd>}
-          </label>
-          <p aria-live="polite" className="shrink-0 px-2 text-xs text-[#6d7973]">
-            {searchTerms.length ? `找到 ${visibleCards.length} 条` : `共 ${cards.length} 条信号`}
-          </p>
-        </div>
+      <div className="filter-console">
+        <label className="search-control" htmlFor="card-search">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="6.75" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            <path d="m16 16 4 4" fill="none" stroke="currentColor" strokeLinecap="square" strokeWidth="1.5" />
+          </svg>
+          <input
+            autoComplete="off"
+            id="card-search"
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="搜索标题或标签"
+            ref={searchInputRef}
+            type="search"
+            value={query}
+          />
+          {query ? (
+            <button aria-label="清空搜索" onClick={() => setQuery('')} type="button">CLEAR</button>
+          ) : <kbd>CTRL K</kbd>}
+        </label>
 
-        <nav aria-label="领域筛选" className="hide-scrollbar flex gap-2 overflow-x-auto pt-4">
-          {domains.map((domain) => (
+        <nav aria-label="内容板块筛选" className="filter-tabs">
+          {['全部', ...sectionOrder].map((section) => (
             <button
-              aria-pressed={activeDomain === domain}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm transition ${activeDomain === domain ? 'bg-[#173f35] text-white' : 'border border-[#173f35]/15 bg-white/35 text-[#43534c] hover:bg-white/70'}`}
-              key={domain} onClick={() => setActiveDomain(domain)} type="button"
-            >{domain}</button>
+              aria-pressed={activeSection === section}
+              className={activeSection === section ? 'active' : ''}
+              key={section}
+              onClick={() => setActiveSection(section)}
+              type="button"
+            >
+              <span>{section === '全部' ? 'ALL' : sectionCodes[section]}</span>
+              {section === '全部' ? '全部' : sectionLabels[section]}
+            </button>
           ))}
         </nav>
+
+        <p aria-live="polite" className="result-count">
+          <i /> {searchTerms.length ? `MATCHED ${String(visibleCards.length).padStart(2, '0')}` : `INDEXED ${String(cards.length).padStart(2, '0')}`}
+        </p>
       </div>
 
-      <div aria-live="polite" className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {visibleCards.map((card, index) => (
-          <article className="group flex min-h-[340px] flex-col rounded-[26px] border border-[#173f35]/12 bg-[#fffdf7] p-6 shadow-[0_14px_40px_rgba(29,55,45,0.06)] transition hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(29,55,45,0.11)]" key={card.id}>
-            <div className="mb-7 flex items-center justify-between gap-3 text-xs">
-              <span className={`signal ${toneByDomain[card.domain] ?? 'signal-neutral'}`}>{card.domain}</span>
-              <span className="text-[#7b867f]">{String(index + 1).padStart(2, '0')}</span>
+      <div aria-live="polite" className="signal-groups">
+        {visibleGroups.map(({ section, cards: sectionCards }, groupIndex) => (
+          <section className="signal-group" key={section}>
+            <div className="group-heading">
+              <div><span>0{groupIndex + 1} / {sectionCodes[section]}</span><h3>{sectionLabels[section]}</h3></div>
+              <p>SELECTED SIGNALS <strong>{String(sectionCards.length).padStart(2, '0')}</strong></p>
             </div>
-            <h2 className="line-clamp-3 font-serif text-[1.65rem] leading-[1.18] tracking-[-0.02em]">{card.title}</h2>
-            <p className="mt-4 line-clamp-4 text-sm leading-7 text-[#5e6d66]">{card.description}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {card.tags.slice(0, 3).map((tag) => <span className="rounded-full bg-[#173f35]/6 px-2.5 py-1 text-xs text-[#56645e]" key={tag}>{tag}</span>)}
+            <div className="card-grid">
+              {sectionCards.map((card, index) => (
+                <article className={`signal-card ${toneByDomain[card.domain] ?? 'tone-neutral'}`} key={card.id}>
+                  <span className="card-trace" aria-hidden="true" />
+                  <div className="card-meta">
+                    <span className="domain-label"><i /> {card.domain}</span>
+                    <span className="card-index">{sectionCodes[section]}-{String(index + 1).padStart(2, '0')}</span>
+                  </div>
+                  <h4>{card.title}</h4>
+                  <p className="card-description">{card.description}</p>
+                  <div className="tag-list">
+                    {card.tags.slice(0, 3).map((tag) => <span key={tag}>#{tag}</span>)}
+                  </div>
+                  <div className="card-footer">
+                    <div><span>{card.sourceName}</span><time>{formatSingaporeTime(card.publishedAt)} SGT</time></div>
+                    <a href={`/cards/${card.slug}`} aria-label={`阅读摘要：${card.title}`}><span>打开信号</span><b aria-hidden="true">↗</b></a>
+                  </div>
+                </article>
+              ))}
             </div>
-            <div className="mt-auto flex items-end justify-between gap-3 border-t border-[#173f35]/10 pt-5 text-xs text-[#7b867f]">
-              <span>{card.sourceName}<br />{formatSingaporeTime(card.publishedAt)}</span>
-              <a className="text-sm font-semibold text-[#173f35] group-hover:text-[#b34f2c]" href={`/cards/${card.slug}`}>阅读摘要 →</a>
-            </div>
-          </article>
+          </section>
         ))}
       </div>
+
       {visibleCards.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-[#173f35]/20 p-10 text-center text-[#5e6d66]">
-          <p className="font-serif text-xl text-[#33443c]">没有找到匹配的信号</p>
-          <p className="mt-2 text-sm">{query ? '试试更短的关键词，或切换到“全部”领域。' : '这个领域今天还没有信号。'}</p>
-          {query ? <button className="mt-5 rounded-full bg-[#173f35] px-4 py-2 text-sm text-white hover:bg-[#285b4f]" onClick={() => setQuery('')} type="button">清空搜索</button> : null}
+        <div className="empty-state">
+          <span>NO SIGNAL</span>
+          <h3>没有找到匹配的信号</h3>
+          <p>{query ? '试试更短的关键词，或切换到全部板块。' : '这个板块今天还没有信号。'}</p>
+          {query ? <button onClick={() => setQuery('')} type="button">清空搜索</button> : null}
         </div>
       ) : null}
     </>

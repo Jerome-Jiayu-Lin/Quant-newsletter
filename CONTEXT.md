@@ -12,6 +12,14 @@ _Avoid_: Daily data, newsletter dump, batch, result
 A classified bilingual editorial record containing localized titles and summaries, Features, provenance, and an original link.
 _Avoid_: Item, row, article data, card data
 
+**Content Section**:
+One of the four comparable Card cohorts: GitHub, Paper, Article, or Video. Cards compete for value within their Content Section before the Edition is assembled.
+_Avoid_: Domain, source group, format bucket
+
+**Candidate Pool**:
+The ignored rolling store of unpublished Cards eligible for a future Edition. The primary lane covers 48 hours; the carryover lane retains unpublished candidates for at most 15 days.
+_Avoid_: Fetch State, Archive, Edition backlog
+
 **Feature**:
 A stable, searchable characteristic supported by source metadata or content evidence and presented with Chinese and English labels.
 _Avoid_: Free-form tag, keyword, category

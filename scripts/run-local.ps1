@@ -1,3 +1,7 @@
+param(
+    [string]$EditionDate
+)
+
 $ErrorActionPreference = 'Stop'
 
 $projectRoot = Split-Path -Parent $PSScriptRoot
@@ -13,13 +17,31 @@ Push-Location $projectRoot
 $runExitCode = 0
 try {
     $singaporeTimeZone = [System.TimeZoneInfo]::FindSystemTimeZoneById('Singapore Standard Time')
-    $editionDate = [System.TimeZoneInfo]::ConvertTimeFromUtc([DateTime]::UtcNow, $singaporeTimeZone)
+    if ($EditionDate) {
+        $parsedEditionDate = [DateTime]::MinValue
+        $validDate = [DateTime]::TryParseExact(
+            $EditionDate,
+            'yyyy-MM-dd',
+            [System.Globalization.CultureInfo]::InvariantCulture,
+            [System.Globalization.DateTimeStyles]::None,
+            [ref]$parsedEditionDate
+        )
+        if (-not $validDate) {
+            throw 'EditionDate must use YYYY-MM-DD.'
+        }
+        $editionDateValue = $parsedEditionDate
+    }
+    else {
+        $editionDateValue = [System.TimeZoneInfo]::ConvertTimeFromUtc([DateTime]::UtcNow, $singaporeTimeZone)
+    }
+    $editionDateText = $editionDateValue.ToString('yyyy-MM-dd')
     $editionDirectory = Join-Path $projectRoot (
-        'storage/editions/{0}/{1}/{2}' -f $editionDate.ToString('yyyy'), $editionDate.ToString('MM'), $editionDate.ToString('yyyy-MM-dd')
+        'storage/editions/{0}/{1}/{2}' -f $editionDateValue.ToString('yyyy'), $editionDateValue.ToString('MM'), $editionDateText
     )
     $editionSnapshot = Join-Path $editionDirectory 'quant-brief-edition.json'
 
     & $python.Source -m quantbrief.cli `
+        --edition-date $editionDateText `
         --env-file .env.local `
         --require-ai `
         --state storage/state/local-fetch-state.json `

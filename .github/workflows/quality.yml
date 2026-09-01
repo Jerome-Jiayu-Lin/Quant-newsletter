@@ -1,0 +1,48 @@
+name: Repository Quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check repository architecture
+        run: python scripts/check-repository.py
+
+      - name: Test collection pipeline
+        run: python -m unittest discover -s tests -v
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+
+      - name: Install website dependencies
+        working-directory: web
+        run: pnpm install --frozen-lockfile
+
+      - name: Test, lint and build website
+        working-directory: web
+        run: pnpm test && pnpm lint && pnpm build

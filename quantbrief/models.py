@@ -33,6 +33,7 @@ class KnowledgeCard:
     id: str
     slug: str
     domain: str
+    content_type: str
     source_name: str
     source_group: str
     original_title: str
@@ -65,6 +66,7 @@ class KnowledgeCard:
         payload["publishedAt"] = self.published_at.isoformat()
         payload["retrievedAt"] = self.retrieved_at.isoformat()
         payload["sourceName"] = payload.pop("source_name")
+        payload["contentType"] = payload.pop("content_type")
         payload["sourceGroup"] = payload.pop("source_group")
         payload["originalTitle"] = payload.pop("original_title")
         payload["originalUrl"] = payload.pop("original_url")

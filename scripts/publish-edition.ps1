@@ -1,0 +1,137 @@
+param(
+    [Parameter(Mandatory = $true)]
+    [ValidatePattern('^\d{4}-\d{2}-\d{2}$')]
+    [string]$EditionDate
+)
+
+$ErrorActionPreference = 'Stop'
+
+$projectRoot = Split-Path -Parent $PSScriptRoot
+$dateParts = $EditionDate.Split('-')
+$editionSnapshot = Join-Path $projectRoot (
+    'storage/editions/{0}/{1}/{2}/quant-brief-edition.json' -f $dateParts[0], $dateParts[1], $EditionDate
+)
+$websiteDataset = Join-Path $projectRoot 'web/data/cards.json'
+
+if (-not (Test-Path -LiteralPath $editionSnapshot)) {
+    throw "Edition Snapshot not found: $editionSnapshot"
+}
+
+$datasetText = [System.IO.File]::ReadAllText($editionSnapshot, [System.Text.Encoding]::UTF8)
+$dataset = $datasetText | ConvertFrom-Json
+$expectedEdition = $EditionDate.Replace('-', '.')
+if ($dataset.edition -ne $expectedEdition) {
+    throw "Edition mismatch: expected $expectedEdition, found $($dataset.edition)."
+}
+if (@($dataset.cards).Count -lt 15) {
+    throw "Website publication requires a complete 15-Card Edition."
+}
+
+$requiredFields = @(
+    'title', 'description', 'originalTitle', 'domain', 'sourceName', 'publishedAt',
+    'originalUrl', 'summaryProvider', 'summaryModel', 'titleEn', 'descriptionEn',
+    'summaryEn', 'keyPointsEn', 'whyItMattersEn', 'limitationsEn'
+)
+foreach ($card in $dataset.cards) {
+    foreach ($field in $requiredFields) {
+        if (-not ($card.PSObject.Properties.Name -contains $field) -or [string]::IsNullOrWhiteSpace([string]$card.$field)) {
+            throw "Card $($card.id) cannot be published because $field is missing."
+        }
+    }
+}
+
+Copy-Item -LiteralPath $editionSnapshot -Destination $websiteDataset -Force
+
+$pnpm = Get-Command pnpm -ErrorAction SilentlyContinue
+if (-not $pnpm) {
+    throw 'pnpm was not found in PATH.'
+}
+$node = Get-Command node -ErrorAction SilentlyContinue
+if (-not $node) {
+    $dependencyRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $pnpm.Source))
+    $bundledNode = Join-Path $dependencyRoot 'node/bin/node.exe'
+    if (-not (Test-Path -LiteralPath $bundledNode)) {
+        throw 'Node.js was not found in PATH or beside the bundled pnpm runtime.'
+    }
+    $nodeDirectory = Split-Path -Parent $bundledNode
+}
+else {
+    $nodeDirectory = Split-Path -Parent $node.Source
+}
+
+$originalPath = $env:PATH
+$env:PATH = $nodeDirectory + [System.IO.Path]::PathSeparator + $env:PATH
+Push-Location (Join-Path $projectRoot 'web')
+try {
+    & $pnpm.Source test
+    if ($LASTEXITCODE -ne 0) {
+        exit $LASTEXITCODE
+    }
+    & $pnpm.Source build
+    if ($LASTEXITCODE -ne 0) {
+        exit $LASTEXITCODE
+    }
+}
+finally {
+    Pop-Location
+    $env:PATH = $originalPath
+}
+
+$remoteUrl = (& git -C $projectRoot remote get-url origin).Trim()
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($remoteUrl)) {
+    throw 'Git origin is not configured.'
+}
+
+$temporaryRoot = [System.IO.Path]::GetFullPath([System.IO.Path]::GetTempPath())
+$publishCheckout = Join-Path $temporaryRoot ('quant-brief-publish-' + [guid]::NewGuid().ToString('N'))
+$resolvedCheckout = [System.IO.Path]::GetFullPath($publishCheckout)
+if (-not $resolvedCheckout.StartsWith($temporaryRoot, [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "Temporary publish checkout escaped the OS temporary directory: $resolvedCheckout"
+}
+try {
+    $cloneSucceeded = $false
+    for ($attempt = 1; $attempt -le 3; $attempt++) {
+        & git clone --depth 1 --branch main --single-branch $remoteUrl $publishCheckout
+        if ($LASTEXITCODE -eq 0) {
+            $cloneSucceeded = $true
+            break
+        }
+        if (Test-Path -LiteralPath $publishCheckout) {
+            Remove-Item -LiteralPath $publishCheckout -Recurse -Force
+        }
+        if ($attempt -lt 3) {
+            Write-Warning "Git clone attempt $attempt failed; retrying in 5 seconds."
+            Start-Sleep -Seconds 5
+        }
+    }
+    if (-not $cloneSucceeded) {
+        throw 'Unable to clone origin/main after 3 attempts.'
+    }
+
+    $publishDataset = Join-Path $publishCheckout 'web/data/cards.json'
+    Copy-Item -LiteralPath $editionSnapshot -Destination $publishDataset -Force
+
+    & git -C $publishCheckout config user.name 'quant-brief-bot'
+    & git -C $publishCheckout config user.email 'quant-brief-bot@users.noreply.github.com'
+    & git -C $publishCheckout add -- web/data/cards.json
+    & git -C $publishCheckout diff --cached --quiet
+    if ($LASTEXITCODE -eq 0) {
+        Write-Output "website already publishes Edition $expectedEdition"
+        return
+    }
+
+    & git -C $publishCheckout commit -m "data: publish $EditionDate brief" -- web/data/cards.json
+    if ($LASTEXITCODE -ne 0) {
+        exit $LASTEXITCODE
+    }
+    & git -C $publishCheckout push origin main
+    if ($LASTEXITCODE -ne 0) {
+        exit $LASTEXITCODE
+    }
+    Write-Output "published Edition $expectedEdition to website data"
+}
+finally {
+    if (Test-Path -LiteralPath $resolvedCheckout) {
+        Remove-Item -LiteralPath $resolvedCheckout -Recurse -Force
+    }
+}

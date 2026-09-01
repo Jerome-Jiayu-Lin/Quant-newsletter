@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import re
 from dataclasses import dataclass
 from datetime import datetime
 
@@ -13,6 +14,21 @@ PRIMARY_METRICS = {
     "repository": ("trending_rank_score", "stars_delta_1d", "stars"),
     "article": ("engagement",),
 }
+
+EVIDENCE_PATTERNS = {
+    "out_of_sample": r"out[- ]of[- ]sample|walk[- ]forward|holdout|样本外|滚动验证",
+    "empirical_test": r"backtest|experiment|benchmark|ablation|robustness|回测|实验|基准|消融|稳健",
+    "data_scope": r"dataset|observations?|sample|panel|\bdata\b|数据集|观测|样本",
+    "evaluation": r"auc|sharpe|sortino|drawdown|accuracy|f1|r\s*[²2]|mape|crps|p[- ]?value|t[- ]?stat",
+    "realism": r"transaction costs?|slippage|market impact|fees?|operational costs?|交易成本|滑点|冲击成本",
+}
+ACTION_PATTERNS = {
+    "implementation": r"implementation|tutorial|how to|framework|library|api|workflow|部署|实现|教程|框架|工作流",
+    "reproducibility": r"reproducible|open[- ]source|source code|github|replicat|可复现|开源|源码|复现",
+    "decision_use": r"strategy|portfolio|risk management|execution|trading|allocation|策略|组合|风险管理|执行|交易",
+}
+NOVELTY_PATTERN = r"introduc|propos|new method|finds? that|outperform|release|首次|提出|发现|优于|发布"
+ROUNDUP_PATTERN = r"recent .* links|daily (?:roundup|wrap)|weekly links|link roundup|每日汇总|链接汇总"
 
 
 @dataclass(frozen=True, slots=True)
@@ -49,13 +65,15 @@ class CohortRanker:
                 velocity_percentile = self._percentile(velocity_values[id(item)], observed_velocity)
                 relevance = self._relevance(item)
                 freshness = self._freshness(item, now)
+                content_value, content_signals = self._content_value(item, relevance)
+                source_quality = max(0.0, min(100.0, item.priority * 100.0))
                 if metric_percentile is None:
-                    score = relevance * 0.65 + freshness * 0.35
+                    score = content_value * 0.70 + freshness * 0.20 + source_quality * 0.10
                     objective = None
                     mode = "relevance-fallback"
                 else:
                     objective = metric_percentile * 0.6 + (velocity_percentile or 0.0) * 0.4
-                    score = objective * 0.70 + relevance * 0.20 + freshness * 0.10
+                    score = objective * 0.35 + content_value * 0.40 + freshness * 0.15 + source_quality * 0.10
                     mode = "cohort-metric"
                 results.append(
                     RankedItem(
@@ -71,7 +89,10 @@ class CohortRanker:
                             "velocityPercentile": self._rounded(velocity_percentile),
                             "objectiveScore": self._rounded(objective),
                             "relevanceScore": round(relevance, 2),
+                            "contentValueScore": round(content_value, 2),
+                            "contentSignals": content_signals,
                             "freshnessScore": round(freshness, 2),
+                            "sourceQualityScore": round(source_quality, 2),
                             "sourceMetrics": dict(item.metrics),
                         },
                     )
@@ -123,7 +144,26 @@ class CohortRanker:
     @staticmethod
     def _freshness(item: RawItem, now: datetime) -> float:
         age_days = max(0.0, (now - item.published_at).total_seconds() / 86400)
-        return max(0.0, 100.0 - age_days * 12.5)
+        return max(0.0, 100.0 * (1.0 - age_days / 15.0))
+
+    @staticmethod
+    def _content_value(item: RawItem, relevance: float) -> tuple[float, dict[str, float]]:
+        text = f"{item.title} {item.summary}".casefold()
+        evidence_hits = sum(bool(re.search(pattern, text, re.I)) for pattern in EVIDENCE_PATTERNS.values())
+        action_hits = sum(bool(re.search(pattern, text, re.I)) for pattern in ACTION_PATTERNS.values())
+        novelty = 8.0 if re.search(NOVELTY_PATTERN, text, re.I) else 0.0
+        number_hits = len(re.findall(r"(?<!\w)\d+(?:[.,]\d+)?%?", text))
+        specificity = min(10.0, number_hits * 2.0 + len(item.summary) / 400.0)
+        penalty = -25.0 if re.search(ROUNDUP_PATTERN, text, re.I) else 0.0
+        signals = {
+            "evidence": min(25.0, evidence_hits * 5.0),
+            "actionability": min(15.0, action_hits * 5.0),
+            "novelty": novelty,
+            "specificity": round(specificity, 2),
+            "penalty": penalty,
+        }
+        score = relevance * 0.45 + sum(signals.values())
+        return max(0.0, min(100.0, score)), signals
 
     @staticmethod
     def _rounded(value: float | None) -> float | None:

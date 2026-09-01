@@ -60,6 +60,7 @@ class PipelineTests(unittest.TestCase):
         ranked = CohortRanker().rank([item], self.now)[0]
         card = self.pipeline._to_card(item, ranked.score, ranked.breakdown).as_web_dict()
         self.assertEqual(card["originalUrl"], item.url)
+        self.assertEqual(card["contentType"], "article")
         self.assertFalse(card["aiGenerated"])
         self.assertTrue(card["slug"])
         self.assertEqual(card["titleEn"], item.title)
@@ -91,6 +92,47 @@ class PipelineTests(unittest.TestCase):
             content_caps={"article": 2, "repository": 1},
         )
         self.assertEqual([result.item.content_type for result in selected], ["article", "article", "repository"])
+
+    def test_selection_guarantees_source_and_content_minimums_before_competing_for_slots(self) -> None:
+        ranked: list[RankedItem] = []
+        for index, content_type in enumerate(["paper", "paper", "article", "video"]):
+            item = self.item(source=f"{content_type}-{index}", url=f"https://example.com/{index}", title=str(index))
+            item.content_type = content_type
+            ranked.append(RankedItem(item, 100 - index, {}))
+        for index in range(3):
+            item = self.item(source="github-trending-daily", url=f"https://github.com/example/{index}", title=f"repo-{index}")
+            item.content_type = "repository"
+            ranked.append(RankedItem(item, 50 - index, {}))
+
+        selected = self.pipeline._select(
+            ranked,
+            limit=7,
+            source_caps={result.item.source_id: 3 for result in ranked},
+            content_caps={"paper": 2, "repository": 3, "article": 1, "video": 1},
+            content_mins={"paper": 1, "repository": 1, "article": 1, "video": 1},
+            source_mins={"github-trending-daily": 3},
+        )
+
+        self.assertEqual(sum(result.item.source_id == "github-trending-daily" for result in selected), 3)
+        self.assertEqual({result.item.content_type for result in selected}, {"paper", "repository", "article", "video"})
+
+    def test_global_fifteen_day_cutoff_cannot_be_extended_by_a_source(self) -> None:
+        global_cutoff = self.pipeline._cutoff(lookback_hours=720, max_age_days=15)
+        source_cutoff = self.pipeline._cutoff(lookback_hours=24, max_age_days=15)
+
+        self.assertEqual(global_cutoff, self.now - timedelta(days=15))
+        self.assertEqual(source_cutoff, self.now - timedelta(hours=24))
+
+    def test_incomplete_required_sections_are_rejected(self) -> None:
+        paper = self.item(source="paper", url="https://example.com/paper", title="Paper")
+        paper.content_type = "paper"
+
+        with self.assertRaisesRegex(RuntimeError, "video:1"):
+            self.pipeline._validate_selection(
+                [RankedItem(paper, 80, {})],
+                content_mins={"paper": 1, "video": 1},
+                source_mins={},
+            )
 
 
 if __name__ == "__main__":

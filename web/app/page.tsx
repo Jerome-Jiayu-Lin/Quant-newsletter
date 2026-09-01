@@ -1,40 +1,96 @@
 import CardFeed from './components/card-feed';
 import { getDataset } from '../lib/cards';
 
+const contentTypes = ['repository', 'paper', 'article', 'video'] as const;
+
+function resolveContentType(sourceGroup: string, contentType?: string) {
+  if (contentType && contentTypes.includes(contentType as (typeof contentTypes)[number])) return contentType;
+  if (sourceGroup === '论文') return 'paper';
+  if (sourceGroup === '开源项目' || sourceGroup === 'AI 工具') return 'repository';
+  if (sourceGroup === '视频') return 'video';
+  return 'article';
+}
+
 export default async function Home() {
   const dataset = await getDataset();
   const failedSources = Object.keys(dataset.sourceErrors).length;
+  const paperCount = dataset.cards.filter((card) => resolveContentType(card.sourceGroup, card.contentType) === 'paper').length;
+  const engineeringCount = dataset.cards.filter((card) => resolveContentType(card.sourceGroup, card.contentType) === 'repository').length;
+  const sourceCount = new Set(dataset.cards.map((card) => card.sourceName)).size;
+
   return (
-    <main className="min-h-screen bg-[#f5f1e8] text-[#1f2a25]">
-      <header className="border-b border-[#1f2a25]/10 bg-[#f5f1e8]/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
-          <a className="flex items-center gap-3" href="#top" aria-label="Quant Brief 首页">
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-[#173f35] font-serif text-lg text-[#f7d873]">Q</span>
-            <span><strong className="block font-serif text-lg leading-none">Quant Brief</strong><span className="text-xs text-[#5e6d66]">研究者的每日信号</span></span>
+    <main className="site-shell">
+      <header className="topbar">
+        <div className="topbar-inner">
+          <a className="brand" href="#top" aria-label="Quant Brief 首页">
+            <span className="brand-mark" aria-hidden="true"><span>Q</span></span>
+            <span className="brand-copy">
+              <strong>QUANT BRIEF</strong>
+              <span>RESEARCH INTELLIGENCE</span>
+            </span>
           </a>
-          <div className="flex items-center gap-3 text-sm text-[#5e6d66]">
-            <span className="hidden sm:inline">新加坡 · {dataset.edition}</span>
-            <span className="rounded-full border border-[#173f35]/15 bg-white/50 px-3 py-1.5">今日 {dataset.cards.length} 条</span>
+          <div className="topbar-status">
+            <span className="system-state"><i /> SYSTEM ONLINE</span>
+            <span className="topbar-rule" aria-hidden="true" />
+            <span>SGT · {dataset.edition}</span>
           </div>
         </div>
       </header>
 
-      <section id="top" className="mx-auto max-w-6xl px-5 pb-12 pt-12 sm:px-8 sm:pt-16">
-        <div className="grid gap-8 border-b border-[#1f2a25]/15 pb-10 lg:grid-cols-[1fr_300px] lg:items-end">
-          <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#b34f2c]">Daily intelligence · {dataset.edition}</p>
-            <h1 className="max-w-3xl font-serif text-4xl leading-[1.08] tracking-[-0.03em] sm:text-6xl">从噪音里，留下今天真正值得研究的信号。</h1>
+      <section id="top" className="hero-section">
+        <div className="hero-grid">
+          <div className="hero-copy">
+            <p className="tech-label"><span>01</span> DAILY RESEARCH SIGNALS / {dataset.edition}</p>
+            <h1>把市场噪声<br />压缩成<span>可研究的信号。</span></h1>
+            <p className="hero-description">聚合量化论文、开源项目与 AI 工程进展。每条信号经过筛选、排序与结构化，帮助研究者更快抵达真正重要的信息。</p>
+            <div className="hero-actions">
+              <a className="primary-action" href="#signals">浏览今日信号 <span>↓</span></a>
+              <p>{failedSources ? `${failedSources} 个数据源延迟，其余管线运行正常` : '全部数据源检查完成，管线运行正常'}</p>
+            </div>
           </div>
+
+          <aside className="signal-console" aria-label="今日信号概览">
+            <div className="console-head">
+              <span>SIGNAL MATRIX</span>
+              <span className="console-live"><i /> LIVE</span>
+            </div>
+            <div className="console-visual" aria-hidden="true">
+              <span className="scan-line" />
+              <span className="vector vector-a" />
+              <span className="vector vector-b" />
+              <span className="vector vector-c" />
+              <span className="node node-a" />
+              <span className="node node-b" />
+              <span className="node node-c" />
+              <span className="node node-d" />
+              <span className="matrix-code">QBR / {dataset.edition.replaceAll('.', '')}</span>
+            </div>
+            <div className="metric-grid">
+              <div><span>今日入选</span><strong>{String(dataset.cards.length).padStart(2, '0')}</strong><small>SIGNALS</small></div>
+              <div><span>研究论文</span><strong>{String(paperCount).padStart(2, '0')}</strong><small>PAPERS</small></div>
+              <div><span>工程项目</span><strong>{String(engineeringCount).padStart(2, '0')}</strong><small>REPOS</small></div>
+              <div><span>独立来源</span><strong>{String(sourceCount).padStart(2, '0')}</strong><small>SOURCES</small></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section className="feed-section" id="signals">
+        <div className="section-intro">
+          <p className="tech-label"><span>02</span> CURATED INDEX</p>
           <div>
-            <p className="text-sm leading-7 text-[#5e6d66]">聚合量化论文、开源项目与 AI 工程进展。每张卡片先告诉你为什么值得看，再带你进入结构化摘要与原文。</p>
-            <p className="mt-3 text-xs text-[#7b867f]">{failedSources ? `${failedSources} 个来源本轮暂不可用，其余来源已正常更新。` : '本轮已完成全部来源检查。'}</p>
+            <h2>今日信号库</h2>
+            <p>按内容类型浏览，或直接搜索标题与标签。</p>
           </div>
         </div>
         <CardFeed cards={dataset.cards} />
-        <footer className="mt-10 flex flex-col justify-between gap-4 border-t border-[#1f2a25]/15 pt-6 text-xs leading-5 text-[#6d7973] sm:flex-row">
-          <p>摘要用于研究导航，不构成投资建议。所有结论请回到原文核验。</p><p>自动采集 · 去重排序 · 原文可追溯</p>
-        </footer>
       </section>
+
+      <footer className="site-footer">
+        <div className="brand footer-brand"><span className="brand-mark mini" aria-hidden="true"><span>Q</span></span><span className="brand-copy"><strong>QUANT BRIEF</strong><span>RESEARCH INTELLIGENCE</span></span></div>
+        <p>摘要用于研究导航，不构成投资建议。所有结论请回到原文核验。</p>
+        <p className="footer-process">FETCH <i /> RANK <i /> SUMMARIZE <i /> TRACE</p>
+      </footer>
     </main>
   );
 }

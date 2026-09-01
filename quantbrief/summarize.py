@@ -241,7 +241,9 @@ class DeepSeekChatSummary:
             "title_en", "description_en", "summary_en", "key_points_en", "why_it_matters_en", "limitations_en",
         }
         missing = sorted(required - card.keys())
-        if missing:
+        for _ in range(2):
+            if not missing:
+                break
             repair_payload = dict(payload)
             repair_payload["messages"] = messages + [
                 {"role": "assistant", "content": output_text},
@@ -255,9 +257,9 @@ class DeepSeekChatSummary:
             ]
             output_text = self._request(repair_payload)
             card = json.loads(output_text)
-            still_missing = sorted(required - card.keys())
-            if still_missing:
-                raise ValueError("DeepSeek JSON missing required fields after repair: " + ", ".join(still_missing))
+            missing = sorted(required - card.keys())
+        if missing:
+            raise ValueError("DeepSeek JSON missing required fields after repair: " + ", ".join(missing))
         return SummaryResult(
             title=str(card["title"])[:72],
             description=str(card["description"])[:240],

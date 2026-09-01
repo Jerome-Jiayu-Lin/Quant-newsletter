@@ -1,13 +1,24 @@
 [project]
 timezone = "Asia/Singapore"
 daily_limit = 15
-lookback_hours = 72
+lookback_hours = 360
+max_age_days = 15
+primary_window_hours = 48
 
 [project.content_caps]
-paper = 7
-repository = 6
+paper = 5
+repository = 3
 article = 4
 video = 3
+
+[project.content_mins]
+paper = 1
+repository = 1
+article = 1
+video = 1
+
+[project.source_mins]
+github-trending-daily = 3
 
 [[sources]]
 id = "github-trending-daily"
@@ -17,7 +28,8 @@ kind = "github_trending"
 url = "https://github.com/trending?since=daily"
 domain = "开源工程"
 priority = 1.00
-max_daily = 6
+max_daily = 3
+scan_limit = 25
 tags = ["GitHub Trending", "日趋势榜"]
 lookback_hours = 24
 
@@ -89,6 +101,39 @@ tags = ["机构研究", "实证解读"]
 lookback_hours = 240
 
 [[sources]]
+id = "quantinsti-video"
+name = "QuantInsti Quantitative Learning"
+group = "视频"
+kind = "rss"
+url = "https://www.youtube.com/feeds/videos.xml?channel_id=UC8kXgHG13XdgsigIPRmrIyA"
+domain = "量化研究"
+priority = 0.95
+max_daily = 2
+tags = ["视频", "算法交易", "量化教育"]
+
+[[sources]]
+id = "hugging-face-video"
+name = "Hugging Face"
+group = "视频"
+kind = "rss"
+url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCHlNU7kIZhRgSbhHvFoy72w"
+domain = "AI × 量化"
+priority = 0.82
+max_daily = 2
+tags = ["视频", "机器学习", "开源 AI"]
+
+[[sources]]
+id = "deep-learning-ai-video"
+name = "DeepLearning.AI"
+group = "视频"
+kind = "rss"
+url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCcIXc5mJsHVYTZR1maL5l9w"
+domain = "AI × 量化"
+priority = 0.78
+max_daily = 2
+tags = ["视频", "机器学习", "AI 工程"]
+
+[[sources]]
 id = "ml-quant"
 name = "Machine Learning & Quant Finance"
 group = "Newsletter"
@@ -134,7 +179,7 @@ domain = "开源工程"
 priority = 0.94
 max_daily = 2
 tags = ["Agent", "量化框架"]
-lookback_hours = 720
+lookback_hours = 360
 
 [[sources]]
 id = "qlib"
@@ -146,7 +191,7 @@ domain = "开源工程"
 priority = 1.00
 max_daily = 2
 tags = ["Qlib", "量化平台"]
-lookback_hours = 720
+lookback_hours = 360
 
 [[sources]]
 id = "rd-agent"
@@ -158,7 +203,7 @@ domain = "开源工程"
 priority = 0.98
 max_daily = 2
 tags = ["Agent", "自动化研究"]
-lookback_hours = 720
+lookback_hours = 360
 
 [[sources]]
 id = "chatbox"
@@ -170,7 +215,7 @@ domain = "AI 工具"
 priority = 0.56
 max_daily = 1
 tags = ["AI 客户端"]
-lookback_hours = 720
+lookback_hours = 360
 enabled = false
 
 [[sources]]
@@ -183,7 +228,7 @@ domain = "AI 工具"
 priority = 0.62
 max_daily = 1
 tags = ["编程 Agent"]
-lookback_hours = 720
+lookback_hours = 360
 enabled = false
 
 [[sources]]
@@ -196,5 +241,5 @@ domain = "AI 工具"
 priority = 0.62
 max_daily = 1
 tags = ["编程 Agent"]
-lookback_hours = 720
+lookback_hours = 360
 enabled = false

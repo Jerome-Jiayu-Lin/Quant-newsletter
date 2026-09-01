@@ -2,6 +2,16 @@
 
 These rules apply to every agent and contributor working in this repository. Keep the repository navigable: every new file must have one clear owner, one clear category, and a descriptive name.
 
+## Start here
+
+- Read `CONTEXT.md` for canonical domain language.
+- Read `ARCHITECTURE.md` for the module map, dependency direction, seams, runtime ownership, and safe change routes.
+- Read `docs/QUALITY.md` for golden principles and their mechanical enforcement.
+- For risky or multi-session work, use `docs/exec-plans/template.md` and keep the active plan in `docs/exec-plans/active/`.
+- Before handoff, run `./scripts/verify-change.ps1`. For a Python-only inner loop, run `python scripts/check-repository.py` and `python -m unittest discover -s tests -v`.
+
+Treat this file as a map, not an encyclopedia. Put durable detail in its owning document and link it here. When an agent repeats a mistake, prefer adding a focused test or checker with a repair-oriented error over adding more prose.
+
 ## Before creating a file
 
 1. Search the repository for an existing module, document, script, or artifact serving the same purpose.
@@ -25,6 +35,7 @@ These rules apply to every agent and contributor working in this repository. Kee
 | Local durable database | `storage/archive/` | Exactly `quant-brief.sqlite3` unless a second archive is deliberately introduced |
 | Local daily editions | `storage/editions/YYYY/MM/YYYY-MM-DD/` | Exactly `quant-brief-edition.json` inside the dated directory |
 | Local fetch state | `storage/state/` | `<scope>-fetch-state.json`, such as `local-fetch-state.json` |
+| Local rolling candidates | `storage/candidates/` | Exactly `rolling-candidate-pool.json` unless a second independently owned pool is introduced |
 | GitHub workflow state | `.github/state/` | `<workflow>-fetch-state.json`, such as `daily-brief-fetch-state.json` |
 | Local exports | `storage/exports/` | State the audience and content, such as `latest-public-edition.json` |
 | Temporary files | Operating-system temporary directory | Never commit; remove after the operation |
@@ -38,6 +49,7 @@ The repository root is reserved for project-wide entry points and governance fil
 - The canonical daily snapshot path is `storage/editions/YYYY/MM/YYYY-MM-DD/quant-brief-edition.json`.
 - The durable cross-day **Archive** is `storage/archive/quant-brief.sqlite3`.
 - Conditional-request metadata belongs in `storage/state/local-fetch-state.json`; it is not content and must not be mixed with Editions.
+- Unpublished rolling candidates belong in `storage/candidates/rolling-candidate-pool.json`; they are content and must not be mixed with Fetch State.
 - Runtime artifacts under `storage/` must remain ignored by Git. Never commit API keys, local databases, local snapshots, or fetch state.
 - Re-running the same Edition must update that Edition idempotently, not create names such as `copy`, `final`, `final2`, or timestamped duplicates.
 - If an export is intended for the website later, create it under `storage/exports/` with an explicit audience in the name. Do not make the website read directly from the private Archive.
