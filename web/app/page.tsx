@@ -22,10 +22,10 @@ export default async function Home() {
     <main className="site-shell">
       <header className="topbar">
         <div className="topbar-inner">
-          <a className="brand" href="#top" aria-label="Quant Brief 首页">
-            <span className="brand-mark" aria-hidden="true"><span>Q</span></span>
+          <a className="brand" href="#top" aria-label="Jerome Brief 首页">
+            <span className="brand-mark" aria-hidden="true"><span>J</span></span>
             <span className="brand-copy">
-              <strong>QUANT BRIEF</strong>
+              <strong>JEROME BRIEF</strong>
               <span>RESEARCH INTELLIGENCE</span>
             </span>
           </a>
@@ -63,7 +63,7 @@ export default async function Home() {
               <span className="node node-b" />
               <span className="node node-c" />
               <span className="node node-d" />
-              <span className="matrix-code">QBR / {dataset.edition.replaceAll('.', '')}</span>
+              <span className="matrix-code">JBR / {dataset.edition.replaceAll('.', '')}</span>
             </div>
             <div className="metric-grid">
               <div><span>今日入选</span><strong>{String(dataset.cards.length).padStart(2, '0')}</strong><small>SIGNALS</small></div>
@@ -87,7 +87,7 @@ export default async function Home() {
       </section>
 
       <footer className="site-footer">
-        <div className="brand footer-brand"><span className="brand-mark mini" aria-hidden="true"><span>Q</span></span><span className="brand-copy"><strong>QUANT BRIEF</strong><span>RESEARCH INTELLIGENCE</span></span></div>
+        <div className="brand footer-brand"><span className="brand-mark mini" aria-hidden="true"><span>J</span></span><span className="brand-copy"><strong>JEROME BRIEF</strong><span>RESEARCH INTELLIGENCE</span></span></div>
         <p>摘要用于研究导航，不构成投资建议。所有结论请回到原文核验。</p>
         <p className="footer-process">FETCH <i /> RANK <i /> SUMMARIZE <i /> TRACE</p>
       </footer>

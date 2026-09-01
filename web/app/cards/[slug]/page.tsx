@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const card = await getCard((await params).slug);
   if (!card) return {};
   return {
-    title: `${card.title} · Quant Brief`, description: card.description,
+    title: `${card.title} · Jerome Brief`, description: card.description,
     openGraph: { title: card.title, description: card.description, images: [] },
     twitter: { card: 'summary', title: card.title, description: card.description, images: [] },
   };
@@ -23,8 +23,8 @@ export default async function CardPage({ params }: PageProps) {
       <header className="detail-topbar">
         <div className="detail-topbar-inner">
           <Link className="brand" href="/">
-            <span className="brand-mark" aria-hidden="true"><span>Q</span></span>
-            <span className="brand-copy"><strong>QUANT BRIEF</strong><span>RESEARCH INTELLIGENCE</span></span>
+            <span className="brand-mark" aria-hidden="true"><span>J</span></span>
+            <span className="brand-copy"><strong>JEROME BRIEF</strong><span>RESEARCH INTELLIGENCE</span></span>
           </Link>
           <Link className="back-link" href="/">← BACK TO INDEX</Link>
         </div>
