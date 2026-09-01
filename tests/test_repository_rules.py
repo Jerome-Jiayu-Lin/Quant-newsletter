@@ -47,6 +47,16 @@ class RepositoryRuleTests(unittest.TestCase):
         self.assertIn("undeclared product module", violations[0])
         self.assertIn("ARCHITECTURE.md", violations[0])
 
+    def test_daily_workflow_requires_deepseek_bilingual_summaries(self) -> None:
+        workflow = (REPOSITORY_ROOT / ".github" / "workflows" / "daily-brief.yml").read_text(encoding="utf-8")
+
+        self.assertIn("SUMMARY_PROVIDER: deepseek", workflow)
+        self.assertIn("DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}", workflow)
+        self.assertIn("--require-ai", workflow)
+        self.assertNotIn("OPENAI_API_KEY:", workflow)
+        self.assertIn("cron: '10 2 * * *'", workflow)
+        self.assertIn("timezone: 'Asia/Singapore'", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()

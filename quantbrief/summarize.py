@@ -187,6 +187,12 @@ class OpenAIResponsesSummary:
 class DeepSeekChatSummary:
     """Chinese knowledge cards through DeepSeek's OpenAI-compatible Chat API."""
 
+    REQUIRED_TEXT_FIELDS = {
+        "title", "description", "summary", "why_it_matters", "limitations",
+        "title_en", "description_en", "summary_en", "why_it_matters_en", "limitations_en",
+    }
+    REQUIRED_LIST_FIELDS = {"key_points", "key_points_en", "tags"}
+
     def __init__(
         self,
         api_key: str,
@@ -236,13 +242,9 @@ class DeepSeekChatSummary:
         if not output_text:
             raise ValueError("DeepSeek API returned empty message content")
         card = json.loads(output_text)
-        required = {
-            "title", "description", "summary", "key_points", "why_it_matters", "limitations", "tags",
-            "title_en", "description_en", "summary_en", "key_points_en", "why_it_matters_en", "limitations_en",
-        }
-        missing = sorted(required - card.keys())
+        invalid = self._invalid_fields(card)
         for _ in range(2):
-            if not missing:
+            if not invalid:
                 break
             repair_payload = dict(payload)
             repair_payload["messages"] = messages + [
@@ -250,16 +252,17 @@ class DeepSeekChatSummary:
                 {
                     "role": "user",
                     "content": (
-                        "上一个 JSON 缺少这些必需字段：" + ", ".join(missing) + "。"
-                        "请重新返回完整 JSON 对象，必须包含全部字段，不要省略已有字段，也不要输出解释或 Markdown。"
+                        "上一个 JSON 中这些必需字段缺失、为空或类型无效：" + ", ".join(invalid) + "。"
+                        "请重新返回完整 JSON 对象；所有文本字段必须是非空字符串，所有数组字段必须包含非空字符串，"
+                        "不要省略已有字段，也不要输出解释或 Markdown。"
                     ),
                 },
             ]
             output_text = self._request(repair_payload)
             card = json.loads(output_text)
-            missing = sorted(required - card.keys())
-        if missing:
-            raise ValueError("DeepSeek JSON missing required fields after repair: " + ", ".join(missing))
+            invalid = self._invalid_fields(card)
+        if invalid:
+            raise ValueError("DeepSeek JSON has incomplete required fields after repair: " + ", ".join(invalid))
         return SummaryResult(
             title=str(card["title"])[:72],
             description=str(card["description"])[:240],
@@ -278,6 +281,24 @@ class DeepSeekChatSummary:
             provider="deepseek",
             model=self.model,
         )
+
+    @classmethod
+    def _invalid_fields(cls, card: Any) -> list[str]:
+        if not isinstance(card, dict):
+            return sorted(cls.REQUIRED_TEXT_FIELDS | cls.REQUIRED_LIST_FIELDS)
+        invalid = [
+            field
+            for field in cls.REQUIRED_TEXT_FIELDS
+            if not isinstance(card.get(field), str) or not card[field].strip()
+        ]
+        invalid.extend(
+            field
+            for field in cls.REQUIRED_LIST_FIELDS
+            if not isinstance(card.get(field), list)
+            or not card[field]
+            or any(not isinstance(value, str) or not value.strip() for value in card[field])
+        )
+        return sorted(invalid)
 
     def _request(self, payload: dict[str, Any]) -> str:
         request = urllib.request.Request(

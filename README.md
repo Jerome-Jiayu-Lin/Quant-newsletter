@@ -13,7 +13,7 @@ Quant Brief collects structured feeds and official release data, normalizes and 
 - Recent videos from QuantInsti, Hugging Face, and DeepLearning.AI
 - GitHub releases for the quant-focused TradingAgents, Qlib, and RD-Agent projects
 - Source-based summaries when no model key is configured
-- Optional Chinese structured summaries through OpenAI or DeepSeek
+- Required DeepSeek-generated Chinese and English summaries in the scheduled Edition
 - A responsive card feed with domain filters and traceable detail pages
 - Stable bilingual Features for filtering by platform, artifact, topic, and method
 - Independent Chinese and English editorial fields while preserving the exact original title
@@ -89,16 +89,23 @@ least 1,000 and 25%; a new GitHub Release has its own source URL and is naturall
 lives at `storage/candidates/rolling-candidate-pool.json`, separate from Fetch State, and GitHub Actions persists it
 through the workflow cache.
 
-## Optional AI summaries
+## AI summaries
 
-Choose either provider by adding its key as a repository Actions secret:
+The scheduled GitHub Actions Edition always uses DeepSeek. Add the provided key as the
+`DEEPSEEK_API_KEY` repository Actions secret; the workflow runs at 02:10 Singapore time,
+updates the previous complete Singapore calendar day, and stops before publication if any
+Card cannot produce complete Chinese and English editorial fields.
 
-- OpenAI: `OPENAI_API_KEY` (default model `gpt-5.6-luna`)
-- DeepSeek: `DEEPSEEK_API_KEY` (default model `deepseek-v4-flash`)
+- DeepSeek secret: `DEEPSEEK_API_KEY` (default model `deepseek-v4-flash`)
 
-`SUMMARY_PROVIDER` is an optional repository variable with values `auto`, `openai`, or `deepseek`. In `auto` mode, OpenAI is preferred when both keys exist, otherwise DeepSeek is used. You can override DeepSeek with repository variables `DEEPSEEK_MODEL` and `DEEPSEEK_BASE_URL`. When no key is present, the pipeline remains operational and labels cards as source-summary based.
+You can override the scheduled model and endpoint with repository variables `DEEPSEEK_MODEL`
+and `DEEPSEEK_BASE_URL`. A missing key, failed API request, invalid JSON response, blank
+translation, or empty bilingual key-point list fails the Edition instead of publishing a
+source-only fallback.
 
-For local runs, the same variables live in `.env.local`. `OPENAI_BASE_URL` defaults to `https://api.openai.com/v1`; `DEEPSEEK_BASE_URL` defaults to `https://api.deepseek.com`.
+For local runs, the same DeepSeek variables live in `.env.local`. OpenAI remains available as
+an explicit local alternative through `SUMMARY_PROVIDER=openai`; `OPENAI_BASE_URL` defaults to
+`https://api.openai.com/v1`, and `DEEPSEEK_BASE_URL` defaults to `https://api.deepseek.com`.
 
 Never commit access tokens or paste them into source files, workflow YAML, or remote URLs. GitHub Actions uses its short-lived built-in `GITHUB_TOKEN` for public GitHub data and committing the generated edition.
 
