@@ -5,6 +5,10 @@ The publication path uses two buckets so preview testing cannot mutate productio
 - `jerome-brief-public` owns production Public Exports, the history index, and receipts.
 - `jerome-brief-preview` owns the same key layout for preview and restore drills.
 
+Both buckets were provisioned in Cloudflare account
+`b07afe1e3cb22e411cabd069c6dfdf50` on 2026-09-02. Do not recreate or rename them;
+the Wrangler binding and publication defaults depend on these exact names.
+
 Provision them once with an authenticated Wrangler session:
 
 ```powershell

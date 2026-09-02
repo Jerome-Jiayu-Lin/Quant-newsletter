@@ -73,8 +73,9 @@ administrative UI are explicitly out of scope for this plan.
 - [x] Add the provider-independent publisher with fake-storage contract tests.
 - [x] Add the R2 adapter, production/preview binding configuration, credential scopes,
   and reproducible bucket-provisioning procedure.
-- [ ] Provision the real preview bucket and smoke-test its conditional writes; the
-  current host has no Cloudflare login or R2 credentials.
+- [x] Provision distinct `jerome-brief-public` and `jerome-brief-preview` R2 buckets.
+- [ ] Smoke-test preview conditional writes; the current host has no bucket-scoped R2
+  S3 Access Key ID or Secret Access Key.
 - [x] Add website date routing and historical navigation against the public index.
 - [x] Route both scheduled and operator publication through the shared interface.
 - [ ] Run a preview publish, idempotent re-publish, injected partial failure, and restore
@@ -131,6 +132,10 @@ administrative UI are explicitly out of scope for this plan.
   Cloudflare error `10042`: R2 is not enabled for the account. The Dashboard enablement
   and any terms or billing confirmation require the account owner before bucket
   provisioning can continue. GitHub currently has no R2 secret or variable names.
+- After the account owner enabled R2, Wrangler created `jerome-brief-public` at
+  `2026-09-02T08:22:07.477Z` and `jerome-brief-preview` at
+  `2026-09-02T08:22:11.690Z`; a subsequent bucket listing confirmed both. No object
+  was uploaded. The remaining preview drill requires a bucket-scoped S3 API token.
 - The website now discovers dates through `editions/v1/index.json`, renders localized
   Edition and Card routes under `/editions/YYYY-MM-DD`, preserves date context in Card
   links, and distinguishes an absent index entry from an advertised object that cannot
