@@ -16,6 +16,8 @@ export const messages = {
     footer: '摘要用于研究导航，不构成投资建议。所有结论请回到原文核验。', back: '← 返回信号库',
     original: '原始标题', abstract: '摘要', keyFindings: '关键点', relevance: '研究价值', evidence: '证据边界',
     primarySource: '回到一手来源', readOriginal: '阅读原文', localeLabel: '语言选择',
+    archive: '历史 EDITIONS', historyAria: '历史 Edition 导航', archiveTitle: '历史信号库',
+    editionUnavailable: '这个 Edition 暂时不可用', editionUnavailableDescription: (edition: string) => `${edition} 已列入历史索引，但远端内容暂时无法完成验证。`, returnLatest: '返回最新 Edition',
   },
   en: {
     htmlLang: 'en', homeAria: 'Jerome Brief home', systemOnline: 'SYSTEM ONLINE',
@@ -30,6 +32,8 @@ export const messages = {
     footer: 'Summaries are for research navigation, not investment advice. Verify every conclusion against the primary source.', back: '← BACK TO INDEX',
     original: 'ORIGINAL', abstract: 'ABSTRACT', keyFindings: 'KEY FINDINGS', relevance: 'RELEVANCE', evidence: 'EVIDENCE BOUNDARY',
     primarySource: 'Return to the primary source', readOriginal: 'Read original', localeLabel: 'Language selection',
+    archive: 'EDITION HISTORY', historyAria: 'Historical Edition navigation', archiveTitle: 'Historical signal index',
+    editionUnavailable: 'This Edition is temporarily unavailable', editionUnavailableDescription: (edition: string) => `${edition} is listed in the history index, but its remote content cannot currently be verified.`, returnLatest: 'Return to latest Edition',
   },
 } as const;
 

@@ -1,24 +1,34 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { formatSingaporeTime, getCard } from '../../lib/cards';
+import { EditionUnavailableError, formatSingaporeTime, getCard, getHistoricalCard } from '../../lib/cards';
 import type { Locale } from '../../lib/locale';
 import { localePath, localizeCard, messages } from '../../lib/locale';
 import LanguageSwitcher from './language-switcher';
 import DocumentLanguage from './document-language';
+import EditionUnavailablePage from './edition-unavailable-page';
 
-export default async function CardDetailPage({ slug, locale }: { slug: string; locale: Locale }) {
-  const card = await getCard(slug);
+export default async function CardDetailPage({ slug, locale, edition }: { slug: string; locale: Locale; edition?: string }) {
+  let card;
+  let unavailable = false;
+  try {
+    card = edition ? await getHistoricalCard(edition, slug) : await getCard(slug);
+  } catch (error) {
+    if (error instanceof EditionUnavailableError && edition) unavailable = true;
+    else throw error;
+  }
+  if (unavailable && edition) return <EditionUnavailablePage edition={edition} locale={locale} />;
   if (!card) notFound();
   const t = messages[locale];
   const localized = localizeCard(card, locale);
-  const cardPath = `/cards/${card.slug}`;
+  const homePath = edition ? `/editions/${edition}` : '';
+  const cardPath = edition ? `/editions/${edition}/cards/${card.slug}` : `/cards/${card.slug}`;
 
   return (
     <main className="detail-shell" lang={t.htmlLang}>
       <DocumentLanguage locale={locale} />
       <header className="detail-topbar"><div className="detail-topbar-inner">
-        <Link className="brand" href={localePath(locale)}><span className="brand-mark" aria-hidden="true"><span>J</span></span><span className="brand-copy"><strong>JEROME BRIEF</strong><span>RESEARCH INTELLIGENCE</span></span></Link>
-        <div className="detail-navigation"><LanguageSwitcher locale={locale} path={cardPath} /><Link className="back-link" href={localePath(locale)}>{t.back}</Link></div>
+        <Link className="brand" href={localePath(locale, homePath)}><span className="brand-mark" aria-hidden="true"><span>J</span></span><span className="brand-copy"><strong>JEROME BRIEF</strong><span>RESEARCH INTELLIGENCE</span></span></Link>
+        <div className="detail-navigation"><LanguageSwitcher locale={locale} path={cardPath} /><Link className="back-link" href={localePath(locale, homePath)}>{t.back}</Link></div>
       </div></header>
       <article className="detail-article">
         <div className="detail-meta"><span className="detail-domain"><i /> {localized.domain}</span><span>{card.sourceName}</span><span aria-hidden="true">/</span><time>{formatSingaporeTime(card.publishedAt, locale)} SGT</time><span aria-hidden="true">/</span><span>SIGNAL {card.id.slice(0, 6).toUpperCase()}</span></div>

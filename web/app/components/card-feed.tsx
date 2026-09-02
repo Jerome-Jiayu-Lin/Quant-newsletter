@@ -30,7 +30,7 @@ function normalizeSearchText(value: string) {
   return value.normalize('NFKC').toLocaleLowerCase('zh-CN').trim();
 }
 
-export default function CardFeed({ cards, locale }: { cards: KnowledgeCard[]; locale: Locale }) {
+export default function CardFeed({ cards, edition, locale }: { cards: KnowledgeCard[]; edition?: string; locale: Locale }) {
   const t = messages[locale];
   const [activeSection, setActiveSection] = useState('all');
   const [query, setQuery] = useState('');
@@ -138,7 +138,7 @@ export default function CardFeed({ cards, locale }: { cards: KnowledgeCard[]; lo
                   </div>
                   <div className="card-footer">
                     <div><span>{card.sourceName}</span><time>{formatSingaporeTime(card.publishedAt, locale)} SGT</time></div>
-                    <a href={localePath(locale, `/cards/${card.slug}`)} aria-label={`${t.readSummary}: ${localized.title}`}><span>{t.openSignal}</span><b aria-hidden="true">↗</b></a>
+                    <a href={localePath(locale, edition ? `/editions/${edition}/cards/${card.slug}` : `/cards/${card.slug}`)} aria-label={`${t.readSummary}: ${localized.title}`}><span>{t.openSignal}</span><b aria-hidden="true">↗</b></a>
                   </div>
                 </article>);
               })}

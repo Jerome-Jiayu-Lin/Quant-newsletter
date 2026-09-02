@@ -75,7 +75,7 @@ administrative UI are explicitly out of scope for this plan.
   and reproducible bucket-provisioning procedure.
 - [ ] Provision the real preview bucket and smoke-test its conditional writes; the
   current host has no Cloudflare login or R2 credentials.
-- [ ] Add website date routing and historical navigation against the public index.
+- [x] Add website date routing and historical navigation against the public index.
 - [ ] Route both scheduled and operator publication through the shared interface.
 - [ ] Run a preview publish, idempotent re-publish, injected partial failure, and restore
   drill; retain their receipts.
@@ -121,6 +121,10 @@ administrative UI are explicitly out of scope for this plan.
   the 2026-09-02 development host had no Wrangler login, Cloudflare API token, account
   identifier, or R2 S3 credentials. Do not treat the configured preview bucket name as
   evidence that the bucket exists.
+- The website now discovers dates through `editions/v1/index.json`, renders localized
+  Edition and Card routes under `/editions/YYYY-MM-DD`, preserves date context in Card
+  links, and distinguishes an absent index entry from an advertised object that cannot
+  be fetched or validated. Latest reads retain the bundled compatibility fallback.
 
 ## Verification
 
@@ -133,6 +137,14 @@ Planning baseline on 2026-09-02:
   passed.
 
 Implementation verification and preview publication receipts will be appended here.
+
+Historical-routing increment on 2026-09-02:
+
+- `./scripts/verify-change.ps1` with `CI=true` — 66 Python tests, 8 web tests, lint,
+  and production build passed.
+- Local Vinext/Workers preview — root route returned HTTP 200 after aligning the
+  configured compatibility date with the repository's locked Workers runtime.
+- No preview R2 request was claimed: the host still lacks Cloudflare authorization.
 
 ## Outcome
 
