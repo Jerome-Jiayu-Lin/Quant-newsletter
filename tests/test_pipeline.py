@@ -6,7 +6,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from quantbrief.models import RawItem
-from quantbrief.pipeline import Pipeline, canonical_url
+from quantbrief.pipeline import Pipeline, candidate_id, canonical_url
 from quantbrief.ranking import CohortRanker, RankedItem
 from quantbrief.summarize import SourceSummary
 
@@ -54,6 +54,11 @@ class PipelineTests(unittest.TestCase):
         merged = self.pipeline._deduplicate([first, second])
         self.assertEqual(len(merged), 1)
         self.assertEqual(merged[0].discovered_by, ["HF", "arXiv"])
+
+    def test_card_identity_is_stable_across_arxiv_versions_and_editorial_changes(self) -> None:
+        first = self.item(source="arXiv", url="https://arxiv.org/abs/2608.12345v1", title="Original title")
+        revised = self.item(source="arXiv", url="https://arxiv.org/abs/2608.12345v9", title="Revised title")
+        self.assertEqual(candidate_id(first), candidate_id(revised))
 
     def test_card_is_traceable(self) -> None:
         item = self.item(source="arXiv", url="https://arxiv.org/abs/2608.12345", title="A New Factor")

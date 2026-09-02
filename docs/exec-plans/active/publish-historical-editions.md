@@ -68,7 +68,7 @@ administrative UI are explicitly out of scope for this plan.
 
 - [x] Record the accepted storage and identity boundary in ADR-0001.
 - [x] Inventory the current GitHub Actions and operator publication paths.
-- [ ] Define the versioned Public Export index schema, publication receipt schema,
+- [x] Define the versioned Public Export index schema, publication receipt schema,
   stable Card identity rules, and sanitization allowlist.
 - [ ] Add the provider-independent publisher with fake-storage contract tests.
 - [ ] Add the R2 adapter, binding configuration, credential scopes, and preview bucket.
@@ -103,6 +103,9 @@ administrative UI are explicitly out of scope for this plan.
 - Keep the existing latest JSON as a temporary compatibility fallback. Removing it in
   the same migration would combine public-history delivery with an avoidable rollback
   risk.
+- Version 1 contracts live in `quantbrief.publication`: sanitized exports use an
+  explicit Card allowlist, dates normalize to ISO form, index entries are unique and
+  newest-first, and receipts retain the hashes and keys needed for recovery.
 
 ## Verification
 

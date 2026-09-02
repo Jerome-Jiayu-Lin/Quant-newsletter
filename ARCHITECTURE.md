@@ -37,6 +37,7 @@ listed in its row; `scripts/check-repository.py` enforces the same graph.
 | `candidates` | Candidate Pool persistence and publication memory | `models` |
 | `sources` | External source adapters that produce Raw Items | `http`, `models` |
 | `summarize` | Source, OpenAI, and DeepSeek summary adapters | `models` |
+| `publication` | Versioned Public Export, history-index, object-key, and receipt contracts | none |
 | `pipeline` | Edition orchestration and public export creation | all modules above except `archive` |
 | `archive` | Durable Edition ingestion and search | none |
 | `cli` | Operator entry point and dependency assembly | `pipeline`, `archive` |
@@ -142,6 +143,21 @@ Adopt this target incrementally:
 
 Provider-specific code belongs at adapters on the publication or web runtime edges.
 Knowledge Card and Edition construction must not import Cloudflare or Clerk clients.
+
+## Public publication contracts
+
+`quantbrief.publication` owns the provider-independent version 1 JSON contracts.
+Public Export sanitization is allowlist-only: unknown Edition or Card fields are
+dropped before hashing or upload. A public Card `id` is the lowercase 16-character
+SHA-256 prefix derived by the Pipeline from the canonical source identity; it remains
+stable across Editions and editorial rewrites. Edition object keys use ISO Singapore
+dates, while the compatibility input may still contain the legacy dotted date.
+
+The history index is newest-first, contains at most one entry per Edition, and names
+the latest Edition explicitly. A publication receipt binds the canonical snapshot
+hash, sanitized export hash, Edition/index/receipt keys, prior and resulting index
+hashes, optional deployment identifier, timestamp, and outcome. Provider adapters
+must transport these shapes without extending them.
 
 ## Safe change routes
 

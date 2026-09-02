@@ -21,6 +21,7 @@ MODULE_DEPENDENCIES: dict[str, frozenset[str]] = {
     "candidates": frozenset({"models"}),
     "sources": frozenset({"http", "models"}),
     "summarize": frozenset({"models"}),
+    "publication": frozenset(),
     "pipeline": frozenset({"candidates", "features", "http", "models", "ranking", "sources", "summarize"}),
     "archive": frozenset(),
     "cli": frozenset({"archive", "pipeline"}),
