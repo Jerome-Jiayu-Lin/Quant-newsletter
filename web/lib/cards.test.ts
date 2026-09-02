@@ -3,6 +3,19 @@ import test from 'node:test';
 import dataset from '../data/cards.json' with { type: 'json' };
 import { EditionNotFoundError, EditionUnavailableError, getDataset, getHistoricalDataset, isBilingualCard } from './cards.ts';
 import { localePath, localizeCard } from './locale.ts';
+import { readPublicEditionObject } from './public-edition-storage.ts';
+
+test('the R2 adapter reads and parses an object through the bucket binding', async () => {
+  const requested: string[] = [];
+  const value = await readPublicEditionObject({
+    async get(key) {
+      requested.push(key);
+      return { async json() { return { schemaVersion: 1 }; } };
+    },
+  }, 'editions/v1/index.json');
+  assert.deepEqual(requested, ['editions/v1/index.json']);
+  assert.deepEqual(value, { schemaVersion: 1 });
+});
 
 test('an incomplete remote Edition cannot replace the complete bundled Edition', async () => {
   const originalFetch = globalThis.fetch;

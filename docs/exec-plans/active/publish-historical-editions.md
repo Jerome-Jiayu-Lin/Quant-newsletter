@@ -84,7 +84,7 @@ administrative UI are explicitly out of scope for this plan.
   - [x] Repeat against the real preview R2 bucket and retain the evidence below.
 - [x] Make the production loader prefer the indexed R2 latest Edition while retaining
   the validated latest-JSON and bundled fallbacks.
-- [ ] Observe a deployed read from real R2 before removing migration status or moving
+- [x] Observe a deployed read from real R2 before removing migration status or moving
   this plan to completed.
 
 ## Discoveries
@@ -152,6 +152,10 @@ administrative UI are explicitly out of scope for this plan.
   loader as historical routes. Invalid or unavailable R2 data falls through to the
   GitHub compatibility JSON and bundled Edition; an explicit historical date never
   substitutes fallback content from a different date.
+- Vinext server loaders now prefer the runtime `PUBLIC_EDITIONS` R2 binding before the
+  migration HTTP origin. A distinct `env.preview` Worker configuration and guarded
+  deployment script ensure preview builds cannot inherit production routes or bucket
+  bindings.
 
 ## Verification
 
@@ -206,6 +210,19 @@ Real R2 preview recovery drill on 2026-09-02:
   publication receipts and recovery objects remain in the preview bucket.
 - `./scripts/verify-change.ps1` with `CI=true` — 72 Python tests, 10 web tests, lint,
   and production build passed after the evidence and debt tracker were updated.
+
+Deployed R2 read on 2026-09-02:
+
+- Worker `jerome-brief-preview`, version
+  `56eb2c0c-88d4-428b-8b25-77a8d30a83be`, was deployed with no custom-domain routes
+  and `PUBLIC_EDITIONS` bound to `jerome-brief-preview`.
+- `https://jerome-brief-preview.ljyjerome.workers.dev/editions/2026-09-01` returned
+  HTTP 200 and contained the expected first Knowledge Card title from the bound
+  Edition.
+- The HTTP migration origin at `data.jeromebrief.com/editions/v1/index.json` was
+  unreachable during the same check, demonstrating that the successful historical
+  response came through the R2 binding rather than the HTTP fallback.
+- 72 Python tests, 11 web tests, lint, and the production build passed before deploy.
 
 ## Outcome
 

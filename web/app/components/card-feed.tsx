@@ -2,7 +2,7 @@
 
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import type { KnowledgeCard } from '../../lib/cards';
-import { formatSingaporeTime } from '../../lib/cards';
+import { formatSingaporeTime } from '../../lib/format';
 import type { Locale } from '../../lib/locale';
 import { localePath, localizeCard, messages } from '../../lib/locale';
 

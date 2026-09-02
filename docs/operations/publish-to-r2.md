@@ -26,6 +26,19 @@ The Worker reads through the `PUBLIC_EDITIONS` binding. Local `wrangler dev` use
 local persisted R2 state; remote preview uses `jerome-brief-preview` because
 `preview_bucket_name` is set explicitly. Never point preview at the production bucket.
 
+Deploy the isolated preview Worker only through the guarded command below:
+
+```powershell
+./scripts/deploy-preview.ps1
+```
+
+The script builds with `CLOUDFLARE_ENV=preview`, then refuses deployment unless the
+generated Wrangler configuration names `jerome-brief-preview`, has no custom-domain
+routes, enables its workers.dev URL, and binds `PUBLIC_EDITIONS` only to
+`jerome-brief-preview`. Passing `--env preview` only to `wrangler deploy` is unsafe for
+a Vinext redirected configuration because the already-generated deployment file owns
+the selected environment.
+
 ## Publisher credentials
 
 Create a bucket-scoped R2 API token with **Object Read & Write** access to only the

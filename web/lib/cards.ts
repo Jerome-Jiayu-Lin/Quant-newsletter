@@ -1,4 +1,5 @@
 import dataset from '../data/cards.json' with { type: 'json' };
+import { readBoundPublicEdition } from './public-edition-storage.ts';
 
 export type KnowledgeCard = {
   id: string; slug: string; domain: string; contentType?: 'repository' | 'paper' | 'article' | 'video'; sourceName: string; sourceGroup: string;
@@ -30,7 +31,6 @@ export class EditionUnavailableError extends Error {}
 const fallbackDataset = dataset as CardDataset;
 const remoteDatasetUrl = process.env.CARD_DATA_URL ?? 'https://raw.githubusercontent.com/Jerome-Jiayu-Lin/Quant-newsletter/main/web/data/cards.json';
 const publicDataOrigin = (process.env.PUBLIC_EDITION_ORIGIN ?? 'https://data.jeromebrief.com').replace(/\/$/, '');
-const historyIndexUrl = `${publicDataOrigin}/editions/v1/index.json`;
 const DAILY_EDITION_SIZE = 15;
 const translatedTextFields = ['titleEn', 'descriptionEn', 'summaryEn', 'whyItMattersEn', 'limitationsEn'] as const;
 
@@ -82,18 +82,25 @@ async function fetchJson(url: string): Promise<{ response: Response; value?: unk
   return { response, value: await response.json() };
 }
 
+async function readPublicJson(key: string): Promise<{ found: boolean; value?: unknown }> {
+  const bound = await readBoundPublicEdition(key);
+  if (bound !== null) return { found: true, value: bound };
+  const result = await fetchJson(`${publicDataOrigin}/${key}`);
+  return { found: result.response.ok, value: result.value };
+}
+
 export async function getEditionIndex(): Promise<EditionIndex | null> {
   try {
-    const { response, value } = await fetchJson(historyIndexUrl);
-    return response.ok && isEditionIndex(value) ? value : null;
+    const result = await readPublicJson('editions/v1/index.json');
+    return result.found && isEditionIndex(result.value) ? result.value : null;
   } catch {
     return null;
   }
 }
 
 async function fetchIndexedEdition(entry: EditionIndexEntry): Promise<CardDataset> {
-  const result = await fetchJson(`${publicDataOrigin}/${entry.objectKey}`);
-  if (!result.response.ok || !isCompleteEdition(result.value) || result.value.edition.replaceAll('.', '-') !== entry.edition) {
+  const result = await readPublicJson(entry.objectKey);
+  if (!result.found || !isCompleteEdition(result.value) || result.value.edition.replaceAll('.', '-') !== entry.edition) {
     throw new EditionUnavailableError(entry.edition);
   }
   return result.value;
@@ -103,8 +110,8 @@ export async function getHistoricalDataset(edition: string): Promise<CardDataset
   if (!/^\d{4}-\d{2}-\d{2}$/.test(edition)) throw new EditionNotFoundError(edition);
   let index: EditionIndex;
   try {
-    const result = await fetchJson(historyIndexUrl);
-    if (!result.response.ok || !isEditionIndex(result.value)) throw new EditionUnavailableError(edition);
+    const result = await readPublicJson('editions/v1/index.json');
+    if (!result.found || !isEditionIndex(result.value)) throw new EditionUnavailableError(edition);
     index = result.value;
   } catch (error) {
     if (error instanceof EditionUnavailableError) throw error;
@@ -159,9 +166,4 @@ export async function getCard(slug: string): Promise<KnowledgeCard | undefined> 
 export async function getHistoricalCard(edition: string, slug: string): Promise<KnowledgeCard | undefined> {
   const current = await getHistoricalDataset(edition);
   return current.cards.find((card) => card.slug === slug);
-}
-export function formatSingaporeTime(value: string, locale: 'zh' | 'en' = 'zh'): string {
-  return new Intl.DateTimeFormat(locale === 'en' ? 'en-SG' : 'zh-CN', {
-    timeZone: 'Asia/Singapore', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
-  }).format(new Date(value));
 }

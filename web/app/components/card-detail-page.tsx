@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { EditionUnavailableError, formatSingaporeTime, getCard, getHistoricalCard } from '../../lib/cards';
+import { EditionUnavailableError, getCard, getHistoricalCard } from '../../lib/cards';
+import { formatSingaporeTime } from '../../lib/format';
 import type { Locale } from '../../lib/locale';
 import { localePath, localizeCard, messages } from '../../lib/locale';
 import LanguageSwitcher from './language-switcher';
