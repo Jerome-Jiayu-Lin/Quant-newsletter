@@ -54,13 +54,19 @@ if (-not $node) {
         throw 'Node.js was not found in PATH or beside the bundled pnpm runtime.'
     }
     $nodeDirectory = Split-Path -Parent $bundledNode
+    $nodeExecutable = $bundledNode
 }
 else {
     $nodeDirectory = Split-Path -Parent $node.Source
+    $nodeExecutable = $node.Source
 }
 
 $originalPath = $env:PATH
+$originalCi = $env:CI
+$originalConfirmModulesPurge = $env:npm_config_confirm_modules_purge
 $env:PATH = $nodeDirectory + [System.IO.Path]::PathSeparator + $env:PATH
+$env:CI = 'true'
+$env:npm_config_confirm_modules_purge = 'false'
 Push-Location (Join-Path $projectRoot 'web')
 try {
     & $pnpm.Source test
@@ -75,11 +81,20 @@ try {
 finally {
     Pop-Location
     $env:PATH = $originalPath
+    $env:CI = $originalCi
+    $env:npm_config_confirm_modules_purge = $originalConfirmModulesPurge
 }
 
 $remoteUrl = (& git -C $projectRoot remote get-url origin).Trim()
 if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($remoteUrl)) {
     throw 'Git origin is not configured.'
+}
+
+$originalGitSshCommand = $env:GIT_SSH_COMMAND
+$repositoryKey = Join-Path $env:USERPROFILE '.ssh/quant_newsletter_codex_ed25519'
+if ($remoteUrl -match '^(ssh://|git@)' -and (Test-Path -LiteralPath $repositoryKey)) {
+    $gitKeyPath = $repositoryKey.Replace('\', '/')
+    $env:GIT_SSH_COMMAND = "ssh -o BatchMode=yes -o IdentitiesOnly=yes -i $gitKeyPath"
 }
 
 $temporaryRoot = [System.IO.Path]::GetFullPath([System.IO.Path]::GetTempPath())
@@ -117,21 +132,38 @@ try {
     & git -C $publishCheckout diff --cached --quiet
     if ($LASTEXITCODE -eq 0) {
         Write-Output "website already publishes Edition $expectedEdition"
-        return
     }
-
-    & git -C $publishCheckout commit -m "data: publish $EditionDate brief" -- web/data/cards.json
-    if ($LASTEXITCODE -ne 0) {
-        exit $LASTEXITCODE
+    else {
+        & git -C $publishCheckout commit -m "data: publish $EditionDate brief" -- web/data/cards.json
+        if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+        }
+        & git -C $publishCheckout push origin main
+        if ($LASTEXITCODE -ne 0) {
+            exit $LASTEXITCODE
+        }
+        Write-Output "published Edition $expectedEdition to website data"
     }
-    & git -C $publishCheckout push origin main
-    if ($LASTEXITCODE -ne 0) {
-        exit $LASTEXITCODE
-    }
-    Write-Output "published Edition $expectedEdition to website data"
 }
 finally {
     if (Test-Path -LiteralPath $resolvedCheckout) {
         Remove-Item -LiteralPath $resolvedCheckout -Recurse -Force
     }
+    $env:GIT_SSH_COMMAND = $originalGitSshCommand
 }
+
+$wrangler = Join-Path $projectRoot 'web/node_modules/wrangler/bin/wrangler.js'
+if (-not (Test-Path -LiteralPath $wrangler)) {
+    throw 'Wrangler was not found in web/node_modules.'
+}
+Push-Location (Join-Path $projectRoot 'web')
+try {
+    & $nodeExecutable $wrangler deploy
+    if ($LASTEXITCODE -ne 0) {
+        exit $LASTEXITCODE
+    }
+}
+finally {
+    Pop-Location
+}
+Write-Output "deployed Edition $expectedEdition to https://jeromebrief.com"

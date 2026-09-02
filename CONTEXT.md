@@ -47,3 +47,11 @@ _Avoid_: Cache data, metadata file, history
 **Public Export**:
 A deliberately sanitized derivative of local content prepared for external website consumption.
 _Avoid_: Public data, web dump, upload file
+
+**Reader**:
+A person accessing published Editions. A Reader may remain anonymous; an authenticated identity is required only for reader-scoped state.
+_Avoid_: Customer, subscriber, account
+
+**Favorite**:
+A Reader-scoped saved reference to a published Knowledge Card. It does not duplicate or become an alternate copy of the Card.
+_Avoid_: Bookmark, saved Card, copied Card

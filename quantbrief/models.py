@@ -53,6 +53,7 @@ class KnowledgeCard:
     published_at: datetime
     retrieved_at: datetime
     tags: list[str]
+    tags_en: list[str]
     features: list[dict[str, Any]]
     score: float
     score_breakdown: dict[str, Any]
@@ -81,6 +82,7 @@ class KnowledgeCard:
         payload["aiGenerated"] = payload.pop("ai_generated")
         payload["summaryProvider"] = payload.pop("summary_provider")
         payload["summaryModel"] = payload.pop("summary_model")
+        payload["tagsEn"] = payload.pop("tags_en")
         payload["scoreBreakdown"] = payload.pop("score_breakdown")
         payload["discoveredBy"] = payload.pop("discovered_by")
         payload.pop("published_at")

@@ -40,3 +40,10 @@ the fix:
 
 Human judgment remains necessary for editorial quality, source trust, and whether a
 new seam earns its complexity. Automation protects the decisions after they are made.
+
+## Current evidence and debt
+
+[`docs/technical-debt.md`](technical-debt.md) records the evidence-based Quality
+score, concrete technical debt, and repair triggers. Update the affected score row in
+the same change that materially changes its evidence or largest gap. Executable work
+belongs in an active execution plan, not only in the debt table.

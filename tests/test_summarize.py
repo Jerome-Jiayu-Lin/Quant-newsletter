@@ -116,6 +116,7 @@ class ProviderResponseTests(unittest.TestCase):
         "why_it_matters_en": "Helps assess robustness.",
         "limitations_en": "The full paper has not been independently verified.",
         "tags": ["因子"],
+        "tags_en": ["Factors"],
     }
 
     def test_openai_structured_response_is_normalized(self) -> None:
@@ -135,6 +136,7 @@ class ProviderResponseTests(unittest.TestCase):
         self.assertEqual(result.title, "因子研究")
         self.assertEqual(result.provider, "deepseek")
         self.assertEqual(result.summary_en, "The authors evaluate a factor with out-of-sample data.")
+        self.assertEqual(result.tags_en, ["Factors"])
         sent = json.loads(request.call_args.args[0].data)
         self.assertEqual(sent["response_format"], {"type": "json_object"})
 
@@ -162,6 +164,28 @@ class ProviderResponseTests(unittest.TestCase):
             result = DeepSeekChatSummary("test-key").summarize(raw_item())
         self.assertEqual(request.call_count, 3)
         self.assertEqual(result.title_en, "Factor Study")
+
+    def test_deepseek_merges_targeted_repairs_for_missing_limitations(self) -> None:
+        incomplete = {
+            key: value
+            for key, value in self.card.items()
+            if key not in {"limitations", "limitations_en"}
+        }
+        repair = {
+            "limitations": self.card["limitations"],
+            "limitations_en": self.card["limitations_en"],
+        }
+        responses = [
+            FakeResponse({"choices": [{"message": {"content": json.dumps(incomplete, ensure_ascii=False)}}]}),
+            FakeResponse({"choices": [{"message": {"content": json.dumps(repair, ensure_ascii=False)}}]}),
+        ]
+        with patch("urllib.request.urlopen", side_effect=responses) as request:
+            result = DeepSeekChatSummary("test-key").summarize(raw_item())
+        self.assertEqual(request.call_count, 2)
+        self.assertEqual(result.limitations, "尚未核验全文。")
+        self.assertEqual(result.limitations_en, "The full paper has not been independently verified.")
+        repair_request = json.loads(request.call_args.args[0].data)
+        self.assertIn("limitations, limitations_en", repair_request["messages"][-1]["content"])
 
     def test_deepseek_repairs_blank_or_empty_bilingual_fields(self) -> None:
         incomplete = dict(self.card)

@@ -7,7 +7,8 @@ export type KnowledgeCard = {
   titleEn: string; descriptionEn: string; summaryEn: string;
   keyPointsEn: string[]; whyItMattersEn: string; limitationsEn: string;
   publishedAt: string; retrievedAt: string; tags: string[]; score: number;
-  aiGenerated: boolean; discoveredBy: string[];
+  tagsEn?: string[]; features?: Array<{ id: string; label: { zh: string; en: string } }>;
+  aiGenerated: boolean; summaryProvider: string; summaryModel?: string | null; discoveredBy: string[];
 };
 
 export type CardDataset = {
@@ -23,10 +24,21 @@ const translatedTextFields = ['titleEn', 'descriptionEn', 'summaryEn', 'whyItMat
 function hasCompleteTranslation(value: unknown): value is KnowledgeCard {
   if (!value || typeof value !== 'object') return false;
   const card = value as Partial<KnowledgeCard>;
+  const hasChinese = (text: unknown) => typeof text === 'string' && /[\u3400-\u9fff]/u.test(text);
+  const englishText = [card.titleEn, card.descriptionEn, card.summaryEn, card.whyItMattersEn, card.limitationsEn, ...(card.keyPointsEn ?? [])].join(' ');
   return translatedTextFields.every((field) => typeof card[field] === 'string' && card[field].trim().length > 0)
     && Array.isArray(card.keyPointsEn)
     && card.keyPointsEn.length > 0
-    && card.keyPointsEn.every((point) => typeof point === 'string' && point.trim().length > 0);
+    && card.keyPointsEn.every((point) => typeof point === 'string' && point.trim().length > 0)
+    && card.aiGenerated === true
+    && card.summaryProvider !== 'source'
+    && hasChinese(card.title)
+    && hasChinese(card.description)
+    && hasChinese(card.summary)
+    && Array.isArray(card.keyPoints)
+    && card.keyPoints.length > 0
+    && card.keyPoints.every(hasChinese)
+    && /[A-Za-z]/.test(englishText);
 }
 
 function isCompleteEdition(value: unknown): value is CardDataset {
@@ -49,15 +61,20 @@ export async function getDataset(): Promise<CardDataset> {
   } catch {
     // Local builds and first deploys use the bundled edition until main has data.
   }
+  if (!isCompleteEdition(fallbackDataset)) {
+    throw new Error('The bundled Edition is not genuinely bilingual. Publish a validated AI-translated Edition.');
+  }
   return fallbackDataset;
 }
+
+export function isBilingualCard(value: unknown): value is KnowledgeCard { return hasCompleteTranslation(value); }
 
 export async function getCard(slug: string): Promise<KnowledgeCard | undefined> {
   const current = await getDataset();
   return current.cards.find((card) => card.slug === slug);
 }
-export function formatSingaporeTime(value: string): string {
-  return new Intl.DateTimeFormat('zh-CN', {
+export function formatSingaporeTime(value: string, locale: 'zh' | 'en' = 'zh'): string {
+  return new Intl.DateTimeFormat(locale === 'en' ? 'en-SG' : 'zh-CN', {
     timeZone: 'Asia/Singapore', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
   }).format(new Date(value));
 }

@@ -117,7 +117,8 @@ Edit `config/sources.toml` to enable, disable, prioritize, or cap a source. New 
 
 Start with [`AGENTS.md`](AGENTS.md), then use [`ARCHITECTURE.md`](ARCHITECTURE.md) as the code map and
 [`docs/QUALITY.md`](docs/QUALITY.md) as the enforceable quality contract. Complex, multi-session changes use the
-execution-plan lifecycle in [`docs/exec-plans/index.md`](docs/exec-plans/index.md).
+execution-plan lifecycle in [`docs/exec-plans/index.md`](docs/exec-plans/index.md). Current evidence grades, concrete
+debt, and repair triggers live in [`docs/technical-debt.md`](docs/technical-debt.md).
 
 Run the complete local feedback loop before handing off a change:
 

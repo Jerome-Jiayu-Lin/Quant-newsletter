@@ -14,6 +14,10 @@ Quant Brief has two deployable paths:
 The durable local Archive and Candidate Pool are runtime stores, not alternate entry
 points. The website never reads either store directly.
 
+The accepted public persistence and identity target is recorded in
+[`ADR-0001`](docs/adr/0001-separate-public-content-and-reader-state.md). It is a
+staged target, not a description of currently deployed infrastructure.
+
 ## Python module map
 
 `Pipeline.run(...)` is the deep module interface for Edition construction. It hides
@@ -92,6 +96,52 @@ must not probe third-party response dictionaries.
 
 All `storage/` content is ignored. Re-running an Edition updates its canonical path
 idempotently.
+
+## Public platform target
+
+The public platform separates published editorial content from mutable reader state.
+No cloud service is authoritative for the private Archive or Candidate Pool.
+
+```text
+local Pipeline -> Edition Snapshot -> Public Export publisher -> R2
+                                                        |          \
+                                                        |           -> public website
+                                                        v
+                                                     D1 metadata
+
+reader -> Clerk identity -> Worker API -> D1 reader state
+editor -> Cloudflare Access -> admin UI -> Worker API -> publication workflow
+```
+
+The target responsibilities are:
+
+| Capability | Owner | Authority and boundary |
+|---|---|---|
+| Complete private history | Local `CardArchive` | Remains the durable source for rebuilding public history; never exposed to the website |
+| Published Edition documents | Cloudflare R2 | Stores dated, sanitized Public Exports and a replace-last history index; objects contain no reader state |
+| Public catalog metadata | Cloudflare D1 | Stores only metadata needed for server-side listing, filtering, and publication status when static indexes stop being sufficient |
+| Reader identity | Clerk | Authenticates public readers; Quant Brief stores only the stable external subject identifier needed to associate application state |
+| Reader state | Cloudflare D1 | Stores favorites and future account-scoped preferences; it does not become an editorial Archive |
+| Administrative identity | Cloudflare Access | Restricts the administrative surface independently of public reader authentication |
+| Public and administrative APIs | Cloudflare Workers or Pages Functions | Verify identity, authorize each operation, and provide the only runtime path to D1 bindings |
+
+Browser code must never receive D1 credentials or a write-capable R2 credential.
+Clerk authentication proves reader identity but does not grant application
+authorization by itself. Administrative publication continues to produce a validated
+Public Export rather than allowing the website to read the private Archive directly.
+
+Adopt this target incrementally:
+
+1. Publish dated Public Exports plus a history index to R2; retain
+   `web/data/cards.json` only as the current compatibility path during migration.
+2. Add D1 only when server-side catalog queries, favorites, or other mutable public
+   state are implemented. Static history browsing does not require D1.
+3. Protect the first administrative surface with Cloudflare Access.
+4. Add Clerk only when public reader accounts are implemented; anonymous reading
+   remains independent of the identity provider.
+
+Provider-specific code belongs at adapters on the publication or web runtime edges.
+Knowledge Card and Edition construction must not import Cloudflare or Clerk clients.
 
 ## Safe change routes
 

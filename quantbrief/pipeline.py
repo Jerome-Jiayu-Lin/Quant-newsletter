@@ -329,6 +329,7 @@ class Pipeline:
             published_at=item.published_at,
             retrieved_at=item.retrieved_at,
             tags=result.tags,
+            tags_en=result.tags_en,
             features=[feature.as_dict() for feature in self.feature_extractor.extract(item)],
             score=score,
             score_breakdown=score_breakdown or {},

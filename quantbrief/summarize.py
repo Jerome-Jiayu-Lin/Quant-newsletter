@@ -25,6 +25,7 @@ class SummaryResult:
     why_it_matters_en: str
     limitations_en: str
     tags: list[str]
+    tags_en: list[str]
     ai_generated: bool
     provider: str
     model: str | None
@@ -72,6 +73,7 @@ class SourceSummary:
             why_it_matters_en=domain_reason_en,
             limitations_en="Source-only fallback; the full text, data, and experiments have not been independently verified.",
             tags=item.tags[:6],
+            tags_en=item.tags[:6],
             ai_generated=False,
             provider="source",
             model=None,
@@ -111,8 +113,9 @@ class OpenAIResponsesSummary:
                 "why_it_matters_en": {"type": "string"},
                 "limitations_en": {"type": "string"},
                 "tags": {"type": "array", "items": {"type": "string"}},
+                "tags_en": {"type": "array", "items": {"type": "string"}},
             },
-            "required": ["title", "description", "summary", "key_points", "why_it_matters", "limitations", "title_en", "description_en", "summary_en", "key_points_en", "why_it_matters_en", "limitations_en", "tags"],
+            "required": ["title", "description", "summary", "key_points", "why_it_matters", "limitations", "title_en", "description_en", "summary_en", "key_points_en", "why_it_matters_en", "limitations_en", "tags", "tags_en"],
         }
         content = {
             "domain": item.domain,
@@ -135,6 +138,7 @@ class OpenAIResponsesSummary:
                 "避免投资建议语气。"
                 "同时生成语义一致的英文 title_en、description_en、summary_en、key_points_en、"
                 "why_it_matters_en、limitations_en；英文不是原文标题的简单复制。"
+                "tags 使用简体中文，tags_en 提供语义对应的简洁英文标签。"
             ),
             "input": json.dumps(content, ensure_ascii=False),
             "text": {
@@ -170,6 +174,7 @@ class OpenAIResponsesSummary:
             why_it_matters_en=card["why_it_matters_en"][:1200],
             limitations_en=card["limitations_en"][:1200],
             tags=card["tags"][:6],
+            tags_en=card["tags_en"][:6],
             ai_generated=True,
             provider="openai",
             model=self.model,
@@ -191,7 +196,7 @@ class DeepSeekChatSummary:
         "title", "description", "summary", "why_it_matters", "limitations",
         "title_en", "description_en", "summary_en", "why_it_matters_en", "limitations_en",
     }
-    REQUIRED_LIST_FIELDS = {"key_points", "key_points_en", "tags"}
+    REQUIRED_LIST_FIELDS = {"key_points", "key_points_en", "tags", "tags_en"}
 
     def __init__(
         self,
@@ -220,11 +225,13 @@ class DeepSeekChatSummary:
             "必须输出一个 JSON 对象，字段为 title、description、summary、key_points、why_it_matters、"
             "limitations、tags。key_points 和 tags 是字符串数组，其余字段是字符串。"
             "还必须包含英文 title_en、description_en、summary_en、key_points_en、why_it_matters_en、"
-            "limitations_en，其中 key_points_en 是字符串数组。"
+            "limitations_en、tags_en，其中 key_points_en 和 tags_en 是字符串数组。"
             "title 使用简体中文，通常 12 至 30 个汉字，明确主题与新发现，禁止重磅、速看、最新等点击诱导词；"
             "description 回答新在哪里和为何有用；summary 区分事实与作者观点；limitations 明确证据边界；"
             "避免投资建议语气。"
             "中英文内容必须语义一致；英文摘要不是简单复制原文标题。"
+            "tags 使用简体中文，tags_en 提供语义对应的简洁英文标签。"
+            "所有字段都必须输出；内容保持精炼，优先保证 limitations 和 limitations_en 完整，避免因篇幅省略字段。"
         )
         messages = [
             {"role": "system", "content": system_prompt},
@@ -235,7 +242,7 @@ class DeepSeekChatSummary:
             "messages": messages,
             "response_format": {"type": "json_object"},
             "thinking": {"type": "disabled"},
-            "max_tokens": 1400,
+            "max_tokens": 2200,
             "stream": False,
         }
         output_text = self._request(payload)
@@ -246,20 +253,25 @@ class DeepSeekChatSummary:
         for _ in range(2):
             if not invalid:
                 break
+            requested_fields = list(invalid)
             repair_payload = dict(payload)
             repair_payload["messages"] = messages + [
-                {"role": "assistant", "content": output_text},
+                {"role": "assistant", "content": json.dumps(card, ensure_ascii=False)},
                 {
                     "role": "user",
                     "content": (
-                        "上一个 JSON 中这些必需字段缺失、为空或类型无效：" + ", ".join(invalid) + "。"
-                        "请重新返回完整 JSON 对象；所有文本字段必须是非空字符串，所有数组字段必须包含非空字符串，"
-                        "不要省略已有字段，也不要输出解释或 Markdown。"
+                        "上一个 JSON 中这些必需字段缺失、为空或类型无效：" + ", ".join(requested_fields) + "。"
+                        "只返回一个包含这些字段的 JSON 对象；文本字段必须是非空字符串，数组字段必须包含非空字符串，"
+                        "不要返回其他字段、解释或 Markdown。"
                     ),
                 },
             ]
             output_text = self._request(repair_payload)
-            card = json.loads(output_text)
+            repair = json.loads(output_text)
+            if isinstance(repair, dict):
+                for field in requested_fields:
+                    if field in repair:
+                        card[field] = repair[field]
             invalid = self._invalid_fields(card)
         if invalid:
             raise ValueError("DeepSeek JSON has incomplete required fields after repair: " + ", ".join(invalid))
@@ -277,6 +289,7 @@ class DeepSeekChatSummary:
             why_it_matters_en=str(card["why_it_matters_en"])[:1200],
             limitations_en=str(card["limitations_en"])[:1200],
             tags=[str(tag) for tag in card["tags"][:6]],
+            tags_en=[str(tag) for tag in card["tags_en"][:6]],
             ai_generated=True,
             provider="deepseek",
             model=self.model,

@@ -52,6 +52,10 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .brand-copy strong { font: 700 13px/1 var(--mono); letter-spacing: .09em; }
 .brand-copy > span { color: #8a94a4; font: 500 8px/1 var(--mono); letter-spacing: .17em; }
 .topbar-status { display: flex; align-items: center; gap: 16px; color: #687386; font: 500 10px/1 var(--mono); letter-spacing: .08em; }
+.language-switcher { display: inline-flex; padding: 5px 7px; border: 1px solid var(--line); align-items: center; gap: 6px; background: white; color: #8a94a4; font: 650 9px/1 var(--mono); letter-spacing: .04em; }
+.language-switcher a { padding: 4px 5px; transition: color .2s, background-color .2s; }
+.language-switcher a:hover { color: var(--blue); }
+.language-switcher a[aria-current="page"] { background: var(--ink); color: var(--lime); }
 .system-state { display: inline-flex; align-items: center; gap: 8px; color: #263143; }
 .system-state i, .console-live i, .result-count i { display: block; width: 6px; height: 6px; border-radius: 50%; background: #63d018; box-shadow: 0 0 0 4px rgb(99 208 24 / 0.12); animation: status-pulse 2.4s ease-out infinite; }
 .topbar-rule { width: 1px; height: 17px; background: var(--line); }
@@ -64,6 +68,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .tech-label span { display: grid; width: 27px; height: 20px; place-items: center; background: var(--ink); color: var(--lime); font-size: 9px; }
 .hero-copy h1 { max-width: 800px; margin: 34px 0 0; font-size: clamp(3.25rem, 6.2vw, 6.25rem); font-weight: 650; line-height: .98; letter-spacing: -.075em; }
 .hero-copy h1 > span { display: inline-block; margin-top: .12em; color: var(--blue); }
+.site-shell[lang="zh-CN"] .hero-copy h1 > span { font-size: .64em; letter-spacing: -.055em; white-space: nowrap; }
 .hero-description { max-width: 620px; margin: 34px 0 0; color: #596577; font-size: 16px; line-height: 1.9; }
 .hero-actions { display: flex; margin-top: 38px; align-items: center; gap: 24px; }
 .hero-actions > p { max-width: 230px; margin: 0; color: #7b8595; font: 500 10px/1.6 var(--mono); }
@@ -154,6 +159,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .detail-shell { min-height: 100vh; }
 .detail-topbar { border-bottom: 1px solid var(--line); background: rgb(255 255 255 / .9); }
 .detail-topbar-inner { display: flex; max-width: 960px; height: 76px; margin: 0 auto; padding: 0 28px; align-items: center; justify-content: space-between; }
+.detail-navigation { display: flex; align-items: center; gap: 16px; }
 .back-link { color: #667183; font: 600 10px/1 var(--mono); letter-spacing: .05em; transition: color .2s; }.back-link:hover { color: var(--blue); }
 .detail-article { max-width: 960px; margin: 0 auto; padding: 74px 28px 100px; }
 .detail-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; color: #7d8796; font: 500 10px/1.4 var(--mono); }
@@ -187,7 +193,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 @media (max-width: 650px) {
   .topbar-inner, .hero-grid, .feed-section, .site-footer, .detail-topbar-inner, .detail-article { padding-left: 18px; padding-right: 18px; }
-  .topbar-status .system-state, .topbar-rule { display: none; }
+  .topbar-status .system-state, .topbar-rule, .topbar-status > span:not(.system-state):not(.topbar-rule) { display: none; }
   .hero-grid { padding-top: 58px; padding-bottom: 54px; gap: 42px; }.hero-copy h1 { margin-top: 28px; font-size: clamp(3rem, 14vw, 4.5rem); }.hero-description { margin-top: 26px; font-size: 14px; }.hero-actions { align-items: flex-start; flex-direction: column; gap: 15px; }
   .signal-console { width: 100%; }.console-visual { height: 160px; }.metric-grid > div { min-height: 96px; }
   .feed-section { padding-top: 68px; padding-bottom: 76px; }.section-intro > div { align-items: flex-start; flex-direction: column; gap: 10px; }.section-intro { margin-bottom: 28px; }
@@ -196,6 +202,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .card-grid { grid-template-columns: 1fr; }.signal-card { min-height: 365px; }
   .site-footer { grid-template-columns: 1fr; gap: 22px; }.footer-process { justify-content: flex-start; }
   .detail-article { padding-top: 50px; }.detail-layout, .detail-aside { grid-template-columns: 1fr; }.detail-panel { padding: 23px; }.source-cta { align-items: flex-start; flex-direction: column; }
+  .detail-navigation { gap: 10px; }.detail-navigation .back-link { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

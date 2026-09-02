@@ -41,6 +41,7 @@ REQUIRED_KNOWLEDGE_FILES = {
     "ARCHITECTURE.md",
     "CONTEXT.md",
     "docs/QUALITY.md",
+    "docs/technical-debt.md",
     "docs/exec-plans/index.md",
     "docs/exec-plans/template.md",
 }

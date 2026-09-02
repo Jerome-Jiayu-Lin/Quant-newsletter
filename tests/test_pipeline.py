@@ -64,6 +64,7 @@ class PipelineTests(unittest.TestCase):
         self.assertFalse(card["aiGenerated"])
         self.assertTrue(card["slug"])
         self.assertEqual(card["titleEn"], item.title)
+        self.assertEqual(card["tagsEn"], item.tags)
         self.assertIn("topic:quantitative-finance", {feature["id"] for feature in card["features"]})
 
     def test_strict_summary_mode_does_not_silently_fallback(self) -> None:
