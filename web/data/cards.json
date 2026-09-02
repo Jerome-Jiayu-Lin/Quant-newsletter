@@ -1,19 +1,22 @@
 {
-  "generatedAt": "2026-08-31T15:59:59.999999+00:00",
+  "generatedAt": "2026-09-01T15:59:59.999999+00:00",
   "timezone": "Asia/Singapore",
-  "edition": "2026.08.31",
+  "edition": "2026.09.01",
   "cards": [
     {
-      "id": "92e056c943da9eb4",
-      "slug": "portbench-a-correlation-aware-full-pipeline-benc-92e056c943",
+      "id": "f7ca1eee8be8193b",
+      "slug": "dtd-vae-disentangled-temporal-dependencies-vae-f-f7ca1eee8b",
       "domain": "量化研究",
-      "title": "PortBench: A Correlation-Aware, Full-Pipeline Benchmark for LLM-Driven Portfolio Management",
-      "description": "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked.",
-      "summary": "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked. Existing benchmarks exhibit two gaps: they are often equity-only and ignore cross-asset correlations; they fail to evaluate the complete PM decision pipeline. We introduce PortBench, a benchmark spanning six heterogeneous asset classes from 2015 to 2025. PortBench comprises a static QA dataset of 6,269 questions across seven task templates and a dynamic five-stage allocation pipeline. To evaluate these layers, we introduce two metrics: a dual-layer correlation score for inter-class hedging and intra-class concentration, and CEPS, which quantifies how reasoning errors compound across pipeline stages. We further evaluate under three stress windows and three risk profiles, and support real-time evaluation to mitigate pretraining contamination on historical markets. Across ten frontier LLMs, strong financial QA performance fails to translate into superior portfolio performance: only 32.5\\% of 120 evaluations beat equal weighting on Sharpe across four market periods. Our source code is available at \\href{https://github.com/AgenticFinLab/por",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "title": "DTD-VAE：解耦时序依赖的变分自编码器提升信用风险预测",
+      "description": "本研究提出DTD-VAE模型，针对传统方法难以区分信用风险相关时间模式与一般客户行为模式的问题，通过解耦时间依赖和特征生成机制，提升信用风险预测的准确性。在多个真实数据集上，模型在ROC-AUC和AR指标上均优于现有方法。",
+      "summary": "本文介绍了一种名为DTD-VAE的变分自编码器改进模型，用于信用风险预测。模型通过自回归时间依赖学习捕获潜在变量间的时间依赖，并采用逐元素门控机制实现细粒度解耦，从而区分风险相关特征和一般偏好。实验显示，在六个真实数据集上，模型性能显著优于基线。作者认为该模型能够更有效地提取时间相关信息，但需注意实验数据的具体来源和泛化性。",
+      "limitations": "实验数据具体来源未详细说明，可能影响泛化性评估；性能提升的统计显著性未明确报告；模型计算复杂度未提及，实际应用成本未知。",
       "tags": [
-        "论文",
-        "q-fin"
+        "信用风险",
+        "变分自编码器",
+        "时间依赖",
+        "解耦学习",
+        "量化研究"
       ],
       "features": [
         {
@@ -37,17 +40,6 @@
           },
           "evidence": "source.platform",
           "confidence": 1.0
-        },
-        {
-          "id": "topic:portfolio",
-          "facet": "topic",
-          "value": "portfolio",
-          "label": {
-            "zh": "投资组合",
-            "en": "Portfolio"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
         },
         {
           "id": "topic:quantitative-finance",
@@ -72,52 +64,61 @@
           "confidence": 0.8
         }
       ],
-      "score": 88.45,
+      "score": 81.13,
       "publishedAt": "2026-09-01T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
       "sourceName": "arXiv q-fin",
       "contentType": "paper",
       "sourceGroup": "论文",
-      "originalTitle": "PortBench: A Correlation-Aware, Full-Pipeline Benchmark for LLM-Driven Portfolio Management",
-      "originalUrl": "https://arxiv.org/abs/2605.27887",
+      "originalTitle": "DTD-VAE: Disentangled Temporal Dependencies VAE for Credit Risk Prediction",
+      "originalUrl": "https://arxiv.org/abs/2608.26473",
       "keyPoints": [
-        "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked.",
-        "Existing benchmarks exhibit two gaps: they are often equity-only and ignore cross-asset correlations; they fail to evaluate the complete PM decision pipeline.",
-        "We introduce PortBench, a benchmark spanning six heterogeneous asset classes from 2015 to 2025."
+        "DTD-VAE能够解耦时间依赖，区分信用风险相关特征与一般行为模式。",
+        "自回归时间依赖学习机制增强了模型对数据结构的理解。",
+        "逐元素门控机制实现细粒度解耦，提升风险预测精度。",
+        "在六个真实数据集上，ROC-AUC提升3.2%-4.86%，AR提升6.41%-9.71%。"
       ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "PortBench: A Correlation-Aware, Full-Pipeline Benchmark for LLM-Driven Portfolio Management",
-      "descriptionEn": "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked.",
-      "summaryEn": "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked. Existing benchmarks exhibit two gaps: they are often equity-only and ignore cross-asset correlations; they fail to evaluate the complete PM decision pipeline. We introduce PortBench, a benchmark spanning six heterogeneous asset classes from 2015 to 2025. PortBench comprises a static QA dataset of 6,269 questions across seven task templates and a dynamic five-stage allocation pipeline. To evaluate these layers, we introduce two metrics: a dual-layer correlation score for inter-class hedging and intra-class concentration, and CEPS, which quantifies how reasoning errors compound across pipeline stages. We further evaluate under three stress windows and three risk profiles, and support real-time evaluation to mitigate pretraining contamination on historical markets. Across ten frontier LLMs, strong financial QA performance fails to translate into superior portfolio performance: only 32.5\\% of 120 evaluations beat equal weighting on Sharpe across four market periods. Our source code is available at \\href{https://github.com/AgenticFinLab/por",
+      "whyItMatters": "该研究为信用风险评估提供了新方法，通过解耦时间依赖，模型能更准确识别风险信号，提升预测性能，对零售银行的信贷决策具有实际应用价值。",
+      "titleEn": "DTD-VAE: Disentangled Temporal Dependencies VAE for Credit Risk Prediction",
+      "descriptionEn": "This study proposes the DTD-VAE model to address the challenge of distinguishing credit-risk-related temporal patterns from general customer behavior patterns. By disentangling temporal dependencies and improving feature generation, the model enhances credit risk prediction accuracy, outperforming existing methods on multiple real-world datasets.",
+      "summaryEn": "The paper introduces DTD-VAE, an enhanced VAE model for credit risk prediction. It employs an autoregressive temporal dependency learning mechanism and an element-wise gating mechanism to disentangle risk-specific features from general preferences. Experiments on six real-world datasets show significant performance improvements over baselines in ROC-AUC and Accuracy Ratio. The authors believe the model effectively captures temporal information, but the specific data sources and generalization should be considered.",
       "keyPointsEn": [
-        "Large language models (LLMs) have shown strong performance across diverse financial tasks, yet portfolio management (PM) remains poorly benchmarked.",
-        "Existing benchmarks exhibit two gaps: they are often equity-only and ignore cross-asset correlations; they fail to evaluate the complete PM decision pipeline.",
-        "We introduce PortBench, a benchmark spanning six heterogeneous asset classes from 2015 to 2025."
+        "DTD-VAE disentangles temporal dependencies to distinguish risk-related features from general behavior patterns.",
+        "Autoregressive temporal dependency learning enhances understanding of data structure.",
+        "Element-wise gating enables fine-grained disentanglement, improving risk prediction.",
+        "On six real-world datasets, ROC-AUC improves by 3.2%-4.86% and AR by 6.41%-9.71%."
       ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This research provides a new method for credit risk assessment. By disentangling temporal dependencies, the model better identifies risk signals, improving prediction performance, which is valuable for retail banking credit decisions.",
+      "limitationsEn": "Specific data sources are not detailed, potentially affecting generalization assessment. Statistical significance of improvements is not reported. Computational complexity is not mentioned, so practical cost is unknown.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "Credit Risk",
+        "VAE",
+        "Temporal Dependencies",
+        "Disentangled Learning",
+        "Quantitative Research"
+      ],
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 1143,
+        "comparisonCohortSize": 1507,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 90,
-        "contentValueScore": 83.5,
+        "relevanceScore": 80,
+        "contentValueScore": 74.0,
         "contentSignals": {
           "evidence": 15.0,
-          "actionability": 10.0,
+          "actionability": 5.0,
           "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 100.0,
+        "freshnessScore": 96.67,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
@@ -127,150 +128,19 @@
       ]
     },
     {
-      "id": "0d249082a5da82ea",
-      "slug": "autorec-a-reinforcement-learning-platform-for-eq-0d249082a5",
-      "domain": "AI × 量化",
-      "title": "AutoREC: A reinforcement learning platform for equivalent circuit model generation",
-      "description": "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent cir",
-      "summary": "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent circuit models (ECMs) from electrochemical impedance spectroscopy (EIS) data. Although ECMs are widely used to interpret EIS measurements, their identification typically relies on manual trial-and-error, requiring domain expertise and limiting scalability, particularly in autonomous experimental pipelines such as self-driving laboratories. In AutoREC, ECM generation is formulated as a Markov decision process in which an RL agent sequentially modifies a circuit topology based on the current state, available actions, and feedback from the resulting model. The platform supports an end-to-end workflow encompassing EIS preprocessing with selectable impedance representations, agent setup and training, ECM generation for new measurements, and visualization-based evaluation and analysis of agent decision-making. AutoREC implements a configurable Double Deep Q-Network (DDQN) agent with prioritized experience replay and a dedicated dead-loop mitigation strategy for navigating the complex circuit-generation action spac",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "论文",
-        "机器学习"
-      ],
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "method:reinforcement-learning",
-          "facet": "method",
-          "value": "reinforcement-learning",
-          "label": {
-            "zh": "强化学习",
-            "en": "Reinforcement Learning"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-quant",
-          "facet": "topic",
-          "value": "ai-quant",
-          "label": {
-            "zh": "AI × 量化",
-            "en": "AI × Quant"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:productivity",
-          "facet": "topic",
-          "value": "productivity",
-          "label": {
-            "zh": "效率工具",
-            "en": "Productivity"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "score": 86.36,
-      "publishedAt": "2026-09-01T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "arXiv cs.LG",
-      "contentType": "paper",
-      "sourceGroup": "论文",
-      "originalTitle": "AutoREC: A reinforcement learning platform for equivalent circuit model generation",
-      "originalUrl": "https://arxiv.org/abs/2604.27266",
-      "keyPoints": [
-        "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent circuit models (ECMs) from electrochemical impedance spectroscopy (EIS) data.",
-        "Although ECMs are widely used to interpret EIS measurements, their identification typically relies on manual trial-and-error, requiring domain expertise and limiting scalability, particularly in autonomous experimental pipelines such as self-driving laboratories.",
-        "In AutoREC, ECM generation is formulated as a Markov decision process in which an RL agent sequentially modifies a circuit topology based on the current state, available actions, and feedback from the resulting model."
-      ],
-      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
-      "titleEn": "AutoREC: A reinforcement learning platform for equivalent circuit model generation",
-      "descriptionEn": "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent cir",
-      "summaryEn": "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent circuit models (ECMs) from electrochemical impedance spectroscopy (EIS) data. Although ECMs are widely used to interpret EIS measurements, their identification typically relies on manual trial-and-error, requiring domain expertise and limiting scalability, particularly in autonomous experimental pipelines such as self-driving laboratories. In AutoREC, ECM generation is formulated as a Markov decision process in which an RL agent sequentially modifies a circuit topology based on the current state, available actions, and feedback from the resulting model. The platform supports an end-to-end workflow encompassing EIS preprocessing with selectable impedance representations, agent setup and training, ECM generation for new measurements, and visualization-based evaluation and analysis of agent decision-making. AutoREC implements a configurable Double Deep Q-Network (DDQN) agent with prioritized experience replay and a dedicated dead-loop mitigation strategy for navigating the complex circuit-generation action spac",
-      "keyPointsEn": [
-        "This paper introduces AutoREC, an open-source Python platform for developing, training, and evaluating reinforcement learning (RL) agents that automatically generate equivalent circuit models (ECMs) from electrochemical impedance spectroscopy (EIS) data.",
-        "Although ECMs are widely used to interpret EIS measurements, their identification typically relies on manual trial-and-error, requiring domain expertise and limiting scalability, particularly in autonomous experimental pipelines such as self-driving laboratories.",
-        "In AutoREC, ECM generation is formulated as a Markov decision process in which an RL agent sequentially modifies a circuit topology based on the current state, available actions, and feedback from the resulting model."
-      ],
-      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 1143,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 80,
-        "contentValueScore": 83.65,
-        "contentSignals": {
-          "evidence": 20.0,
-          "actionability": 15.0,
-          "novelty": 8.0,
-          "specificity": 4.65,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 78.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ]
-    },
-    {
-      "id": "02886383fa79af7c",
-      "slug": "end-to-end-neural-shrinkage-of-indefinite-pairwi-02886383fa",
+      "id": "026354467e1af2b8",
+      "slug": "forecasting-weather-driven-price-dynamics-across-026354467e",
       "domain": "量化研究",
-      "title": "End-to-End Neural Shrinkage of Indefinite Pairwise Correlation Matrices for Small-Cap-Inclusive Portfolios",
-      "description": "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available ",
-      "summary": "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available information. Pairwise-complete estimation preserves the longest overlap for each asset pair, but the resulting correlation matrix can be indefinite because its entries are computed on different samples. This prevents direct use in Markowitz optimization and falls outside the assumptions of standard random-matrix shrinkage. We adapt a rotation-invariant neural covariance estimator to this setting. The model computes mask-aware marginal moments and a pairwise correlation matrix proxy, processes its signed spectrum, and uses a bidirectional gated recurrent unit conditioned on factor-aligned effective sample lengths derived from the overlap matrix and eigenvector loadings. It maps all eigenvalues, including negative ones, to a positive inverse spectrum. The reconstructed covariance is positive definite and is trained end-to-end to minimize five-day realized global-minimum-variance risk. We evaluate 26 expanding-window models from 2000 to 2025 on up to 1,500 U.S. equities in a closing-auction simulator with po",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "title": "斯里兰卡茶叶拍卖价格受天气影响的量化研究",
+      "description": "本研究构建了结合天气数据与茶叶拍卖价格的新数据集，通过格兰杰因果检验和机器学习模型，揭示了不同茶叶目录对天气因素的敏感性差异，为茶叶价格预测提供了更精准的框架。",
+      "summary": "研究基于2023年底至2026年间的105份周度经纪人报告和区域天气数据，分析了斯里兰卡四种主要茶叶目录的价格动态。结果显示，市场动态是主要驱动因素，但天气条件也有显著影响：低地茶对降水和日照时数敏感，而次级茶和粉末茶对温度变化有显著响应。分目录建模优于统一建模，LightGBM在四个目录中的三个表现最佳。",
+      "limitations": "数据时间跨度仅两年半，可能未覆盖长期气候模式；天气数据为区域级，存在粒度局限；格兰杰因果分析不能完全证明因果关系；未考虑其他潜在因素如市场政策、全球供需变化等。",
       "tags": [
-        "论文",
-        "q-fin"
+        "茶叶价格",
+        "天气影响",
+        "机器学习",
+        "格兰杰因果",
+        "斯里兰卡"
       ],
       "features": [
         {
@@ -283,6 +153,17 @@
           },
           "evidence": "source.group",
           "confidence": 1.0
+        },
+        {
+          "id": "method:forecasting",
+          "facet": "method",
+          "value": "forecasting",
+          "label": {
+            "zh": "预测",
+            "en": "Forecasting"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         },
         {
           "id": "platform:arxiv",
@@ -316,65 +197,63 @@
           },
           "evidence": "source.domain",
           "confidence": 1.0
-        },
-        {
-          "id": "topic:risk",
-          "facet": "topic",
-          "value": "risk",
-          "label": {
-            "zh": "风险",
-            "en": "Risk"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
         }
       ],
-      "score": 86.0,
+      "score": 80.78,
       "publishedAt": "2026-09-01T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
       "sourceName": "arXiv q-fin",
       "contentType": "paper",
       "sourceGroup": "论文",
-      "originalTitle": "End-to-End Neural Shrinkage of Indefinite Pairwise Correlation Matrices for Small-Cap-Inclusive Portfolios",
-      "originalUrl": "https://arxiv.org/abs/2608.30446",
+      "originalTitle": "Forecasting Weather-Driven Price Dynamics Across Sri Lankan Tea Market Catalogues",
+      "originalUrl": "https://arxiv.org/abs/2608.24894",
       "keyPoints": [
-        "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available information.",
-        "Pairwise-complete estimation preserves the longest overlap for each asset pair, but the resulting correlation matrix can be indefinite because its entries are computed on different samples.",
-        "This prevents direct use in Markowitz optimization and falls outside the assumptions of standard random-matrix shrinkage."
+        "新数据集结合了105份周度经纪人报告与区域天气数据",
+        "低地茶对1-3周滞后的降水和日照时数显著敏感（p<0.05）",
+        "次级茶和粉末茶对温度变化有显著响应",
+        "分目录建模优于统一建模，LightGBM在三个目录中表现最佳"
       ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "End-to-End Neural Shrinkage of Indefinite Pairwise Correlation Matrices for Small-Cap-Inclusive Portfolios",
-      "descriptionEn": "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available ",
-      "summaryEn": "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available information. Pairwise-complete estimation preserves the longest overlap for each asset pair, but the resulting correlation matrix can be indefinite because its entries are computed on different samples. This prevents direct use in Markowitz optimization and falls outside the assumptions of standard random-matrix shrinkage. We adapt a rotation-invariant neural covariance estimator to this setting. The model computes mask-aware marginal moments and a pairwise correlation matrix proxy, processes its signed spectrum, and uses a bidirectional gated recurrent unit conditioned on factor-aligned effective sample lengths derived from the overlap matrix and eigenvector loadings. It maps all eigenvalues, including negative ones, to a positive inverse spectrum. The reconstructed covariance is positive definite and is trained end-to-end to minimize five-day realized global-minimum-variance risk. We evaluate 26 expanding-window models from 2000 to 2025 on up to 1,500 U.S. equities in a closing-auction simulator with po",
+      "whyItMatters": "该研究填补了天气与斯里兰卡茶叶价格关系系统研究的空白，为茶叶行业提供了更精确的价格预测框架，有助于生产者、拍卖商和贸易商优化决策。",
+      "titleEn": "Quantifying Weather-Driven Price Dynamics in Sri Lankan Tea Auctions",
+      "descriptionEn": "This study constructs a novel dataset combining weather data and tea auction prices, and uses Granger causality and machine learning models to reveal differential sensitivity of tea catalogues to weather, offering a more precise forecasting framework.",
+      "summaryEn": "Based on 105 weekly broker reports from late 2023 to 2026 and regional weather data, the study analyzes price dynamics of four main tea catalogues. Results show market dynamics are primary, but weather matters: Low Grown tea is sensitive to precipitation and sunshine, while Off-Grade and Dust respond to temperature. Catalogue-specific modeling outperforms unified, with LightGBM best for three catalogues.",
       "keyPointsEn": [
-        "Small-cap-inclusive equity universes contain recently listed and intermittently traded securities, so enforcing a common look-back discards a substantial fraction of the available information.",
-        "Pairwise-complete estimation preserves the longest overlap for each asset pair, but the resulting correlation matrix can be indefinite because its entries are computed on different samples.",
-        "This prevents direct use in Markowitz optimization and falls outside the assumptions of standard random-matrix shrinkage."
+        "Novel dataset combining 105 weekly broker reports and weather data",
+        "Low Grown tea significantly sensitive to precipitation and sunshine at 1-3 week lags (p<0.05)",
+        "Off-Grade and Dust show significant responses to temperature variations",
+        "Catalogue-specific modeling outperforms unified; LightGBM best for three out of four"
       ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This study fills a gap in systematic research on weather and Sri Lankan tea prices, providing a more precise forecasting framework for the tea industry to aid producers, auctioneers, and traders.",
+      "limitationsEn": "Data spans only two and a half years, possibly missing long-term climate patterns; weather data is regional with granularity limits; Granger causality does not prove causation; other factors like market policies and global supply-demand are not considered.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "tea prices",
+        "weather impact",
+        "machine learning",
+        "Granger causality",
+        "Sri Lanka"
+      ],
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 1143,
+        "comparisonCohortSize": 1507,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 100.0,
-        "contentValueScore": 80.0,
+        "relevanceScore": 90,
+        "contentValueScore": 73.5,
         "contentSignals": {
-          "evidence": 20.0,
+          "evidence": 10.0,
           "actionability": 5.0,
-          "novelty": 0.0,
+          "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 100.0,
+        "freshnessScore": 96.67,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
@@ -385,16 +264,19 @@
       ]
     },
     {
-      "id": "8c0911bee23ad893",
-      "slug": "agentic-quantitative-trading-a-survey-of-workflo-8c0911bee2",
+      "id": "22936ee27fff136f",
+      "slug": "deep-hedging-under-realistic-market-frictions-a--22936ee27f",
       "domain": "量化研究",
-      "title": "Agentic Quantitative Trading: A Survey of Workflows, Systems, and Evaluation",
-      "description": "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback.",
-      "summary": "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback. This survey reviews agentic quantitative trading across five stages: factor mining, signal discovery, portfolio construction, order execution, and risk management. We further examine agentic quant trading systems through architecture, coordination, and adaptation, while comparing benchmarks across strategy construction, offline trading, live market evaluation, and reliability assessment. Our review finds that current systems remain concentrated on signal discovery, while complete integration with portfolio construction, execution, and risk control is still uncommon. Multi-agent systems also rely heavily on aggregation despite increasingly diverse workflow structures. Benchmark evidence further shows that strong model or forecasting capability does not reliably translate into trading performance under live market conditions and reliability controls. We conclude with future directions for more complete trading workflows, stronger coordination, and evaluation matched to the capability being assessed.",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "title": "真实市场摩擦下深度对冲失效：比特币期权实证研究",
+      "description": "该研究利用Deribit交易所2020-2024年真实比特币期权数据，对比经典对冲策略（Black-Scholes delta、Leland、Whalley-Wilmott）与三种深度对冲模型。结果发现深度对冲未能超越经典策略，而Whalley-Wilmott在降低成本方面显著有效，且效果依赖市场状态。这对于深度对冲的实际应用提出了质疑。",
+      "summary": "该研究基于2020-2024年Deribit的比特币期权数据，对六种对冲策略（三种经典、三种深度）进行了实证比较。在2023年9月至2024年12月的11,546个测试时段中，Whalley-Wilmott策略相比Black-Scholes delta显著降低了交易成本（每时段节省1.79美元，p<0.0001），交易频率降低约8倍，但P&L和尾部风险指标未达显著改善。三种深度对冲模型均未在任何指标上超越经典基准，且交易频率几乎每小时一次，即使增加交易惩罚也未改变。在更平静的验证期内，Whalley-Wilmott的P&L优势缩小或消失，但成本优势仍在。作者认为深度模型表现不佳可能源于训练集较小和架构缺乏暂停机制。",
+      "limitations": "研究仅基于比特币期权数据，可能不适用于其他资产。深度学习模型训练集相对较小，可能影响其表现。测试期主要处于特定市场状态，结果可能随市场变化。P&L差异未达统计显著，样本量可能不足。",
       "tags": [
-        "论文",
-        "q-fin"
+        "深度对冲",
+        "期权",
+        "比特币",
+        "交易成本",
+        "实证研究"
       ],
       "features": [
         {
@@ -409,17 +291,6 @@
           "confidence": 1.0
         },
         {
-          "id": "method:forecasting",
-          "facet": "method",
-          "value": "forecasting",
-          "label": {
-            "zh": "预测",
-            "en": "Forecasting"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
           "id": "platform:arxiv",
           "facet": "platform",
           "value": "arxiv",
@@ -429,50 +300,6 @@
           },
           "evidence": "source.platform",
           "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:factors",
-          "facet": "topic",
-          "value": "factors",
-          "label": {
-            "zh": "因子",
-            "en": "Factors"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:portfolio",
-          "facet": "topic",
-          "value": "portfolio",
-          "label": {
-            "zh": "投资组合",
-            "en": "Portfolio"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:productivity",
-          "facet": "topic",
-          "value": "productivity",
-          "label": {
-            "zh": "效率工具",
-            "en": "Productivity"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
         },
         {
           "id": "topic:quantitative-finance",
@@ -497,52 +324,63 @@
           "confidence": 0.8
         }
       ],
-      "score": 83.12,
+      "score": 80.61,
       "publishedAt": "2026-09-01T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
       "sourceName": "arXiv q-fin",
       "contentType": "paper",
       "sourceGroup": "论文",
-      "originalTitle": "Agentic Quantitative Trading: A Survey of Workflows, Systems, and Evaluation",
-      "originalUrl": "https://arxiv.org/abs/2608.31041",
+      "originalTitle": "Deep Hedging Under Realistic Market Frictions: A Regime-Conditional Empirical Study of Dynamic Option Hedging on Bitcoin Options",
+      "originalUrl": "https://arxiv.org/abs/2608.29025",
       "keyPoints": [
-        "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback.",
-        "This survey reviews agentic quantitative trading across five stages: factor mining, signal discovery, portfolio construction, order execution, and risk management.",
-        "We further examine agentic quant trading systems through architecture, coordination, and adaptation, while comparing benchmarks across strategy construction, offline trading, live market evaluation, and reliability assessment."
+        "Whalley-Wilmott策略显著降低交易成本，每时段节省1.79美元，交易频率降低约8倍。",
+        "深度对冲模型（LSTM和Feedforward）在真实数据上未胜过经典策略。",
+        "所有深度模型几乎每小时交易，交易惩罚权重影响甚微。",
+        "Whalley-Wilmott的P&L优势在市场平静期减弱或消失，但成本优势持续。",
+        "作者推测深度模型失效可能因训练集小和缺乏暂停机制。"
       ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Agentic Quantitative Trading: A Survey of Workflows, Systems, and Evaluation",
-      "descriptionEn": "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback.",
-      "summaryEn": "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback. This survey reviews agentic quantitative trading across five stages: factor mining, signal discovery, portfolio construction, order execution, and risk management. We further examine agentic quant trading systems through architecture, coordination, and adaptation, while comparing benchmarks across strategy construction, offline trading, live market evaluation, and reliability assessment. Our review finds that current systems remain concentrated on signal discovery, while complete integration with portfolio construction, execution, and risk control is still uncommon. Multi-agent systems also rely heavily on aggregation despite increasingly diverse workflow structures. Benchmark evidence further shows that strong model or forecasting capability does not reliably translate into trading performance under live market conditions and reliability controls. We conclude with future directions for more complete trading workflows, stronger coordination, and evaluation matched to the capability being assessed.",
+      "whyItMatters": "该研究对深度对冲在真实市场条件下的有效性提出了实证挑战，表明其可能不如经典策略，并强调了市场状态对策略表现的影响。这有助于投资者和研究者更审慎地评估深度学习的实际应用。",
+      "titleEn": "Deep Hedging Fails Under Real Market Frictions: Evidence from Bitcoin Options",
+      "descriptionEn": "This study compares classical option hedging strategies with deep hedging models using real Bitcoin options data from Deribit (2020-2024). The results show that deep hedging does not outperform classical benchmarks, while Whalley-Wilmott significantly reduces costs, with performance dependent on market conditions.",
+      "summaryEn": "Based on five years of Bitcoin options data from Deribit, this study compares six hedging strategies. Over 11,546 test episodes from Sep 2023 to Dec 2024, the Whalley-Wilmott strategy significantly reduced transaction costs by $1.79 per episode (p<0.0001), with about 8 times less trading frequency, but P&L and tail risk improvements were not statistically significant. None of the deep hedging models (LSTM and feedforward) outperformed any classical benchmark, and they traded almost every hour regardless of penalty weight. In a calmer validation period, Whalley-Wilmott's P&L advantage shrunk or disappeared, but cost savings remained. The authors speculate that poor performance of deep models may be due to small training sets and lack of a mechanism to stay still.",
       "keyPointsEn": [
-        "Quantitative trading is moving from isolated predictive models toward agentic workflows that combine reasoning, tool use, memory, and feedback.",
-        "This survey reviews agentic quantitative trading across five stages: factor mining, signal discovery, portfolio construction, order execution, and risk management.",
-        "We further examine agentic quant trading systems through architecture, coordination, and adaptation, while comparing benchmarks across strategy construction, offline trading, live market evaluation, and reliability assessment."
+        "Whalley-Wilmott significantly reduces transaction costs by $1.79 per episode and trades about 8 times less often.",
+        "Deep hedging models (LSTM and feedforward) fail to outperform classical strategies on real data.",
+        "All deep models trade almost every hour; penalty weights have minimal effect.",
+        "Whalley-Wilmott's P&L advantage diminishes in a calmer market, but cost saving persists.",
+        "Authors suspect deep models' failure is due to small training set and lack of a stand-still mechanism."
       ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This study challenges the effectiveness of deep hedging in real market conditions, showing it may be inferior to classical strategies, and highlights the influence of market regimes. It prompts investors and researchers to critically assess deep learning applications in finance.",
+      "limitationsEn": "The study uses only Bitcoin options data, which may not generalize to other assets. The training set for deep learning models is relatively small. The test period covers a specific market regime, and results may vary. P&L differences are not statistically significant, possibly due to insufficient sample size.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "Deep Hedging",
+        "Options",
+        "Bitcoin",
+        "Transaction Costs",
+        "Empirical Study"
+      ],
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 1143,
+        "comparisonCohortSize": 1507,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 100.0,
-        "contentValueScore": 75.89,
+        "relevanceScore": 85,
+        "contentValueScore": 73.25,
         "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 10.0,
-          "novelty": 8.0,
-          "specificity": 2.89,
+          "evidence": 20.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 100.0,
+        "freshnessScore": 96.67,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
@@ -552,16 +390,19 @@
       ]
     },
     {
-      "id": "8d98d11dfa242088",
-      "slug": "locked-at-the-entrance-open-inside-where-rlvr-na-8d98d11dfa",
+      "id": "69636b7c20d87982",
+      "slug": "generating-clinical-vignettes-that-preserve-cogn-69636b7c20",
       "domain": "AI × 量化",
-      "title": "Locked at the Entrance, Open Inside: Where RLVR Narrows the Solution Space",
-      "description": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the ret",
-      "summary": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling. In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated? To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator, across PPO on Qwen2.5-3B and GRPO on Qwen2.5-3B-Instruct. Across both training setups, solution coverage falls by up to 67%, halving even on problems solved across all checkpoints. We show that this contraction is heavily concentrated at the entrance: per-token likelihood shifts are 11x--16x larger prior to the first arithmetic operation than during downstream reasoning. Supplying only an unselected entrance prefix restores completion rates in low-access families by over an order of magnitude (0.018 -> 0.212 under PPO), demonstrating that alternative solutions remain executable but are no lon",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "title": "FORMA框架：保留认知结构的临床案例生成与验证",
+      "description": "该研究提出FORMA框架，通过认知模型编译成图结构来生成临床案例，确保生成文本保留诊断相关的认知成分与因果关系。与直接使用大语言模型零样本生成相比，FORMA生成的案例在结构保真度、专家评估和临床医生感知真实性上显著更优，同时减少人口统计学差异。该研究为可审计的合成临床文本生成提供了新方法。",
+      "summary": "该研究开发了FORMA框架，利用PTSD的认知模型生成符合特定认知结构的临床案例。在500个虚拟人物、11个生成模型和3种消融条件下生成了16,500个案例，并通过外部边恢复探针、临床专家评估、LLM评判和100名执业医生的用户研究进行验证。结果显示全条件生成的案例可恢复认知图（MCC=0.41，AUC=0.70），而零样本生成仅接近随机（MCC=0.01，AUC=0.50）。专家评分和临床医生感知真实性均显著高于零样本，且减少了感知质量的群体差异。作者认为认知公式可作为可审计的规范，用于大规模合成临床文本。",
+      "limitations": "该研究仅使用了PTSD的单一认知模型，可能无法推广到其他疾病或复杂情况。评估依赖LLM和临床专家的主观判断，可能存在偏见。生成的案例虽然结构可恢复，但认知图的可恢复性指标（MCC和AUC）绝对值不高，表明仍有改进空间。",
       "tags": [
-        "论文",
-        "机器学习"
+        "临床案例生成",
+        "认知模型",
+        "大语言模型",
+        "PTSD",
+        "合成数据"
       ],
       "features": [
         {
@@ -574,17 +415,6 @@
           },
           "evidence": "source.group",
           "confidence": 1.0
-        },
-        {
-          "id": "method:reinforcement-learning",
-          "facet": "method",
-          "value": "reinforcement-learning",
-          "label": {
-            "zh": "强化学习",
-            "en": "Reinforcement Learning"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
         },
         {
           "id": "platform:arxiv",
@@ -609,44 +439,55 @@
           "confidence": 1.0
         }
       ],
-      "score": 83.1,
+      "score": 80.26,
       "publishedAt": "2026-09-01T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "arXiv cs.LG",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
+      "sourceName": "arXiv cs.CL",
       "contentType": "paper",
       "sourceGroup": "论文",
-      "originalTitle": "Locked at the Entrance, Open Inside: Where RLVR Narrows the Solution Space",
-      "originalUrl": "https://arxiv.org/abs/2608.29188",
+      "originalTitle": "Generating Clinical Vignettes that Preserve Cognitive Formulations",
+      "originalUrl": "https://arxiv.org/abs/2608.29995",
       "keyPoints": [
-        "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling.",
-        "In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated?",
-        "To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator, across PPO on Qwen2.5-3B and GRPO on Qwen2.5-3B-Instruct."
+        "提出FORMA框架，基于认知模型生成临床案例，确保结构保真。",
+        "在PTSD案例中，全条件生成的认知图可恢复性显著高于零样本（MCC 0.41 vs. 0.01）。",
+        "专家评分和临床医生感知真实性显著优于零样本。",
+        "全条件生成的案例被85%的临床医生误认为人类撰写，零样本仅为22%。",
+        "FORMA将感知质量的人口统计学差异减少了1.5至7倍。"
       ],
-      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
-      "titleEn": "Locked at the Entrance, Open Inside: Where RLVR Narrows the Solution Space",
-      "descriptionEn": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the ret",
-      "summaryEn": "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling. In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated? To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator, across PPO on Qwen2.5-3B and GRPO on Qwen2.5-3B-Instruct. Across both training setups, solution coverage falls by up to 67%, halving even on problems solved across all checkpoints. We show that this contraction is heavily concentrated at the entrance: per-token likelihood shifts are 11x--16x larger prior to the first arithmetic operation than during downstream reasoning. Supplying only an unselected entrance prefix restores completion rates in low-access families by over an order of magnitude (0.018 -> 0.212 under PPO), demonstrating that alternative solutions remain executable but are no lon",
+      "whyItMatters": "这项工作为合成临床文本生成提供了可审计的规范方法，确保生成案例不仅语言流畅，而且符合临床诊断的认知结构。这有助于在医学教育、临床培训和模型评估中生成高质量、低偏见的合成数据，降低获取真实临床数据的难度和隐私风险。",
+      "titleEn": "FORMA Framework: Generating Clinical Vignettes while Preserving Cognitive Formulations",
+      "descriptionEn": "This study introduces FORMA, a framework that compiles cognitive models into graph structures for generating clinical vignettes, ensuring that generated text preserves diagnostic cognitive components and causal links. Compared with zero-shot LLM generation, FORMA-generated vignettes perform significantly better in structure fidelity, expert ratings, and clinician perceived authenticity, while reducing demographic disparities. This provides a new method for auditable synthetic",
+      "summaryEn": "The study developed FORMA, which uses a cognitive model of PTSD to generate clinical vignettes conforming to specified cognitive structures. 16,500 vignettes were generated across 500 personas, 11 generation models, and three ablation conditions, and evaluated via external edge-recovery probes, clinical experts, a scaled LLM judge, and a user study with 100 licensed clinicians. Full-condition vignettes allowed recovery of the cognitive graph (MCC=0.41, AUC=0.70), whereas zero-shot generation was near chance (MCC=0.01, AUC=0.50). Experts rated full vignettes substantially higher, and clinicians perceived them as human-written 85% of the time vs. 22% for zero-shot. The authors argue that cognitive formulation can serve as an auditable specification for scalable synthetic clinical text.",
       "keyPointsEn": [
-        "Reinforcement learning with verifiable rewards (RLVR) substantially improves single-sample accuracy (pass@1) but causes the policy's solution space to contract, diminishing the returns of test-time scaling.",
-        "In this work, we investigate where inside a reasoning trajectory this breadth is lost: does the policy fail to access a valid solution family, or does it fail to execute computation once initiated?",
-        "To disentangle access from execution, we analyze the Countdown task, whose solution space can be exhaustively enumerated into discrete entrance families defined by the first operand and operator, across PPO on Qwen2.5-3B and GRPO on Qwen2.5-3B-Instruct."
+        "Proposed FORMA framework for generating clinical vignettes based on cognitive models to ensure structural fidelity.",
+        "In PTSD vignettes, full-condition generation achieved significantly higher cognitive graph recoverability than zero-shot (MCC 0.41 vs. 0.01).",
+        "Expert ratings and clinician perceived authenticity were significantly higher than zero-shot.",
+        "85% of clinicians mistakenly judged full-condition vignettes as human-written, compared to 22% for zero-shot.",
+        "FORMA reduced demographic disparity in perceived quality by 1.5 to 7 times."
       ],
-      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This work provides an auditable specification for synthetic clinical text generation, ensuring that generated vignettes not only are fluent but also conform to diagnostic cognitive structures. It helps generate high-quality, low-bias synthetic data for medical education, clinical training, and model evaluation, reducing the difficulty and privacy risks of obtaining real clinical data.",
+      "limitationsEn": "The study used only a single cognitive model of PTSD, which may not generalize to other disorders or complex scenarios. Evaluation relied on LLM and clinical expert subjective judgments, potentially introducing biases. Although the cognitive graph was recoverable, the metrics (MCC and AUC) were not high in absolute terms, leaving room for improvement.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "clinical vignette generation",
+        "cognitive model",
+        "large language model",
+        "PTSD",
+        "synthetic data"
+      ],
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 1143,
+        "comparisonCohortSize": 1507,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 80,
-        "contentValueScore": 79.0,
+        "relevanceScore": 75,
+        "contentValueScore": 76.75,
         "contentSignals": {
           "evidence": 15.0,
           "actionability": 10.0,
@@ -654,120 +495,7 @@
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 78.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "discoveredBy": [
-        "arXiv cs.CL",
-        "arXiv cs.LG"
-      ]
-    },
-    {
-      "id": "f892d55eb4083c81",
-      "slug": "one-success-isn-t-reliability-thinkingbox-a-sand-f892d55eb4",
-      "domain": "AI × 量化",
-      "title": "One Success Isn't Reliability: Thinkingbox, a Sandbox and Benchmark for Agents in Stateful Business Workflows",
-      "description": "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling.",
-      "summary": "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling. Yet completing consequential work beyond code requires more than producing a plausible response or valid tool call: agents must gather missing information over multiple turns, follow domain policies, coordinate dependent tools, and realize the correct persistent state transition without collateral effects. In this paper, we introduce Thinkingbox, a sandbox for tool-agent-user interaction that provides isolated MCP-compatible tool sessions, complete execution traces, and outcome evaluation over terminal backend state. Built on this sandbox, Thinkingbox-bench contains 507 policy-conditioned workflows across numerous scenarios, including retail, hospitality, auto insurance, neobank internal IT, and consulting IT/HR support. Each attempt is evaluated by task-specific executable checks that accept valid trajectories while rejecting wrong, missing, or extra effects; designated tasks additionally check required properties of the final response. Across proprietary and open-weight models, the strongest model Claude Opus 5 achieves 66.50% pass",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "论文",
-        "LLM"
-      ],
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-quant",
-          "facet": "topic",
-          "value": "ai-quant",
-          "label": {
-            "zh": "AI × 量化",
-            "en": "AI × Quant"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        }
-      ],
-      "score": 82.5,
-      "publishedAt": "2026-09-01T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "arXiv cs.CL",
-      "contentType": "paper",
-      "sourceGroup": "论文",
-      "originalTitle": "One Success Isn't Reliability: Thinkingbox, a Sandbox and Benchmark for Agents in Stateful Business Workflows",
-      "originalUrl": "https://arxiv.org/abs/2608.19741",
-      "keyPoints": [
-        "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling.",
-        "Yet completing consequential work beyond code requires more than producing a plausible response or valid tool call: agents must gather missing information over multiple turns, follow domain policies, coordinate dependent tools, and realize the correct persistent state transition without collateral effects.",
-        "In this paper, we introduce Thinkingbox, a sandbox for tool-agent-user interaction that provides isolated MCP-compatible tool sessions, complete execution traces, and outcome evaluation over terminal backend state."
-      ],
-      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
-      "titleEn": "One Success Isn't Reliability: Thinkingbox, a Sandbox and Benchmark for Agents in Stateful Business Workflows",
-      "descriptionEn": "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling.",
-      "summaryEn": "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling. Yet completing consequential work beyond code requires more than producing a plausible response or valid tool call: agents must gather missing information over multiple turns, follow domain policies, coordinate dependent tools, and realize the correct persistent state transition without collateral effects. In this paper, we introduce Thinkingbox, a sandbox for tool-agent-user interaction that provides isolated MCP-compatible tool sessions, complete execution traces, and outcome evaluation over terminal backend state. Built on this sandbox, Thinkingbox-bench contains 507 policy-conditioned workflows across numerous scenarios, including retail, hospitality, auto insurance, neobank internal IT, and consulting IT/HR support. Each attempt is evaluated by task-specific executable checks that accept valid trajectories while rejecting wrong, missing, or extra effects; designated tasks additionally check required properties of the final response. Across proprietary and open-weight models, the strongest model Claude Opus 5 achieves 66.50% pass",
-      "keyPointsEn": [
-        "Recent agent benchmarks increasingly ground evaluation in executable environments, from code repair to web navigation, app APIs, and function calling.",
-        "Yet completing consequential work beyond code requires more than producing a plausible response or valid tool call: agents must gather missing information over multiple turns, follow domain policies, coordinate dependent tools, and realize the correct persistent state transition without collateral effects.",
-        "In this paper, we introduce Thinkingbox, a sandbox for tool-agent-user interaction that provides isolated MCP-compatible tool sessions, complete execution traces, and outcome evaluation over terminal backend state."
-      ],
-      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 1143,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 80,
-        "contentValueScore": 79.0,
-        "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 15.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
+        "freshnessScore": 96.67,
         "sourceQualityScore": 72.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
@@ -777,16 +505,19 @@
       ]
     },
     {
-      "id": "ffbdbc5bbe649a25",
-      "slug": "data-driven-stochastic-optimal-control-for-intra-ffbdbc5bbe",
-      "domain": "量化研究",
-      "title": "Data-Driven Stochastic Optimal Control for Intraday Electricity Trading by Renewable Producers",
-      "description": "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative tradi",
-      "summary": "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative trading strategies. We develop a data-driven continuous-time stochastic optimal control framework for intraday electricity trading using stochastic differential equations with drift terms ensuring mean reversion to deterministic forecast trajectories. Production follows a Jacobi diffusion, while prices follow an asymmetric jump-diffusion to reflect the heavy-tailed behavior observed in intraday markets. The framework accounts for realistic market features by incorporating gate closure and energy-based imbalance settlement over the delivery window, where the path-dependent imbalance cost is handled by state augmentation to preserve the Markovian structure. The value function is characterized via the dynamic programming principle by a three-stage sequence of two linear Kolmogorov backward equations and a nonlinear Hamilton-Jacobi-Bellman partial integro-differential equation. To solve this problem efficiently, we propose a monotone IMEX finite-difference scheme with operator splitting, semi-implicit linearizatio",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "id": "ab5319083ff281d0",
+      "slug": "dart-draft-agreement-routing-for-training-free-a-ab5319083f",
+      "domain": "AI × 量化",
+      "title": "DART：免训练路由框架，根据草稿共识自适应分配推理预算",
+      "description": "本文介绍了一种名为DART的免训练路由框架，用于混合推理模型，它通过比较两次廉价的无思考草稿的一致性来决定是直接回答还是分配更多推理预算。该方法无需标注数据或梯度更新，能根据问题难度动态调整计算量，从而在保持或提升准确率的同时大幅减少思考令牌的使用。",
+      "summary": "本文提出DART框架，利用两个无思考草稿的共识和熵来路由查询，在简单问题上直接回答，在复杂问题上预测思考预算。作者报告，与始终思考的基线相比，DART在多数设置中保持或提升了准确率，同时将思考令牌使用减少32%-73%，并在奥林匹克数学和代码生成任务上分别提升最多9.0和22.5个百分点。作者认为，该信号在不同模型规模、模型家族和API托管环境中均有效。这些结果基于论文报告的具体实验，具体数据集和实验细节未在摘要中详述。",
+      "limitations": "摘要未提供具体数据集、基线和实验设置细节，因此无法评估泛化性。论文未报告消融研究和失败案例，也未比较其他路由方法。此外，效果可能依赖模型和任务，需在更广泛场景中验证。",
       "tags": [
-        "论文",
-        "q-fin"
+        "路由框架",
+        "推理预算",
+        "混合推理模型",
+        "免训练",
+        "草稿共识"
       ],
       "features": [
         {
@@ -801,15 +532,120 @@
           "confidence": 1.0
         },
         {
-          "id": "method:forecasting",
-          "facet": "method",
-          "value": "forecasting",
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
           "label": {
-            "zh": "预测",
-            "en": "Forecasting"
+            "zh": "arXiv",
+            "en": "arXiv"
           },
-          "evidence": "content.keyword",
-          "confidence": 0.8
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        }
+      ],
+      "score": 80.26,
+      "publishedAt": "2026-09-01T04:00:00+00:00",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
+      "sourceName": "arXiv cs.CL",
+      "contentType": "paper",
+      "sourceGroup": "论文",
+      "originalTitle": "DART: Draft-Agreement Routing for Training-Free Adaptive Thinking Budgets in Hybrid Reasoning Models",
+      "originalUrl": "https://arxiv.org/abs/2606.23181",
+      "keyPoints": [
+        "DART是免训练路由框架，无需标注数据或梯度更新。",
+        "它通过两次无思考草稿的共识决定直接回答或分配推理预算。",
+        "在多数比较中，DART保持或提升了准确率，同时将思考令牌使用减少32%-73%。",
+        "在奥林匹克级数学和代码生成任务上，准确率分别提升9.0和22.5个百分点。",
+        "信号在0.6B至32B模型规模、不同模型家族和API托管环境中均有效。"
+      ],
+      "whyItMatters": "随着推理模型在复杂任务中表现优异，但计算成本高昂，DART提供了一种实用方案，根据查询难度动态调整推理预算，无需额外训练。这有助于降低推理成本，提升效率，且易于部署。",
+      "titleEn": "DART: A Training-Free Router for Adaptive Thinking Budgets in Hybrid Reasoning Models",
+      "descriptionEn": "This paper presents DART, a training-free routing framework for hybrid reasoning models, which determines whether to answer directly or allocate more thinking budget based on the agreement of two cheap no-think drafts. It adapts computation to problem difficulty without labeled data, improving efficiency while preserving accuracy.",
+      "summaryEn": "The paper introduces DART, which uses consensus and entropy from two no-think drafts to route queries. The authors report that DART maintains or improves accuracy while reducing thinking tokens by 32-73%, with up to +9.0 points on olympiad-level math and +22.5 on code. The signal generalizes across model scales and settings. These claims are based on the paper's experiments; details are limited.",
+      "keyPointsEn": [
+        "DART is training-free, requiring no labels or gradient updates.",
+        "It decides based on consensus of two no-think drafts.",
+        "It reduces thinking tokens by 32-73% while maintaining or improving accuracy.",
+        "Accuracy gains up to 9.0 on math and 22.5 on code.",
+        "Signal works across model sizes (0.6B-32B) and API settings."
+      ],
+      "whyItMattersEn": "This matters because it reduces inference cost by dynamically allocating thinking budget without extra training, making efficient deployment possible.",
+      "limitationsEn": "The abstract lacks experimental details such as datasets and baselines; no ablation or failure cases are reported; generalizability across diverse tasks is uncertain.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "routing",
+        "thinking budget",
+        "reasoning models",
+        "training-free",
+        "draft consensus"
+      ],
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 1507,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 75,
+        "contentValueScore": 76.75,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 15.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 72.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ]
+    },
+    {
+      "id": "52c14f679aa4993f",
+      "slug": "appsolver-adaptive-patch-partitioning-for-point--52c14f679a",
+      "domain": "AI × 量化",
+      "title": "APPSolver：面向非结构化网格的自适应补丁划分流场预测",
+      "description": "该研究提出APPSolver，一种基于自适应补丁划分（APP）的点状流场预测框架，旨在降低船舶水动力学计算成本。新方法使用确定性四叉树表示，在船体附近使用更细的划分，远处使用更粗的划分，并通过下采样和恢复实现高效预测。实验表明，APP具有计算优势，但预测精度并非全面超越基线，为平衡精度与效率提供了新视角。",
+      "summary": "本文介绍APPSolver，其核心为自适应补丁划分（APP），一种基于四叉树的表示方法，用于处理船舶CFD模拟中的非均匀点集。APP在船体附近分配更细的补丁，远处更粗，并通过下采样和恢复实现高效预测。在修正的评估协议下，APP-Transformer在计算成本（1.815 GFLOPs，1.309 ms）上显著低于基线，且与均匀划分相比，MAE降低16.4%-24.9%。然而，简单持久性基线在一步预测MAE上更低，表明APP的益处主要在计算效率而非预测精度。作者指出，当前绝对下一步目标无法实现长期动力学准确预测。",
+      "limitations": "本研究的局限性包括：1）APP的预测精度并非全面优于基线，持久性基线在一步MAE上更低；2）当前目标函数为绝对下一步状态，无法保证长期动力学预测的准确性；3）评估限于船舶二维水平切片，对于三维全流场需要验证；4）仅报告了三个种子的结果，统计功效有限；5）与其他最先进方法如学习型分词器相比，APP在精度上无优势，优势主要体现在计算效率。",
+      "tags": [
+        "流场预测",
+        "自适应补丁划分",
+        "四叉树",
+        "非结构化网格",
+        "船舶水动力学",
+        "量化计算"
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
         },
         {
           "id": "platform:arxiv",
@@ -823,254 +659,120 @@
           "confidence": 1.0
         },
         {
-          "id": "topic:quantitative-finance",
+          "id": "topic:ai-quant",
           "facet": "topic",
-          "value": "quantitative-finance",
+          "value": "ai-quant",
           "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
           },
           "evidence": "source.domain",
           "confidence": 1.0
-        },
-        {
-          "id": "topic:risk",
-          "facet": "topic",
-          "value": "risk",
-          "label": {
-            "zh": "风险",
-            "en": "Risk"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
         }
       ],
-      "score": 82.37,
+      "score": 79.28,
       "publishedAt": "2026-09-01T04:00:00+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "arXiv q-fin",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
+      "sourceName": "arXiv cs.LG",
       "contentType": "paper",
       "sourceGroup": "论文",
-      "originalTitle": "Data-Driven Stochastic Optimal Control for Intraday Electricity Trading by Renewable Producers",
-      "originalUrl": "https://arxiv.org/abs/2604.27700",
+      "originalTitle": "APPSolver: Adaptive Patch Partitioning for Point-Wise Ship Flow Prediction on Unstructured Meshes",
+      "originalUrl": "https://arxiv.org/abs/2608.29355",
       "keyPoints": [
-        "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative trading strategies.",
-        "We develop a data-driven continuous-time stochastic optimal control framework for intraday electricity trading using stochastic differential equations with drift terms ensuring mean reversion to deterministic forecast trajectories.",
-        "Production follows a Jacobi diffusion, while prices follow an asymmetric jump-diffusion to reflect the heavy-tailed behavior observed in intraday markets."
+        "提出APPSolver，基于自适应补丁划分（APP）的点状流场预测框架",
+        "APP使用确定性四叉树表示，船体附近细划分，远处粗划分",
+        "修正评估协议：按时间顺序划分数据，重用训练集归一化统计，报告三个种子结果",
+        "APP-Transformer计算成本为1.815 GFLOPs和1.309 ms每次前向",
+        "与均匀划分相比，APP降低MAE 16.4%-24.9%"
       ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Data-Driven Stochastic Optimal Control for Intraday Electricity Trading by Renewable Producers",
-      "descriptionEn": "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative tradi",
-      "summaryEn": "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative trading strategies. We develop a data-driven continuous-time stochastic optimal control framework for intraday electricity trading using stochastic differential equations with drift terms ensuring mean reversion to deterministic forecast trajectories. Production follows a Jacobi diffusion, while prices follow an asymmetric jump-diffusion to reflect the heavy-tailed behavior observed in intraday markets. The framework accounts for realistic market features by incorporating gate closure and energy-based imbalance settlement over the delivery window, where the path-dependent imbalance cost is handled by state augmentation to preserve the Markovian structure. The value function is characterized via the dynamic programming principle by a three-stage sequence of two linear Kolmogorov backward equations and a nonlinear Hamilton-Jacobi-Bellman partial integro-differential equation. To solve this problem efficiently, we propose a monotone IMEX finite-difference scheme with operator splitting, semi-implicit linearizatio",
+      "whyItMatters": "该研究为船舶流体动力学预测提供了一种新的空间表示方法，能够显著降低计算成本，同时保持可接受的精度。APPSolver的提出为在非结构化网格上进行高效流场预测提供了新思路，对于工业设计中的快速迭代具有潜在价值。研究还强调了评估协议的重要性，并指出计算效率与预测精度之间的权衡，为后续研究提供了重要参考。",
+      "titleEn": "APPSolver: Adaptive Patch Partitioning for Point-Wise Ship Flow Prediction on Unstructured Meshes",
+      "descriptionEn": "This study introduces APPSolver, a point-wise flow prediction framework based on Adaptive Patch Partitioning (APP) to reduce computational cost in ship hydrodynamics. The method uses a deterministic quadtree representation with finer patches near the hull and coarser farther away, enabling efficient prediction through downsampling and recovery. Experiments show that APP offers computational benefits but does not universally outperform baselines in accuracy, highlighting a tra",
+      "summaryEn": "The paper presents APPSolver, whose core is Adaptive Patch Partitioning (APP), a quadtree-based representation for handling non-uniform point sets from ship CFD simulations. APP allocates finer patches near the hull and coarser patches farther away, using downsampling and recovery for efficient prediction. Under a corrected evaluation protocol, APP-Transformer achieves lower computational cost (1.815 GFLOPs, 1.309 ms) and reduces MAE by 16.4%-24.9% compared to uniform partitioning. However, a persistence baseline achieves lower one-step MAE, indicating APP's benefit is mainly computational efficiency rather than predictive superiority. The authors note that the current absolute next-state objective does not establish accurate long-horizon dynamics.",
       "keyPointsEn": [
-        "The rapid growth of weather-dependent renewable generation increases price volatility and imbalance penalty risk in power markets, creating the need for advanced quantitative trading strategies.",
-        "We develop a data-driven continuous-time stochastic optimal control framework for intraday electricity trading using stochastic differential equations with drift terms ensuring mean reversion to deterministic forecast trajectories.",
-        "Production follows a Jacobi diffusion, while prices follow an asymmetric jump-diffusion to reflect the heavy-tailed behavior observed in intraday markets."
+        "Propose APPSolver, a point-wise flow prediction framework based on Adaptive Patch Partitioning (APP)",
+        "APP uses a deterministic quadtree representation with finer patches near the hull and coarser farther away",
+        "Corrected evaluation protocol: temporal splitting, reuse training normalization, report three seeds",
+        "APP-Transformer computational cost: 1.815 GFLOPs and 1.309 ms per forward",
+        "Compared to uniform partitioning, APP reduces MAE by 16.4%-24.9%"
       ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This research provides a novel spatial representation for ship flow prediction that significantly reduces computational cost while maintaining acceptable accuracy. APPSolver offers a new approach for efficient flow prediction on unstructured meshes, potentially benefiting rapid iteration in industrial design. The study also highlights the importance of evaluation protocols and reveals the trade-off between computational efficiency and prediction accuracy, providing valuable insights for future work.",
+      "limitationsEn": "Limitations of this study include: 1) APP's prediction accuracy is not universally superior to baselines; the persistence baseline achieves lower one-step MAE; 2) The current objective is absolute next-step state, which does not guarantee long-horizon prediction accuracy; 3) Evaluation is limited to 2D horizontal slices of ships, requiring validation for 3D full flow fields; 4) Only three seeds are reported, limiting statistical power; 5) Compared to learned tokenizers, APP shows no accuracy advantage, with benefits mainly in computational efficiency.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "flow prediction",
+        "adaptive patch partitioning",
+        "quadtree",
+        "unstructured mesh",
+        "ship hydrodynamics",
+        "computational cost"
+      ],
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 1143,
+        "comparisonCohortSize": 1507,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 95,
-        "contentValueScore": 74.82,
+        "relevanceScore": 70,
+        "contentValueScore": 74.5,
         "contentSignals": {
-          "evidence": 10.0,
+          "evidence": 15.0,
           "actionability": 10.0,
           "novelty": 8.0,
-          "specificity": 4.07,
+          "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 78.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
       "discoveredBy": [
-        "arXiv q-fin"
+        "arXiv cs.LG"
       ]
     },
     {
-      "id": "26de699d3e5c651e",
-      "slug": "tt-a1i-archify-26de699d3e",
-      "domain": "AI 工具",
-      "title": "tt-a1i/archify",
-      "description": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
-      "summary": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "id": "d50a71e9a80c63d1",
+      "slug": "mathcal-n-0-foundation-towards-the-age-of-tactil-d50a71e9a8",
+      "domain": "AI × 量化",
+      "title": "触觉智能基础模型：面向灵巧操作的规模化框架",
+      "description": "该研究提出一个触觉赋能具身操作的综合框架，包含硬件、数据集、表示模型和基准测试，旨在解决现有机器人操作数据集中缺乏触觉信息的问题，为精细操作任务提供新的数据和模型基础。",
+      "summary": "该工作介绍了一个触觉操作框架，包括触觉传感器、数据收集系统、大型数据集、视觉触觉表示模型和评估基准。作者构建了超过30000小时的同步视觉触觉数据，并发布开源子集，训练了表示模型，并在真实和模拟环境中进行了验证。",
+      "limitations": "该研究尚未经过同行评审，数据集的多样性和基准的覆盖面可能有限，实际环境下的泛化能力尚需进一步验证。",
       "tags": [
-        "GitHub Trending",
-        "日趋势榜",
-        "JavaScript"
+        "触觉感知",
+        "具身操作",
+        "表示学习",
+        "数据集",
+        "评估基准"
       ],
       "features": [
         {
-          "id": "artifact:repository",
+          "id": "artifact:paper",
           "facet": "artifact",
-          "value": "repository",
+          "value": "paper",
           "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
+            "zh": "论文",
+            "en": "Paper"
           },
           "evidence": "source.group",
           "confidence": 1.0
         },
         {
-          "id": "platform:github",
+          "id": "platform:arxiv",
           "facet": "platform",
-          "value": "github",
+          "value": "arxiv",
           "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
+            "zh": "arXiv",
+            "en": "arXiv"
           },
           "evidence": "source.platform",
           "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-tools",
-          "facet": "topic",
-          "value": "ai-tools",
-          "label": {
-            "zh": "AI 工具",
-            "en": "AI Tools"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:productivity",
-          "facet": "topic",
-          "value": "productivity",
-          "label": {
-            "zh": "效率工具",
-            "en": "Productivity"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "score": 72.62,
-      "publishedAt": "2026-08-31T15:59:59.999999+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "GitHub Trending Daily",
-      "contentType": "repository",
-      "sourceGroup": "开源项目",
-      "originalTitle": "tt-a1i/archify",
-      "originalUrl": "https://github.com/tt-a1i/archify",
-      "keyPoints": [
-        "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export."
-      ],
-      "whyItMatters": "可用于判断工具更新是否值得纳入日常研究流程。",
-      "titleEn": "tt-a1i/archify",
-      "descriptionEn": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
-      "summaryEn": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
-      "keyPointsEn": [
-        "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export."
-      ],
-      "whyItMattersEn": "Helps assess whether a tool update belongs in the daily research workflow.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 16,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 98.0,
-        "metricPercentile": 93.33,
-        "velocityPercentile": 93.33,
-        "objectiveScore": 93.33,
-        "relevanceScore": 60,
-        "contentValueScore": 37.39,
-        "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 5.0,
-          "novelty": 0.0,
-          "specificity": 0.39,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 2.0,
-          "trending_rank_score": 98.0,
-          "stars": 40551.0,
-          "stars_delta_1d": 3991.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ]
-    },
-    {
-      "id": "5396844590b05bdf",
-      "slug": "your-coding-agent-keeps-solving-the-same-problem-5396844590",
-      "domain": "AI × 量化",
-      "title": "Your coding agent keeps solving the same problem",
-      "description": "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at",
-      "summary": "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at Oracle, and Casius Lee, AI Developer Advocate at Oracle. Agents don't need to relearn the job every session: give them mechanisms to carry experience forward, and they get faster and more reliable with every run. Today's coding agents can write code, use tools, and carry out multi-step tasks, but each fresh session starts from zero. An agent that spent minutes fixing an environment issue yesterday will burn the same time and tokens rediscovering the fix today. In this course, you'll work with three adaptation layers. For behavior adaptation, you'll build a skill induction pipeline that turns the agent's traces, its conversations, tool calls, errors, and fixes, into reusable skills it applies the next time it sees a similar task, with a human in the loop approving each skill. For knowledge adaptation, you'll build a code knowledge graph that connects files through imports, function calls, and co-edits in git history, so the agent retrieves context by navigating the structure of the codebase instead of rel",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "视频",
-        "机器学习",
-        "AI 工程"
-      ],
-      "features": [
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
         },
         {
           "id": "topic:ai-quant",
@@ -1082,98 +784,87 @@
           },
           "evidence": "source.domain",
           "confidence": 1.0
-        },
-        {
-          "id": "topic:developer-tools",
-          "facet": "topic",
-          "value": "developer-tools",
-          "label": {
-            "zh": "开发工具",
-            "en": "Developer Tools"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
         }
       ],
-      "score": 72.2,
-      "publishedAt": "2026-08-26T13:00:14+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "DeepLearning.AI",
-      "contentType": "video",
-      "sourceGroup": "视频",
-      "originalTitle": "Your coding agent keeps solving the same problem",
-      "originalUrl": "https://www.youtube.com/watch?v=MbB1gNIj3G0",
+      "score": 79.28,
+      "publishedAt": "2026-09-01T04:00:00+00:00",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
+      "sourceName": "arXiv cs.LG",
+      "contentType": "paper",
+      "sourceGroup": "论文",
+      "originalTitle": "$\\mathcal{N}_0$-Foundation: Towards the Age of Tactile Intelligence",
+      "originalUrl": "https://arxiv.org/abs/2608.29601",
       "keyPoints": [
-        "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at Oracle, and Casius Lee, AI Developer Advocate at Oracle.",
-        "Agents don't need to relearn the job every session: give them mechanisms to carry experience forward, and they get faster and more reliable with every run.",
-        "Today's coding agents can write code, use tools, and carry out multi-step tasks, but each fresh session starts from zero."
+        "提出触觉操作范式，整合传感硬件、数据、表示和评估。",
+        "构建包含30000小时同步视觉触觉演示的数据集，涵盖450个任务。",
+        "开源5000小时的数据子集，促进开放研究。",
+        "提出视觉触觉表示模型，学习跨传感器设计可迁移的表征。",
+        "提供真实与模拟基准，验证政策的效益来自物理接触状态。"
       ],
-      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
-      "titleEn": "Your coding agent keeps solving the same problem",
-      "descriptionEn": "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at",
-      "summaryEn": "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at Oracle, and Casius Lee, AI Developer Advocate at Oracle. Agents don't need to relearn the job every session: give them mechanisms to carry experience forward, and they get faster and more reliable with every run. Today's coding agents can write code, use tools, and carry out multi-step tasks, but each fresh session starts from zero. An agent that spent minutes fixing an environment issue yesterday will burn the same time and tokens rediscovering the fix today. In this course, you'll work with three adaptation layers. For behavior adaptation, you'll build a skill induction pipeline that turns the agent's traces, its conversations, tool calls, errors, and fixes, into reusable skills it applies the next time it sees a similar task, with a human in the loop approving each skill. For knowledge adaptation, you'll build a code knowledge graph that connects files through imports, function calls, and co-edits in git history, so the agent retrieves context by navigating the structure of the codebase instead of rel",
+      "whyItMatters": "该工作为触觉感知在机器人操作中的应用提供了大规模数据和统一框架，可能推动灵巧操作、精细装配和变形物体操作等研究领域的进展。",
+      "titleEn": "Tactile Foundation Model: A Large-Scale Framework for Dexterous Manipulation",
+      "descriptionEn": "This work proposes a comprehensive framework for tactile-enabled embodied manipulation, integrating hardware, datasets, representation models, and benchmarks, aiming to address the lack of tactile information in existing robotic manipulation datasets and provide new data and model foundations for precise manipulation tasks.",
+      "summaryEn": "The work presents a tactile manipulation framework, including tactile sensors, data collection systems, large datasets, visual-tactile representation models, and evaluation benchmarks. The authors constructed over 30,000 hours of synchronized visual-tactile data, released an open-source subset, trained representation models, and validated in both real and simulated environments.",
       "keyPointsEn": [
-        "Learn More: https://bit.ly/4iu7p9F Introducing Building Adaptive AI Agents, a short course built in partnership with Oracle and taught by Nacho Martínez, Data Scientist Advocate at Oracle, and Casius Lee, AI Developer Advocate at Oracle.",
-        "Agents don't need to relearn the job every session: give them mechanisms to carry experience forward, and they get faster and more reliable with every run.",
-        "Today's coding agents can write code, use tools, and carry out multi-step tasks, but each fresh session starts from zero."
+        "Proposes a tactile manipulation paradigm integrating sensing hardware, data, representation, and evaluation.",
+        "Constructs a dataset with over 30,000 hours of synchronized visual-tactile demonstrations covering 450 tasks.",
+        "Releases a 5,000-hour open-source subset to promote open research.",
+        "Proposes a visual-tactile representation model that learns transferable representations across sensor designs.",
+        "Provides real and simulated benchmarks, showing policies benefit from physical contact state."
       ],
-      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This work provides large-scale data and a unified framework for tactile sensing in robot manipulation, potentially advancing research in dexterous manipulation, precise assembly, and deformable object manipulation.",
+      "limitationsEn": "The study has not yet undergone peer review. The dataset diversity and benchmark coverage may be limited, and generalization in real-world settings requires further validation.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "tactile sensing",
+        "embodied manipulation",
+        "representation learning",
+        "dataset",
+        "evaluation benchmark"
+      ],
       "scoreBreakdown": {
-        "contentType": "video",
-        "comparisonCohortSize": 8,
-        "mode": "cohort-metric",
-        "primaryMetric": "views",
-        "primaryMetricValue": 4907.0,
-        "metricPercentile": 85.71,
-        "velocityPercentile": 85.71,
-        "objectiveScore": 85.71,
-        "relevanceScore": 75,
-        "contentValueScore": 61.3,
+        "contentType": "paper",
+        "comparisonCohortSize": 1507,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 70,
+        "contentValueScore": 74.5,
         "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 5.0,
+          "evidence": 15.0,
+          "actionability": 10.0,
           "novelty": 8.0,
-          "specificity": 9.55,
+          "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 65.83,
+        "freshnessScore": 96.67,
         "sourceQualityScore": 78.0,
-        "sourceMetrics": {
-          "views": 4907.0
-        },
-        "selectionLane": "carryover"
+        "sourceMetrics": {},
+        "selectionLane": "primary"
       },
       "discoveredBy": [
-        "DeepLearning.AI"
+        "arXiv cs.LG"
       ]
     },
     {
-      "id": "c8f3d928a400ca53",
-      "slug": "k-dense-ai-scientific-agent-skills-c8f3d928a4",
-      "domain": "AI 工具",
-      "title": "K-Dense-AI/scientific-agent-skills",
-      "description": "Turn any AI agent into an AI Scientist.",
-      "summary": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide. 165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "id": "622b49c5eedebede",
+      "slug": "iv-org-invidious-622b49c5ee",
+      "domain": "开源工程",
+      "title": "开源替代前端 Invidious：保护 YouTube 观看隐私的新方案",
+      "description": "Invidious 是一个开源的 YouTube 替代前端，旨在保护用户隐私，去除广告和追踪器，并提供更简洁的界面。该项目近期在 GitHub 上受到广泛关注，为关注隐私的用户提供了一种新的 YouTube 访问方式。",
+      "summary": "该项目是一个开源的 YouTube 前端替代品，提供无广告、无追踪的观看体验。作者强调其能够保护用户隐私，并提供更轻量级的界面。",
+      "limitations": "该项目不隶属于 YouTube 或 Google，其功能依赖 YouTube 的公共接口，可能因 YouTube 政策或技术变动而受到影响；自托管需要一定的技术知识，可能不适合所有用户。",
       "tags": [
-        "GitHub Trending",
-        "日趋势榜",
-        "Python"
+        "开源",
+        "隐私保护",
+        "YouTube",
+        "前端替代",
+        "自托管"
       ],
       "features": [
         {
@@ -1210,15 +901,264 @@
           "confidence": 1.0
         },
         {
-          "id": "topic:agents",
+          "id": "topic:open-source-engineering",
           "facet": "topic",
-          "value": "agents",
+          "value": "open-source-engineering",
           "label": {
-            "zh": "智能体",
-            "en": "Agents"
+            "zh": "开源工程",
+            "en": "Open-source Engineering"
           },
-          "evidence": "content.keyword",
-          "confidence": 0.8
+          "evidence": "source.domain",
+          "confidence": 1.0
+        }
+      ],
+      "score": 69.03,
+      "publishedAt": "2026-09-01T15:59:59.999999+00:00",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
+      "sourceName": "GitHub Trending Daily",
+      "contentType": "repository",
+      "sourceGroup": "开源项目",
+      "originalTitle": "iv-org/invidious",
+      "originalUrl": "https://github.com/iv-org/invidious",
+      "keyPoints": [
+        "提供无广告、无追踪的 YouTube 观看体验",
+        "开源项目，代码公开可审查",
+        "界面简洁，资源占用较低",
+        "支持自托管，用户可控制自己的数据"
+      ],
+      "whyItMatters": "随着在线隐私问题日益突出，Invidious 提供了一个去中心化的替代方案，使用户能够在不牺牲隐私的情况下访问 YouTube 内容，推动了开源隐私工具的发展。",
+      "titleEn": "Invidious: An Open-Source Alternative Frontend for Privacy-Preserving YouTube Viewing",
+      "descriptionEn": "Invidious is an open-source alternative frontend for YouTube, designed to protect user privacy by removing ads and trackers and offering a cleaner interface. Recently gaining traction on GitHub, it provides a new way to access YouTube for privacy-conscious users.",
+      "summaryEn": "This project is an open-source alternative frontend for YouTube, offering an ad-free, tracker-free viewing experience. The author emphasizes its ability to protect user privacy and provide a lighter interface.",
+      "keyPointsEn": [
+        "Ad-free, tracker-free YouTube viewing experience",
+        "Open-source project with publicly auditable code",
+        "Clean interface with lower resource consumption",
+        "Supports self-hosting, allowing users to control their data"
+      ],
+      "whyItMattersEn": "As online privacy concerns grow, Invidious offers a decentralized alternative that enables users to access YouTube content without compromising privacy, advancing the development of open-source privacy tools.",
+      "limitationsEn": "This project is not affiliated with YouTube or Google, and its functionality depends on YouTube's public interfaces, which may be affected by policy or technical changes; self-hosting requires technical knowledge and may not be suitable for all users.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "open-source",
+        "privacy",
+        "YouTube",
+        "alternative frontend",
+        "self-hosting"
+      ],
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 21,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 96.0,
+        "metricPercentile": 97.37,
+        "velocityPercentile": 97.37,
+        "objectiveScore": 97.37,
+        "relevanceScore": 55,
+        "contentValueScore": 24.87,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 0.12,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 4.0,
+          "trending_rank_score": 96.0,
+          "stars": 23795.0,
+          "stars_delta_1d": 577.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ]
+    },
+    {
+      "id": "54d26b37a7b6c7ac",
+      "slug": "k1tbyte-wand-enhancer-54d26b37a7",
+      "domain": "开源工程",
+      "title": "Wand-Enhancer：为 WeMod 游戏修改工具增强交互与兼容性",
+      "description": "该开源项目是针对 Wand（WeMod）应用的 UX 与互操作性增强扩展，旨在优化用户交互体验并提升与其他工具的兼容性。其新颖之处在于为现有应用提供扩展层，可能改善工作流程。对于常用 WeMod 的用户或开发者，此扩展可能提供更流畅的界面与集成能力。",
+      "summary": "根据 GitHub 上该项目描述，此扩展专注于提升 Wand（WeMod）应用的用户体验（UX）和互操作性。事实层面，项目仓库表明其目标为增强扩展性；观点层面，其实际效果和适用范围需用户自行评估。",
+      "limitations": "本信息基于项目描述，未涉及具体功能细节、使用效果或兼容性范围。实际性能需通过下载和使用来验证，且不保证适用于所有版本或环境。",
+      "tags": [
+        "开源",
+        "WeMod",
+        "增强扩展",
+        "用户体验",
+        "互操作性"
+      ],
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:open-source-engineering",
+          "facet": "topic",
+          "value": "open-source-engineering",
+          "label": {
+            "zh": "开源工程",
+            "en": "Open-source Engineering"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        }
+      ],
+      "score": 68.04,
+      "publishedAt": "2026-08-31T15:59:59.999999+00:00",
+      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
+      "sourceName": "GitHub Trending Daily",
+      "contentType": "repository",
+      "sourceGroup": "开源项目",
+      "originalTitle": "k1tbyte/Wand-Enhancer",
+      "originalUrl": "https://github.com/k1tbyte/Wand-Enhancer",
+      "keyPoints": [
+        "项目针对 WeMod 应用提供高级 UX 优化",
+        "旨在增强与其他工具的互操作性",
+        "为开源项目，托管于 GitHub",
+        "适用于 Wand 应用的用户与开发者"
+      ],
+      "whyItMatters": "该扩展可能为 WeMod 用户提供更佳交互体验，并增强工具间的协同工作能力。对于依赖 WeMod 进行游戏修改的用户，此项目或可提升效率并解决现有兼容性痛点。",
+      "titleEn": "Wand-Enhancer: Enhancing UX and Interoperability for WeMod",
+      "descriptionEn": "This open-source project is an extension that enhances the user experience and interoperability of Wand (WeMod) app. Its novelty lies in providing an extension layer for the existing app, potentially improving workflow. For users or developers who use WeMod, this extension may offer a smoother interface and integration capabilities.",
+      "summaryEn": "Based on the GitHub project description, the extension focuses on enhancing the UX and interoperability of the Wand (WeMod) app. Factually, the repository states its goal; opinion-wise, actual effects and applicability need user evaluation.",
+      "keyPointsEn": [
+        "Provides advanced UX optimization for WeMod app",
+        "Aims to enhance interoperability with other tools",
+        "Open-source project hosted on GitHub",
+        "Targets users and developers of Wand app"
+      ],
+      "whyItMattersEn": "This extension may offer better interaction experience for WeMod users and enhance collaboration between tools. For those relying on WeMod for game modding, it could improve efficiency and address existing compatibility pain points.",
+      "limitationsEn": "This information is based on the project description and does not include specific functionality details, usage outcomes, or compatibility scope. Actual performance must be verified by downloading and using, and it is not guaranteed to work with all versions or environments.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "open-source",
+        "WeMod",
+        "enhancement",
+        "user experience",
+        "interoperability"
+      ],
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 21,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 96.0,
+        "metricPercentile": 97.37,
+        "velocityPercentile": 97.37,
+        "objectiveScore": 97.37,
+        "relevanceScore": 55,
+        "contentValueScore": 24.91,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 0.16,
+          "penalty": 0.0
+        },
+        "freshnessScore": 93.33,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 4.0,
+          "trending_rank_score": 96.0,
+          "stars": 23458.0,
+          "stars_delta_1d": 582.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ]
+    },
+    {
+      "id": "b03e856411c0697d",
+      "slug": "jingyaogong-minimind-b03e856411",
+      "domain": "AI 工具",
+      "title": "轻量级大语言模型 MiniMind：两小时从零训练指南",
+      "description": "该项目提供了一套从零开始训练仅 64M 参数规模大语言模型的完整开源方案，宣称仅需约两小时即可完成训练。这为资源有限的开发者或研究者提供了快速构建和实验小型语言模型的可能性，也降低了入门门槛。",
+      "summary": "根据项目介绍，MiniMind 是一个开源项目，支持在短时间内训练一个 64M 参数的大语言模型。项目可能提供了相关的训练代码、数据配置和教程，使得个人也能尝试训练自己的小型模型。需要注意的是，该描述来源于项目的宣传，实际训练时间可能因硬件和调整而有所不同。",
+      "limitations": "目前仅基于项目宣传信息，缺乏独立验证。实际训练时间可能因硬件、数据质量和训练设置而有显著差异。模型的性能可能远低于大型模型，应用场景有限。",
+      "tags": [
+        "大语言模型",
+        "开源",
+        "训练",
+        "轻量级",
+        "AI"
+      ],
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
         },
         {
           "id": "topic:ai-tools",
@@ -1227,6 +1167,101 @@
           "label": {
             "zh": "AI 工具",
             "en": "AI Tools"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        }
+      ],
+      "score": 66.95,
+      "publishedAt": "2026-09-01T15:59:59.999999+00:00",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
+      "sourceName": "GitHub Trending Daily",
+      "contentType": "repository",
+      "sourceGroup": "开源项目",
+      "originalTitle": "jingyaogong/minimind",
+      "originalUrl": "https://github.com/jingyaogong/minimind",
+      "keyPoints": [
+        "提供从零训练 64M 参数 LLM 的开源方案",
+        "宣称训练时间仅需约 2 小时",
+        "旨在降低 LLM 训练的门槛",
+        "适用于资源有限的开发者或研究者"
+      ],
+      "whyItMatters": "大型语言模型的训练通常需要大量算力和数据，MiniMind 项目展示了在资源受限情况下训练小型模型的可能性，可能为相关领域的研究和教学提供便利。",
+      "titleEn": "MiniMind: A Guide to Lightweight LLM Training in Two Hours",
+      "descriptionEn": "This project provides an open-source solution for training a 64M-parameter LLM from scratch, claiming a training time of just about two hours. It may enable developers and researchers with limited resources to quickly build and experiment with small language models, lowering the entry barrier.",
+      "summaryEn": "According to the project introduction, MiniMind is an open-source project that supports training a 64M-parameter LLM in a short time. The project likely provides training code, data configuration, and tutorials, allowing individuals to attempt training their own small model. Note that the description comes from the project's promotion, and actual training time may vary depending on hardware and adjustments.",
+      "keyPointsEn": [
+        "Open-source solution for training a 64M-parameter LLM from scratch",
+        "Claims training time of only about 2 hours",
+        "Aims to lower the barrier for LLM training",
+        "Suitable for developers or researchers with limited resources"
+      ],
+      "whyItMattersEn": "Training large language models typically requires substantial computational power and data. MiniMind demonstrates the possibility of training small models under resource constraints, potentially facilitating research and teaching in related fields.",
+      "limitationsEn": "Currently based solely on the project's promotional information, lacking independent verification. Actual training time may vary significantly due to hardware, data quality, and training settings. The model's performance is likely far inferior to large models, limiting its application scenarios.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "large language model",
+        "open-source",
+        "training",
+        "lightweight",
+        "AI"
+      ],
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 21,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 95.0,
+        "metricPercentile": 86.84,
+        "velocityPercentile": 86.84,
+        "objectiveScore": 86.84,
+        "relevanceScore": 55,
+        "contentValueScore": 28.88,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 4.13,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 5.0,
+          "trending_rank_score": 95.0,
+          "stars": 57163.0,
+          "stars_delta_1d": 1005.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ]
+    },
+    {
+      "id": "9989359ee32a4990",
+      "slug": "hugging-face-journal-club-training-ai-scientists-9989359ee3",
+      "domain": "AI × 量化",
+      "title": "Faraday-27B模型：训练AI科学家复现研究",
+      "description": "Hugging Face研究团队探讨了Faraday-27B模型的微调训练，该模型旨在发展科学推理能力以复现AI论文，这是迈向AI研发全自动化的关键一步。",
+      "summary": "Hugging Face团队介绍了Faraday-27B模型，该模型通过后训练获得科学推理能力，能够复现AI研究。团队认为这是实现AI研发自动化的关键进展，但尚处于早期阶段。",
+      "limitations": "目前信息仅来自Hugging Face团队的讨论，缺乏详细的实验数据和评估结果，尚不清楚模型复现研究的准确率和适用性。",
+      "tags": [
+        "AI研究",
+        "自动化",
+        "科学推理"
+      ],
+      "features": [
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
           },
           "evidence": "source.domain",
           "confidence": 1.0
@@ -1241,291 +1276,62 @@
           },
           "evidence": "content.keyword",
           "confidence": 0.8
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
         }
       ],
-      "score": 71.67,
-      "publishedAt": "2026-08-31T15:59:59.999999+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "GitHub Trending Daily",
-      "contentType": "repository",
-      "sourceGroup": "开源项目",
-      "originalTitle": "K-Dense-AI/scientific-agent-skills",
-      "originalUrl": "https://github.com/K-Dense-AI/scientific-agent-skills",
-      "keyPoints": [
-        "Turn any AI agent into an AI Scientist.",
-        "The #1 Agent Skills library for science, used by 190,000+ scientists worldwide.",
-        "165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery."
-      ],
-      "whyItMatters": "可用于判断工具更新是否值得纳入日常研究流程。",
-      "titleEn": "K-Dense-AI/scientific-agent-skills",
-      "descriptionEn": "Turn any AI agent into an AI Scientist.",
-      "summaryEn": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide. 165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
-      "keyPointsEn": [
-        "Turn any AI agent into an AI Scientist.",
-        "The #1 Agent Skills library for science, used by 190,000+ scientists worldwide.",
-        "165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery."
-      ],
-      "whyItMattersEn": "Helps assess whether a tool update belongs in the daily research workflow.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 16,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 97.0,
-        "metricPercentile": 86.67,
-        "velocityPercentile": 86.67,
-        "objectiveScore": 86.67,
-        "relevanceScore": 60,
-        "contentValueScore": 40.85,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 5.0,
-          "novelty": 0.0,
-          "specificity": 8.85,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 3.0,
-          "trending_rank_score": 97.0,
-          "stars": 41164.0,
-          "stars_delta_1d": 1980.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ]
-    },
-    {
-      "id": "ceaf2f7365569375",
-      "slug": "thu-maic-openmaic-ceaf2f7365",
-      "domain": "AI 工具",
-      "title": "THU-MAIC/OpenMAIC",
-      "description": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
-      "summary": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "GitHub Trending",
-        "日趋势榜",
-        "TypeScript"
-      ],
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-tools",
-          "facet": "topic",
-          "value": "ai-tools",
-          "label": {
-            "zh": "AI 工具",
-            "en": "AI Tools"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        }
-      ],
-      "score": 70.91,
-      "publishedAt": "2026-08-31T15:59:59.999999+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "GitHub Trending Daily",
-      "contentType": "repository",
-      "sourceGroup": "开源项目",
-      "originalTitle": "THU-MAIC/OpenMAIC",
-      "originalUrl": "https://github.com/THU-MAIC/OpenMAIC",
-      "keyPoints": [
-        "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click"
-      ],
-      "whyItMatters": "可用于判断工具更新是否值得纳入日常研究流程。",
-      "titleEn": "THU-MAIC/OpenMAIC",
-      "descriptionEn": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
-      "summaryEn": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
-      "keyPointsEn": [
-        "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click"
-      ],
-      "whyItMattersEn": "Helps assess whether a tool update belongs in the daily research workflow.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 16,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 99.0,
-        "metricPercentile": 100.0,
-        "velocityPercentile": 100.0,
-        "objectiveScore": 100.0,
-        "relevanceScore": 60,
-        "contentValueScore": 27.27,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.27,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 1.0,
-          "trending_rank_score": 99.0,
-          "stars": 28548.0,
-          "stars_delta_1d": 2824.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ]
-    },
-    {
-      "id": "3b574bb64bfe1d82",
-      "slug": "agent-memory-explained-complete-architecture-3b574bb64b",
-      "domain": "AI × 量化",
-      "title": "Agent Memory EXPLAINED - Complete Architecture",
-      "description": "Quick case study persistent memory for AI agents featuring Mem0.",
-      "summary": "Quick case study persistent memory for AI agents featuring Mem0. The architecture of long form memory for agents goes far beyond a vector search. This deep dive explains Mem0's memory stores, ingestion pipeline, hybrid retrieval with semantic search, BM25 and entity boosting, plus practical open models for running the system locally. --- 🔗 *Links* - Mem0 documentation: https://docs.mem0.ai/ - Mem0 source code: https://github.com/mem0ai/mem0 - Hugging Face models: https://huggingface.co/models - Hugging Face embedding models: https://huggingface.co/models?pipeline_tag=feature-extraction - MTEB leaderboard: https://huggingface.co/spaces/mteb/leaderboard --- 👋 *Connect with me* - My website: https://alejandro-ao.com/ - X (Twitter): https://x.com/_alejandroao - LinkedIn: https://www.linkedin.com/in/alejandro-ao/ --- 🤓 *Topics Covered* - Long-term memory architecture for AI agents - Mem0 ingestion, storage and hybrid retrieval - Local LLM and embedding model choices --- ⏱️ *Timestamps* 0:00 Introduction 0:55 What agent memory is 3:28 Persistent memory across agents 4:26 Databases used by Mem0 8:06 Memory ingestion 15:30 Retrieval: queries and semantic search 19:19 Retrieval: BM25 and en",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
-      "tags": [
-        "视频",
-        "机器学习",
-        "开源 AI"
-      ],
-      "features": [
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-quant",
-          "facet": "topic",
-          "value": "ai-quant",
-          "label": {
-            "zh": "AI × 量化",
-            "en": "AI × Quant"
-          },
-          "evidence": "source.domain",
-          "confidence": 1.0
-        }
-      ],
-      "score": 58.37,
-      "publishedAt": "2026-08-17T03:15:35+00:00",
+      "score": 58.74,
+      "publishedAt": "2026-08-21T10:08:41+00:00",
       "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
       "sourceName": "Hugging Face",
       "contentType": "video",
       "sourceGroup": "视频",
-      "originalTitle": "Agent Memory EXPLAINED - Complete Architecture",
-      "originalUrl": "https://www.youtube.com/watch?v=aYfZN8t6AQs",
+      "originalTitle": "Hugging Face Journal Club: Training AI Scientists to Replicate Research",
+      "originalUrl": "https://www.youtube.com/watch?v=HxahKqN1q2g",
       "keyPoints": [
-        "Quick case study persistent memory for AI agents featuring Mem0.",
-        "The architecture of long form memory for agents goes far beyond a vector search.",
-        "This deep dive explains Mem0's memory stores, ingestion pipeline, hybrid retrieval with semantic search, BM25 and entity boosting, plus practical open models for running the system locally."
+        "Faraday-27B模型经过后训练发展科学推理能力",
+        "目标：复现AI论文，走向全自动化AI研发",
+        "讨论了模型在复现研究中的潜在应用"
       ],
-      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
-      "titleEn": "Agent Memory EXPLAINED - Complete Architecture",
-      "descriptionEn": "Quick case study persistent memory for AI agents featuring Mem0.",
-      "summaryEn": "Quick case study persistent memory for AI agents featuring Mem0. The architecture of long form memory for agents goes far beyond a vector search. This deep dive explains Mem0's memory stores, ingestion pipeline, hybrid retrieval with semantic search, BM25 and entity boosting, plus practical open models for running the system locally. --- 🔗 *Links* - Mem0 documentation: https://docs.mem0.ai/ - Mem0 source code: https://github.com/mem0ai/mem0 - Hugging Face models: https://huggingface.co/models - Hugging Face embedding models: https://huggingface.co/models?pipeline_tag=feature-extraction - MTEB leaderboard: https://huggingface.co/spaces/mteb/leaderboard --- 👋 *Connect with me* - My website: https://alejandro-ao.com/ - X (Twitter): https://x.com/_alejandroao - LinkedIn: https://www.linkedin.com/in/alejandro-ao/ --- 🤓 *Topics Covered* - Long-term memory architecture for AI agents - Mem0 ingestion, storage and hybrid retrieval - Local LLM and embedding model choices --- ⏱️ *Timestamps* 0:00 Introduction 0:55 What agent memory is 3:28 Persistent memory across agents 4:26 Databases used by Mem0 8:06 Memory ingestion 15:30 Retrieval: queries and semantic search 19:19 Retrieval: BM25 and en",
+      "whyItMatters": "该模型展示了AI在科学研究中扮演更主动角色的可能性，可能加速研究进程，但也引发对自动化研究的可靠性和伦理问题的关注。",
+      "titleEn": "Faraday-27B: Training AI Scientists to Replicate Research",
+      "descriptionEn": "Hugging Face team discusses Faraday-27B, a model post-trained to develop scientific reasoning for replicating AI papers, a step towards automated AI R&D.",
+      "summaryEn": "Hugging Face discusses Faraday-27B, which is fine-tuned to replicate AI research. The team views this as a key advance, but early-stage.",
       "keyPointsEn": [
-        "Quick case study persistent memory for AI agents featuring Mem0.",
-        "The architecture of long form memory for agents goes far beyond a vector search.",
-        "This deep dive explains Mem0's memory stores, ingestion pipeline, hybrid retrieval with semantic search, BM25 and entity boosting, plus practical open models for running the system locally."
+        "Faraday-27B post-trained for scientific reasoning",
+        "Goal: replicate AI papers for full automation",
+        "Potential applications discussed"
       ],
-      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This model shows potential for AI to take a more active role in science, accelerating research, but raises concerns about reliability and ethics.",
+      "limitationsEn": "Information based only on discussion, lacking detailed data and evaluation; accuracy and applicability unclear.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "AI research",
+        "automation",
+        "scientific reasoning"
+      ],
       "scoreBreakdown": {
         "contentType": "video",
-        "comparisonCohortSize": 8,
+        "comparisonCohortSize": 4,
         "mode": "cohort-metric",
         "primaryMetric": "views",
-        "primaryMetricValue": 31913.0,
+        "primaryMetricValue": 3237.0,
         "metricPercentile": 100.0,
-        "velocityPercentile": 42.86,
-        "objectiveScore": 77.14,
-        "relevanceScore": 75,
-        "contentValueScore": 56.75,
+        "velocityPercentile": 66.67,
+        "objectiveScore": 86.67,
+        "relevanceScore": 70,
+        "contentValueScore": 41.12,
         "contentSignals": {
           "evidence": 0.0,
           "actionability": 5.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
+          "novelty": 0.0,
+          "specificity": 4.62,
           "penalty": 0.0
         },
-        "freshnessScore": 3.13,
+        "freshnessScore": 25.04,
         "sourceQualityScore": 82.0,
         "sourceMetrics": {
-          "views": 31913.0
+          "views": 3237.0
         },
         "selectionLane": "carryover"
       },
@@ -1534,17 +1340,115 @@
       ]
     },
     {
-      "id": "ab33c7304d9d3087",
-      "slug": "spec-driven-development-and-local-ai-are-a-natur-ab33c7304d",
-      "domain": "AI × 量化",
-      "title": "Spec-driven development and local AI are a natural pair.",
-      "description": "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work.",
-      "summary": "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work. Paul Everitt worked both into his new course with DeepLearning.AI. Check it out: https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "id": "dae10183f67f0788",
+      "slug": "incubation-dae10183f6",
+      "domain": "量化研究",
+      "title": "实时信号流与前瞻性测试：量化策略孵化实践",
+      "description": "该文介绍一种通过实时流式传输交易信号并进行前瞻性测试的量化研究方法，目的在于让策略在真实市场条件下接受检验，提升其可靠性与透明度。",
+      "summary": "文章提出了一种新颖的策略测试方式：将量化信号进行流式传输，并邀请外部观察者参与前瞻性测试。作者认为这种开放式的测试方法有助于验证策略的有效性，并促进策略迭代。",
+      "limitations": "本文未提供具体的测试结果或数据，也未对策略的收益风险进行量化分析。其有效性需通过后续的实际测试数据来验证。",
       "tags": [
-        "视频",
-        "机器学习",
-        "AI 工程"
+        "量化策略",
+        "信号流",
+        "前瞻性测试"
+      ],
+      "features": [
+        {
+          "id": "artifact:newsletter",
+          "facet": "artifact",
+          "value": "newsletter",
+          "label": {
+            "zh": "Newsletter",
+            "en": "Newsletter"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:quantitative-finance",
+          "facet": "topic",
+          "value": "quantitative-finance",
+          "label": {
+            "zh": "量化金融",
+            "en": "Quantitative Finance"
+          },
+          "evidence": "source.domain",
+          "confidence": 1.0
+        }
+      ],
+      "score": 52.38,
+      "publishedAt": "2026-09-01T13:30:34+00:00",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
+      "sourceName": "Quantitativo",
+      "contentType": "article",
+      "sourceGroup": "Newsletter",
+      "originalTitle": "Incubation",
+      "originalUrl": "https://www.quantitativo.com/p/incubation",
+      "keyPoints": [
+        "采用流式传输的方式实时分享交易信号",
+        "进行前瞻性测试以评估策略在真实市场中的表现",
+        "强调通过公开测试来增强策略的透明度和可信度"
+      ],
+      "whyItMatters": "对于量化研究者而言，该文提供了一种验证策略的新思路，有助于提升策略的稳健性，并可能推动量化研究领域的开放合作。",
+      "titleEn": "Live Signal Streaming and Forward Testing: Practice of Quant Strategy Incubation",
+      "descriptionEn": "This article introduces a method of real-time streaming trading signals and forward testing, aiming to test strategies under real market conditions to improve reliability and transparency.",
+      "summaryEn": "The article proposes a novel approach: streaming quantitative signals and inviting external observers to participate in forward testing. The author believes this open testing method can help verify strategy effectiveness and promote strategy iteration.",
+      "keyPointsEn": [
+        "Real-time streaming of trading signals",
+        "Forward testing to evaluate strategy performance in real markets",
+        "Emphasis on enhancing strategy transparency and credibility through public testing"
+      ],
+      "whyItMattersEn": "For quantitative researchers, this article offers a new way to validate strategies, potentially improving robustness and fostering open collaboration in the field.",
+      "limitationsEn": "The article does not provide specific test results or data, nor does it quantify the strategy's risk-return profile. Its effectiveness needs validation through subsequent actual test data.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "quant strategy",
+        "signal streaming",
+        "forward testing"
+      ],
+      "scoreBreakdown": {
+        "contentType": "article",
+        "comparisonCohortSize": 2,
+        "mode": "relevance-fallback",
+        "primaryMetric": null,
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 75,
+        "contentValueScore": 33.89,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 0.14,
+          "penalty": 0.0
+        },
+        "freshnessScore": 99.31,
+        "sourceQualityScore": 88.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "discoveredBy": [
+        "Quantitativo"
+      ]
+    },
+    {
+      "id": "882becd3fb838d9c",
+      "slug": "frontier-models-for-the-big-problems-aiagents-je-882becd3fb",
+      "domain": "AI × 量化",
+      "title": "云端与本地模型分工协作的艺术",
+      "description": "该内容来自DeepLearning.AI与JetBrains合作的免费课程推广，提出了在AI应用开发中根据问题大小和需求（如控制、隐私）在云端前沿模型与本地模型之间进行任务分配的核心技能。其新颖之处在于强调“拆分工作”这一实用技术，而非单纯推崇某一类模型。",
+      "summary": "事实部分指出，存在两类模型选择：前沿模型适合处理大问题，本地模型适合需要控制、隐私保护及数据自主权的场景。作者观点认为，掌握如何在两者之间分配任务是一项关键技能，并通过免费课程进行推广。",
+      "limitations": "该信息来自课程推广短片，未提供具体技术细节或性能数据，也未说明不同场景下的具体权衡。实际应用需根据个人需求评估。",
+      "tags": [
+        "AI模型",
+        "本地模型",
+        "云端模型",
+        "任务分配",
+        "DeepLearning.AI"
       ],
       "features": [
         {
@@ -1568,57 +1472,77 @@
           },
           "evidence": "content.keyword",
           "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
-      "score": 54.57,
-      "publishedAt": "2026-08-28T13:30:38+00:00",
+      "score": 51.48,
+      "publishedAt": "2026-08-24T13:30:33+00:00",
       "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
       "sourceName": "DeepLearning.AI",
       "contentType": "video",
       "sourceGroup": "视频",
-      "originalTitle": "Spec-driven development and local AI are a natural pair.",
-      "originalUrl": "https://www.youtube.com/shorts/YVluf1-g0wY",
+      "originalTitle": "Frontier models for the big problems. #aiagents #jetbrains #deeplearning",
+      "originalUrl": "https://www.youtube.com/shorts/1LZSKYLSKno",
       "keyPoints": [
-        "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work.",
-        "Paul Everitt worked both into his new course with DeepLearning.AI.",
-        "Check it out: https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local"
+        "前沿模型适合解决重大问题。",
+        "本地模型提供控制、隐私和数据自主权。",
+        "核心技能是在云端和本地模型之间合理分配工作。",
+        "DeepLearning.AI与JetBrains合作提供免费课程。"
       ],
-      "whyItMatters": "可能改善量化研究中的数据处理、实验设计或自动化工作流。",
-      "titleEn": "Spec-driven development and local AI are a natural pair.",
-      "descriptionEn": "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work.",
-      "summaryEn": "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work. Paul Everitt worked both into his new course with DeepLearning.AI. Check it out: https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local",
+      "whyItMatters": "该内容反映了AI应用开发中模型选择的实用策略，对于需要在成本、隐私和性能之间平衡的开发者和企业来说，掌握云端与本地模型的协同工作方式将日益重要。",
+      "titleEn": "The Art of Dividing Work Between Cloud and Local Models",
+      "descriptionEn": "This content from DeepLearning.AI promotes a free course with JetBrains, highlighting the core skill of splitting tasks between frontier cloud models and local models based on problem size and needs like control and privacy. The novelty lies in emphasizing this practical division rather than advocating one type of model.",
+      "summaryEn": "Factually, it states there are two model options: frontier models for big problems, and local models for control, privacy, and data ownership. The author's opinion is that knowing how to split work between them is a key skill, promoted through the free course.",
       "keyPointsEn": [
-        "Spec-driven development and local AI are a natural pair: clear specs give smaller models a real shot at the work.",
-        "Paul Everitt worked both into his new course with DeepLearning.AI.",
-        "Check it out: https://www.deeplearning.ai/courses/ai-coding-workflows-from-cloud-to-local"
+        "Frontier models are suited for big problems.",
+        "Local models offer control, privacy, and data ownership.",
+        "The core skill is dividing work between cloud and local models effectively.",
+        "DeepLearning.AI collaborates with JetBrains to offer a free course."
       ],
-      "whyItMattersEn": "May improve data processing, experiment design, or automation in quantitative research.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This content reflects a practical strategy in AI application development. For developers and enterprises balancing cost, privacy, and performance, mastering the synergy between cloud and local models is increasingly important.",
+      "limitationsEn": "This information comes from a promotional short, lacking technical details or performance data, and does not explain specific trade-offs in different scenarios. Practical application requires individual assessment.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "AI models",
+        "local models",
+        "cloud models",
+        "task delegation",
+        "DeepLearning.AI"
+      ],
       "scoreBreakdown": {
         "contentType": "video",
-        "comparisonCohortSize": 8,
+        "comparisonCohortSize": 4,
         "mode": "cohort-metric",
         "primaryMetric": "views",
-        "primaryMetricValue": 2180.0,
-        "metricPercentile": 28.57,
+        "primaryMetricValue": 2225.0,
+        "metricPercentile": 33.33,
         "velocityPercentile": 100.0,
-        "objectiveScore": 57.14,
-        "relevanceScore": 70,
-        "contentValueScore": 37.18,
+        "objectiveScore": 60.0,
+        "relevanceScore": 75,
+        "contentValueScore": 39.47,
         "contentSignals": {
           "evidence": 0.0,
           "actionability": 5.0,
           "novelty": 0.0,
-          "specificity": 0.68,
+          "specificity": 0.72,
           "penalty": 0.0
         },
-        "freshnessScore": 79.31,
+        "freshnessScore": 45.97,
         "sourceQualityScore": 78.0,
         "sourceMetrics": {
-          "views": 2180.0
+          "views": 2225.0
         },
         "selectionLane": "carryover"
       },
@@ -1627,165 +1551,224 @@
       ]
     },
     {
-      "id": "5960322c61cd559d",
-      "slug": "recent-quant-links-from-quantocracy-as-of-08-31--5960322c61",
-      "domain": "量化研究",
-      "title": "Recent Quant Links from Quantocracy as of 08/31/2026",
-      "description": "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026.",
-      "summary": "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026. To see our most recent links, visit the Quant Mashup. Read on readers! Does Trading TAA Strategies More Often Improve Performance? [Allocate Smartly] Most Tactical Asset Allocation (TAA) strategies trade once per month. Thats by design. Short-term market movement is mostly […] The post Recent Quant Links from Quantocracy as of 08/31/2026 appeared first on Quantocracy .",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "id": "bc01ccc75c8c1250",
+      "slug": "the-big-brain-for-the-big-work-aiagents-buildinp-bc01ccc75c",
+      "domain": "AI × 量化",
+      "title": "云端与本地模型分工：AI编程工作流的新规则",
+      "description": "该视频介绍Paul Everitt提出的编码任务分配规则，即大模型处理复杂任务，小模型处理简单任务，并推荐了相关免费课程。",
+      "summary": "视频中Paul Everitt提出在编程中，云端前沿模型负责复杂任务，本地模型负责简单任务，并介绍了DeepLearning.AI与JetBrains合作的免费课程《AI Coding Workflows: From Cloud to Local》。",
+      "limitations": "视频内容简短，仅呈现规则和课程信息，缺乏具体案例或实验结果来验证该规则的有效性。",
       "tags": [
-        "量化博客",
-        "研究雷达"
+        "AI编程",
+        "云端模型",
+        "本地模型",
+        "工作流",
+        "效率提升"
       ],
       "features": [
         {
-          "id": "topic:quantitative-finance",
+          "id": "topic:ai-quant",
           "facet": "topic",
-          "value": "quantitative-finance",
+          "value": "ai-quant",
           "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
           },
           "evidence": "source.domain",
           "confidence": 1.0
+        },
+        {
+          "id": "topic:developer-tools",
+          "facet": "topic",
+          "value": "developer-tools",
+          "label": {
+            "zh": "开发工具",
+            "en": "Developer Tools"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:productivity",
+          "facet": "topic",
+          "value": "productivity",
+          "label": {
+            "zh": "效率工具",
+            "en": "Productivity"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
-      "score": 48.2,
-      "publishedAt": "2026-09-01T05:15:05+00:00",
+      "score": 45.21,
+      "publishedAt": "2026-08-20T13:46:53+00:00",
       "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "Quantocracy",
-      "contentType": "article",
-      "sourceGroup": "网站与论坛",
-      "originalTitle": "Recent Quant Links from Quantocracy as of 08/31/2026",
-      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-08312026",
+      "sourceName": "DeepLearning.AI",
+      "contentType": "video",
+      "sourceGroup": "视频",
+      "originalTitle": "The big brain for the big work... #aiagents #buildinpublic #deeplearning #jetbrains @JetBrainsTV",
+      "originalUrl": "https://www.youtube.com/shorts/tRz2bxfPJbE",
       "keyPoints": [
-        "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026.",
-        "To see our most recent links, visit the Quant Mashup.",
-        "Read on readers!"
+        "Paul Everitt提出'大脑分工'规则：大模型处理大任务，小模型处理小任务。",
+        "云端前沿模型适合复杂编码任务，本地模型适合简单任务。",
+        "相关免费课程由DeepLearning.AI与JetBrains合作推出。"
       ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Recent Quant Links from Quantocracy as of 08/31/2026",
-      "descriptionEn": "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026.",
-      "summaryEn": "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026. To see our most recent links, visit the Quant Mashup. Read on readers! Does Trading TAA Strategies More Often Improve Performance? [Allocate Smartly] Most Tactical Asset Allocation (TAA) strategies trade once per month. Thats by design. Short-term market movement is mostly […] The post Recent Quant Links from Quantocracy as of 08/31/2026 appeared first on Quantocracy .",
+      "whyItMatters": "该规则提供了一种实用的任务分配策略，有助于开发者在云端与本地模型间做出权衡，提高效率并降低成本。",
+      "titleEn": "Cloud vs Local Model Division in AI Coding Workflows",
+      "descriptionEn": "This video introduces Paul Everitt's rule for dividing coding tasks between cloud and local models, and recommends a free course on the topic.",
+      "summaryEn": "Paul Everitt suggests using frontier cloud models for complex tasks and local models for simpler ones, and highlights a free DeepLearning.AI course in collaboration with JetBrains.",
       "keyPointsEn": [
-        "This is a summary of links recently featured on Quantocracy as of Monday, 08/31/2026.",
-        "To see our most recent links, visit the Quant Mashup.",
-        "Read on readers!"
+        "Paul Everitt proposes a 'big brain' rule: large models for big tasks, small models for small tasks.",
+        "Cloud frontier models are suitable for complex coding tasks, local models for simple ones.",
+        "A free course is offered by DeepLearning.AI in partnership with JetBrains."
       ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This rule provides a practical division strategy to help developers balance efficiency and cost when using AI models.",
+      "limitationsEn": "The video is concise, presenting only the rule and course info without concrete examples or experimental validation.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "AI coding",
+        "cloud models",
+        "local models",
+        "workflow",
+        "efficiency"
+      ],
       "scoreBreakdown": {
-        "contentType": "article",
-        "comparisonCohortSize": 6,
-        "mode": "relevance-fallback",
-        "primaryMetric": null,
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 80,
-        "contentValueScore": 26.0,
+        "contentType": "video",
+        "comparisonCohortSize": 4,
+        "mode": "cohort-metric",
+        "primaryMetric": "views",
+        "primaryMetricValue": 2404.0,
+        "metricPercentile": 66.67,
+        "velocityPercentile": 33.33,
+        "objectiveScore": 53.33,
+        "relevanceScore": 75,
+        "contentValueScore": 39.59,
         "contentSignals": {
           "evidence": 0.0,
           "actionability": 5.0,
           "novelty": 0.0,
-          "specificity": 10.0,
-          "penalty": -25.0
+          "specificity": 0.84,
+          "penalty": 0.0
         },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
+        "freshnessScore": 19.38,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {
+          "views": 2404.0
+        },
+        "selectionLane": "carryover"
       },
       "discoveredBy": [
-        "Quantocracy"
+        "DeepLearning.AI"
       ]
     },
     {
-      "id": "a5f73d63aa183c52",
-      "slug": "recent-quant-links-from-quantocracy-as-of-08-25--a5f73d63aa",
-      "domain": "量化研究",
-      "title": "Recent Quant Links from Quantocracy as of 08/25/2026",
-      "description": "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026.",
-      "summary": "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026. To see our most recent links, visit the Quant Mashup. Read on readers! FX Edge Lives in Other Markets (cross-asset series) [Aligrithm] A currency futures book built from other currency futures scores a Sharpe of 0.16. The same contracts, wired into […] The post Recent Quant Links from Quantocracy as of 08/25/2026 appeared first on Quantocracy .",
-      "limitations": "当前为来源摘要整理，尚未独立核验全文、数据与实验结果。",
+      "id": "8abc3244a14ba63a",
+      "slug": "import-ai-470-no-rights-for-machines-automating--8abc3244a1",
+      "domain": "AI × 量化",
+      "title": "自动环境生成与GPU内核优化：Import AI 470期技术洞察",
+      "description": "本期Import AI聚焦两项前沿进展：SPADE框架自动化生成训练环境以提升AI泛化能力，以及Hawkeye工具优化GPU内核性能。摘要援引了具体案例，展示这些技术如何推动AI与量化研究发展，为从业者提供可操作的参考。",
+      "summary": "内容基于原文，主要事实包括SPADE框架通过自动化环境生成帮助AI在多样化任务中训练，以及Hawkeye工具通过分析内核性能瓶颈实现GPU优化。作者观点认为这些进展将加速AI能力提升，并强调机器权利议题的缺失。",
+      "limitations": "摘要基于单期newsletter，未提供具体实验数据或验证细节，因此无法确认SPADE和Hawkeye的实际效果。机器权利部分仅为作者观点，不构成正式政策建议。",
       "tags": [
-        "量化博客",
-        "研究雷达"
+        "AI",
+        "量化",
+        "环境生成",
+        "GPU优化",
+        "Import AI"
       ],
       "features": [
         {
-          "id": "topic:quantitative-finance",
-          "facet": "topic",
-          "value": "quantitative-finance",
+          "id": "artifact:newsletter",
+          "facet": "artifact",
+          "value": "newsletter",
           "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
+            "zh": "Newsletter",
+            "en": "Newsletter"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
           },
           "evidence": "source.domain",
           "confidence": 1.0
         }
       ],
-      "score": 39.36,
-      "publishedAt": "2026-08-26T05:15:05+00:00",
-      "retrievedAt": "2026-08-31T15:59:59.999999+00:00",
-      "sourceName": "Quantocracy",
+      "score": 39.51,
+      "publishedAt": "2026-08-24T13:12:40+00:00",
+      "retrievedAt": "2026-09-01T15:59:59.999999+00:00",
+      "sourceName": "Import AI",
       "contentType": "article",
-      "sourceGroup": "网站与论坛",
-      "originalTitle": "Recent Quant Links from Quantocracy as of 08/25/2026",
-      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-08252026",
+      "sourceGroup": "Newsletter",
+      "originalTitle": "Import AI 470: No rights for machines; automating environment generation with SPADE; and building better GPU kernels with Hawkeye",
+      "originalUrl": "https://importai.substack.com/p/import-ai-470-no-rights-for-machines",
       "keyPoints": [
-        "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026.",
-        "To see our most recent links, visit the Quant Mashup.",
-        "Read on readers!"
+        "SPADE框架可自动生成多样化训练环境，提升AI泛化能力。",
+        "Hawkeye工具通过分析GPU内核性能，优化计算效率。",
+        "原文讨论机器权利议题，认为当前缺乏相关法律保障。",
+        "还有关于网络、数学和AI差异化加速的讨论。"
       ],
-      "whyItMatters": "可用于评估新的研究假设、实证证据或策略风险。",
-      "titleEn": "Recent Quant Links from Quantocracy as of 08/25/2026",
-      "descriptionEn": "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026.",
-      "summaryEn": "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026. To see our most recent links, visit the Quant Mashup. Read on readers! FX Edge Lives in Other Markets (cross-asset series) [Aligrithm] A currency futures book built from other currency futures scores a Sharpe of 0.16. The same contracts, wired into […] The post Recent Quant Links from Quantocracy as of 08/25/2026 appeared first on Quantocracy .",
+      "whyItMatters": "该内容对AI与量化领域从业者具有参考价值：SPADE可帮助研究人员构建更鲁棒的模型，Hawkeye能提高计算资源利用率，而机器权利讨论则引发对AI伦理的思考。",
+      "titleEn": "Automated Environment Generation and GPU Kernel Optimization: Insights from Import AI 470",
+      "descriptionEn": "This issue highlights two advancements: SPADE framework for automated environment generation to enhance AI generalization, and Hawkeye tool for optimizing GPU kernels. It provides concrete examples and practical insights for AI and quantitative research.",
+      "summaryEn": "The content is based on the original article. Key facts include SPADE's automated environment generation for diverse training, and Hawkeye's performance bottleneck analysis for GPU optimization. The author believes these will accelerate AI capabilities, while noting the absence of machine rights discussions.",
       "keyPointsEn": [
-        "This is a summary of links recently featured on Quantocracy as of Tuesday, 08/25/2026.",
-        "To see our most recent links, visit the Quant Mashup.",
-        "Read on readers!"
+        "SPADE framework can automatically generate diverse training environments to improve AI generalization.",
+        "Hawkeye tool optimizes computational efficiency by analyzing GPU kernel performance.",
+        "The article discusses machine rights, arguing current legal protections are lacking.",
+        "Also covers differential acceleration of cyber, math, and AI."
       ],
-      "whyItMattersEn": "Useful for evaluating research hypotheses, empirical evidence, or strategy risk.",
-      "limitationsEn": "Source-only fallback; the full text, data, and experiments have not been independently verified.",
-      "aiGenerated": false,
-      "summaryProvider": "source",
-      "summaryModel": null,
+      "whyItMattersEn": "This is valuable for AI and quantitative practitioners: SPADE can help build more robust models, Hawkeye improves resource utilization, and machine rights debate raises ethical considerations.",
+      "limitationsEn": "The summary is based on a single newsletter issue, lacks specific experimental data or validation details, so actual effectiveness of SPADE and Hawkeye remains unconfirmed. Machine rights portion is author's opinion, not formal policy advice.",
+      "aiGenerated": true,
+      "summaryProvider": "deepseek",
+      "summaryModel": "deepseek-v4-flash",
+      "tagsEn": [
+        "AI",
+        "quantitative",
+        "environment generation",
+        "GPU optimization",
+        "Import AI"
+      ],
       "scoreBreakdown": {
         "contentType": "article",
-        "comparisonCohortSize": 6,
+        "comparisonCohortSize": 2,
         "mode": "relevance-fallback",
         "primaryMetric": null,
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 75,
-        "contentValueScore": 23.75,
+        "relevanceScore": 70,
+        "contentValueScore": 33.62,
         "contentSignals": {
-          "evidence": 5.0,
+          "evidence": 0.0,
           "actionability": 0.0,
           "novelty": 0.0,
-          "specificity": 10.0,
-          "penalty": -25.0
+          "specificity": 2.12,
+          "penalty": 0.0
         },
-        "freshnessScore": 63.68,
-        "sourceQualityScore": 100.0,
+        "freshnessScore": 45.89,
+        "sourceQualityScore": 68.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
       },
       "discoveredBy": [
-        "Quantocracy"
+        "Import AI"
       ]
     }
   ],
   "sourceErrors": {
-    "import-ai": "HTTPError: HTTP Error 403: Forbidden"
+    "quantinsti-video": "HTTPError: HTTP Error 500: Internal Server Error",
+    "hugging-face-video": "HTTPError: HTTP Error 404: Not Found",
+    "deep-learning-ai-video": "HTTPError: HTTP Error 404: Not Found"
   }
 }
