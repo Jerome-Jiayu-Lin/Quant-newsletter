@@ -88,6 +88,12 @@ External data must be parsed at the first repository-owned seam. Downstream modu
 operate on `RawItem`, `KnowledgeCard`, or the documented public export shape; they
 must not probe third-party response dictionaries.
 
+Website latest reads first resolve `latestEdition` through the versioned public index
+and load that dated Public Export through the same validation path as historical
+routes. During migration only, an unavailable or invalid indexed latest Edition falls
+back to the validated GitHub latest JSON and then the bundled Edition. Historical
+requests never silently substitute another date.
+
 ## Runtime ownership
 
 | State | Owner | Canonical location |

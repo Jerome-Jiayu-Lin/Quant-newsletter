@@ -81,7 +81,10 @@ administrative UI are explicitly out of scope for this plan.
   drill; retain their receipts.
   - [x] Run the complete sequence against fake storage and retain its hashes below.
   - [ ] Repeat against the real preview R2 bucket after Cloudflare authorization exists.
-- [ ] Cut production reads over while retaining the latest-JSON fallback.
+- [x] Make the production loader prefer the indexed R2 latest Edition while retaining
+  the validated latest-JSON and bundled fallbacks.
+- [ ] Observe a deployed read from real R2 before removing migration status or moving
+  this plan to completed.
 
 ## Discoveries
 
@@ -135,6 +138,10 @@ administrative UI are explicitly out of scope for this plan.
   Publications retain content-addressed Edition versions and index snapshots;
   `quantbrief.restore_cli` verifies and restores them before conditionally repointing
   the active index, and can retain a machine-readable restore receipt locally.
+- Latest website reads now resolve the index's `latestEdition` and use the same dated
+  loader as historical routes. Invalid or unavailable R2 data falls through to the
+  GitHub compatibility JSON and bundled Edition; an explicit historical date never
+  substitutes fallback content from a different date.
 
 ## Verification
 

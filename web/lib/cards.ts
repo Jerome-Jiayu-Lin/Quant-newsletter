@@ -91,6 +91,14 @@ export async function getEditionIndex(): Promise<EditionIndex | null> {
   }
 }
 
+async function fetchIndexedEdition(entry: EditionIndexEntry): Promise<CardDataset> {
+  const result = await fetchJson(`${publicDataOrigin}/${entry.objectKey}`);
+  if (!result.response.ok || !isCompleteEdition(result.value) || result.value.edition.replaceAll('.', '-') !== entry.edition) {
+    throw new EditionUnavailableError(entry.edition);
+  }
+  return result.value;
+}
+
 export async function getHistoricalDataset(edition: string): Promise<CardDataset> {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(edition)) throw new EditionNotFoundError(edition);
   let index: EditionIndex;
@@ -105,12 +113,7 @@ export async function getHistoricalDataset(edition: string): Promise<CardDataset
   const entry = index.editions.find((candidate) => candidate.edition === edition);
   if (!entry) throw new EditionNotFoundError(edition);
   try {
-    const result = await fetchJson(`${publicDataOrigin}/${entry.objectKey}`);
-    if (result.response.status === 404) throw new EditionUnavailableError(edition);
-    if (!result.response.ok || !isCompleteEdition(result.value) || result.value.edition.replaceAll('.', '-') !== edition) {
-      throw new EditionUnavailableError(edition);
-    }
-    return result.value;
+    return await fetchIndexedEdition(entry);
   } catch (error) {
     if (error instanceof EditionUnavailableError) throw error;
     throw new EditionUnavailableError(edition, { cause: error });
@@ -118,6 +121,17 @@ export async function getHistoricalDataset(edition: string): Promise<CardDataset
 }
 
 export async function getDataset(): Promise<CardDataset> {
+  const index = await getEditionIndex();
+  const latest = index?.latestEdition
+    ? index.editions.find((entry) => entry.edition === index.latestEdition)
+    : undefined;
+  if (latest) {
+    try {
+      return await fetchIndexedEdition(latest);
+    } catch {
+      // Migration safety: fall through to the validated latest-JSON compatibility path.
+    }
+  }
   try {
     const response = await fetch(remoteDatasetUrl, {
       cache: 'no-store',

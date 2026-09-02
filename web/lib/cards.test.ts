@@ -66,6 +66,46 @@ test('Chinese relevance text cannot disguise untranslated title summary and key 
   }), false);
 });
 
+test('latest prefers the Edition named by the R2 history index', async () => {
+  const originalFetch = globalThis.fetch;
+  const edition = '2026-09-01';
+  const objectKey = `editions/v1/2026/09/${edition}/quant-brief-edition.json`;
+  const urls: string[] = [];
+  globalThis.fetch = async (input) => {
+    const url = String(input); urls.push(url);
+    if (url.endsWith('/editions/v1/index.json')) return Response.json({
+      schemaVersion: 1, generatedAt: 'now', latestEdition: edition,
+      editions: [{ edition, objectKey, exportHash: 'a'.repeat(64), publishedAt: 'now', cardCount: 15 }],
+    });
+    if (url.endsWith(objectKey)) return Response.json({ ...dataset, edition });
+    throw new Error('legacy latest JSON must not be read after a valid indexed Edition');
+  };
+  try {
+    const selected = await getDataset();
+    assert.equal(selected.edition, edition);
+    assert.equal(urls.length, 2);
+  } finally { globalThis.fetch = originalFetch; }
+});
+
+test('latest falls back to legacy JSON when the indexed Edition is unavailable', async () => {
+  const originalFetch = globalThis.fetch;
+  let request = 0;
+  globalThis.fetch = async () => {
+    request += 1;
+    if (request === 1) return Response.json({
+      schemaVersion: 1, generatedAt: 'now', latestEdition: '2026-09-01',
+      editions: [{ edition: '2026-09-01', objectKey: 'editions/v1/missing.json', exportHash: 'a'.repeat(64), publishedAt: 'now', cardCount: 15 }],
+    });
+    if (request === 2) return new Response(null, { status: 503 });
+    return Response.json(dataset);
+  };
+  try {
+    const selected = await getDataset();
+    assert.equal(selected.edition, dataset.edition);
+    assert.equal(request, 3);
+  } finally { globalThis.fetch = originalFetch; }
+});
+
 test('a historical Edition is discovered through the index before its object is loaded', async () => {
   const originalFetch = globalThis.fetch;
   const edition = '2026-09-01';
