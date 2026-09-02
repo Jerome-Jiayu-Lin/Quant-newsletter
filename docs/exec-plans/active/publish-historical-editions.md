@@ -10,30 +10,30 @@ contract during migration, and emits enough evidence to restore a previous publi
 
 ## Acceptance criteria
 
-- [ ] Publishing Edition `YYYY-MM-DD` writes exactly one sanitized dated Public Export
+- [x] Publishing Edition `YYYY-MM-DD` writes exactly one sanitized dated Public Export
   at a deterministic key and makes the date discoverable through a versioned history
   index without exposing Archive-only or runtime fields.
-- [ ] Re-publishing the same unchanged Edition is idempotent; publishing a changed
+- [x] Re-publishing the same unchanged Edition is idempotent; publishing a changed
   canonical snapshot updates that date deliberately and records the previous and new
   content hashes.
-- [ ] Data objects are uploaded and verified before the history index is replaced, so
+- [x] Data objects are uploaded and verified before the history index is replaced, so
   an index never advertises a missing or unverified Edition.
-- [ ] The website can render the latest Edition and a requested historical date, with
+- [x] The website can render the latest Edition and a requested historical date, with
   explicit not-found and temporarily-unavailable behavior.
-- [ ] `web/data/cards.json` remains a validated fallback during migration, and its
+- [x] `web/data/cards.json` remains a validated fallback during migration, and its
   removal requires a later explicit compatibility decision.
-- [ ] The scheduled workflow and operator command invoke the same publication
+- [x] The scheduled workflow and operator command invoke the same publication
   interface; neither duplicates validation, key construction, or remote writes.
-- [ ] Every publish emits a retained machine-readable receipt containing Edition date,
+- [x] Every publish emits a retained machine-readable receipt containing Edition date,
   canonical snapshot hash, public export hash, object keys, prior index hash, resulting
   index hash, deployment identifier when available, and outcome.
-- [ ] A documented restore command can repoint the history index to the last verified
+- [x] A documented restore command can repoint the history index to the last verified
   state without modifying the private Archive; one non-production restore drill is
   recorded before production cutover.
-- [ ] Unit and integration tests cover sanitization, deterministic keys, idempotency,
+- [x] Unit and integration tests cover sanitization, deterministic keys, idempotency,
   upload-before-index ordering, partial failure, stale writer rejection, malformed
   remote data, and compatibility fallback.
-- [ ] `./scripts/verify-change.ps1` passes, and the relevant rows and debts in
+- [x] `./scripts/verify-change.ps1` passes, and the relevant rows and debts in
   `docs/technical-debt.md` are updated in the same change.
 
 ## Architecture
@@ -74,14 +74,14 @@ administrative UI are explicitly out of scope for this plan.
 - [x] Add the R2 adapter, production/preview binding configuration, credential scopes,
   and reproducible bucket-provisioning procedure.
 - [x] Provision distinct `jerome-brief-public` and `jerome-brief-preview` R2 buckets.
-- [ ] Smoke-test preview conditional writes; the current host has no bucket-scoped R2
-  S3 Access Key ID or Secret Access Key.
+- [x] Smoke-test preview conditional writes with the bucket-scoped R2 token; both
+  create/update preconditions and stale-writer rejection were observed.
 - [x] Add website date routing and historical navigation against the public index.
 - [x] Route both scheduled and operator publication through the shared interface.
-- [ ] Run a preview publish, idempotent re-publish, injected partial failure, and restore
+- [x] Run a preview publish, idempotent re-publish, injected partial failure, and restore
   drill; retain their receipts.
   - [x] Run the complete sequence against fake storage and retain its hashes below.
-  - [ ] Repeat against the real preview R2 bucket after Cloudflare authorization exists.
+  - [x] Repeat against the real preview R2 bucket and retain the evidence below.
 - [x] Make the production loader prefer the indexed R2 latest Edition while retaining
   the validated latest-JSON and bundled fallbacks.
 - [ ] Observe a deployed read from real R2 before removing migration status or moving
@@ -134,8 +134,8 @@ administrative UI are explicitly out of scope for this plan.
   provisioning can continue. GitHub currently has no R2 secret or variable names.
 - After the account owner enabled R2, Wrangler created `jerome-brief-public` at
   `2026-09-02T08:22:07.477Z` and `jerome-brief-preview` at
-  `2026-09-02T08:22:11.690Z`; a subsequent bucket listing confirmed both. No object
-  was uploaded. The remaining preview drill requires a bucket-scoped S3 API token.
+  `2026-09-02T08:22:11.690Z`; a subsequent bucket listing confirmed both. The first
+  real publication was deliberately confined to the preview bucket.
 - The website now discovers dates through `editions/v1/index.json`, renders localized
   Edition and Card routes under `/editions/YYYY-MM-DD`, preserves date context in Card
   links, and distinguishes an absent index entry from an advertised object that cannot
@@ -187,6 +187,25 @@ Fake-storage recovery drill on 2026-09-02:
 - Restore receipt outcome: `restored`, from prior index hash `979107e...23bd` to
   verified target `2a6ab8...5656`, deployment identifier `fake-drill:restore`.
 - This is deterministic contract evidence, not a claim of real R2 operation.
+
+Real R2 preview recovery drill on 2026-09-02:
+
+- Bucket guard confirmed `R2_BUCKET_NAME=jerome-brief-preview`; the production bucket
+  was not targeted.
+- Baseline publication outcome: `published`; Public Export hash
+  `5af4ba09610cd8034baa726e5780fdcc217e00f0944a497e15f56e06a11f661a` and index
+  hash `10dcf9d4d99144c3b3bde62c3898f8748d41bbe46a9a7ea97e0b4498b8dc6704`.
+- Immediate re-publication outcome: `unchanged`, retaining the same export and index
+  hashes.
+- Temporary changed publication outcome: `updated`, producing index hash
+  `00ad36131b0b7b2f65dab5f3c54b08c574d45c0726ff8a928d588de9216a1f09`.
+- A deliberately stale `If-Match` write was rejected by R2.
+- Restore receipt outcome: `restored`, from the temporary index to the verified
+  baseline snapshot. A final read computed the baseline index hash exactly. The local
+  machine-readable receipt is retained under ignored `storage/receipts/`; immutable
+  publication receipts and recovery objects remain in the preview bucket.
+- `./scripts/verify-change.ps1` with `CI=true` — 72 Python tests, 10 web tests, lint,
+  and production build passed after the evidence and debt tracker were updated.
 
 ## Outcome
 

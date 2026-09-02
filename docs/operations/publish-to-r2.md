@@ -42,8 +42,8 @@ R2_BUCKET_NAME
 
 Use `R2_BUCKET_NAME=jerome-brief-preview` for drills. Store credentials in the local
 environment or CI secret store; never add them to `.env.local`, Wrangler `vars`, Git,
-the Worker bundle, Public Exports, or publication receipts. Install the optional
-adapter dependency with `pip install -e ".[publication]"`.
+the Worker bundle, Public Exports, or publication receipts. Install the adapter
+dependency with `python -m pip install "boto3>=1.43.84,<2"`.
 
 Both scheduled and operator publication use the same command after an Edition
 Snapshot exists:
