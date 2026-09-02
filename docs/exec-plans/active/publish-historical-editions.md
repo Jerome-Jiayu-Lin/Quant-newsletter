@@ -79,6 +79,8 @@ administrative UI are explicitly out of scope for this plan.
 - [x] Route both scheduled and operator publication through the shared interface.
 - [ ] Run a preview publish, idempotent re-publish, injected partial failure, and restore
   drill; retain their receipts.
+  - [x] Run the complete sequence against fake storage and retain its hashes below.
+  - [ ] Repeat against the real preview R2 bucket after Cloudflare authorization exists.
 - [ ] Cut production reads over while retaining the latest-JSON fallback.
 
 ## Discoveries
@@ -129,6 +131,10 @@ administrative UI are explicitly out of scope for this plan.
   invocation, receipt output, and post-success compatibility export. The scheduled
   workflow and operator PowerShell script both invoke it instead of duplicating Card
   validation, key construction, or remote writes.
+- Recovery does not rely on mutable dated objects or provider-specific version IDs.
+  Publications retain content-addressed Edition versions and index snapshots;
+  `quantbrief.restore_cli` verifies and restores them before conditionally repointing
+  the active index, and can retain a machine-readable restore receipt locally.
 
 ## Verification
 
@@ -149,6 +155,21 @@ Historical-routing increment on 2026-09-02:
 - Local Vinext/Workers preview — root route returned HTTP 200 after aligning the
   configured compatibility date with the repository's locked Workers runtime.
 - No preview R2 request was claimed: the host still lacks Cloudflare authorization.
+
+Fake-storage recovery drill on 2026-09-02:
+
+- Initial Public Export hash:
+  `cb77c1a85fc7ca1ce59348254e377ab1e1fe8ea3be4880f947a53235e6d86633`.
+- Initial index hash:
+  `2a6ab81fa0f722944caa6da74706b5c9f372fde4c7295b60589acf27095e5656`.
+- Unchanged re-publish outcome: `unchanged`.
+- Changed publication index hash:
+  `979107e0245daa19c6eca6b6438ce4bb763f2658dc67c7533e487d38e3c623bd`.
+- Injected conditional-index failure: `StalePublicationError`; no receipt or index
+  replacement was accepted for the failed candidate.
+- Restore receipt outcome: `restored`, from prior index hash `979107e...23bd` to
+  verified target `2a6ab8...5656`, deployment identifier `fake-drill:restore`.
+- This is deterministic contract evidence, not a claim of real R2 operation.
 
 ## Outcome
 

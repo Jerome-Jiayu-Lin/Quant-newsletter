@@ -54,6 +54,17 @@ def receipt_object_key(edition: str, export_hash: str) -> str:
     return f"publication-receipts/{parsed:%Y/%m/%Y-%m-%d}/{export_hash}.json"
 
 
+def edition_version_key(edition: str, export_hash: str) -> str:
+    parsed = _edition_date(edition)
+    return f"publication-versions/{parsed:%Y/%m/%Y-%m-%d}/{export_hash}.json"
+
+
+def index_snapshot_key(index_hash: str) -> str:
+    if not re.fullmatch(r"[0-9a-f]{64}", index_hash):
+        raise ValueError("index hash must be a lowercase SHA-256 hex digest")
+    return f"publication-indexes/v1/{index_hash}.json"
+
+
 def sanitize_public_export(snapshot: Mapping[str, Any]) -> dict[str, Any]:
     """Copy only the explicit public allowlist and reject unstable Card identities."""
     missing = {"generatedAt", "timezone", "edition", "cards"} - snapshot.keys()
@@ -155,6 +166,25 @@ class PublicationReceipt:
         }
 
 
+@dataclass(frozen=True, slots=True)
+class RestoreReceipt:
+    prior_index_hash: str
+    restored_index_hash: str
+    index_snapshot_object_key: str
+    deployment_identifier: str | None
+    outcome: str
+    restored_at: str
+
+    def as_dict(self) -> dict[str, Any]:
+        return {
+            "schemaVersion": PUBLIC_SCHEMA_VERSION, "priorIndexHash": self.prior_index_hash,
+            "restoredIndexHash": self.restored_index_hash,
+            "indexSnapshotObjectKey": self.index_snapshot_object_key,
+            "deploymentIdentifier": self.deployment_identifier, "outcome": self.outcome,
+            "restoredAt": self.restored_at,
+        }
+
+
 def history_index(entries: list[HistoryEntry], generated_at: str) -> dict[str, Any]:
     ordered = sorted(entries, key=lambda entry: _edition_date(entry.edition), reverse=True)
     if len({entry.edition for entry in ordered}) != len(ordered):
@@ -238,6 +268,7 @@ class Publisher:
         export_hash = _sha256(export_body)
         edition = str(export["edition"])
         edition_key = edition_object_key(edition)
+        version_key = edition_version_key(edition, export_hash)
         receipt_key = receipt_object_key(edition, export_hash)
 
         stored_index = self.storage.read(HISTORY_INDEX_KEY)
@@ -255,6 +286,16 @@ class Publisher:
                 prior_index_hash, resulting_index_hash, deployment_identifier, "unchanged", published_at,
             )
 
+        immutable = self.storage.read(version_key)
+        if immutable is None:
+            try:
+                self.storage.write(version_key, export_body, None)
+            except StorageConflict as error:
+                raise StalePublicationError("Edition version changed during publication") from error
+            immutable = self.storage.read(version_key)
+        if immutable is None or _sha256(immutable.body) != export_hash:
+            raise RuntimeError("Edition version verification failed; dated object was not changed")
+
         expected_edition_version = stored_edition.version if stored_edition else None
         try:
             self.storage.write(edition_key, export_body, expected_edition_version)
@@ -267,6 +308,17 @@ class Publisher:
         replacement = HistoryEntry(edition, edition_key, export_hash, published_at, len(export["cards"]))
         next_entries = [entry for entry in entries if entry.edition != edition] + [replacement]
         next_index_body = _json_bytes(history_index(next_entries, published_at))
+        next_index_hash = _sha256(next_index_body)
+        snapshot_key = index_snapshot_key(next_index_hash)
+        stored_snapshot = self.storage.read(snapshot_key)
+        if stored_snapshot is None:
+            try:
+                self.storage.write(snapshot_key, next_index_body, None)
+            except StorageConflict as error:
+                raise StalePublicationError("index snapshot changed during publication") from error
+            stored_snapshot = self.storage.read(snapshot_key)
+        if stored_snapshot is None or stored_snapshot.body != next_index_body:
+            raise RuntimeError("index snapshot verification failed; active index was not changed")
         try:
             self.storage.write(HISTORY_INDEX_KEY, next_index_body, index_version)
         except StorageConflict as error:
@@ -274,7 +326,7 @@ class Publisher:
 
         receipt = self._receipt(
             edition, canonical_snapshot_hash, export_hash, edition_key, receipt_key,
-            prior_index_hash, _sha256(next_index_body), deployment_identifier,
+            prior_index_hash, next_index_hash, deployment_identifier,
             "updated" if previous else "published", published_at,
         )
         receipt_body = _json_bytes(receipt.as_dict())
@@ -287,6 +339,41 @@ class Publisher:
         elif existing_receipt.body != receipt_body:
             raise StalePublicationError("publication receipt key already contains different evidence")
         return receipt
+
+    def restore(self, index_hash: str, *, restored_at: str, deployment_identifier: str | None = None) -> RestoreReceipt:
+        snapshot_key = index_snapshot_key(index_hash)
+        target = self.storage.read(snapshot_key)
+        if target is None or _sha256(target.body) != index_hash:
+            raise ValueError("verified index snapshot not found")
+        entries, _ = _parse_index(target)
+        active = self.storage.read(HISTORY_INDEX_KEY)
+        if active is None:
+            raise ValueError("active history index not found")
+        prior_hash = _sha256(active.body)
+        for entry in entries:
+            dated = self.storage.read(entry.object_key)
+            if dated is not None and _sha256(dated.body) == entry.export_hash:
+                continue
+            version = self.storage.read(edition_version_key(entry.edition, entry.export_hash))
+            if version is None or _sha256(version.body) != entry.export_hash:
+                raise ValueError(f"verified Edition version not found: {entry.edition}")
+            try:
+                self.storage.write(entry.object_key, version.body, dated.version if dated else None)
+            except StorageConflict as error:
+                raise StalePublicationError(f"Edition changed during restore: {entry.edition}") from error
+            restored = self.storage.read(entry.object_key)
+            if restored is None or _sha256(restored.body) != entry.export_hash:
+                raise RuntimeError(f"Edition verification failed during restore: {entry.edition}")
+        if prior_hash != index_hash:
+            try:
+                self.storage.write(HISTORY_INDEX_KEY, target.body, active.version)
+            except StorageConflict as error:
+                raise StalePublicationError("history index changed during restore") from error
+        return RestoreReceipt(
+            prior_index_hash=prior_hash, restored_index_hash=index_hash,
+            index_snapshot_object_key=snapshot_key, deployment_identifier=deployment_identifier,
+            outcome="unchanged" if prior_hash == index_hash else "restored", restored_at=restored_at,
+        )
 
     @staticmethod
     def _receipt(

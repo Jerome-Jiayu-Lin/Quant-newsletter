@@ -50,3 +50,20 @@ The adapter talks to `https://<account-id>.r2.cloudflarestorage.com` through R2'
 S3-compatible API. Creates use `If-None-Match: *`; replacements use the exact ETag
 from the preceding read as `If-Match`. HTTP 409/412 conflicts are surfaced to the
 publisher as stale writes and must not be bypassed with an unconditional retry.
+
+## Restore a verified index
+
+Every successful publication retains immutable Edition content and an index snapshot
+addressed by its SHA-256 hash. Restore by copying the target `resultingIndexHash` from
+a trusted publication receipt and writing the restore receipt under the ignored local
+`storage/` tree:
+
+```powershell
+python -m quantbrief.restore_cli <resulting-index-hash> --deployment-identifier preview-restore-drill --receipt storage/receipts/preview-restore-receipt.json
+```
+
+The command verifies the target index snapshot and every referenced Edition. If a
+fixed dated object was overwritten, it restores that object from its verified private
+content version before conditionally replacing the active index. It never modifies an
+Edition Snapshot or the local Archive. A missing version, hash mismatch, or concurrent
+write aborts the restore instead of forcing the index update.

@@ -40,6 +40,7 @@ listed in its row; `scripts/check-repository.py` enforces the same graph.
 | `publication` | Provider-independent publication coordination and versioned public contracts | none |
 | `r2` | Cloudflare R2 object-storage adapter and environment assembly | `publication` |
 | `publish_cli` | Shared scheduled and operator publication entry point | `publication`, `r2` |
+| `restore_cli` | Verified public-index recovery entry point and receipt writer | `publication`, `r2` |
 | `pipeline` | Edition orchestration and public export creation | all modules above except `archive` |
 | `archive` | Durable Edition ingestion and search | none |
 | `cli` | Collection entry point and dependency assembly | `pipeline`, `archive` |
@@ -177,6 +178,13 @@ both GitHub Actions and the operator PowerShell command. It enforces the complet
 bilingual 15-Card gate, publishes through `Publisher`, and updates the compatibility
 export only after remote success. Callers retain orchestration they uniquely own,
 such as source collection, Git commits, or Worker deployment.
+
+Each changed public state also retains content-addressed Edition versions and index
+snapshots under publication-private prefixes. `python -m quantbrief.restore_cli`
+verifies those immutable objects, repairs overwritten dated objects when necessary,
+and conditionally repoints only the active public index. Restore receipts belong under
+the ignored local `storage/receipts/` tree or another operator-controlled evidence
+store; recovery never mutates the private Archive or canonical Edition Snapshots.
 
 ## Safe change routes
 

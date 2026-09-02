@@ -11,6 +11,7 @@ from quantbrief.publication import (
     StoredObject,
     StalePublicationError,
     edition_object_key,
+    edition_version_key,
     history_index,
     receipt_object_key,
     sanitize_public_export,
@@ -143,7 +144,8 @@ class PublisherTests(unittest.TestCase):
     def test_publishes_verifies_then_indexes_and_retains_receipt(self) -> None:
         receipt = self.publish()
         writes = [key for operation, key in self.storage.operations if operation == "write"]
-        self.assertEqual(writes, [receipt.edition_object_key, HISTORY_INDEX_KEY, receipt.receipt_object_key])
+        self.assertEqual(writes[0], edition_version_key(receipt.edition, receipt.public_export_hash))
+        self.assertEqual(writes[-2:], [HISTORY_INDEX_KEY, receipt.receipt_object_key])
         verification = self.storage.operations.index(("read", receipt.edition_object_key), 2)
         self.assertLess(verification, self.storage.operations.index(("write", HISTORY_INDEX_KEY)))
         index = __import__("json").loads(self.storage.objects[HISTORY_INDEX_KEY].body)
@@ -178,6 +180,30 @@ class PublisherTests(unittest.TestCase):
             self.publish()
         self.assertNotIn(HISTORY_INDEX_KEY, self.storage.objects)
         self.assertFalse(any(key.startswith("publication-receipts/") for key in self.storage.objects))
+
+    def test_restore_recovers_overwritten_edition_before_repointing_index(self) -> None:
+        first = self.publish()
+        changed = complete_snapshot()
+        changed["cards"][0]["title"] = "更新标题"  # type: ignore[index]
+        self.publisher.publish(changed, published_at="2026-09-02T01:00:00Z")
+        restored = self.publisher.restore(
+            first.resulting_index_hash, restored_at="2026-09-02T02:00:00Z", deployment_identifier="drill",
+        )
+        self.assertEqual(restored.outcome, "restored")
+        self.assertEqual(restored.prior_index_hash != restored.restored_index_hash, True)
+        active = self.storage.objects[HISTORY_INDEX_KEY]
+        self.assertEqual(__import__("hashlib").sha256(active.body).hexdigest(), first.resulting_index_hash)
+        edition = self.storage.objects[first.edition_object_key]
+        self.assertEqual(__import__("hashlib").sha256(edition.body).hexdigest(), first.public_export_hash)
+
+    def test_restore_rejects_missing_verified_edition_version(self) -> None:
+        first = self.publish()
+        changed = complete_snapshot()
+        changed["cards"][0]["title"] = "更新标题"  # type: ignore[index]
+        self.publisher.publish(changed, published_at="2026-09-02T01:00:00Z")
+        del self.storage.objects[edition_version_key(first.edition, first.public_export_hash)]
+        with self.assertRaisesRegex(ValueError, "verified Edition version not found"):
+            self.publisher.restore(first.resulting_index_hash, restored_at="now")
 
 
 if __name__ == "__main__":

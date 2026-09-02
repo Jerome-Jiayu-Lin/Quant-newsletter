@@ -35,7 +35,7 @@ updated in the same change that materially alters its evidence or largest gap.
 | Historical delivery | C | R2 ownership, tested export/index contracts and adapter, separate production/preview bindings, and localized historical routes with missing/unavailable behavior are implemented | no preview object has been uploaded and no deployed route has read a real R2 index |
 | Reader identity and state | D | Clerk and D1 responsibilities are separated from editorial authority in ADR-0001 | no account, token verification, Favorite schema, authorization test, export, or deletion behavior exists |
 | Administration | D | Cloudflare Access is selected as the independent administrative identity boundary | no protected admin surface, role policy, audited mutation, or recovery procedure exists |
-| Reliability | C | source fetch state, Candidate Pool persistence, idempotent Edition reruns, strict publication validation, CI checks, and remote-data fallback are implemented | publication recovery, retained receipts, remote object consistency, and real interruption behavior are untested |
+| Reliability | C | source fetch state, idempotent Edition reruns, conditional publication, immutable recovery objects, verified restore command, fake-storage failure/restore drill, CI checks, and remote-data fallback are implemented | the restore and interruption behavior have not been exercised against real preview R2 |
 | Security | C | secrets stay outside Public Exports, CI uses scoped tokens, local runtime artifacts are ignored, browser code has no database credential, and provenance is mandatory | the future identity and mutation boundaries have no executable authorization or abuse-resistance evidence |
 
 ## Grade meaning
