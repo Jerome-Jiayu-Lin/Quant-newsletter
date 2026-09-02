@@ -38,6 +38,7 @@ listed in its row; `scripts/check-repository.py` enforces the same graph.
 | `sources` | External source adapters that produce Raw Items | `http`, `models` |
 | `summarize` | Source, OpenAI, and DeepSeek summary adapters | `models` |
 | `publication` | Provider-independent publication coordination and versioned public contracts | none |
+| `r2` | Cloudflare R2 object-storage adapter and environment assembly | `publication` |
 | `pipeline` | Edition orchestration and public export creation | all modules above except `archive` |
 | `archive` | Durable Edition ingestion and search | none |
 | `cli` | Operator entry point and dependency assembly | `pipeline`, `archive` |
@@ -143,6 +144,13 @@ Adopt this target incrementally:
 
 Provider-specific code belongs at adapters on the publication or web runtime edges.
 Knowledge Card and Edition construction must not import Cloudflare or Clerk clients.
+
+The R2 provider edge is `quantbrief.r2.R2ObjectStorage`. It preserves R2 ETags as
+conditional versions, creates objects with `If-None-Match`, and replaces them with
+`If-Match`. Runtime credentials are bucket-scoped and server-side. The website's
+`PUBLIC_EDITIONS` binding names distinct production and preview buckets; operational
+setup and credential scope are documented in
+[`docs/operations/publish-to-r2.md`](docs/operations/publish-to-r2.md).
 
 ## Public publication contracts
 

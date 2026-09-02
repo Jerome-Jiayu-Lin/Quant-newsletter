@@ -71,7 +71,10 @@ administrative UI are explicitly out of scope for this plan.
 - [x] Define the versioned Public Export index schema, publication receipt schema,
   stable Card identity rules, and sanitization allowlist.
 - [x] Add the provider-independent publisher with fake-storage contract tests.
-- [ ] Add the R2 adapter, binding configuration, credential scopes, and preview bucket.
+- [x] Add the R2 adapter, production/preview binding configuration, credential scopes,
+  and reproducible bucket-provisioning procedure.
+- [ ] Provision the real preview bucket and smoke-test its conditional writes; the
+  current host has no Cloudflare login or R2 credentials.
 - [ ] Add website date routing and historical navigation against the public index.
 - [ ] Route both scheduled and operator publication through the shared interface.
 - [ ] Run a preview publish, idempotent re-publish, injected partial failure, and restore
@@ -110,6 +113,14 @@ administrative UI are explicitly out of scope for this plan.
   the dated Public Export before replacing the index. Fake-storage tests exercise
   first publish, unchanged and changed re-publish, verification failure, write order,
   receipt retention, and stale-index rejection without Cloudflare dependencies.
+- `quantbrief.r2.R2ObjectStorage` adapts R2's S3 API without leaking provider details
+  into the publisher. The Worker binding separates `jerome-brief-public` from
+  `jerome-brief-preview`; `docs/operations/publish-to-r2.md` owns provisioning,
+  bucket-scoped credential requirements, and conflict-handling guidance.
+- Repository configuration was completed without provisioning cloud resources because
+  the 2026-09-02 development host had no Wrangler login, Cloudflare API token, account
+  identifier, or R2 S3 credentials. Do not treat the configured preview bucket name as
+  evidence that the bucket exists.
 
 ## Verification
 
