@@ -37,7 +37,7 @@ listed in its row; `scripts/check-repository.py` enforces the same graph.
 | `candidates` | Candidate Pool persistence and publication memory | `models` |
 | `sources` | External source adapters that produce Raw Items | `http`, `models` |
 | `summarize` | Source, OpenAI, and DeepSeek summary adapters | `models` |
-| `publication` | Versioned Public Export, history-index, object-key, and receipt contracts | none |
+| `publication` | Provider-independent publication coordination and versioned public contracts | none |
 | `pipeline` | Edition orchestration and public export creation | all modules above except `archive` |
 | `archive` | Durable Edition ingestion and search | none |
 | `cli` | Operator entry point and dependency assembly | `pipeline`, `archive` |
@@ -146,7 +146,11 @@ Knowledge Card and Edition construction must not import Cloudflare or Clerk clie
 
 ## Public publication contracts
 
-`quantbrief.publication` owns the provider-independent version 1 JSON contracts.
+`quantbrief.publication` owns the provider-independent publisher and version 1 JSON
+contracts. Its object-storage seam requires only reads and conditional writes; the
+publisher uploads and verifies a dated Public Export before it conditionally replaces
+the history index, then retains the publication receipt. A failed verification cannot
+advertise an Edition, and a conflicting index version rejects the stale publisher.
 Public Export sanitization is allowlist-only: unknown Edition or Card fields are
 dropped before hashing or upload. A public Card `id` is the lowercase 16-character
 SHA-256 prefix derived by the Pipeline from the canonical source identity; it remains

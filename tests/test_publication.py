@@ -3,13 +3,52 @@ from __future__ import annotations
 import unittest
 
 from quantbrief.publication import (
+    HISTORY_INDEX_KEY,
     HistoryEntry,
+    Publisher,
     PublicationReceipt,
+    StorageConflict,
+    StoredObject,
+    StalePublicationError,
     edition_object_key,
     history_index,
     receipt_object_key,
     sanitize_public_export,
 )
+
+
+class FakeStorage:
+    def __init__(self) -> None:
+        self.objects: dict[str, StoredObject] = {}
+        self.operations: list[tuple[str, str]] = []
+        self.fail_verification = False
+        self.conflict_key: str | None = None
+
+    def read(self, key: str) -> StoredObject | None:
+        self.operations.append(("read", key))
+        value = self.objects.get(key)
+        if self.fail_verification and value is not None and "quant-brief-edition.json" in key:
+            return StoredObject(b"corrupt", value.version)
+        return value
+
+    def write(self, key: str, body: bytes, expected_version: str | None) -> StoredObject:
+        self.operations.append(("write", key))
+        current = self.objects.get(key)
+        if self.conflict_key == key:
+            self.conflict_key = None
+            raise StorageConflict(key)
+        if (current.version if current else None) != expected_version:
+            raise StorageConflict(key)
+        stored = StoredObject(body, str(int(current.version) + 1) if current else "1")
+        self.objects[key] = stored
+        return stored
+
+
+def complete_snapshot() -> dict[str, object]:
+    return {
+        "generatedAt": "2026-09-01T01:00:00+00:00", "timezone": "Asia/Singapore",
+        "edition": "2026.09.01", "cards": [complete_card()],
+    }
 
 
 def complete_card() -> dict[str, object]:
@@ -85,6 +124,54 @@ class PublicationContractTests(unittest.TestCase):
         self.assertEqual(receipt["outcome"], "published")
         self.assertEqual(receipt["publicExportHash"], "b" * 64)
         self.assertNotIn("public_export_hash", receipt)
+
+
+class PublisherTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.storage = FakeStorage()
+        self.publisher = Publisher(self.storage)
+
+    def publish(self, snapshot: dict[str, object] | None = None) -> PublicationReceipt:
+        return self.publisher.publish(snapshot or complete_snapshot(), published_at="2026-09-02T00:00:00Z")
+
+    def test_publishes_verifies_then_indexes_and_retains_receipt(self) -> None:
+        receipt = self.publish()
+        writes = [key for operation, key in self.storage.operations if operation == "write"]
+        self.assertEqual(writes, [receipt.edition_object_key, HISTORY_INDEX_KEY, receipt.receipt_object_key])
+        verification = self.storage.operations.index(("read", receipt.edition_object_key), 2)
+        self.assertLess(verification, self.storage.operations.index(("write", HISTORY_INDEX_KEY)))
+        index = __import__("json").loads(self.storage.objects[HISTORY_INDEX_KEY].body)
+        self.assertEqual(index["latestEdition"], "2026-09-01")
+
+    def test_unchanged_republish_is_idempotent(self) -> None:
+        first = self.publish()
+        self.storage.operations.clear()
+        second = self.publish()
+        self.assertEqual(second.outcome, "unchanged")
+        self.assertEqual(second.public_export_hash, first.public_export_hash)
+        self.assertFalse(any(operation == "write" for operation, _ in self.storage.operations))
+
+    def test_changed_edition_records_prior_and_new_hashes(self) -> None:
+        first = self.publish()
+        changed = complete_snapshot()
+        changed["cards"][0]["title"] = "更新标题"  # type: ignore[index]
+        second = self.publisher.publish(changed, published_at="2026-09-02T01:00:00Z")
+        self.assertEqual(second.outcome, "updated")
+        self.assertNotEqual(first.public_export_hash, second.public_export_hash)
+        self.assertEqual(second.prior_index_hash, first.resulting_index_hash)
+
+    def test_failed_verification_does_not_advertise_edition(self) -> None:
+        self.storage.fail_verification = True
+        with self.assertRaisesRegex(RuntimeError, "verification failed"):
+            self.publish()
+        self.assertNotIn(HISTORY_INDEX_KEY, self.storage.objects)
+
+    def test_stale_index_writer_is_rejected(self) -> None:
+        self.storage.conflict_key = HISTORY_INDEX_KEY
+        with self.assertRaisesRegex(StalePublicationError, "history index changed"):
+            self.publish()
+        self.assertNotIn(HISTORY_INDEX_KEY, self.storage.objects)
+        self.assertFalse(any(key.startswith("publication-receipts/") for key in self.storage.objects))
 
 
 if __name__ == "__main__":

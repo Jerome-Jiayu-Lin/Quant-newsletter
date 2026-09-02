@@ -70,7 +70,7 @@ administrative UI are explicitly out of scope for this plan.
 - [x] Inventory the current GitHub Actions and operator publication paths.
 - [x] Define the versioned Public Export index schema, publication receipt schema,
   stable Card identity rules, and sanitization allowlist.
-- [ ] Add the provider-independent publisher with fake-storage contract tests.
+- [x] Add the provider-independent publisher with fake-storage contract tests.
 - [ ] Add the R2 adapter, binding configuration, credential scopes, and preview bucket.
 - [ ] Add website date routing and historical navigation against the public index.
 - [ ] Route both scheduled and operator publication through the shared interface.
@@ -106,6 +106,10 @@ administrative UI are explicitly out of scope for this plan.
 - Version 1 contracts live in `quantbrief.publication`: sanitized exports use an
   explicit Card allowlist, dates normalize to ISO form, index entries are unique and
   newest-first, and receipts retain the hashes and keys needed for recovery.
+- The provider-independent `Publisher` uses conditional object versions and verifies
+  the dated Public Export before replacing the index. Fake-storage tests exercise
+  first publish, unchanged and changed re-publish, verification failure, write order,
+  receipt retention, and stale-index rejection without Cloudflare dependencies.
 
 ## Verification
 
