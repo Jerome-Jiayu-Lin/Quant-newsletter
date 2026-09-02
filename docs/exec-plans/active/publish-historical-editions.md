@@ -126,6 +126,11 @@ administrative UI are explicitly out of scope for this plan.
   the 2026-09-02 development host had no Wrangler login, Cloudflare API token, account
   identifier, or R2 S3 credentials. Do not treat the configured preview bucket name as
   evidence that the bucket exists.
+- A read-only check on 2026-09-02 found an authenticated Wrangler OAuth session for
+  account `b07afe1e3cb22e411cabd069c6dfdf50`, but `wrangler r2 bucket list` failed with
+  Cloudflare error `10042`: R2 is not enabled for the account. The Dashboard enablement
+  and any terms or billing confirmation require the account owner before bucket
+  provisioning can continue. GitHub currently has no R2 secret or variable names.
 - The website now discovers dates through `editions/v1/index.json`, renders localized
   Edition and Card routes under `/editions/YYYY-MM-DD`, preserves date context in Card
   links, and distinguishes an absent index entry from an advertised object that cannot

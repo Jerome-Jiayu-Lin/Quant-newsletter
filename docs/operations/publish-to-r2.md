@@ -12,6 +12,12 @@ pnpm --dir web exec wrangler r2 bucket create jerome-brief-public
 pnpm --dir web exec wrangler r2 bucket create jerome-brief-preview
 ```
 
+Before provisioning, enable R2 for the target Cloudflare account in the Dashboard and
+accept any account-level terms or billing confirmation shown there. `wrangler whoami`
+can succeed while R2 remains disabled; `wrangler r2 bucket list` returns Cloudflare
+error `10042` in that state. Enabling the product is an account-owner action and must
+not be inferred from ordinary Worker deployment authorization.
+
 The Worker reads through the `PUBLIC_EDITIONS` binding. Local `wrangler dev` uses
 local persisted R2 state; remote preview uses `jerome-brief-preview` because
 `preview_bucket_name` is set explicitly. Never point preview at the production bucket.
