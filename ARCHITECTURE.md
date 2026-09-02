@@ -39,9 +39,10 @@ listed in its row; `scripts/check-repository.py` enforces the same graph.
 | `summarize` | Source, OpenAI, and DeepSeek summary adapters | `models` |
 | `publication` | Provider-independent publication coordination and versioned public contracts | none |
 | `r2` | Cloudflare R2 object-storage adapter and environment assembly | `publication` |
+| `publish_cli` | Shared scheduled and operator publication entry point | `publication`, `r2` |
 | `pipeline` | Edition orchestration and public export creation | all modules above except `archive` |
 | `archive` | Durable Edition ingestion and search | none |
-| `cli` | Operator entry point and dependency assembly | `pipeline`, `archive` |
+| `cli` | Collection entry point and dependency assembly | `pipeline`, `archive` |
 
 The import direction is therefore:
 
@@ -170,6 +171,12 @@ the latest Edition explicitly. A publication receipt binds the canonical snapsho
 hash, sanitized export hash, Edition/index/receipt keys, prior and resulting index
 hashes, optional deployment identifier, timestamp, and outcome. Provider adapters
 must transport these shapes without extending them.
+
+`python -m quantbrief.publish_cli` is the single public publication entry point for
+both GitHub Actions and the operator PowerShell command. It enforces the complete
+bilingual 15-Card gate, publishes through `Publisher`, and updates the compatibility
+export only after remote success. Callers retain orchestration they uniquely own,
+such as source collection, Git commits, or Worker deployment.
 
 ## Safe change routes
 

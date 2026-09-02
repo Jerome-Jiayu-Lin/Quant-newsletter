@@ -85,6 +85,27 @@ def sanitize_public_export(snapshot: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
+def validate_publishable_snapshot(snapshot: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the sanitized export after enforcing the shared publication gate."""
+    export = sanitize_public_export(snapshot)
+    if len(export["cards"]) < 15:
+        raise ValueError("publication requires a complete 15-Card Edition")
+    required_text = (
+        "title", "description", "originalTitle", "domain", "sourceName", "publishedAt",
+        "originalUrl", "summaryProvider", "summaryModel", "titleEn", "descriptionEn",
+        "summaryEn", "whyItMattersEn", "limitationsEn",
+    )
+    for card in export["cards"]:
+        missing = [field for field in required_text if not str(card[field] or "").strip()]
+        if not card["keyPointsEn"] or not all(str(point).strip() for point in card["keyPointsEn"]):
+            missing.append("keyPointsEn")
+        if card["aiGenerated"] is not True or card["summaryProvider"] == "source":
+            missing.append("aiGeneratedSummary")
+        if missing:
+            raise ValueError(f"Knowledge Card {card['id']} is not publishable: {', '.join(missing)}")
+    return export
+
+
 @dataclass(frozen=True, slots=True)
 class HistoryEntry:
     edition: str
@@ -212,7 +233,7 @@ class Publisher:
     ) -> PublicationReceipt:
         canonical_snapshot = _json_bytes(snapshot)
         canonical_snapshot_hash = _sha256(canonical_snapshot)
-        export = sanitize_public_export(snapshot)
+        export = validate_publishable_snapshot(snapshot)
         export_body = _json_bytes(export)
         export_hash = _sha256(export_body)
         edition = str(export["edition"])

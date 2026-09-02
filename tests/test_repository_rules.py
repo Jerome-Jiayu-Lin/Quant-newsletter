@@ -57,6 +57,15 @@ class RepositoryRuleTests(unittest.TestCase):
         self.assertIn("cron: '10 2 * * *'", workflow)
         self.assertIn("timezone: 'Asia/Singapore'", workflow)
 
+    def test_scheduled_and_operator_paths_share_the_publication_entry_point(self) -> None:
+        workflow = (REPOSITORY_ROOT / ".github" / "workflows" / "daily-brief.yml").read_text(encoding="utf-8")
+        operator = (REPOSITORY_ROOT / "scripts" / "publish-edition.ps1").read_text(encoding="utf-8")
+
+        self.assertIn("python -m quantbrief.publish_cli", workflow)
+        self.assertIn("python -m quantbrief.publish_cli", operator)
+        self.assertIn("--compatibility-export web/data/cards.json", workflow)
+        self.assertNotIn("$requiredFields", operator)
+
 
 if __name__ == "__main__":
     unittest.main()

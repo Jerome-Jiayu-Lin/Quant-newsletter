@@ -17,30 +17,12 @@ if (-not (Test-Path -LiteralPath $editionSnapshot)) {
     throw "Edition Snapshot not found: $editionSnapshot"
 }
 
-$datasetText = [System.IO.File]::ReadAllText($editionSnapshot, [System.Text.Encoding]::UTF8)
-$dataset = $datasetText | ConvertFrom-Json
 $expectedEdition = $EditionDate.Replace('-', '.')
-if ($dataset.edition -ne $expectedEdition) {
-    throw "Edition mismatch: expected $expectedEdition, found $($dataset.edition)."
+$deploymentIdentifier = 'operator:' + $EditionDate
+& python -m quantbrief.publish_cli $editionSnapshot --compatibility-export $websiteDataset --deployment-identifier $deploymentIdentifier
+if ($LASTEXITCODE -ne 0) {
+    exit $LASTEXITCODE
 }
-if (@($dataset.cards).Count -lt 15) {
-    throw "Website publication requires a complete 15-Card Edition."
-}
-
-$requiredFields = @(
-    'title', 'description', 'originalTitle', 'domain', 'sourceName', 'publishedAt',
-    'originalUrl', 'summaryProvider', 'summaryModel', 'titleEn', 'descriptionEn',
-    'summaryEn', 'keyPointsEn', 'whyItMattersEn', 'limitationsEn'
-)
-foreach ($card in $dataset.cards) {
-    foreach ($field in $requiredFields) {
-        if (-not ($card.PSObject.Properties.Name -contains $field) -or [string]::IsNullOrWhiteSpace([string]$card.$field)) {
-            throw "Card $($card.id) cannot be published because $field is missing."
-        }
-    }
-}
-
-Copy-Item -LiteralPath $editionSnapshot -Destination $websiteDataset -Force
 
 $pnpm = Get-Command pnpm -ErrorAction SilentlyContinue
 if (-not $pnpm) {

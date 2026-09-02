@@ -76,7 +76,7 @@ administrative UI are explicitly out of scope for this plan.
 - [ ] Provision the real preview bucket and smoke-test its conditional writes; the
   current host has no Cloudflare login or R2 credentials.
 - [x] Add website date routing and historical navigation against the public index.
-- [ ] Route both scheduled and operator publication through the shared interface.
+- [x] Route both scheduled and operator publication through the shared interface.
 - [ ] Run a preview publish, idempotent re-publish, injected partial failure, and restore
   drill; retain their receipts.
 - [ ] Cut production reads over while retaining the latest-JSON fallback.
@@ -125,6 +125,10 @@ administrative UI are explicitly out of scope for this plan.
   Edition and Card routes under `/editions/YYYY-MM-DD`, preserves date context in Card
   links, and distinguishes an absent index entry from an advertised object that cannot
   be fetched or validated. Latest reads retain the bundled compatibility fallback.
+- `quantbrief.publish_cli` now owns the complete bilingual publication gate, R2
+  invocation, receipt output, and post-success compatibility export. The scheduled
+  workflow and operator PowerShell script both invoke it instead of duplicating Card
+  validation, key construction, or remote writes.
 
 ## Verification
 

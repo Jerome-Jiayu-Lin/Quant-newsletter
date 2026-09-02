@@ -35,6 +35,17 @@ environment or CI secret store; never add them to `.env.local`, Wrangler `vars`,
 the Worker bundle, Public Exports, or publication receipts. Install the optional
 adapter dependency with `pip install -e ".[publication]"`.
 
+Both scheduled and operator publication use the same command after an Edition
+Snapshot exists:
+
+```powershell
+python -m quantbrief.publish_cli storage/editions/2026/09/2026-09-01/quant-brief-edition.json --compatibility-export web/data/cards.json --deployment-identifier operator:2026-09-01
+```
+
+The command publishes and verifies R2 first, then updates the compatibility export.
+If R2 publication fails, the tracked compatibility file is left unchanged. The daily
+workflow supplies the same four R2 settings through GitHub secrets and variables.
+
 The adapter talks to `https://<account-id>.r2.cloudflarestorage.com` through R2's
 S3-compatible API. Creates use `If-None-Match: *`; replacements use the exact ETag
 from the preceding read as `If-Match`. HTTP 409/412 conflicts are surfaced to the

@@ -45,9 +45,15 @@ class FakeStorage:
 
 
 def complete_snapshot() -> dict[str, object]:
+    cards = []
+    for index in range(15):
+        card = complete_card()
+        card["id"] = f"{index:016x}"
+        card["slug"] = f"example-{index}"
+        cards.append(card)
     return {
         "generatedAt": "2026-09-01T01:00:00+00:00", "timezone": "Asia/Singapore",
-        "edition": "2026.09.01", "cards": [complete_card()],
+        "edition": "2026.09.01", "cards": cards,
     }
 
 
