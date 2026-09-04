@@ -27,6 +27,7 @@ MODULE_DEPENDENCIES: dict[str, frozenset[str]] = {
     "restore_cli": frozenset({"publication", "r2"}),
     "pipeline": frozenset({"candidates", "features", "http", "models", "ranking", "sources", "summarize"}),
     "archive": frozenset(),
+    "archive_sync_cli": frozenset({"archive", "publication", "r2"}),
     "cli": frozenset({"archive", "pipeline"}),
 }
 

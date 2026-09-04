@@ -43,6 +43,7 @@ listed in its row; `scripts/check-repository.py` enforces the same graph.
 | `restore_cli` | Verified public-index recovery entry point and receipt writer | `publication`, `r2` |
 | `pipeline` | Edition orchestration and public export creation | all modules above except `archive` |
 | `archive` | Durable Edition ingestion and search | none |
+| `archive_sync_cli` | Verified production R2 history synchronization into the local Archive | `archive`, `publication`, `r2` |
 | `cli` | Collection entry point and dependency assembly | `pipeline`, `archive` |
 
 The import direction is therefore:
@@ -102,7 +103,7 @@ requests never silently substitute another date.
 | Candidate Pool | `CandidatePool` | `storage/candidates/rolling-candidate-pool.json` |
 | Edition Snapshot | `Pipeline` | `storage/editions/YYYY/MM/YYYY-MM-DD/quant-brief-edition.json` |
 | Archive | `CardArchive` | `storage/archive/quant-brief.sqlite3` |
-| Public Export | publication script | `web/data/cards.json` |
+| Public Export | `Publisher` | versioned keys in Cloudflare R2 |
 
 All `storage/` content is ignored. Re-running an Edition updates its canonical path
 idempotently.
@@ -142,8 +143,8 @@ Public Export rather than allowing the website to read the private Archive direc
 
 Adopt this target incrementally:
 
-1. Publish dated Public Exports plus a history index to R2; retain
-   `web/data/cards.json` only as the current compatibility path during migration.
+1. Publish dated Public Exports plus a history index to R2; retain the bundled
+   `web/data/cards.json` only as a static emergency fallback.
 2. Add D1 only when server-side catalog queries, favorites, or other mutable public
    state are implemented. Static history browsing does not require D1.
 3. Protect the first administrative surface with Cloudflare Access.
@@ -181,9 +182,12 @@ must transport these shapes without extending them.
 
 `python -m quantbrief.publish_cli` is the single public publication entry point for
 both GitHub Actions and the operator PowerShell command. It enforces the complete
-bilingual 15-Card gate, publishes through `Publisher`, and updates the compatibility
-export only after remote success. Callers retain orchestration they uniquely own,
-such as source collection, Git commits, or Worker deployment.
+bilingual 15-Card gate and publishes through `Publisher`. Callers retain orchestration
+they uniquely own, such as source collection, Fetch State commits, or Worker deployment.
+
+`python -m quantbrief.archive_sync_cli` verifies indexed production Public Exports
+before idempotently importing them into the local Archive. Legacy Git history remains
+an import-only backfill; new Edition content is not committed to Git.
 
 Each changed public state also retains content-addressed Edition versions and index
 snapshots under publication-private prefixes. `python -m quantbrief.restore_cli`

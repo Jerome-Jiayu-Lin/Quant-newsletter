@@ -147,6 +147,9 @@ class CardArchive:
             imported += 1
         return ArchiveReport(len(commits), imported, cards_imported)
 
+    def has_source(self, source_identifier: str) -> bool:
+        return source_identifier in self._known_commits()
+
     def _known_commits(self) -> set[str]:
         if not self.database.exists():
             return set()

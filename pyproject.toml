@@ -10,8 +10,12 @@ publication = ["boto3>=1.43.84,<2"]
 [project.scripts]
 quant-brief = "quantbrief.cli:main"
 quant-brief-archive = "quantbrief.archive:main"
+quant-brief-archive-sync = "quantbrief.archive_sync_cli:main"
 quant-brief-publish = "quantbrief.publish_cli:main"
 quant-brief-restore = "quantbrief.restore_cli:main"
+
+[tool.setuptools.packages.find]
+include = ["quantbrief*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

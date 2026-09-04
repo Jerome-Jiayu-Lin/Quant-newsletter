@@ -33,7 +33,9 @@ pnpm install
 pnpm dev
 ```
 
-The generated edition is written to `web/data/cards.json`. The website uses that bundled file locally and reads the latest copy from the public `main` branch when hosted.
+The generated Edition Snapshot is written under `storage/editions/`. Production
+publication writes a sanitized Public Export and history index to Cloudflare R2;
+`web/data/cards.json` remains only a bundled emergency fallback.
 
 ## Local API-first run
 
@@ -52,19 +54,30 @@ The daily local automation updates the previous complete Singapore calendar day 
 ./scripts/update-previous-edition.ps1
 ```
 
-Website publication uses `./scripts/publish-edition.ps1 -EditionDate YYYY-MM-DD`. It validates and builds the website, then publishes only `web/data/cards.json` to `main` from a clean temporary checkout, so unrelated local changes are never included in the publication commit. For an explicit historical date, run `./scripts/run-local.ps1 -EditionDate YYYY-MM-DD`. Re-running the same date updates the canonical Edition Snapshot and Archive entry idempotently.
+Website publication uses `./scripts/publish-edition.ps1 -EditionDate YYYY-MM-DD`. It
+publishes and verifies production R2, tests and builds the website, asserts the
+generated Worker uses only the production binding, and then deploys. It does not
+commit generated content to Git. For an explicit historical date, run
+`./scripts/run-local.ps1 -EditionDate YYYY-MM-DD`. Re-running the same date updates
+the canonical Edition Snapshot and Archive entry idempotently.
 
 ## Local long-term archive
 
-GitHub remains the reliable daily runner and public transport for the latest edition. Your durable history lives locally in SQLite and is ignored by Git:
+GitHub remains the reliable daily runner, while R2 transports published Editions.
+Your durable history lives locally in SQLite and is ignored by Git:
 
 ```powershell
 ./scripts/sync-local.ps1
 ```
 
-The script pulls new daily commits and imports every unseen historical version of `web/data/cards.json` into `storage/archive/quant-brief.sqlite3`. It is idempotent, so missed days are recovered the next time your computer is online. Local runtime content is organized under `storage/archive/`, `storage/editions/`, and `storage/state/` according to `AGENTS.md`.
+The script first imports the legacy Git history, then verifies and imports every
+unseen R2 Public Export into `storage/archive/quant-brief.sqlite3`. It is idempotent,
+so missed days are recovered the next time your computer is online. Local runtime
+content is organized under `storage/archive/`, `storage/editions/`, and
+`storage/state/` according to `AGENTS.md`.
 
-The public website continues to read only the latest sanitized JSON snapshot. API keys, HTTP state, and the local SQLite database are never exposed to visitors.
+The public website reads sanitized dated Public Exports through its read-only R2
+binding. API keys, HTTP state, and the local SQLite database are never exposed.
 
 Each new local card contains structured `features` such as `platform:github`, `artifact:paper`, or
 `topic:quantitative-finance`. A Feature has stable identity, Chinese and English labels, evidence, and confidence;

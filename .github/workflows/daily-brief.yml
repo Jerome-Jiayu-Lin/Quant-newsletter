@@ -60,7 +60,7 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME || 'jerome-brief-public' }}
-        run: python -m quantbrief.publish_cli "${{ steps.edition.outputs.snapshot }}" --compatibility-export web/data/cards.json --deployment-identifier "github:${GITHUB_RUN_ID}:${GITHUB_SHA}"
+        run: python -m quantbrief.publish_cli "${{ steps.edition.outputs.snapshot }}" --deployment-identifier "github:${GITHUB_RUN_ID}:${GITHUB_SHA}"
 
       - uses: pnpm/action-setup@v4
         with:
@@ -76,11 +76,11 @@ jobs:
         working-directory: web
         run: pnpm install --frozen-lockfile && pnpm build
 
-      - name: Commit compatibility export and Fetch State
+      - name: Commit Fetch State
         run: |
           git config user.name "quant-brief-bot"
           git config user.email "quant-brief-bot@users.noreply.github.com"
-          git add web/data/cards.json .github/state/daily-brief-fetch-state.json
+          git add .github/state/daily-brief-fetch-state.json
           git diff --cached --quiet && exit 0
           git commit -m "data: publish daily brief"
           git push

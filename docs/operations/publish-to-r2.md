@@ -56,18 +56,19 @@ R2_BUCKET_NAME
 Use `R2_BUCKET_NAME=jerome-brief-preview` for drills. Store credentials in the local
 environment or CI secret store; never add them to `.env.local`, Wrangler `vars`, Git,
 the Worker bundle, Public Exports, or publication receipts. Install the adapter
-dependency with `python -m pip install "boto3>=1.43.84,<2"`.
+dependency with `python -m pip install -e ".[publication]"`.
 
 Both scheduled and operator publication use the same command after an Edition
 Snapshot exists:
 
 ```powershell
-python -m quantbrief.publish_cli storage/editions/2026/09/2026-09-01/quant-brief-edition.json --compatibility-export web/data/cards.json --deployment-identifier operator:2026-09-01
+python -m quantbrief.publish_cli storage/editions/2026/09/2026-09-01/quant-brief-edition.json --deployment-identifier operator:2026-09-01
 ```
 
-The command publishes and verifies R2 first, then updates the compatibility export.
-If R2 publication fails, the tracked compatibility file is left unchanged. The daily
-workflow supplies the same four R2 settings through GitHub secrets and variables.
+The command publishes and verifies R2 without changing tracked website data. The
+daily workflow supplies the same four R2 settings through GitHub secrets and
+variables. `web/data/cards.json` is a static emergency fallback and no longer a
+publication target.
 
 The adapter talks to `https://<account-id>.r2.cloudflarestorage.com` through R2's
 S3-compatible API. Creates use `If-None-Match: *`; replacements use the exact ETag

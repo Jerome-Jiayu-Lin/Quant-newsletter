@@ -3,10 +3,10 @@
 ## Purpose
 
 Make every published Singapore-date Edition addressable on the website while keeping
-the private Archive local. Replace the two current publication paths with one tested,
+the private Archive local. Replace the two former publication paths with one tested,
 idempotent publication interface that writes sanitized dated Public Exports and a
-history index to Cloudflare R2, retains the latest `web/data/cards.json` compatibility
-contract during migration, and emits enough evidence to restore a previous publication.
+history index to Cloudflare R2, retains `web/data/cards.json` only as a static emergency
+fallback, and emits enough evidence to restore a previous publication.
 
 ## Acceptance criteria
 
@@ -156,6 +156,9 @@ administrative UI are explicitly out of scope for this plan.
   migration HTTP origin. A distinct `env.preview` Worker configuration and guarded
   deployment script ensure preview builds cannot inherit production routes or bucket
   bindings.
+- Production cutover removed the generated-content Git write from both scheduled and
+  operator publication. Local Archive synchronization now combines legacy Git backfill
+  with hash-verified, idempotent imports from the production R2 history index.
 
 ## Verification
 
@@ -224,8 +227,25 @@ Deployed R2 read on 2026-09-02:
   response came through the R2 binding rather than the HTTP fallback.
 - 72 Python tests, 11 web tests, lint, and the production build passed before deploy.
 
+Production cutover and recovery drill on 2026-09-04:
+
+- Baseline publication outcome: `published`; Public Export hash
+  `5af4ba09610cd8034baa726e5780fdcc217e00f0944a497e15f56e06a11f661a` and index
+  hash `a42bd458a6ac1d661263654ed8fca1858cb0bc664583a861fe5192c382d225ed`.
+- Immediate production re-publication outcome: `unchanged`.
+- A controlled update produced index hash
+  `9225f29cf8d825ccfff6cd8af40a0fed790b08db5cae23e96eba7cb09226e4a8`;
+  verified restore returned the active index to the exact baseline hash.
+- Both `jeromebrief.com/editions/2026-09-01` and its `www` redirect returned HTTP 200
+  with the expected R2 Knowledge Card title.
+- A production R2 synchronization into a temporary Archive imported one Edition and
+  15 Cards; the temporary database was removed after verification.
+- `./scripts/verify-change.ps1` with `CI=true` — 74 Python tests, 11 web tests, lint,
+  and production build passed. `python -m pip install --dry-run -e ".[publication]"`
+  also confirmed the CI publication dependency can be resolved from the repository.
+
 ## Outcome
 
-Pending implementation. Move this plan to `docs/exec-plans/completed/` only after all
-acceptance criteria pass and the production cutover or an explicit stop decision is
-recorded.
+Completed on 2026-09-04. Production R2 is the publication transport, the deployed
+website reads its bound history, recovery returned the active state to a verified
+snapshot, and Git remains only a legacy-history backfill plus source-code transport.

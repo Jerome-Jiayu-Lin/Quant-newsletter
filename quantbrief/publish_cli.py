@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping
 
-from .publication import ObjectStorage, PublicationReceipt, Publisher, validate_publishable_snapshot
+from .publication import ObjectStorage, PublicationReceipt, Publisher
 from .r2 import R2ObjectStorage
 
 
@@ -16,28 +16,19 @@ def publish_snapshot(
     snapshot_path: Path,
     storage: ObjectStorage,
     *,
-    compatibility_export: Path | None = None,
     deployment_identifier: str | None = None,
     published_at: str | None = None,
 ) -> PublicationReceipt:
     snapshot: Mapping[str, Any] = json.loads(snapshot_path.read_text(encoding="utf-8-sig"))
     timestamp = published_at or datetime.now(timezone.utc).isoformat()
-    receipt = Publisher(storage).publish(
+    return Publisher(storage).publish(
         snapshot, published_at=timestamp, deployment_identifier=deployment_identifier,
     )
-    if compatibility_export is not None:
-        export = validate_publishable_snapshot(snapshot)
-        compatibility_export.parent.mkdir(parents=True, exist_ok=True)
-        compatibility_export.write_text(
-            json.dumps(export, ensure_ascii=False, indent=2) + "\n", encoding="utf-8",
-        )
-    return receipt
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Publish one canonical Edition Snapshot to R2")
     parser.add_argument("snapshot", type=Path)
-    parser.add_argument("--compatibility-export", type=Path)
     parser.add_argument("--deployment-identifier")
     return parser
 
@@ -49,7 +40,6 @@ def main() -> None:
     receipt = publish_snapshot(
         args.snapshot,
         R2ObjectStorage.from_environment(),
-        compatibility_export=args.compatibility_export,
         deployment_identifier=args.deployment_identifier,
     )
     print(json.dumps(receipt.as_dict(), ensure_ascii=False, sort_keys=True))

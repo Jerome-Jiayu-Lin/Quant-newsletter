@@ -63,8 +63,14 @@ class RepositoryRuleTests(unittest.TestCase):
 
         self.assertIn("python -m quantbrief.publish_cli", workflow)
         self.assertIn("python -m quantbrief.publish_cli", operator)
-        self.assertIn("--compatibility-export web/data/cards.json", workflow)
+        self.assertNotIn("--compatibility-export", workflow)
+        self.assertNotIn("--compatibility-export", operator)
+        self.assertNotIn("git clone", operator)
+        self.assertNotIn("git add web/data/cards.json", workflow)
         self.assertNotIn("$requiredFields", operator)
+
+        synchronizer = (REPOSITORY_ROOT / "scripts" / "sync-local.ps1").read_text(encoding="utf-8")
+        self.assertIn("quantbrief.archive_sync_cli", synchronizer)
 
 
 if __name__ == "__main__":
