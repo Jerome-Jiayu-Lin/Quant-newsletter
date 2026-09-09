@@ -1,149 +1,77 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T15:59:59.999999+00:00",
+  "generatedAt": "2026-09-09T15:59:59.999999+00:00",
   "timezone": "Asia/Singapore",
-  "edition": "2026-09-08",
+  "edition": "2026-09-09",
   "cards": [
     {
-      "summaryEn": "The tutorial explains the benefits of running local models in Pi (privacy, offline, no per-token cost), then steps through installing llama.cpp (via llama.app), selecting appropriate GGUF models and quantizations based on hardware (using Hugging Face's hardware compatibility feature), and using Pi's `/llama` command to download and load models. It culminates in running Qwen3 8B as a coding agent locally, ensuring prompts, code, and data remain on-device. The author also mentions hybrid local/cloud workflows.",
-      "title": "Pi 集成 llama.cpp 实现本地模型运行与量化选择指南",
-      "whyItMatters": "此指南为开发者和 AI 用户提供了一种可操作的方案，以在 Pi 环境中利用本地开源模型，降低对云 API 的依赖，增强数据隐私和成本控制。同时，通过硬件感知的量化选择，提高了模型在不同设备上的可部署性，对边缘计算和个人 AI 应用具有实际参考价值。",
-      "publishedAt": "2026-09-08T15:00:00+00:00",
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
       "aiGenerated": true,
-      "sourceName": "Hugging Face",
-      "limitationsEn": "This content is a video tutorial and does not provide reproducible experimental data or performance benchmarks. Outcomes depend on specific hardware and model quantization, and only a single case with Qwen3 8B is shown. Installation and usage may be affected by Pi's version and llama.cpp updates. Furthermore, it is authored by an individual and may include subjective recommendations.",
-      "summaryProvider": "deepseek",
-      "slug": "run-local-models-in-pi-llama-cpp-gguf-and-the-ll-e2c6a444c5",
-      "score": 78.06,
+      "sourceGroup": "论文",
+      "title": "T-KAN模型提升高频限价订单簿预测性能与可解释性",
+      "score": 92.26,
+      "titleEn": "T-KAN Model Enhances High-Frequency Limit Order Book Forecasting Performance and Interpretability",
+      "whyItMattersEn": "This research addresses alpha decay in high-frequency trading by proposing a KAN-based model that is both interpretable and efficient, potentially providing insights while enabling low-latency deployment.",
       "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 研究",
-      "keyPointsEn": [
-        "llama.cpp installation via llama.app, which also provides model recommendations.",
-        "Model selection using Hugging Face's hardware compatibility feature to filter GGUF models and quantizations (e.g., Q4_K_M).",
-        "Local operation with Pi's `/llama` command to download and load GGUF models, demonstrated with Qwen3 8B.",
-        "Privacy and cost: local inference ensures data stays on-device and no per-token charges.",
-        "Use case: local models can serve as coding agents, hybridizing with cloud models for mixed workflows."
+      "keyPoints": [
+        "提出T-KAN架构，用B样条激活函数替代LSTM线性权重",
+        "在FI-2010数据集上，T-KAN在k=100时F1分数相对提升19.1%",
+        "模拟交易中T-KAN收益132.48%，DeepLOB回撤-82.76%（成本1.0 bps）",
+        "T-KAN解释性强，通过样条可观察到“死区”",
+        "架构优化用于FPGA低延迟实现"
       ],
-      "description": "该内容介绍如何在 Pi 中通过 llama.cpp 运行本地 GGUF 模型，并利用 Hugging Face 硬件兼容性功能选择合适量化版本，实现完全私有、离线且无按 token 费用的推理。教程展示了使用 Qwen3 8B 作为编码代理的完整流程，并通过 `/llama` 命令简化下载与加载。",
-      "descriptionEn": "This guide demonstrates running local GGUF models in Pi via llama.cpp, using Hugging Face's hardware compatibility feature to choose appropriate quantizations. It enables fully private, offline inference without per-token costs, using Qwen3 8B as a coding agent to illustrate the workflow, which includes the `/llama` command for streamlined model downloads and loading.",
-      "features": [
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:developer-tools",
-          "facet": "topic",
-          "value": "developer-tools",
-          "label": {
-            "zh": "开发工具",
-            "en": "Developer Tools"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
+      "originalUrl": "https://arxiv.org/abs/2601.02310",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该研究针对高频交易中预测时效衰减问题，提出一种基于KAN的可解释且高效的模型，有望在保留预测能力的同时提供洞见，并为低延迟部署提供可能。",
+      "descriptionEn": "This study introduces Temporal Kolmogorov-Arnold Networks (T-KAN), replacing standard LSTM fixed linear weights with learnable B-spline activation functions to better capture nonlinear patterns in high-frequency limit order book data and mitigate alpha decay. On the FI-2010 dataset, the model achieves a 19.1% relative F1 score improvement at k=100, outperforming DeepLOB in backtests and supporting FPGA implementation.",
+      "slug": "temporal-kolmogorov-arnold-networks-t-kan-for-hi-070c3df031",
+      "description": "该研究提出时序Kolmogorov-Arnold网络（T-KAN），将标准LSTM的固定线性权重替换为可学习的B样条激活函数，以更好地捕捉高频限价订单簿数据中的非线性模式，并缓解预测时效（alpha decay）问题。该模型在FI-2010数据集上，在k=100时间尺度下，F1分数相对提升19.1%，且在模拟交易中表现优于DeepLOB，同时支持FPGA高效实现。",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "量化研究",
+        "订单簿预测",
+        "KAN",
+        "高频交易",
+        "深度学习",
+        "可解释性"
       ],
+      "id": "070c3df031b8fb09",
       "scoreBreakdown": {
-        "contentType": "video",
-        "comparisonCohortSize": 1,
-        "mode": "cohort-metric",
-        "primaryMetric": "views",
-        "primaryMetricValue": 413.0,
-        "metricPercentile": 100.0,
-        "velocityPercentile": 100.0,
-        "objectiveScore": 100.0,
-        "relevanceScore": 55,
+        "contentType": "paper",
+        "comparisonCohortSize": 3389,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 82,
         "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.83,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "machine-learning",
-            "agents"
+          "classification": "finance",
+          "confidence": 0.79,
+          "financeEvidence": [
+            "trading",
+            "market-risk"
           ],
-          "sourcePrior": "AI × 量化"
+          "quantitativeEvidence": [],
+          "aiEvidence": [],
+          "sourcePrior": "量化研究"
         },
-        "contentValueScore": 49.75,
+        "contentValueScore": 89.9,
         "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 10.0,
-          "novelty": 0.0,
+          "evidence": 20.0,
+          "actionability": 15.0,
+          "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 99.72,
-        "sourceQualityScore": 82.0,
-        "sourceMetrics": {
-          "views": 413.0
-        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "retrievedAt": "2026-09-08T15:59:59.999999+00:00",
-      "originalUrl": "https://www.youtube.com/watch?v=5DsFr19wJFg",
-      "id": "e2c6a444c5ce92a6",
-      "originalTitle": "Run Local Models in Pi: llama.cpp, GGUF, and the /llama Command",
-      "summary": "教程首先介绍为什么在 Pi 中运行本地模型（隐私、离线、无 token 费用），然后逐步演示安装 llama.cpp（通过 llama.app）、根据硬件选择 GGUF 模型及量化（借助 Hugging Face 的硬件兼容功能），以及使用 Pi 的 `/llama` 命令下载和加载模型，最终使 Qwen3 8B 作为编码代理在本地运行，确保提示词、代码和数据不离开设备。作者还补充了混合本地/云端工作流的应用场景。",
-      "contentType": "video",
-      "tagsEn": [
-        "local models",
-        "quantization",
-        "privacy",
-        "llama.cpp",
-        "GGUF",
-        "Pi"
-      ],
-      "discoveredBy": [
-        "Hugging Face"
-      ],
-      "tags": [
-        "本地模型",
-        "量化",
-        "隐私",
-        "llama.cpp",
-        "GGUF",
-        "Pi"
-      ],
-      "whyItMattersEn": "This guide offers developers and AI users a practical approach to leveraging local open-source models within Pi, reducing reliance on cloud APIs while improving data privacy and cost control. By hardware-aware quantization selection, it enhances deployment on various devices, which is valuable for edge computing and personal AI applications.",
-      "limitations": "该内容为视频教程，未提供可重复的实验数据或性能基准。效果依赖具体硬件配置和模型量化，且教程仅展示 Qwen3 8B 单一案例。安装和使用可能受 Pi 环境版本及 llama.cpp 更新影响。此外，该内容由作者个人发布，可能存在主观推荐。",
-      "keyPoints": [
-        "llama.cpp 安装：通过 llama.app 一键安装并获取模型推荐。",
-        "模型选择：使用 Hugging Face 硬件兼容性功能筛选适合硬件的 GGUF 模型和量化等级（如 Q4_K_M）。",
-        "本地运行：在 Pi 中使用 `/llama` 命令下载并加载 GGUF 模型，示例为 Qwen3 8B。",
-        "隐私与成本：本地推理确保数据不外传，无按 token 费用。",
-        "应用场景：本地模型可充当编程代理，与云端模型互补形成混合工作流。"
-      ],
-      "titleEn": "Run Local Models in Pi with llama.cpp: A Practical Guide",
-      "sourceGroup": "视频"
-    },
-    {
-      "summaryEn": "The research addresses extreme volatility and non-stationarity of cryptocurrency markets by introducing a structured approach called PRICE for adapting LLMs to short-term Bitcoin price forecasting. Built on a 4-bit quantized LLaMA-3 8B model, PRICE integrates multiple adaptation strategies. Ablation studies show each component contributes to forecasting performance. Comparative evaluation shows PRICE achieves the lowest forecasting errors on both validation and test sets, performing competitively or superior to specialized foundation models, indicating that adaptation choices are critical for numerical time-series forecasting.",
-      "title": "LLM 适配策略系统研究：PRICE 框架用于比特币价格预测",
-      "whyItMatters": "该研究为在金融预测中高效使用 LLM 提供了系统性指导，明确了多种适配策略的组合效应，有助于推动 LLM 在量化金融等数据稀缺领域中的应用，并为未来研究奠定了基础。",
-      "publishedAt": "2026-09-07T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "arXiv cs.LG",
-      "limitationsEn": "The study is limited to short-term Bitcoin forecasting; it does not cover other cryptocurrencies or longer horizons. Experiments rely on a single LLaMA-3 8B base model; scaling to larger models is untested. Given high noise and extreme events in crypto markets, generalization after such events may be limited.",
-      "summaryProvider": "deepseek",
-      "slug": "price-a-systematic-study-of-llm-adaptation-choic-a95a44a96a",
-      "score": 77.25,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI × 量化",
-      "keyPointsEn": [
-        "Proposed a PRICE framework for systematic study of LLM adaptation choices for Bitcoin forecasting;",
-        "PRICE integrates LoRA fine-tuning, recursive multi-step inference, integer-rounded representation, context-task-format prompting, and exact zero-temperature decoding;",
-        "Ablation studies show each component improves accuracy and stability;",
-        "PRICE achieves lowest errors compared to several transformer and time-series foundation models."
-      ],
-      "description": "本研究系统性地探讨了大型语言模型在金融时间序列预测中的适配选择，提出了 PRICE 框架。通过消融实验，揭示了微调、数值表示、提示、推理和采样解码等环节对预测准确性和可靠性的影响，为相关领域提供了新的见解和实用方法。",
-      "descriptionEn": "This study systematically investigates adaptation choices for large language models in financial time series forecasting, proposing the PRICE framework. Through ablation studies, it reveals the joint effects of fine-tuning, numerical representation, prompting, inference, and decoding on forecasting accuracy and reliability, offering new insights and practical guidance.",
+      "limitations": "本研究基于单一数据集（FI-2010），结果可能不具有普适性；模拟交易结果未考虑实际滑点、市场冲击等因素；与DeepLOB的比较可能受实验设置影响；论文未经同行评审，结论需谨慎对待。",
       "features": [
         {
           "id": "artifact:paper",
@@ -163,6 +91,140 @@
           "label": {
             "zh": "预测",
             "en": "Forecasting"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        }
+      ],
+      "summaryEn": "The author leverages the FI-2010 dataset to propose T-KAN architecture for improved accuracy and interpretability in high-frequency LOB forecasting. Key findings: T-KAN achieves 19.1% relative F1 improvement at k=100, and in simulated trading with 1.0 bps transaction costs, yields 132.48% return versus DeepLOB's -82.76% drawdown. The author argues T-KAN is superior, interpretable, and suitable for low-latency hardware.",
+      "limitationsEn": "This study is based on a single dataset (FI-2010), so results may not generalize. Simulated trading ignores real-world considerations like slippage and market impact. Comparisons with DeepLOB may be influenced by experimental setups. The paper is not peer-reviewed, so conclusions should be treated with caution.",
+      "summary": "研究内容：作者利用FI-2010数据集，引入T-KAN模型架构，旨在改善高频订单簿预测的准确性与解释性。主要发现：T-KAN在k=100时F1分数相对提升19.1%，在扣除10个基点交易成本后，策略收益132.48%，而DeepLOB回撤-82.76%。作者观点：认为T-KAN优于传统模型，解释性强，且适合低延迟硬件实现。",
+      "discoveredBy": [
+        "arXiv cs.LG",
+        "arXiv q-fin"
+      ],
+      "tagsEn": [
+        "Quantitative research",
+        "Order book prediction",
+        "KAN",
+        "High-frequency trading",
+        "Deep learning",
+        "Interpretability"
+      ],
+      "originalTitle": "Temporal Kolmogorov-Arnold Networks (T-KAN) for High-Frequency Limit Order Book Forecasting: Efficiency, Interpretability, and Alpha Decay",
+      "keyPointsEn": [
+        "Proposes T-KAN architecture using B-spline activations instead of LSTM linear weights",
+        "On FI-2010, T-KAN improves F1 by 19.1% relative at k=100",
+        "Simulated trading: T-KAN return 132.48%, DeepLOB drawdown -82.76% (cost 1.0 bps)",
+        "T-KAN is interpretable, with visible dead zones in splines",
+        "Architecture optimized for FPGA low-latency implementation"
+      ],
+      "domain": "金融研究",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "Alpha-R1：利用强化学习提升量化因子筛选的语义对齐能力",
+      "score": 88.83,
+      "titleEn": "Alpha-R1: Enhancing Quantitative Factor Screening with Semantic Alignment via Reinforcement Learning",
+      "whyItMattersEn": "This research introduces LLM semantic reasoning into quantitative factor screening, offering a new approach to address signal decay and regime shifts in non-stationary markets. The semantic gating mechanism may help strategies adapt flexibly to market changes, but requires caution due to complexity and limited evaluation.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "Alpha-R1利用强化学习优化大语言模型的因子筛选策略，通过语义门控动态匹配市场状态与因子经济逻辑。",
+        "采用GRPO算法训练模型，以投资组合回报作为主要奖励信号，在有限候选池内进行样本外评估。",
+        "在标普500和CSI 300上分别实现47.87%和40.57%的年化收益率，夏普比率1.62和2.23。",
+        "框架强调从经济语义角度理解因子适用性，突破传统纯数值时间序列分析的局限。"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2512.23515",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该研究将大语言模型的语义理解能力引入量化因子筛选，为处理非平稳市场中的信号衰减和体制转换问题提供新方法。其“语义门控”机制或能帮助投资策略更灵活适应市场变化，但需注意其复杂性和有限评估条件。",
+      "descriptionEn": "This paper introduces Alpha-R1, a framework combining large language models with reinforcement learning for quantitative factor screening. It innovates by incorporating a 'semantic gating' mechanism that evaluates factors' economic rationale against dynamic market states, addressing the limitation of traditional methods that ignore semantic context. The framework shows promising out-of-sample performance on S&P 500 and CSI 300, offering novel insights for quantitative researc",
+      "slug": "alpha-r1-alpha-screening-with-llm-reasoning-via--8f209d644d",
+      "description": "本研究提出Alpha-R1框架，将大语言模型与强化学习结合，用于量化因子筛选。其创新点在于引入“语义门控”机制，通过动态市场状态描述评估因子的经济合理性，以解决传统方法忽略因子语义背景的问题，从而提高因子有效性。该框架在标普500和沪深300指数上展示出优于传统方法的样本外表现，为量化研究提供了新的思路。",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "强化学习",
+        "大语言模型",
+        "因子筛选",
+        "量化投资",
+        "市场状态"
+      ],
+      "id": "8f209d644d287c54",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 3389,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 100.0,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.93,
+          "financeEvidence": [
+            "portfolio"
+          ],
+          "quantitativeEvidence": [
+            "backtesting",
+            "optimization",
+            "time-series",
+            "quant-metrics"
+          ],
+          "aiEvidence": [
+            "machine-learning",
+            "language-model"
+          ],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 85.0,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 15.0,
+          "novelty": 0.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "limitations": "评估局限于有限候选池（specific pools），可能高估实际表现；样本外仅12个月，未覆盖完整市场周期；结果依赖于特定参数和初始条件，未知其对不同市场或交易成本的稳健性。",
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "method:reinforcement-learning",
+          "facet": "method",
+          "value": "reinforcement-learning",
+          "label": {
+            "zh": "强化学习",
+            "en": "Reinforcement Learning"
           },
           "evidence": "content.keyword",
           "confidence": 0.8
@@ -198,104 +260,128 @@
             "en": "AI × Quant"
           },
           "evidence": "content.finance+quantitative",
-          "confidence": 0.87
+          "confidence": 0.93
+        },
+        {
+          "id": "topic:factors",
+          "facet": "topic",
+          "value": "factors",
+          "label": {
+            "zh": "因子",
+            "en": "Factors"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
+      "summaryEn": "The research presents Alpha-R1, which uses reinforcement learning to train an LLM to semantically filter candidate factors based on market conditions. In a 12-month out-of-sample test, it reports annualized returns of 47.87% for S&P 500 and 40.57% for CSI 300, with Sharpe ratios of 1.62 and 2.23, respectively. The authors interpret these results as evidence supporting second-stage semantic factor reranking.",
+      "limitationsEn": "The evaluation is limited to specific bounded pools, which may overstate real-world performance. The out-of-sample period is only 12 months, not covering full market cycles. Results are sensitive to parameter choices and may not generalize across different markets or after trading costs.",
+      "summary": "研究介绍了一个名为Alpha-R1的框架，其核心是使用强化学习训练大语言模型，根据市场状态对候选因子进行语义筛选。在12个月的样本外测试中，报告了年化收益47.87%（标普500）和40.57%（沪深300），夏普比率分别为1.62和2.23。作者认为这些结果证明了语义因子重排序的有效性。",
+      "discoveredBy": [
+        "arXiv cs.LG",
+        "arXiv q-fin"
+      ],
+      "tagsEn": [
+        "reinforcement learning",
+        "large language model",
+        "factor screening",
+        "quantitative investing",
+        "market regime"
+      ],
+      "originalTitle": "Alpha-R1: Alpha Screening with LLM Reasoning via Reinforcement Learning",
+      "keyPointsEn": [
+        "Alpha-R1 uses reinforcement learning to optimize LLM-based factor screening, dynamically aligning market states with factor economic logic via semantic gating.",
+        "Trained with GRPO using portfolio returns as primary reward, evaluated out-of-sample within a bounded candidate pool.",
+        "Achieves 47.87% annualized return on S&P 500 and 40.57% on CSI 300, with Sharpe ratios of 1.62 and 2.23.",
+        "Emphasizes understanding factors from economic semantics, overcoming pure numerical time-series analysis limitations."
+      ],
+      "domain": "AI × 量化",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "简单动态股票/债券/黄金组合：波动率控制与凸优化的改进",
+      "score": 87.43,
+      "titleEn": "Simple Dynamic Stock/Bond/Gold Portfolios: Improvement via Volatility Control and Convex Optimization",
+      "whyItMattersEn": "This research provides investors with simple dynamic portfolio strategies based on public data and standard quantitative methods, capable of improving risk-return profiles over the long run without complex models or proprietary data. It is relevant for both individual and institutional investors.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "传统的60/40或50/30/20组合可作为改进基准",
+        "简单的波动率控制策略（动态混合现金）能改善风险调整后收益和回撤",
+        "基于凸优化的动态组合（利用简单回报预测或经济数据预测）进一步提升表现",
+        "文中方法优于风险平价和最小方差等标准风险配置方法",
+        "所有方法仅使用公开数据和标准量化金融工具"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2609.07946",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该研究为投资者提供了一种基于公开数据和标准量化方法的简单动态组合策略，能够在长期中改善投资组合的风险收益特征，而无需复杂的模型或专有数据。这对个人投资者和机构投资者都具有参考价值。",
+      "descriptionEn": "This study evaluates simple dynamic strategies for improving over traditional fixed-weight portfolios using public data. During 2006-2026, volatility control and convex optimization methods improved risk-adjusted returns and drawdowns. The methods require only simple estimates and standard quantitative tools, offering practical improvement for individual and institutional investors.",
+      "slug": "simple-dynamic-stock-bond-gold-portfolios-34d2ec1dbf",
+      "description": "本研究基于公开数据，评估了超过传统固定权重组合的简单动态策略。通过波动率控制和基于凸优化的方法，在2006-2026年期间，风险调整后收益和回撤指标均有显著改善。该方法仅需简单估计和标准量化工具，无需复杂数据或模型，为个人投资者和机构提供了实用的投资组合改进方案。",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "动态资产配置",
+        "波动率目标",
+        "凸优化",
+        "公开数据",
+        "量化投资"
+      ],
+      "id": "34d2ec1dbff598b3",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 2271,
+        "comparisonCohortSize": 3389,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 90,
+        "relevanceScore": 100.0,
         "topicClassification": {
           "classification": "quantitative-finance",
-          "confidence": 0.87,
+          "confidence": 0.99,
           "financeEvidence": [
+            "securities",
+            "portfolio",
+            "trading",
             "market-risk",
             "finance"
           ],
           "quantitativeEvidence": [
-            "time-series"
+            "optimization",
+            "quant-metrics"
           ],
-          "aiEvidence": [
-            "machine-learning",
-            "language-model"
-          ],
-          "sourcePrior": "AI × 量化"
+          "aiEvidence": [],
+          "sourcePrior": "量化研究"
         },
-        "contentValueScore": 73.5,
+        "contentValueScore": 83.0,
         "contentSignals": {
           "evidence": 15.0,
-          "actionability": 0.0,
+          "actionability": 5.0,
           "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 90.0,
-        "sourceQualityScore": 78.0,
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "retrievedAt": "2026-09-07T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2609.05235",
-      "id": "a95a44a96a4a6e9d",
-      "originalTitle": "PRICE: A Systematic Study of LLM Adaptation Choices for Bitcoin Price Forecasting",
-      "summary": "该研究针对加密货币市场极端的波动性和非平稳性，提出了一种名为 PRICE 的结构化方法，用于适配大型语言模型进行短期比特币价格预测。PRICE 基于 4-bit 量化的 LLaMA-3 8B 模型，整合了多种适配策略。通过消融实验，研究表明各个组件均有助于提升预测性能。对比实验显示，PRICE 在验证集和测试集上均取得最低预测误差，且性能优于专门的基础模型。这些发现表明，适配选择对于数值时间序列预测至关重要。",
-      "contentType": "paper",
-      "tagsEn": [
-        "Large Language Models",
-        "Bitcoin Forecasting",
-        "Time Series",
-        "Parameter-Efficient Fine-Tuning",
-        "LoRA"
-      ],
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "tags": [
-        "大型语言模型",
-        "比特币预测",
-        "时间序列预测",
-        "参数高效微调",
-        "LoRA"
-      ],
-      "whyItMattersEn": "This work provides systematic guidance for effectively employing LLMs in financial forecasting, clarifying the joint impact of various adaptation strategies, which could promote broader adoption of LLMs in quantitative finance and data-scarce domains, and set foundation for future research.",
-      "limitations": "研究局限于比特币短期预测，未涉及其他加密货币或更长的预测周期；实验基于 LLaMA-3 8B 模型，未评估更大规模模型；预测结果受加密货币市场的高噪音和极端事件影响，泛化性尚需验证。",
-      "keyPoints": [
-        "提出了 PRICE 框架，用于系统性研究 LLM 在比特币价格预测中的适配选择；",
-        "PRICE 包含 LoRA 微调、递归多步推理、整数数值表示、上下文任务格式提示和零温度解码；",
-        "消融实验显示每个组件均能提升预测的准确性和稳定性；",
-        "与多种变换器和时间序列基础模型相比，PRICE 取得最低预测误差。"
-      ],
-      "titleEn": "Systematic Study of LLM Adaptation Choices: The PRICE Framework for Bitcoin Price Forecasting",
-      "sourceGroup": "论文"
-    },
-    {
-      "summaryEn": "The study introduces WearableQA, a benchmark of 4,084 ten-option multiple-choice questions derived from longitudinal wearable data of 200 real users. A dual-grounding framework combining literature and population-statistical validation was used. Evaluation of 14 LLMs shows accuracies ranging from 19.6% to 72.9% (chance 10%), with most below 60%. The authors argue the benchmark effectively differentiates model capabilities and remains unsolved.",
-      "title": "WearableQA：评估大模型对真实可穿戴数据的推理能力",
-      "whyItMatters": "WearableQA填补了现有基准缺乏对真实可穿戴数据推理评估的空白，提供诊断性工具以区分模型在健康和数据处理上的能力，对AI在健康监测领域的应用评估具有参考价值。",
-      "publishedAt": "2026-09-07T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "arXiv cs.CL",
-      "limitationsEn": "The description is based only on the abstract; construction details and sample questions are not provided. The exact models and versions evaluated are not listed. Question generation relies on statistical patterns which may not cover individual anomalies.",
-      "summaryProvider": "deepseek",
-      "slug": "wearableqa-a-benchmark-for-health-reasoning-over-79f5371de4",
-      "score": 77.0,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI × 量化",
-      "keyPointsEn": [
-        "WearableQA contains 4,084 ten-option MCQs based on up to 500 days of daily wearable data, blood biomarkers, and demographics from 200 real users.",
-        "16 question types organized along two axes: data vs. health reasoning, and single vs. cross-signal reasoning.",
-        "Dual-grounding framework ensures reliable questions: literature-grounded and population-grounded physiological patterns.",
-        "Evaluation of 14 LLMs yields accuracies from 19.6% to 72.9% (10% random baseline), most below 60%.",
-        "Benchmark preserves authentic wearable distributions, including device noise and inter-individual variability."
-      ],
-      "description": "现有基准很少评估AI系统对真实用户长期可穿戴数据的推理能力。WearableQA基准包含来自200名真实用户的4084道选择题，基于长达500天的可穿戴时间序列、血液生物标志物和人口统计信息构建，并保留了设备噪声和个体差异。该基准设计了16种问题类型，从数据和健康推理、单信号和跨信号推理两个维度评估模型能力，为可穿戴健康领域的AI评估提供了新工具。",
-      "descriptionEn": "Existing benchmarks rarely evaluate AI systems' reasoning over real users' longitudinal wearable data. WearableQA includes 4,084 multiple-choice questions from 200 real users' up to 500 days of daily measurements, preserving authentic data distributions with device noise and inter-individual variability. It introduces 16 question types to assess data vs. health reasoning and single vs. cross-signal reasoning, providing a new tool for evaluating AI in wearable health.",
+      "limitations": "研究基于2006-2026年的特定样本期，结果可能受到市场环境的影响；交易成本为保守估计，实际成本可能变化；波动率控制和预测方法基于历史数据，未来可能失效；黄金作为替代品和通胀对冲的表现受特定时期影响。",
       "features": [
         {
           "id": "artifact:paper",
@@ -309,12 +395,163 @@
           "confidence": 1.0
         },
         {
-          "id": "method:time-series",
-          "facet": "method",
-          "value": "time-series",
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
           "label": {
-            "zh": "时间序列",
-            "en": "Time Series"
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:quantitative-finance",
+          "facet": "topic",
+          "value": "quantitative-finance",
+          "label": {
+            "zh": "量化金融",
+            "en": "Quantitative Finance"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.99
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "summaryEn": "The paper investigates simple methods to improve traditional fixed-weight stock/bond/gold portfolios. Using volatility control (mixing the fixed-weight portfolio with cash to target a volatility) and convex optimization-based dynamic portfolios (with simple return forecasts or economic data forecasts), they show superior performance in Sharpe ratio and drawdown over benchmarks and standard methods like risk parity, during 2006-2026. The authors rely on public data and standard tools, but acknowledge limitations including limited sample period and conservative cost estimates.",
+      "limitationsEn": "The study is based on a specific sample period from 2006 to 2026, and results may be influenced by market conditions; trading costs are conservatively estimated and actual costs may vary; volatility control and forecasting methods rely on historical data and may fail in the future; gold's performance as an alternative and inflation hedge is subject to period-specific effects.",
+      "summary": "该论文探讨了通过简单方法改进传统股票/债券/黄金固定权重组合的可行性。作者使用波动率控制策略（将固定权重组合与现金混合以目标波动率）以及基于凸优化的动态组合（包含简单回报预测和经济数据预测），在2006-2026年样本期内，相比基准和风险平价等标准方法，这些动态组合在夏普比率、回撤等指标上表现更优。作者指出，该方法利用公开数据和标准量化金融工具，但存在样本期有限、交易成本估计保守等局限。",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "tagsEn": [
+        "dynamic asset allocation",
+        "volatility targeting",
+        "convex optimization",
+        "public data",
+        "quantitative investing"
+      ],
+      "originalTitle": "Simple Dynamic Stock/Bond/Gold Portfolios",
+      "keyPointsEn": [
+        "Traditional 60/40 or 50/30/20 portfolios serve as improvement benchmarks",
+        "Simple volatility control (dynamically mixing with cash) improves risk-adjusted returns and drawdowns",
+        "Convex optimization-based dynamic portfolios (using simple return or economic forecasts) further enhance performance",
+        "The proposed methods outperform standard risk-based allocation like risk parity and minimum variance",
+        "All methods use only public data and standard quantitative finance tools"
+      ],
+      "domain": "量化研究",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "混合线性与非线性神经网络提升电价预测精度与效率",
+      "score": 84.01,
+      "titleEn": "Hybrid Linear and Neural Network Models Enhance Electricity Price Forecasting Accuracy and Efficiency",
+      "whyItMattersEn": "Accurate yet efficient forecasting is crucial for power market operations; this approach offers a scalable solution that reduces computational overhead without compromising precision, relevant for real-time or large-scale applications.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "提出多变量混合神经网络，融合线性和非线性结构以捕捉电价中的复杂关系",
+        "创新部分在线学习策略，结合warm-starting与分阶段超参数配置，显著降低计算时间",
+        "集成伯恩斯坦在线聚合（BOA）进行预测组合，进一步提升精度",
+        "在主要欧洲电力市场六年数据上验证，RMSE降低11-12%，MAE降低14-17%"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2601.02856",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "电力市场预测对投资组合管理和电力调度至关重要，该方法在保证精度的同时显著降低计算成本，适用于高频或大规模预测场景，为电价预测提供更高效的解决方案。",
+      "descriptionEn": "This study proposes a multivariate hybrid neural network combining linear and nonlinear structures, a novel partial online learning strategy for computational efficiency, and Bernstein Online Aggregation for accuracy, yielding 11-12% RMSE and 14-17% MAE reductions in day-ahead forecasting.",
+      "slug": "electricity-price-forecasting-bridging-linear-mo-b6482d0967",
+      "description": "本研究提出一种多变量混合神经网络架构，结合线性与非线性前馈结构，并引入部分在线学习策略与伯恩斯坦在线聚合，在降低计算成本的同时提高日前电价预测精度，较现有方法RMSE降低11-12%，MAE降低14-17%。",
+      "sourceName": "arXiv cs.LG",
+      "tags": [
+        "电价预测",
+        "神经网络",
+        "混合模型",
+        "在线学习",
+        "预测组合",
+        "计算效率"
+      ],
+      "id": "b6482d096733890d",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 3389,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 85,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.84,
+          "financeEvidence": [
+            "portfolio"
+          ],
+          "quantitativeEvidence": [
+            "optimization"
+          ],
+          "aiEvidence": [
+            "machine-learning"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 81.25,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "limitations": "该研究基于特定欧洲市场和六年数据，结果可能不适用于其他市场或时期；具体数据集和基准实现未在摘要中详尽描述；部分在线学习策略和BOA组合的优势依赖超参数配置，泛化性需进一步验证。",
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "method:forecasting",
+          "facet": "method",
+          "value": "forecasting",
+          "label": {
+            "zh": "预测",
+            "en": "Forecasting"
           },
           "evidence": "content.keyword",
           "confidence": 0.8
@@ -340,102 +577,117 @@
           },
           "evidence": "content.finance+quantitative",
           "confidence": 0.84
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
+      "summaryEn": "The study develops a hybrid model blending linear and nonlinear feed-forward networks, integrates partial online learning with warm-starting and stage-specific hyperparameters to cut computational costs, and applies Bernstein Online Aggregation for forecast combination. Tested on six years of European market data, it outperforms benchmarks in both accuracy and computational efficiency, with the authors identifying the online learning strategy as a key contribution.",
+      "limitationsEn": "Results derive from specific European markets and a six-year period, and may not generalize to other contexts; details of the dataset and benchmark implementations are not fully disclosed; model performance may rely on careful hyperparameter tuning and the benefits of partial online learning require broader validation.",
+      "summary": "该研究针对欧洲主要电力市场，提出混合线性与非线性神经网络模型，通过部分在线学习策略（warm-starting和分阶段超参数配置）减少计算时间，并结合伯恩斯坦在线聚合进行预测组合。实验基于六年数据，结果显示所提方法在预测精度和计算效率上均优于对比的基准模型。作者认为该策略是主要贡献。",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "tagsEn": [
+        "electricity price forecasting",
+        "neural networks",
+        "hybrid model",
+        "online learning",
+        "forecast combination",
+        "computational efficiency"
+      ],
+      "originalTitle": "Electricity Price Forecasting: Bridging Linear Models, Neural Networks and Online Learning",
+      "keyPointsEn": [
+        "Proposes a multivariate hybrid neural network integrating linear and nonlinear layers to capture complex price dynamics",
+        "Introduces a partial online learning strategy with warm-starting and distinct hyperparameters per stage, greatly reducing computation time",
+        "Incorporates Bernstein Online Aggregation (BOA) for forecast combination to improve accuracy",
+        "Validates on six years of European data, achieving RMSE reductions of 11-12% and MAE reductions of 14-17%"
+      ],
+      "domain": "AI × 量化",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "医疗流程RPA机会识别与优先级排序的数据驱动框架",
+      "score": 81.48,
+      "titleEn": "A Data-Driven Framework for Identifying and Prioritizing RPA Opportunities in Healthcare Processes",
+      "whyItMattersEn": "The framework provides a structured method to address the high failure rate of RPA projects by offering a repeatable process for screening, prioritizing, and selecting automation opportunities, considering financial returns and risks, thus enabling hospitals to allocate resources more effectively and reduce administrative burden.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "提出四模块框架：流程分类法、优先级排序、工具层级选择、投资回报模块",
+        "流程分类法涵盖五个价值流中的二十个常见医院流程",
+        "优先级排序使用层次分析法，包含一致性检查，生成自动化适宜性指数",
+        "工具层级选择推荐成本最低的足够满足流程复杂度、集成和合规要求的技术",
+        "投资回报模块量化劳动力节省、错误成本规避、回收期和净现值"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2609.09137",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该框架为解决RPA项目失败率高的问题提供了结构化的方法，通过可重复的流程来筛选、排序和选择自动化机会，并考虑财务回报和风险，从而帮助医院更有效地配置资源并减少行政负担。",
+      "descriptionEn": "This study proposes a four-module framework to systematically identify, prioritize, and match robotic process automation opportunities in healthcare processes, addressing the lack of structure and financial evaluation in existing methods.",
+      "slug": "a-data-driven-framework-for-identifying-and-prio-98ed7ab065",
+      "description": "该研究提出一个四模块框架，用于系统性地识别、优先级排序和匹配医疗流程中的机器人流程自动化机会，解决现有方法缺乏结构化和财务评估的问题。",
+      "sourceName": "arXiv cs.CL",
+      "tags": [
+        "机器人流程自动化",
+        "医疗流程",
+        "优先级排序",
+        "投资回报分析",
+        "决策框架"
+      ],
+      "id": "98ed7ab065d437c9",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 2271,
+        "comparisonCohortSize": 3389,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 80,
+        "relevanceScore": 90,
         "topicClassification": {
           "classification": "quantitative-finance",
-          "confidence": 0.84,
+          "confidence": 0.96,
           "financeEvidence": [
-            "securities"
+            "portfolio",
+            "returns",
+            "finance"
           ],
           "quantitativeEvidence": [
-            "time-series"
+            "optimization",
+            "stochastic",
+            "calibration"
           ],
           "aiEvidence": [
             "language-model"
           ],
           "sourcePrior": "AI × 量化"
         },
-        "contentValueScore": 74.0,
+        "contentValueScore": 78.5,
         "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 10.0,
+          "evidence": 5.0,
+          "actionability": 15.0,
           "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 90.0,
+        "freshnessScore": 96.67,
         "sourceQualityScore": 72.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "retrievedAt": "2026-09-07T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2609.05405",
-      "id": "79f5371de41555e5",
-      "originalTitle": "WearableQA: A Benchmark for Health Reasoning over Real-World Wearable Data",
-      "summary": "该研究构建了WearableQA基准，包含4084道10选1选择题，数据来自200名真实用户的纵向可穿戴记录。通过双 grounding 框架（文献grounding和基于统计验证的群体grounding）构建问题。评估了14个商业和开源LLM，准确率从19.6%到72.9%不等，大多数低于60%。作者认为该基准能有效区分模型能力，且尚未被解决。",
-      "contentType": "paper",
-      "tagsEn": [
-        "wearable data",
-        "benchmark",
-        "LLM",
-        "health reasoning",
-        "AI evaluation"
-      ],
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "tags": [
-        "可穿戴数据",
-        "基准测试",
-        "大语言模型",
-        "健康推理",
-        "AI评估"
-      ],
-      "whyItMattersEn": "WearableQA addresses the gap in evaluating AI reasoning on real-world wearable data. It offers a diagnostic benchmark to differentiate model capabilities in health and data processing, valuable for assessing AI in health monitoring applications.",
-      "limitations": "基准来源为摘要，具体构建细节和题目示例未提供。评估模型范围和版本未列出。问题生成和验证过程依赖统计模式，可能未完全涵盖个体化异常。",
-      "keyPoints": [
-        "WearableQA包含4084道10选1选择题，基于200名真实用户最多500天的每日可穿戴数据、血液生物标志物和人口统计信息。",
-        "问题类型分为16种，沿两个轴：数据vs健康推理，单信号vs跨信号推理。",
-        "采用双grounding框架确保问题可靠性：文献grounding和群体grounding（统计验证）。",
-        "评估了14个LLM，准确率19.6%至72.9%（随机基线10%），多数低于60%。",
-        "基准保留真实可穿戴数据分布，包括设备噪声和个体差异。"
-      ],
-      "titleEn": "WearableQA: A Benchmark for Reasoning over Real-World Wearable Data",
-      "sourceGroup": "论文"
-    },
-    {
-      "summaryEn": "The technical report presents EXAONE Finance, a financial time-series foundation model designed to overcome the limitations of general-domain models when applied to finance. The authors argue that standard self-attention backbones are computationally expensive and fail to capture financial market dynamics. To improve efficiency and robustness, they replace self-attention with causal 1D convolutions for temporal mixing and group-aware pooling MLPs for variate mixing, and introduce masked context augmentation to handle missing data. Pretrained on a broad financial corpus, EXAONE Finance achieves state-of-the-art performance across all three FinVerse evaluation tiers: point forecasting accuracy, cross-sectional ranking, and portfolio profitability.",
-      "title": "EXAONE金融预测模型：面向金融领域的时序基础模型",
-      "whyItMatters": "金融时间序列通常具有长序列、多变量和缺失值等特点，而现有通用时序基础模型在效率和适应性方面存在局限。EXAONE Finance通过设计无注意力架构和缺失稳健的训练方法，有望提高金融预测的精度和效率，为量化投资和风险管理提供更可靠的工具。",
-      "publishedAt": "2026-09-07T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "arXiv cs.LG",
-      "limitationsEn": "The report does not validate performance under extreme market conditions, lacks statistical significance tests against other models across datasets, and does not discuss potential data leakage or look-ahead bias risks.",
-      "summaryProvider": "deepseek",
-      "slug": "exaone-forecast-for-finance-7095016fd1",
-      "score": 76.73,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI × 量化",
-      "keyPointsEn": [
-        "EXAONE Finance is a financial time-series foundation model with an attention-free architecture.",
-        "It employs causal 1D convolutions for temporal mixing and group-aware pooling MLPs for variate mixing.",
-        "Masked context augmentation simulates contiguous missing spans during training, improving robustness to missing data.",
-        "Pretraining corpus covers equities, FX, commodities, crypto-assets, fixed income, and macro indicators.",
-        "Achieves state-of-the-art results on FinVerse across all evaluation tiers."
-      ],
-      "description": "该研究针对金融时序数据长序列、多通道、间歇性缺失的特点，提出了一种无注意力机制的时序基础模型EXAONE Finance。新模型采用时间卷积和分组感知池化MLP，替代标准自注意力机制，并通过掩码上下文增强提升对缺失数据的鲁棒性，在金融预测基准FinVerse上取得了优异表现。",
-      "descriptionEn": "This study addresses long, many-channel, and intermittently observed financial time series by introducing EXAONE Finance, a time-series foundation model that replaces self-attention with linear-time operators. It achieves state-of-the-art results on the FinVerse benchmark, underscoring its practical value for financial forecasting.",
+      "limitations": "该框架是文献的概念综合，而非基于医院原始数据校准的工具；其流程分类法、权重和财务参数基于文献或假设，实际应用时需进行调整和验证；需要讨论HIPAA合规要求；框架的有效性需要进一步的实证验证。",
       "features": [
         {
           "id": "artifact:paper",
@@ -460,15 +712,417 @@
           "confidence": 0.8
         },
         {
-          "id": "method:time-series",
-          "facet": "method",
-          "value": "time-series",
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
           "label": {
-            "zh": "时间序列",
-            "en": "Time Series"
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.96
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
           },
           "evidence": "content.keyword",
           "confidence": 0.8
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "summaryEn": "The paper proposes a data-driven framework for identifying and prioritizing robotic process automation opportunities in hospital settings. The framework includes a process taxonomy, prioritization module, tool-tier selection module, and ROI module. Applied to a synthetic portfolio, the authors demonstrate feasibility, but emphasize that it is a conceptual synthesis rather than empirical calibration.",
+      "limitationsEn": "The framework is a conceptual synthesis of the literature, not an instrument calibrated on primary hospital data; its process taxonomy, weights, and financial parameters are based on literature or assumptions, requiring adjustment and validation for practical application; HIPAA compliance needs to be discussed; the effectiveness of the framework requires further empirical validation.",
+      "summary": "该论文提出一个数据驱动的框架，用于在医院环境中识别和优先考虑机器人流程自动化机会。框架包括流程分类法、优先级排序模块、工具层级选择模块和投资回报模块。通过对合成投资组合的应用，作者展示了框架的可行性，但强调其作为概念综合而非实证校准。",
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ],
+      "tagsEn": [
+        "Robotic Process Automation",
+        "Healthcare Processes",
+        "Prioritization",
+        "Return on Investment",
+        "Decision Framework"
+      ],
+      "originalTitle": "A Data-Driven Framework for Identifying and Prioritizing RPA Opportunities in Healthcare Processes",
+      "keyPointsEn": [
+        "Proposes a four-module framework: process taxonomy, prioritization, tool-tier selection, and ROI modules",
+        "Process taxonomy covers twenty common hospital processes across five value streams",
+        "Prioritization uses analytic hierarchy process with consistency check, deriving an automation suitability index",
+        "Tool-tier selection recommends least-cost technology sufficient for complexity, integration, and compliance profile",
+        "ROI module quantifies labor savings, error-cost avoidance, payback, and net present value"
+      ],
+      "domain": "AI × 量化",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "几何感知残差修正：提升SABR模型隐含波动率近似精度",
+      "score": 79.87,
+      "titleEn": "Geometry-Aware Residual Correction of Hagan's SABR Implied Volatility Formula",
+      "whyItMattersEn": "It offers an interpretable correction to analytical approximations in derivatives pricing, balancing accuracy and efficiency, with practical value for real-time risk management and calibration in trading.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "提出混合方法：解析公式+机器学习残差修正。",
+        "引入几何特征作为神经网络输入，增强模型对SABR动力学的表示。",
+        "训练网络学习Hagan公式的残差，而非直接拟合隐含波动率。",
+        "在常规参数域和极端场景下，相比解析近似和标准神经网络，精度和稳健性提升。",
+        "方法轻量，保持可解释性，适用于实时定价与校准。"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2605.06604",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "为金融衍生品定价中解析近似的局限性提供了一种可解释的修正方案，兼顾精度与效率，对交易环境中的实时风险管理和校准具有实用价值。",
+      "descriptionEn": "This paper proposes a hybrid method combining analytical formulas with machine learning, using geometric features and residual learning to improve Hagan's approximation accuracy for SABR implied volatility. Its novelty lies in leveraging the geometry of SABR dynamics to enhance neural network inputs and learning residuals instead of direct volatility, balancing interpretability and accuracy for real-time pricing and calibration.",
+      "slug": "a-geometry-aware-residual-correction-of-hagan-s--82abdfa5c8",
+      "description": "本文提出一种混合方法，将解析公式与机器学习结合，通过引入几何特征和残差学习，改进Hagan近似公式在SABR模型隐含波动率上的精度。新在利用SABR动力学的几何属性增强神经网络输入，并学习残差而非直接预测波动率，兼顾可解释性与准确性，适用于实时定价与校准。",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "SABR模型",
+        "隐含波动率",
+        "机器学习",
+        "残差修正",
+        "几何特征"
+      ],
+      "id": "82abdfa5c85e995c",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 3389,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 90,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.9,
+          "financeEvidence": [
+            "trading",
+            "market-risk"
+          ],
+          "quantitativeEvidence": [
+            "stochastic",
+            "calibration"
+          ],
+          "aiEvidence": [
+            "machine-learning"
+          ],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 72.19,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 3.69,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "limitations": "局限性包括：数值实验可能仅限于部分参数范围，未涵盖所有极端条件；机器学习模型的泛化能力依赖于训练数据的代表性；残差修正的有效性高度依赖于Hagan公式的基线准确性，且未在真实市场数据上验证；实际部署时可能存在过拟合风险。",
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.9
+        }
+      ],
+      "summaryEn": "The authors propose a hybrid framework that retains Hagan's analytical formula as a baseline and uses neural networks to learn its residuals. Network inputs include geometry-aware features. Numerical experiments show improved accuracy and robustness over pure analytical or pure neural approaches under normal and stressed market conditions. The authors argue the method is lightweight, structurally consistent, and suitable for real-time trading environments.",
+      "limitationsEn": "Limitations include: numerical experiments may be restricted to certain parameter ranges, not covering all extreme conditions; generalization of the machine learning model depends on representative training data; the effectiveness of residual correction relies heavily on the accuracy of Hagan's baseline formula; no validation on real market data; there is potential overfitting risk in practical deployment.",
+      "summary": "作者提出一种混合框架：保留Hagan解析公式作为基础，使用神经网络学习其残差。网络输入包含几何感知变量。数值实验显示在常规和压力市场下，该方法比纯解析或纯神经网络更准确、稳健。作者认为该方法轻量且结构一致，适合实时交易环境。",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "tagsEn": [
+        "SABR model",
+        "implied volatility",
+        "machine learning",
+        "residual correction",
+        "geometric features"
+      ],
+      "originalTitle": "A Geometry-Aware Residual Correction of Hagan's SABR Implied Volatility Formula",
+      "keyPointsEn": [
+        "Proposes a hybrid method: analytical formula plus machine-learned residual correction.",
+        "Introduces geometric features as neural network inputs to better represent SABR dynamics.",
+        "Trains the network to learn residuals of Hagan's formula, not implied volatility directly.",
+        "Shows improved accuracy and robustness versus analytical approximations and standard neural networks under realistic and stressed parameter domains.",
+        "Method is lightweight, retains interpretability, and suits real-time pricing and calibration."
+      ],
+      "domain": "AI × 量化",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "基于可微代理模型的分期神经优化实现预布局信号完整性设计空间探索加速",
+      "score": 78.93,
+      "titleEn": "Accelerating Pre-Layout Signal Integrity DSE via Amortized Neural Optimization with Differentiable Surrogates",
+      "whyItMattersEn": "This work offers a new path to overcome computational bottlenecks in high-speed signal integrity design, allowing designers to explore the design space in real-time, thus shortening product development cycles. The amortized optimization idea may generalize to other engineering optimization problems with expensive simulations.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "ANO采用完全可微的神经网络代理模型，从中提取梯度信息以训练全局优化策略，避免了推理时的迭代黑盒搜索。",
+        "训练后的ANO策略能将不同通道上下文映射到近最优设计参数，仅需一次确定性前向传播。",
+        "在三个SI设计场景（DDR5 DFE、SerDes Tx/Rx协同均衡、DDR3 DQS差分对）中验证，相对实例特定黑盒算法牺牲约10%最优性，但获得3~4个数量级加速。",
+        "针对32万实例的多角点SerDes扫描，ANO将原本需数天的迭代计算缩短至毫秒级批处理。",
+        "该方法将计算密集的SI优化转化为实时交互式预布局设计空间探索。"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2606.07463",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该研究为高速信号完整性设计中的计算瓶颈提供了新路径，使设计人员能够实时探索设计空间，大幅缩短产品开发周期。ANO的学习式优化思想可推广至其他依赖昂贵模拟的工程优化问题。",
+      "descriptionEn": "The paper introduces Amortized Neural Optimization (ANO) to speed up pre-layout signal integrity (SI) design space exploration by training a global optimization policy offline that can output near-optimal design parameters in one forward pass. This replaces slow iterative black-box optimization, reducing multi-corner sweeps from days to milliseconds, enabling real-time interactive DSE.",
+      "slug": "amortized-neural-optimization-for-pre-layout-sig-5691a2c9ec",
+      "description": "该研究提出“分期神经优化”（ANO）方法，将昂贵的迭代优化过程离线训练为全局策略，使得在推理时只需一次前向传播即可获得近最优设计参数，从而将预布局信号完整性（SI）设计空间探索从数天缩短至毫秒级。新颖之处在于利用可微代理模型提取梯度来训练优化策略，避免了传统黑盒迭代，实现了多角点扫描的实时交互。",
+      "sourceName": "arXiv cs.LG",
+      "tags": [
+        "信号完整性",
+        "预布局设计",
+        "神经网络优化",
+        "可微代理模型",
+        "设计空间探索"
+      ],
+      "id": "5691a2c9ecdd6201",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 3389,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 80,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.84,
+          "financeEvidence": [
+            "trading"
+          ],
+          "quantitativeEvidence": [
+            "optimization"
+          ],
+          "aiEvidence": [
+            "machine-learning"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 74.0,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "limitations": "ANO以约10%的最优性损失换取速度，意味着设计质量可能略低于传统黑盒优化。文中仅验证了特定场景，其泛化性未知。方法依赖可微代理模型，复杂物理效应可能难以准确建模，限制其适用性。该研究是预印本，未经同行评审。",
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.84
+        }
+      ],
+      "summaryEn": "The authors propose ANO to address the high cost of simulation and optimization in pre-layout SI design. They note that ML surrogates speed up simulation but still rely on iterative black-box search. ANO learns from gradients of a differentiable surrogate to train a policy mapping channel contexts to near-optimal designs. Experiments on DDR5, SerDes, and DDR3 scenarios show ~10% optimality loss but 3-4 orders speedup, and reduce a 320k-instance sweep to milliseconds. The author argues this transforms SI optimization into real-time interactive DSE.",
+      "limitationsEn": "ANO trades ~10% optimality for speed, meaning design quality might be slightly inferior. Validation is limited to specific scenarios, and generalizability is unknown. The method depends on differentiable surrogates; complex physical effects may be hard to model accurately, restricting applicability. The paper is a preprint and has not been peer-reviewed.",
+      "summary": "本文提出ANO框架，针对预布局SI设计中的仿真和优化成本高的问题。作者指出传统机器学习代理模型虽加速仿真，但优化仍依赖迭代黑盒搜索。ANO通过离线学习全局优化策略，在推理时映射通道上下文到近最优设计参数。基于三个SI场景（DDR5 DFE、9维SerDes协同均衡、DDR3差分对眼图优化）验证，在牺牲约10%最优性的情况下获得3至4个数量级加速，并在32万实例的SerDes扫描中将数天计算缩短至毫秒。观点：该方法将昂贵的SI优化变为实时交互式DSE。",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "tagsEn": [
+        "signal integrity",
+        "pre-layout design",
+        "neural optimization",
+        "differentiable surrogate",
+        "design space exploration"
+      ],
+      "originalTitle": "Amortized Neural Optimization for Pre-Layout Signal Integrity Design Space Exploration using Differentiable Surrogates",
+      "keyPointsEn": [
+        "ANO uses a fully differentiable neural surrogate to obtain gradients for training a global optimization policy, avoiding iterative black-box inference.",
+        "The trained policy maps different channel contexts to near-optimal design parameters via a single deterministic forward pass.",
+        "Validated on three SI scenarios (DDR5 DFE, SerDes co-equalization, DDR3 DQS differential pair) with ~10% loss in optimality and 3-4 orders speedup.",
+        "For a 320,000-instance multi-corner SerDes sweep, ANO reduces days of computation to milliseconds.",
+        "This enables real-time interactive pre-layout design space exploration."
+      ],
+      "domain": "AI × 量化",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "渐近信息神经网络在Black-Scholes隐含波动率计算中的应用",
+      "score": 78.31,
+      "titleEn": "Asymptotically-Informed Neural Networks for Implied Volatility Calculation",
+      "whyItMattersEn": "Implied volatility is fundamental in finance, yet its computation is challenging under extreme parameters. This method offers high precision and efficiency, potentially improving option pricing, calibration, and risk management.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "提出一种渐近信息神经网络架构，用于Black-Scholes隐含波动率计算。",
+        "通过门控系统对价格-对数货币性域进行可训练划分。",
+        "利用不同波动率区域的渐近行为，在每个区域进行局部逼近。",
+        "数值实验显示比标准前馈神经网络精度提高数个数量级。",
+        "神经网络输出为三阶Householder迭代提供高质量初值，快速达到机器精度。"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2609.05491",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "隐含波动率在金融中广泛使用，但精确计算尤其在极端参数下具有挑战性。该方法提供了一种高精度、高效率的数值方案，有助于提高期权定价、模型校准和风险管理的可靠性。",
+      "descriptionEn": "This paper presents a novel neural network architecture that incorporates asymptotic information to efficiently compute Black-Scholes implied volatility. By using a gating system to partition the price-log-moneyness domain and employing specialized local approximators, the method achieves high accuracy and generalization, especially in asymptotic regimes of extreme option prices or maturities.",
+      "slug": "asymptotically-informed-neural-networks-for-blac-3e96b7d7d9",
+      "description": "该研究提出了一种新型的渐近信息神经网络架构，用于高效计算Black-Scholes隐含波动率。该架构通过门控系统对价格-对数货币性域进行可训练划分，并在不同区域使用专门的局部逼近，显著提升了计算的精度和泛化能力，尤其在极端期权价格或期限的渐近区域表现优异。",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "隐含波动率",
+        "神经网络",
+        "Black-Scholes",
+        "量化金融",
+        "门控架构"
+      ],
+      "id": "3e96b7d7d9a091ac",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 3389,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 85,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.9,
+          "financeEvidence": [
+            "securities",
+            "market-risk",
+            "finance"
+          ],
+          "quantitativeEvidence": [
+            "calibration"
+          ],
+          "aiEvidence": [
+            "machine-learning"
+          ],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 69.96,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 5.0,
+          "novelty": 8.0,
+          "specificity": 3.71,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "limitations": "研究主要基于Black-Scholes模型的假设，未考虑真实市场中的波动率微笑、跳跃或随机波动率等复杂因素。神经网络训练需要大量数据，且对训练集之外的参数可能泛化能力有限。本文未提供理论上的误差上界，数学性质分析不足。",
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
         },
         {
           "id": "platform:arxiv",
@@ -493,113 +1147,113 @@
           "confidence": 0.9
         },
         {
-          "id": "topic:portfolio",
+          "id": "topic:risk",
           "facet": "topic",
-          "value": "portfolio",
+          "value": "risk",
           "label": {
-            "zh": "投资组合",
-            "en": "Portfolio"
+            "zh": "风险",
+            "en": "Risk"
           },
           "evidence": "content.keyword",
           "confidence": 0.8
         }
       ],
+      "summaryEn": "The paper proposes an asymptotically-informed neural network for improving numerical computation of implied volatility. The authors exploit distinct behaviors of the Black-Scholes function in different volatility regimes to design a gated architecture that partitions the domain and learns local approximations. Experiments show significant accuracy improvements over standard feed-forward networks and excellent generalization. The network outputs also provide high-quality initial guesses for a third-order Householder scheme, enabling near machine precision after two iterations.",
+      "limitationsEn": "The study is based on Black-Scholes assumptions and ignores market complexities like volatility smile, jumps, or stochastic volatility. Neural networks require substantial training data and may generalize poorly beyond the training domain. The paper lacks theoretical error bounds and rigorous mathematical analysis.",
+      "summary": "本文主要介绍了一种结合渐近分析信息的神经网络方法，用于改善隐含波动率的数值计算。作者提出利用Black-Scholes定价函数在不同波动率区域的行为差异，设计了一种带有门控系统的神经网络架构，将定义域划分为多个区域，并在每个区域学习局部逼近函数。实验表明，该方法在相对精度上比标准前馈神经网络高出数个数量级，并且泛化性能良好。此外，神经网络输出为三阶Householder迭代提供了高质量初值，经过两次迭代即可达到接近机器精度。",
+      "discoveredBy": [
+        "arXiv cs.LG",
+        "arXiv q-fin"
+      ],
+      "tagsEn": [
+        "implied volatility",
+        "neural network",
+        "Black-Scholes",
+        "quantitative finance",
+        "gated architecture"
+      ],
+      "originalTitle": "Asymptotically-informed neural networks for Black-Scholes implied volatility computation",
+      "keyPointsEn": [
+        "Propose an asymptotically-informed neural network architecture for implied volatility computation.",
+        "Learnable partition of price-log-moneyness domain via gating functions.",
+        "Exploit asymptotic behaviors in different volatility regions for local approximation.",
+        "Outperform standard feed-forward networks by orders of magnitude in accuracy.",
+        "Network outputs seed efficient Householder iteration to machine precision."
+      ],
+      "domain": "AI × 量化",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "STQA基准：面向股票历史与预测数据的表格问答评估",
+      "score": 77.87,
+      "titleEn": "STQA Benchmark: Evaluating Table Question Answering on Stock Historical and Forecasted Data",
+      "whyItMattersEn": "This benchmark fills the gap in evaluating forecast reasoning in financial QA, providing a testbed for developing reliable financial agents, with practical implications.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "STQA基准涵盖4417只股票，包含31,400个问答对，由专家模板生成，并有细粒度意图和槽位标注。",
+        "问题类型包括历史查询、数值预测和预测推理，用于全面评估模型能力。",
+        "SQFRS系统整合SQL检索和预测工具，但实验显示预测推理是大语言模型的短板。",
+        "揭示了工具协同和不确定性推理的瓶颈，为未来研究提供方向。"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2609.06117",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该基准填补了金融问答中预测推理评估的空白，为开发可靠的金融智能体提供测试和比较的平台，具有实践意义。",
+      "descriptionEn": "The study introduces STQA, a benchmark for systematic evaluation of natural language QA over historical stock data, numerical forecasts, and forecast-based reasoning, addressing the fragmentation in existing financial QA benchmarks. It provides a unified testbed for financial LLMs and agents, with emphasis on the challenging reasoning from forecasts.",
+      "slug": "stqa-a-benchmark-for-stock-focused-tabular-quest-c89fdbabfd",
+      "description": "该研究提出STQA基准，用于系统评估自然语言问答在历史数据、数值预测及基于预测推理上的表现，填补了现有金融问答基准碎片化的空白。其价值在于为金融领域大语言模型和智能体提供统一测试平台，尤其关注预测推理这一难点。",
+      "sourceName": "arXiv cs.CL",
+      "tags": [
+        "股票",
+        "表格问答",
+        "金融预测",
+        "大语言模型",
+        "基准测试"
+      ],
+      "id": "c89fdbabfddc070d",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 2271,
+        "comparisonCohortSize": 3389,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 95,
+        "relevanceScore": 85,
         "topicClassification": {
           "classification": "quantitative-finance",
-          "confidence": 0.9,
+          "confidence": 0.87,
           "financeEvidence": [
             "securities",
-            "portfolio",
             "finance"
           ],
           "quantitativeEvidence": [
             "time-series"
           ],
           "aiEvidence": [
-            "machine-learning"
+            "language-model",
+            "agents"
           ],
           "sourcePrior": "AI × 量化"
         },
-        "contentValueScore": 72.75,
+        "contentValueScore": 73.34,
         "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 5.0,
-          "novelty": 0.0,
-          "specificity": 10.0,
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 7.09,
           "penalty": 0.0
         },
-        "freshnessScore": 90.0,
-        "sourceQualityScore": 78.0,
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 72.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "retrievedAt": "2026-09-07T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2609.04239",
-      "id": "7095016fd18481e3",
-      "originalTitle": "EXAONE Forecast for Finance",
-      "summary": "该技术报告介绍了一种面向金融预测的时序基础模型EXAONE Finance。作者认为现有通用时序基础模型多依赖自注意力架构，计算成本高，且无法捕捉金融市场的独特动态。为此，他们设计了一种无注意力架构，使用因果一维卷积进行时间混合，使用分组感知池化MLP进行变量混合，并通过掩码上下文增强模拟连续缺失区间。模型在涵盖多种资产类别的金融语料上预训练，并在FinVerse基准的三个评估层级（点预测精度、横截面资产排序、投资组合盈利能力）上取得第一。",
-      "contentType": "paper",
-      "tagsEn": [
-        "financial forecasting",
-        "time series foundation model",
-        "attention-free",
-        "missing data handling",
-        "LLM"
-      ],
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "tags": [
-        "金融预测",
-        "时序基础模型",
-        "无注意力机制",
-        "缺失值处理",
-        "大语言模型"
-      ],
-      "whyItMattersEn": "Financial time series are typically long, multi-channel, and prone to missing values, posing challenges for existing general-purpose time-series models. By introducing an attention-free architecture and a masking-based training strategy, EXAONE Finance promises more efficient and robust financial forecasting, with potential benefits for quantitative trading and risk management.",
-      "limitations": "报告未说明模型在极端市场条件下的表现，也未详细讨论与其他先进模型在不同数据集上的统计显著差异，且可能存在数据泄露等风险。",
-      "keyPoints": [
-        "EXAONE Finance是一种专为金融预测设计的时序基础模型，采用无注意力架构。",
-        "用因果1D卷积进行时间混合，用分组感知池化MLP进行变量混合，替代传统自注意力机制。",
-        "提出掩码上下文增强，在训练中模拟连续缺失区间，增强对金融数据普遍缺失的鲁棒性。",
-        "预训练语料涵盖股票、外汇、大宗商品、加密资产、固定收益和宏观经济指标。",
-        "在FinVerse基准上，该模型在点预测精度、资产排名和组合盈利三个层级均达到最优。"
-      ],
-      "titleEn": "EXAONE Forecast for Finance: A Foundation Model Tailored for Financial Time Series",
-      "sourceGroup": "论文"
-    },
-    {
-      "summaryEn": "WaveletDiff trains diffusion models on wavelet coefficients, using dedicated transformers per decomposition level and cross-level attention with adaptive gating to enable selective information exchange. Energy constraints preserve time-frequency properties during diffusion. Experiments show it outperforms several diffusion baselines on most metrics, with competitive results against a VAE/transformer model while using fewer parameters, but notably underperforms on fMRI data. The authors explain this through wavelet coefficient properties in generative tasks.",
-      "title": "WaveletDiff：基于多级小波扩散的时间序列生成框架",
-      "whyItMatters": "真实时间序列数据稀缺，而现有生成模型难以同时捕捉时间与频率域的多尺度结构。WaveletDiff 为此提供新思路，可能提升医疗、金融、气候等领域中数据增强、异常检测等任务的性能。",
-      "publishedAt": "2026-09-07T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "arXiv cs.LG",
-      "limitationsEn": "WaveletDiff underperforms on certain datasets (e.g., fMRI) relative to specific models, and not all state-of-the-art methods are compared. The model's adaptability may be limited on low signal-to-noise or non-stationary data. These findings are based on the authors' experiments and require independent validation.",
-      "summaryProvider": "deepseek",
-      "slug": "waveletdiff-multilevel-wavelet-diffusion-for-tim-8be1b90bc5",
-      "score": 74.99,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI × 量化",
-      "keyPointsEn": [
-        "WaveletDiff trains diffusion models directly on wavelet coefficients to exploit multi-resolution structure",
-        "Combines per-level transformers, cross-level attention, and adaptive gating for temporal-frequency exchange",
-        "Energy constraints based on Parseval's theorem preserve time-frequency properties during diffusion",
-        "Outperforms several diffusion baselines across six datasets from energy, finance, and neuroscience",
-        "Shows performance gap on fMRI vs EEG, explained by wavelet coefficient properties"
-      ],
-      "description": "该研究提出WaveletDiff，一种直接在 wavelet 系数上训练扩散模型的新框架，以利用时间序列数据的多分辨率结构，通过跨层注意力机制和基于Parseval定理的能量约束，在能量、金融和神经科学等领域的六个真实数据集上优于多种基线，为高保真时间序列生成提供了新方法。",
-      "descriptionEn": "This paper proposes WaveletDiff, a framework that trains diffusion models directly on wavelet coefficients to exploit the multi-resolution structure of time series data. It introduces cross-level attention and energy constraints based on Parseval's theorem, demonstrating improved performance across six real-world datasets in energy, finance, and neuroscience domains, offering a new approach for high-fidelity time series synthesis.",
+      "limitations": "基准依赖模板生成，可能限制自然语言多样性；数据虽大但特定于股票领域，通用性有限。实验评估在文章范围内，但尚未全面验证真实场景中的泛化能力。",
       "features": [
         {
           "id": "artifact:paper",
@@ -624,17 +1278,6 @@
           "confidence": 0.8
         },
         {
-          "id": "method:time-series",
-          "facet": "method",
-          "value": "time-series",
-          "label": {
-            "zh": "时间序列",
-            "en": "Time Series"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
           "id": "platform:arxiv",
           "facet": "platform",
           "value": "arxiv",
@@ -644,6 +1287,17 @@
           },
           "evidence": "source.platform",
           "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         },
         {
           "id": "topic:ai-quant",
@@ -657,101 +1311,97 @@
           "confidence": 0.87
         }
       ],
+      "summaryEn": "The paper presents STQA, a stock-focused tabular QA benchmark built on a large financial dataset covering 4,417 stocks with 31,400 QA pairs derived from expert templates with fine-grained intent and slot annotations. They propose SQFRS, an agent-based framework that orchestrates SQL retrieval and time-series forecasting tools. Experiments show that current LLMs perform well on historical queries but struggle with forecast-based reasoning, revealing bottlenecks in tool coordination and reasoning under uncertainty. The authors position STQA as a rigorous testbed for future financial agent research.",
+      "limitationsEn": "The benchmark relies on template-based questions, limiting diversity of natural language; data is stock-specific, limiting generalizability. Evaluations are within the paper's scope, and generalization in real-world settings requires further validation.",
+      "summary": "该研究介绍了STQA（股票聚焦表格问答）基准，基于大规模金融数据集，覆盖4417只股票，包含31,400个问答对，由专家模板生成，并带有意图和槽位标注。同时，作者提出了SQFRS系统，一个基于智能体的框架，统一编排SQL检索和时间序列预测工具。实验显示，当前大语言模型在历史查询上表现良好，但在基于预测的推理上存在明显挑战，暴露了工具协同和不确定性推理的瓶颈。作者认为STQA可作为金融智能体研究的测试平台。",
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ],
+      "tagsEn": [
+        "stocks",
+        "table QA",
+        "financial forecasting",
+        "LLM",
+        "benchmark"
+      ],
+      "originalTitle": "STQA: A Benchmark for Stock-Focused Tabular Question Answering over Historical and Forecasted Data",
+      "keyPointsEn": [
+        "STQA covers 4,417 stocks and 31,400 QA pairs from expert templates with intent and slot annotations.",
+        "It includes historical queries, numerical forecasts, and forecast reasoning for comprehensive evaluation.",
+        "SQFRS integrates SQL and forecasting tools; experiments show forecast reasoning is a weakness for LLMs.",
+        "Reveals bottlenecks in tool coordination and uncertainty reasoning, guiding future work."
+      ],
+      "domain": "AI × 量化",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "预算感知在线教学：提升网页智能体持续学习效率",
+      "score": 77.72,
+      "titleEn": "Budget-Aware Online Teaching for Web Agents",
+      "whyItMattersEn": "The research offers a practical solution for deploying web agents under budget constraints, enabling lightweight models to learn efficiently from stronger teachers while balancing performance and cost.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "提出预算感知在线教学框架，解决网页智能体在线适应成本高的问题",
+        "通过可解性门控决定何时调用教师模型，优化教学时机",
+        "采用分数引导的回合选择，筛选信息量大的训练数据",
+        "在MiniWoB和TimeWarp实验中，教师调用减少22.6%，学生训练计算减少52.1%"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2609.05513",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该研究为在预算受限条件下部署网页智能体提供了实用方案，通过智能分配教学资源，使轻量级模型能够高效地从强教师模型学习，平衡了性能与成本。",
+      "descriptionEn": "This research addresses the high cost of continuous online adaptation for web agents in real-world deployment. It introduces a budget-aware framework that optimizes when to query the teacher and which data to train on, reducing teaching costs while maintaining performance.",
+      "slug": "when-and-what-to-teach-budget-aware-online-adapt-90b00f3d12",
+      "description": "该研究针对网页智能体部署后需要持续在线适应的问题，提出了一种预算感知的在线教学框架。该框架通过可解性门控和分数引导的回合选择机制，优化了教师模型调用的时机和训练数据的选择，从而在保持性能的同时显著降低教学成本。",
+      "sourceName": "arXiv cs.LG",
+      "tags": [
+        "网页智能体",
+        "在线教学",
+        "预算感知",
+        "强化学习",
+        "教师模型"
+      ],
+      "id": "90b00f3d127e51dc",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 2271,
+        "comparisonCohortSize": 3389,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 90,
+        "relevanceScore": 60,
         "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.87,
-          "financeEvidence": [
-            "finance"
-          ],
+          "classification": "ai-engineering",
+          "confidence": 0.83,
+          "financeEvidence": [],
           "quantitativeEvidence": [
-            "econometrics",
-            "time-series"
+            "optimization"
           ],
           "aiEvidence": [
-            "machine-learning"
+            "machine-learning",
+            "agents"
           ],
           "sourcePrior": "AI × 量化"
         },
-        "contentValueScore": 70.27,
+        "contentValueScore": 72.27,
         "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 10.0,
+          "evidence": 15.0,
+          "actionability": 15.0,
           "novelty": 8.0,
-          "specificity": 6.77,
+          "specificity": 7.27,
           "penalty": 0.0
         },
-        "freshnessScore": 90.0,
+        "freshnessScore": 96.67,
         "sourceQualityScore": 78.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "retrievedAt": "2026-09-07T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2510.11839",
-      "id": "8be1b90bc523da9c",
-      "originalTitle": "WaveletDiff: Multilevel Wavelet Diffusion For Time Series Generation",
-      "summary": "WaveletDiff 通过将扩散模型应用于 wavelet 系数，结合各分解层专用 transformer 和跨层注意力实现时间与频率尺度选择性信息交换，并利用能量约束保持时频特性。实验显示其在多数指标上优于现有扩散基线，与部分VAE/Transformer模型相比在参数和训练时间上有优势，但在fMRI数据上表现逊于MSDformer，作者通过分析wavelet系数特性对此给出解释。",
-      "contentType": "paper",
-      "tagsEn": [
-        "Time series generation",
-        "Diffusion models",
-        "Wavelet transform",
-        "Multiresolution",
-        "Deep learning"
-      ],
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "tags": [
-        "时间序列生成",
-        "扩散模型",
-        "小波变换",
-        "多分辨率",
-        "深度学习"
-      ],
-      "whyItMattersEn": "High-quality time series data are scarce, and existing generation models struggle to capture multi-scale structure in both time and frequency domains. WaveletDiff offers a novel solution that could improve data augmentation, anomaly detection, and downstream tasks in healthcare, finance, and climate science.",
-      "limitations": "WaveletDiff 在部分数据集（如 fMRI）上表现不如特定模型，且未与所有最新方法比较；此外，其对多尺度结构的适应性可能在低信噪比或非平稳数据上有限。这些结论基于作者实验，需进一步独立验证。",
-      "keyPoints": [
-        "WaveletDiff 直接在 wavelet 系数上训练扩散模型，利用时间序列的多分辨率结构",
-        "结合分解层专用 transformer、跨层注意力与自适应门控，实现时间-频率尺度选择性信息交换",
-        "基于 Parseval 定理的能量约束在扩散过程中保持时频特性",
-        "在能源、金融和神经科学六个数据集上优于多数扩散基线，但fMRI上逊于MSDformer",
-        "作者认为wavelet系数在不同任务中的特性差异导致模型性能不均"
-      ],
-      "titleEn": "WaveletDiff: A Multilevel Wavelet Diffusion Framework for Time Series Generation",
-      "sourceGroup": "论文"
-    },
-    {
-      "summaryEn": "The paper proposes ConfQA fine-tuning and ConfRAG triggering. The authors reduce hallucination rates from 20-40% to below 5% on multiple factuality benchmarks. ConfQA trains the model to output answers when correct and 'unsure' otherwise, using a dampening prompt and atomic factual statements. ConfRAG triggers RAG only when the model is unsure.",
-      "title": "ConfRAG：按需检索增强生成框架，显著降低大模型幻觉率",
-      "whyItMatters": "该研究解决了LLM幻觉和高检索成本的双重问题，提出了一种按需RAG策略，具有成本效益，对实际部署有积极意义。",
-      "publishedAt": "2026-09-07T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "arXiv cs.CL",
-      "limitationsEn": "The abstract lacks specifics on datasets and testing scenarios; the 'ideal case' conditions are unclear; performance on complex reasoning is unknown; no reproducibility details are provided.",
-      "summaryProvider": "deepseek",
-      "slug": "confrag-confidence-guided-retrieval-augmenting-g-f0e8f555a6",
-      "score": 71.05,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 研究",
-      "keyPointsEn": [
-        "ConfQA: a fine-tuning strategy that trains the model to answer when correct, otherwise output 'I am unsure'.",
-        "Two design choices: dampening prompt ('answer only if you are confident') and atomic factual statements as training data.",
-        "Hallucination rates reduced from 20-40% to below 5% on multiple benchmarks.",
-        "ConfRAG triggers RAG only when the model responds with unsure.",
-        "Achieves over 95% accuracy in ideal cases while reducing unnecessary retrievals by over 30%."
-      ],
-      "description": "该研究介绍了一种新的训练与推理策略，使大语言模型能够识别并表达不确定性，仅在必要时触发检索增强生成，从而在降低幻觉率的同时减少不必要的检索成本。",
-      "descriptionEn": "This study introduces a new training and inference strategy that enables LLMs to recognize and express uncertainty, triggering RAG only when necessary, thereby reducing hallucination rates while cutting unnecessary retrieval costs.",
+      "limitations": "实验主要在模拟环境MiniWoB和TimeWarp上进行，真实网络环境下的适应效果未知。学生模型性能虽相近，但教师调用的减少是否推广到不同任务和模型架构尚需验证。作者未报告方差或显著性检验。",
       "features": [
         {
           "id": "artifact:paper",
@@ -774,98 +1424,413 @@
           },
           "evidence": "source.platform",
           "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
+      "summaryEn": "The study proposes a method that uses a solvability-aware gate and score-guided turn selection to reduce unnecessary teacher calls and choose informative training data. The authors argue this improves online adaptation efficiency under budget constraints.",
+      "limitationsEn": "Experiments were mainly conducted in simulated environments (MiniWoB and TimeWarp), and effectiveness in real web environments remains unknown. The gains in teacher call reduction may not generalize across tasks or model architectures. Authors did not report variance or significance tests.",
+      "summary": "本研究提出实验方法，通过教师门控和回合筛选，减少不必要和冗余的教师调用，降低了在线教学成本。作者认为该方法能有效提升资源受限场景下智能体的适应效率。",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "tagsEn": [
+        "web agents",
+        "online teaching",
+        "budget-aware",
+        "reinforcement learning",
+        "teacher model"
+      ],
+      "originalTitle": "When and What to Teach: Budget-Aware Online Adaptation for Web Agents",
+      "keyPointsEn": [
+        "Introduces a budget-aware online teaching framework to reduce costs in web agent adaptation",
+        "Uses a solvability-aware gate to determine when to call the teacher model, optimizing timing",
+        "Employs score-guided turn selection to retain informative data for training",
+        "Reduces teacher calls by 22.6% and student training compute by 52.1% on MiniWoB and TimeWarp"
+      ],
+      "domain": "AI 研究",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "论文",
+      "title": "AI风险是否在美国股市定价？来自金融新闻因素的新证据",
+      "score": 76.76,
+      "titleEn": "Are AI Risks Priced in U.S. Stocks? New Evidence from Financial News Factors",
+      "whyItMattersEn": "This paper fills an empirical gap in AI risk pricing, offering a new risk dimension for investors and policymakers, and highlights domain specificity.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "识别7787篇AI相关新闻，构建4种系统性风险因子",
+        "仅错误信息风险因子D3获得显著风险溢价",
+        "高减低组合月alpha为0.49%-0.57%",
+        "结果对多种控制变量和子样本稳健"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2609.05485",
+      "publishedAt": "2026-09-09T04:00:00+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该研究填补了AI风险定价的实证空白，为投资者和政策制定者提供新的风险维度参考，且强调领域特异性。",
+      "descriptionEn": "This study constructs four AI risk factors from WSJ news using LDA and MIT taxonomy, finding that only misinformation risk carries a significant premium in U.S. equities.",
+      "slug": "are-ai-risks-priced-in-the-u-s-stock-market-evid-0d982a1967",
+      "description": "本研究使用LDA和MIT AI风险仓库分类法，从华尔街日报新闻中构建四种AI风险因子，首次发现仅错误信息风险评估溢价显著。",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "AI风险",
+        "股票定价",
+        "新闻因子",
+        "LDA",
+        "Fama-MacBeth回归"
+      ],
+      "id": "0d982a1967b912f5",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 2271,
+        "comparisonCohortSize": 3389,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 50,
+        "relevanceScore": 95,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.96,
+          "financeEvidence": [
+            "securities",
+            "portfolio",
+            "returns",
+            "finance"
+          ],
+          "quantitativeEvidence": [
+            "factors",
+            "econometrics"
+          ],
+          "aiEvidence": [],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 67.75,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "limitations": "样本限于华尔街日报，人工关键词和LDA可能引入噪音，AI风险快速演变导致分类滞后，研究方法依赖历史新闻，可能无法捕捉未报道风险。",
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:factors",
+          "facet": "topic",
+          "value": "factors",
+          "label": {
+            "zh": "因子",
+            "en": "Factors"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:quantitative-finance",
+          "facet": "topic",
+          "value": "quantitative-finance",
+          "label": {
+            "zh": "量化金融",
+            "en": "Quantitative Finance"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.96
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "summaryEn": "The author identifies 7,787 articles from 2016 to 2025, applies LDA and domain taxonomy to build factors, and tests pricing via portfolio sorts and Fama-MacBeth regressions, finding robust pricing only for the misinformation factor.",
+      "limitationsEn": "The sample is limited to WSJ articles, manual keywords and LDA may introduce noise, the rapid evolution of AI risks makes the taxonomy lag, and the method relies on historical news, potentially missing unreported risks.",
+      "summary": "作者通过关键词筛选出2016-2025年间的7787篇文章，结合LDA和领域分类法构建因子，用组合分析和Fama-MacBeth回归测试定价，发现仅错误信息因子有显著溢价。",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "tagsEn": [
+        "AI risk",
+        "stock pricing",
+        "news factors",
+        "LDA",
+        "Fama-MacBeth regression"
+      ],
+      "originalTitle": "Are AI Risks Priced in the U.S. Stock Market? Evidence from Financial News Factors",
+      "keyPointsEn": [
+        "Identified 7,787 AI-related articles and built four systematic risk factors",
+        "Only the misinformation factor D3 shows a robust risk premium",
+        "High-minus-low beta portfolio earns monthly alpha of 0.49%-0.57%",
+        "Results are robust to various controls and subsamples"
+      ],
+      "domain": "量化研究",
+      "contentType": "paper"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "开源项目",
+      "title": "Superpowers：一种智能体技能框架与软件开发方法学",
+      "score": 70.54,
+      "titleEn": "Superpowers: An Agentic Skills Framework and Software Development Methodology",
+      "whyItMattersEn": "As AI-assisted programming becomes prevalent, systematic integration of agent capabilities is critical. Superpowers attempts to provide a structured framework that may help developers organize AI toolchains and improve collaboration, or spark discussion on AI development methodologies.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "提出智能体技能与软件开发结合的方法论",
+        "强调技能的可复用性和流程标准化",
+        "面向 AI 驱动的开发场景"
+      ],
+      "originalUrl": "https://github.com/obra/superpowers",
+      "publishedAt": "2026-09-09T15:59:59.999999+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "随着 AI 辅助编程普及，如何系统化整合智能体能力成为关键。Superpowers 尝试提供一种结构化框架，可能为开发者组织 AI 工具链、提升协作效率提供参考，或引发对 AI 开发方法论的讨论。",
+      "descriptionEn": "This project introduces a methodology combining AI agentic skills with software development processes, offering a structured framework for AI-driven development. It emphasizes reusability of skills and standardization of workflows to enhance efficiency and collaboration. For developers focused on AI programming practices and agent applications, this project provides a reference approach.",
+      "slug": "obra-superpowers-8c6014a36c",
+      "description": "该项目提出一种将 AI 智能体技能与软件开发流程结合的方法论，为 AI 驱动的开发提供结构化框架。其新颖之处在于强调技能的可复用性和流程的标准化，旨在提升开发效率与协作性。对于关注 AI 编程实践和智能体应用的开发者，该项目提供了可参考的思路。",
+      "sourceName": "GitHub Trending Daily",
+      "tags": [
+        "AI 工具",
+        "软件开发",
+        "方法论"
+      ],
+      "id": "8c6014a36ca90e3f",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 50,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 97.0,
+        "metricPercentile": 95.92,
+        "velocityPercentile": 95.92,
+        "objectiveScore": 95.92,
+        "relevanceScore": 55,
         "topicClassification": {
           "classification": "ai-engineering",
           "confidence": 0.8,
           "financeEvidence": [],
-          "quantitativeEvidence": [
-            "calibration"
-          ],
+          "quantitativeEvidence": [],
           "aiEvidence": [
-            "language-model"
+            "agents"
+          ],
+          "sourcePrior": null
+        },
+        "contentValueScore": 29.93,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 0.18,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 3.0,
+          "trending_rank_score": 97.0,
+          "stars": 283848.0,
+          "stars_delta_1d": 690.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "limitations": "该信息仅基于 GitHub 仓库的简要描述，未提供实际应用案例、性能数据或社区反馈。项目仍处于早期阶段，其效果与适用性未经验证。",
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "summaryEn": "According to the GitHub page description, Superpowers is an 'agentic skills framework & software development methodology' that claims to work. The author suggests the framework improves development workflows, but the page lacks implementation details or performance data.",
+      "limitationsEn": "Information is based solely on a brief description from the GitHub repository, without practical use cases, performance metrics, or community feedback. The project is likely early-stage, and its effectiveness and applicability are unverified.",
+      "summary": "根据 GitHub 页面描述，Superpowers 是一个“智能体技能框架与软件开发方法学”，声称能有效工作。项目作者认为该框架能改善开发流程，但页面未提供具体实现细节或效果数据。",
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "tagsEn": [
+        "AI Tools",
+        "Software Development",
+        "Methodology"
+      ],
+      "originalTitle": "obra/superpowers",
+      "keyPointsEn": [
+        "Presents a methodology integrating agentic skills with software development",
+        "Emphasizes skill reusability and workflow standardization",
+        "Designed for AI-driven development scenarios"
+      ],
+      "domain": "AI 研究",
+      "contentType": "repository"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "开源项目",
+      "title": "TradingAgents多智能体框架：探索LLM在金融交易中的应用",
+      "score": 70.23,
+      "titleEn": "TradingAgents Framework: Exploring LLM-based Multi-Agent Financial Trading",
+      "whyItMattersEn": "The framework demonstrates a novel application of LLMs in financial decision-making, attempting to reduce uncertainty from a single model through multi-role collaboration and debate, providing new tools and ideas for quantitative research. Its open-source nature encourages further community exploration and validation.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "TradingAgents是用于金融交易的多智能体LLM框架，包含分析师、研究员、交易员、风控等角色。",
+        "框架引入多智能体辩论与反思机制，模拟人类交易团队的协作流程。",
+        "项目提供了完整的代码和示例，便于复现实验。",
+        "来源提到在股票回测中取得了正面结果（未提供具体数据）。"
+      ],
+      "originalUrl": "https://github.com/TauricResearch/TradingAgents",
+      "publishedAt": "2026-09-09T15:59:59.999999+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该框架展示了LLM在金融决策中的新应用模式，通过多角色协作和辩论机制尝试降低单一模型的不确定性，为量化研究提供了新的工具和思路。同时其开源性质有助于社区进一步探索和验证。",
+      "descriptionEn": "This framework presents a multi-agent LLM approach to financial trading, simulating the collaborative workflow of analysts, researchers, traders, and risk managers in a real trading firm. The novelty is combining multiple agent roles with a debate mechanism to enhance decision reliability. It aims to provide a reproducible LLM trading experiment environment for quantitative research, enabling validation of different agent configurations.",
+      "slug": "tauricresearch-tradingagents-626a5e4fcb",
+      "description": "该框架提出一种基于多智能体LLM的金融交易方法，模拟真实交易公司中分析师、研究员、交易员和风控人员的协作流程。新意在于将多种智能体角色结合并引入辩论机制，以提升交易决策的可靠性。该工具旨在为量化研究提供一种可复现的LLM交易实验环境，便于验证不同智能体设定对交易表现的影响。",
+      "sourceName": "GitHub Trending Daily",
+      "tags": [
+        "LLM",
+        "多智能体",
+        "金融交易",
+        "量化框架",
+        "开源"
+      ],
+      "id": "626a5e4fcb233d8d",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 50,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 93.0,
+        "metricPercentile": 80.61,
+        "velocityPercentile": 80.61,
+        "objectiveScore": 80.61,
+        "relevanceScore": 72,
+        "topicClassification": {
+          "classification": "finance",
+          "confidence": 0.79,
+          "financeEvidence": [
+            "trading",
+            "finance"
+          ],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "language-model",
+            "agents"
           ],
           "sourcePrior": "AI × 量化"
         },
-        "contentValueScore": 65.5,
+        "contentValueScore": 42.55,
         "contentSignals": {
-          "evidence": 15.0,
+          "evidence": 0.0,
           "actionability": 10.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
+          "novelty": 0.0,
+          "specificity": 0.15,
           "penalty": 0.0
         },
-        "freshnessScore": 90.0,
-        "sourceQualityScore": 72.0,
-        "sourceMetrics": {},
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 7.0,
+          "trending_rank_score": 93.0,
+          "stars": 103710.0,
+          "stars_delta_1d": 367.0,
+          "metric_age_days": 1.0
+        },
         "selectionLane": "primary"
       },
-      "retrievedAt": "2026-09-07T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2506.07309",
-      "id": "f0e8f555a67cd5ac",
-      "originalTitle": "ConfRAG: Confidence-Guided Retrieval-Augmenting Generation",
-      "summary": "本文提出ConfQA微调策略和ConfRAG触发机制。作者在多种事实验证基准上将幻觉率从20-40%降至5%以下。ConfQA通过让模型在不确定时输出'不确定'，并采用抑制过度自信提示和原子事实训练数据来校准置信度。ConfRAG仅在模型不确定时触发RAG。",
-      "contentType": "paper",
-      "tagsEn": [
-        "Large Language Models",
-        "Retrieval-Augmented Generation",
-        "Hallucination Rate",
-        "Confidence Calibration",
-        "Fine-tuning"
-      ],
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "tags": [
-        "大语言模型",
-        "检索增强生成",
-        "幻觉率",
-        "置信度校准",
-        "微调"
-      ],
-      "whyItMattersEn": "This work tackles the dual problem of LLM hallucination and high retrieval cost, proposing a cost-effective on-demand RAG strategy with practical deployment benefits.",
-      "limitations": "摘要未提及具体数据集和测试场景，'理想情况'的条件未明确，对复杂推理问题的效果未知，未见可复现细节。",
-      "keyPoints": [
-        "ConfQA：一种微调策略，训练模型在正确答案时输出答案，否则输出'不确定'。",
-        "两项设计选择：抑制性提示（'只在有把握时回答'）和原子事实训练数据。",
-        "幻觉率在多个基准上从20-40%降至5%以下。",
-        "ConfRAG：仅在模型不确定时触发RAG。",
-        "理想情况下，准确率超过95%，外部检索减少超过30%。"
-      ],
-      "titleEn": "ConfRAG: A On-demand RAG Framework to Reduce Hallucinations",
-      "sourceGroup": "论文"
-    },
-    {
-      "summaryEn": "This repository introduces a skill called 'i-have-adhd' that aims to prevent coding agents from hiding key information in responses and to use an ADHD-friendly output format. The author suggests this helps users retrieve information faster. Currently, the project lacks detailed implementation, testing data, or user feedback evidence.",
-      "title": "为编码代理添加ADHD友好输出的技能",
-      "whyItMatters": "随着AI编码助手的普及，输出的可读性和易用性变得重要，此项目尝试通过调整输出格式来包容神经多样性，为AI界面设计提供了新思路。",
-      "publishedAt": "2026-09-08T15:59:59.999999+00:00",
-      "aiGenerated": true,
-      "sourceName": "GitHub Trending Daily",
-      "limitationsEn": "The project is still in early stage without measurement or user testing data. Implementation specifics and applicability are unclear, possibly limited to specific scenarios.",
-      "summaryProvider": "deepseek",
-      "slug": "ayghri-i-have-adhd-46f3c1d612",
-      "score": 69.98,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 研究",
-      "keyPointsEn": [
-        "The project aims to make coding agent outputs more concise and direct, accommodating ADHD users' attention patterns.",
-        "Core feature is to prevent agents from burying the answer in their response and to present information more intuitively.",
-        "Targets users of coding agents who are prone to distraction."
-      ],
-      "description": "该GitHub项目提供了一个技能，旨在让编码代理的输出更符合ADHD用户的认知习惯，例如避免冗长和嵌套，直接给出答案，从而提升用户处理信息的效率。",
-      "descriptionEn": "This GitHub project offers a skill that adapts coding agent outputs to suit ADHD users' cognitive preferences, such as avoiding verbosity and nesting to directly present answers, improving information processing efficiency.",
+      "limitations": "未提供具体的回测数据、基准对比和统计显著性检验，因此无法验证其真实有效性。框架高度依赖LLM输出，存在幻觉风险，且未考虑真实交易中的成本、滑点和市场冲击。目前仅在单一数据源上测试，缺乏跨市场泛化证据。",
       "features": [
         {
           "id": "artifact:repository",
@@ -910,33 +1875,65 @@
           },
           "evidence": "content.keyword",
           "confidence": 0.8
-        },
-        {
-          "id": "topic:developer-tools",
-          "facet": "topic",
-          "value": "developer-tools",
-          "label": {
-            "zh": "开发工具",
-            "en": "Developer Tools"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
         }
       ],
+      "summaryEn": "The content introduces an open-source framework called TradingAgents, which uses multiple LLM agents to simulate a financial trading team. It includes role division, debate, and reflection mechanisms, and was backtested on a specific stock dataset. The authors suggest it complements traditional quantitative strategies but acknowledge the risk of LLM hallucinations.",
+      "limitationsEn": "No specific backtest data, benchmark comparisons, or statistical significance tests are provided, so real effectiveness cannot be verified. The framework heavily relies on LLM outputs, posing hallucination risks, and does not account for real trading costs, slippage, or market impact. Currently only tested on a single data source, lacking cross-market generalization evidence.",
+      "summary": "该内容介绍了一个名为TradingAgents的开源框架，利用多个大语言模型智能体模拟金融交易团队。框架包含角色分工、决策辩论和反思机制，并在特定股票数据集上进行了回测。作者认为该框架能与传统量化策略互补，但承认LLM存在幻觉风险。",
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "tagsEn": [
+        "LLM",
+        "multi-agent",
+        "financial trading",
+        "quantitative framework",
+        "open-source"
+      ],
+      "originalTitle": "TauricResearch/TradingAgents",
+      "keyPointsEn": [
+        "TradingAgents is a multi-agent LLM framework for financial trading, including roles such as analyst, researcher, trader, and risk manager.",
+        "The framework introduces multi-agent debate and reflection to simulate human trading team collaboration.",
+        "The project provides complete code and examples for reproducibility.",
+        "The source mentions positive backtest results on stock data (no specific numbers)."
+      ],
+      "domain": "金融研究",
+      "contentType": "repository"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "开源项目",
+      "title": "面向 ADHD 开发者的编程助手技能：提升输出清晰度",
+      "score": 69.98,
+      "titleEn": "AI Assistant Skill for ADHD Developers to Clarify Output",
+      "whyItMattersEn": "For developers with ADHD, verbose responses from AI tools can increase cognitive load. This project explores how optimizing output can enhance user experience, offering a new angle for personalized assistive tools.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "定位于提高编码辅助工具的输出清晰度",
+        "针对 ADHD 用户的注意力特点进行优化",
+        "可能采用简化语言或重点突出等策略",
+        "项目处于早期，未见详细实现说明"
+      ],
+      "originalUrl": "https://github.com/ayghri/i-have-adhd",
+      "publishedAt": "2026-09-09T15:59:59.999999+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "对 ADHD 开发者而言，传统 AI 助手冗长的回复可能增加认知负担，该工具探索了如何通过输出优化改善体验，为个性化辅助工具开发提供了一种新视角。",
+      "descriptionEn": "This GitHub project, named \"i-have-adhd\", aims to adjust AI assistant responses in coding environments to reduce cognitive load for developers with ADHD, improving clarity and focus on essential information.",
+      "slug": "ayghri-i-have-adhd-46f3c1d612",
+      "description": "该工具是名为\"i-have-adhd\"的 GitHub 项目，针对开发者在编程环境中遇到的注意力分散问题，通过调整 AI 助手输出方式，提升信息清晰度与易读性，帮助用户更高效地获取关键答案。",
+      "sourceName": "GitHub Trending Daily",
+      "tags": [
+        "ADHD",
+        "开发者工具",
+        "AI助手",
+        "输出优化",
+        "GitHub项目"
+      ],
+      "id": "46f3c1d6124190bd",
       "scoreBreakdown": {
         "contentType": "repository",
-        "comparisonCohortSize": 44,
+        "comparisonCohortSize": 50,
         "mode": "cohort-metric",
         "primaryMetric": "trending_rank_score",
         "primaryMetricValue": 99.0,
@@ -967,66 +1964,13 @@
         "sourceMetrics": {
           "trending_rank": 1.0,
           "trending_rank_score": 99.0,
-          "stars": 31004.0,
-          "stars_delta_1d": 656.0,
+          "stars": 33548.0,
+          "stars_delta_1d": 4624.0,
           "metric_age_days": 1.0
         },
         "selectionLane": "primary"
       },
-      "retrievedAt": "2026-09-08T15:59:59.999999+00:00",
-      "originalUrl": "https://github.com/ayghri/i-have-adhd",
-      "id": "46f3c1d6124190bd",
-      "originalTitle": "ayghri/i-have-adhd",
-      "summary": "该仓库介绍了一个名为“i-have-adhd”的技能，其功能是阻止编码代理在回答中掩藏关键信息，采用ADHD友好的输出格式。作者认为这样的输出能帮助用户更快获取信息。目前项目没有提供详细的实现方式、测试数据或用户反馈证据。",
-      "contentType": "repository",
-      "tagsEn": [
-        "AI tool",
-        "ADHD",
-        "coding agent",
-        "user interface",
-        "accessibility"
-      ],
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "tags": [
-        "AI工具",
-        "ADHD",
-        "编码代理",
-        "用户界面",
-        "可访问性"
-      ],
-      "whyItMattersEn": "As AI coding assistants become popular, output readability and usability gain importance. This project attempts to include neurodiversity by adjusting output formats, offering a new perspective for AI interface design.",
-      "limitations": "项目仍处于早期阶段，没有提供效果测量数据或用户测试结果，具体实现和适用范围不明确，可能仅适用于特定场景。",
-      "keyPoints": [
-        "项目旨在让编码代理输出更简洁直接，适应ADHD用户的注意力特点。",
-        "核心功能是阻止代理在回答中埋藏答案，采用更直观的呈现方式。",
-        "该技能主要面向使用编码代理但注意力容易分散的用户。"
-      ],
-      "titleEn": "ADHD-Friendly Output Skill for Coding Agents",
-      "sourceGroup": "开源项目"
-    },
-    {
-      "summaryEn": "Hyperframes claims to 'Write HTML. Render video. Built for agents,' implying it allows AI agents to generate HTML and directly convert it into video output. Developed by the heygen-com team, it has attracted attention on GitHub Trending, but specific features and performance details are not yet disclosed.",
-      "title": "Hyperframes：面向AI代理的HTML转视频框架",
-      "whyItMatters": "Hyperframes的出现可能填补了AI代理在视频生成方面的空白，使代理能够直接产出视觉化内容，对自动化营销、教育等场景具有潜在价值，但需更多公开信息以验证其能力。",
-      "publishedAt": "2026-09-08T15:59:59.999999+00:00",
-      "aiGenerated": true,
-      "sourceName": "GitHub Trending Daily",
-      "limitationsEn": "Currently, there is a lack of detailed documentation and examples, making it impossible to assess its video rendering quality, supported HTML scope, and processing efficiency. Whether the tool is suitable for production environments is unknown, and there are no performance benchmarks or user feedback.",
-      "summaryProvider": "deepseek",
-      "slug": "heygen-com-hyperframes-6e18aa23e1",
-      "score": 68.72,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 研究",
-      "keyPointsEn": [
-        "Hyperframes is an HTML-to-video framework for AI agents.",
-        "Its core function is generating video content from HTML code.",
-        "It aims to simplify the video creation process for AI agents, potentially useful for automated content production.",
-        "The project is published on GitHub and entered the Trending list, indicating some community interest."
-      ],
-      "description": "Hyperframes是一个新发布的工具，专为AI代理设计，能将HTML内容渲染为视频，简化了从代码到视频的流程。该工具在GitHub上获得关注，可能为自动化内容生成提供新途径。",
-      "descriptionEn": "Hyperframes is a newly released tool designed for AI agents to render HTML content into videos, simplifying the workflow from code to video. It has gained attention on GitHub, potentially offering a new approach to automated content generation.",
+      "limitations": "该描述来自项目简介，缺乏详细功能说明与效果验证。未提及具体实现方式、支持平台或与现有工具的兼容性。尚无实证数据或用户反馈支持其宣称的 ADHD 友好效果。",
       "features": [
         {
           "id": "artifact:repository",
@@ -1059,896 +2003,6 @@
             "en": "GitHub Daily Trending"
           },
           "evidence": "source.ranking",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 44,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 95.0,
-        "metricPercentile": 96.51,
-        "velocityPercentile": 96.51,
-        "objectiveScore": 96.51,
-        "relevanceScore": 55,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.8,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "agents"
-          ],
-          "sourcePrior": null
-        },
-        "contentValueScore": 24.86,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.11,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 5.0,
-          "trending_rank_score": 95.0,
-          "stars": 47890.0,
-          "stars_delta_1d": 2627.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "retrievedAt": "2026-09-08T15:59:59.999999+00:00",
-      "originalUrl": "https://github.com/heygen-com/hyperframes",
-      "id": "6e18aa23e1f0d144",
-      "originalTitle": "heygen-com/hyperframes",
-      "summary": "Hyperframes宣称能“编写HTML，渲染视频，为代理而生”，意味着它允许AI代理生成HTML并直接转换为视频输出。该工具由heygen-com团队开发，目前在GitHub Trending上引起注意，但具体功能和性能细节尚未披露。",
-      "contentType": "repository",
-      "tagsEn": [
-        "AI tool",
-        "HTML to video",
-        "AI agent",
-        "video generation",
-        "GitHub"
-      ],
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "tags": [
-        "AI工具",
-        "HTML转视频",
-        "AI代理",
-        "视频生成",
-        "GitHub"
-      ],
-      "whyItMattersEn": "Hyperframes may fill a gap in video generation for AI agents, enabling them to directly produce visual content, which has potential value for automated marketing, education, and similar scenarios. However, more public information is needed to validate its capabilities.",
-      "limitations": "目前缺乏详细文档和示例，无法评估其视频渲染质量、支持HTML范围和处理效率。该工具是否适用于生产环境尚未可知，且无性能基准或用户反馈。",
-      "keyPoints": [
-        "Hyperframes是一个面向AI代理的HTML转视频框架。",
-        "该工具的核心功能是从HTML代码生成视频内容。",
-        "它旨在简化AI代理创建视频的过程，可能适用于自动化内容制作。",
-        "项目在GitHub上发布，并进入了Trending列表，表明其获得了一定的社区关注。"
-      ],
-      "titleEn": "Hyperframes: An HTML-to-Video Framework for AI Agents",
-      "sourceGroup": "开源项目"
-    },
-    {
-      "summaryEn": "This resource compiles multiple marketing skills aimed at helping AI agents perform marketing tasks better. The author believes these skills can enhance the practical value of AI, but the documentation does not provide specific experimental results or case validations.",
-      "title": "面向AI代理的营销技能库：提升Claude Code的市场分析与转化优化能力",
-      "whyItMatters": "随着AI代理在商业领域的普及，如何有效利用现有知识库提升其性能成为关键。该仓库为AI代理提供了专业营销技能，可能推动AI在营销自动化与优化中的应用，特别适合开发者和营销人员探索AI辅助的市场策略。",
-      "publishedAt": "2026-09-08T15:59:59.999999+00:00",
-      "aiGenerated": true,
-      "sourceName": "GitHub Trending Daily",
-      "limitationsEn": "Currently lacks empirical data or user feedback to prove its effectiveness. The content is based on the author's personal experience, not peer-reviewed, and does not cover all marketing scenarios. Actual performance may vary depending on the specific application environment.",
-      "summaryProvider": "deepseek",
-      "slug": "coreyhaines31-marketingskills-8bf41c2345",
-      "score": 67.16,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 研究",
-      "keyPointsEn": [
-        "Core content covers CRO, copywriting, SEO, analytics, and growth engineering",
-        "Targets AI agents like Claude Code, providing skill guidance in structured documents",
-        "Author aims to enhance AI agent usability in business marketing scenarios"
-      ],
-      "description": "该仓库为AI代理（如Claude Code）提供了一套实用的营销技能集，涵盖转化率优化（CRO）、文案写作、SEO、分析和增长工程等领域。它的新颖之处在于将传统营销知识结构化，以Markdown文件形式供AI代理直接调用，从而扩展了AI在商业场景中的应用边界。",
-      "descriptionEn": "This repository provides a practical set of marketing skills for AI agents (e.g., Claude Code), covering areas such as conversion rate optimization (CRO), copywriting, SEO, analytics, and growth engineering. Its novelty lies in structuring traditional marketing knowledge into Markdown files for direct use by AI agents, thus expanding AI's applicability in business contexts.",
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 44,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 94.0,
-        "metricPercentile": 91.86,
-        "velocityPercentile": 91.86,
-        "objectiveScore": 91.86,
-        "relevanceScore": 55,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.8,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "agents"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 25.01,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.26,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 6.0,
-          "trending_rank_score": 94.0,
-          "stars": 48909.0,
-          "stars_delta_1d": 666.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "retrievedAt": "2026-09-08T15:59:59.999999+00:00",
-      "originalUrl": "https://github.com/coreyhaines31/marketingskills",
-      "id": "8bf41c2345f4ad80",
-      "originalTitle": "coreyhaines31/marketingskills",
-      "summary": "该资源库汇集了营销领域的多项技能，旨在帮助AI代理更好地完成营销任务。作者认为这些技能能提升AI的实用价值，但文档本身并未提供具体实验结果或案例验证。",
-      "contentType": "repository",
-      "tagsEn": [
-        "AI agents",
-        "marketing skills",
-        "Claude Code",
-        "CRO",
-        "SEO",
-        "growth engineering"
-      ],
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "tags": [
-        "AI代理",
-        "营销技能",
-        "Claude Code",
-        "CRO",
-        "SEO",
-        "增长工程"
-      ],
-      "whyItMattersEn": "As AI agents become prevalent in business, effectively leveraging existing knowledge bases to improve their performance is crucial. This repository offers professional marketing skills for AI agents, potentially driving AI applications in marketing automation and optimization, especially useful for developers and marketers exploring AI-assisted market strategies.",
-      "limitations": "目前尚无实证数据或用户反馈证明该技能库的有效性。其内容基于作者个人经验，未经过同行评议，且未覆盖所有营销场景。实际效果可能因具体应用环境而异。",
-      "keyPoints": [
-        "核心内容涵盖CRO、文案写作、SEO、分析和增长工程等营销领域",
-        "面向Claude Code等AI代理，以结构化文档形式提供技能指导",
-        "作者旨在增强AI代理在商业营销场景中的实用性"
-      ],
-      "titleEn": "Marketing Skills Library for AI Agents: Enhancing Claude Code's Market Analysis and Conversion Optimization",
-      "sourceGroup": "开源项目"
-    },
-    {
-      "summaryEn": "The paper introduces a new transaction cost model that simultaneously accounts for self-impact, cross-impact, and transient impact, formulated as a convex quadratic cost. The authors demonstrate its application on calendar spread trading of crude oil futures and argue that ignoring these effects overprices relative-value trades, missing profitable opportunities.",
-      "title": "跨期跨品种价格冲击的凸性建模方法",
-      "whyItMatters": "对于大宗商品和宏观市场的相对价值交易，成本模型是否准确至关重要。本文提出的模型能够更准确地评估交易成本，从而帮助交易者识别并执行那些原本因高估成本而被放弃的盈利交易。",
-      "publishedAt": "2026-09-07T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "arXiv q-fin",
-      "limitationsEn": "Limitations include: the model relies on forecasts of volatility, volume, and correlation, and forecast errors may affect accuracy; the empirical demonstration focuses on crude oil futures calendar spread trading, and generalization to other assets is not proven; the paper is published in 2026 and specifics of the empirical data are not detailed in the abstract.",
-      "summaryProvider": "deepseek",
-      "slug": "convex-modeling-of-price-cross-impact-over-time-55b30df1bf",
-      "score": 65.45,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "量化研究",
-      "keyPointsEn": [
-        "Existing price impact models typically only consider self-impact, ignoring cross-impact and transient impact.",
-        "The paper proposes a convex quadratic cost model that accounts for all three effects simultaneously.",
-        "The model uses a positive semidefinite matrix derived from volatility, volume, and correlation forecasts to link trades across contracts, and a power-law decay kernel to link trades across periods.",
-        "The model does not admit price manipulation even when liquidity varies over the planning horizon.",
-        "Empirically demonstrated on calendar spread trading of crude oil futures, showing effectiveness."
-      ],
-      "description": "该研究提出一个同时纳入跨品种价格冲击和瞬态冲击的凸二次成本模型，用于更准确评估相对价值交易的成本，从而发现更多盈利机会。该模型利用协方差矩阵和幂律衰减核，避免了价格操纵，并在原油期货日历价差交易中进行了实证验证。",
-      "descriptionEn": "The study proposes a convex quadratic cost model that includes both cross-asset price impact and transient impact to more accurately estimate costs for relative-value trading, thus uncovering more profitable opportunities. The model uses covariance matrix and power-law decay kernel to avoid price manipulation, and is empirically validated on calendar spread trading of crude oil futures.",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:quantitative-finance",
-          "facet": "topic",
-          "value": "quantitative-finance",
-          "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
-          },
-          "evidence": "content.finance+quantitative",
-          "confidence": 0.9
-        }
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 2271,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 90,
-        "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.9,
-          "financeEvidence": [
-            "securities",
-            "trading",
-            "market-risk"
-          ],
-          "quantitativeEvidence": [
-            "optimization"
-          ],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 53.5,
-        "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 5.0,
-          "novelty": 0.0,
-          "specificity": 3.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "retrievedAt": "2026-09-07T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2609.04712",
-      "id": "55b30df1bfca9a99",
-      "originalTitle": "Convex Modeling of Price Cross-Impact over Time",
-      "summary": "本文提出一种新的交易成本模型，同时考虑自冲击、跨品种冲击和冲击的时变衰减效应，模型为凸二次形式。作者通过实证展示了该模型在原油期货日历价差交易中的应用。作者认为，忽略这些效应会高估相对价值交易的成本，从而错失盈利机会。",
-      "contentType": "paper",
-      "tagsEn": [
-        "price impact",
-        "transaction costs",
-        "convex optimization",
-        "relative value trading",
-        "crude oil futures"
-      ],
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "tags": [
-        "价格冲击",
-        "交易成本",
-        "凸优化",
-        "相对价值交易",
-        "原油期货"
-      ],
-      "whyItMattersEn": "Accurate cost modeling is crucial for relative-value trading in commodity and macro markets. This paper's model offers a more precise transaction cost estimate, helping traders identify and execute profitable trades that might have been discarded due to overestimated costs.",
-      "limitations": "本文的局限性包括：模型依赖波动率、成交量和相关性预测，预测误差可能影响结果；实证主要针对原油期货日历价差交易，对其他市场或品种的适用性尚未验证；研究发表于2026年，具体实证数据细节未在摘要中提供。",
-      "keyPoints": [
-        "现有价格冲击模型通常只考虑自冲击，忽略跨品种冲击和瞬态冲击。",
-        "本文提出一个凸二次成本模型，同时考虑这三种冲击效应。",
-        "模型使用由波动率、成交量和相关性预测构建的正半定矩阵来联结不同合约的交易，使用幂律衰减核来联结不同时期的交易。",
-        "该模型在流动性随时间变化时也不会导致价格操纵。",
-        "实证演示于原油期货日历价差交易中，表明模型有效。"
-      ],
-      "titleEn": "Convex Modeling of Price Cross-Impact over Time",
-      "sourceGroup": "论文"
-    },
-    {
-      "summaryEn": "The study derives exact finite-population variance of the weighted risk estimator under class-conditional sampling without replacement and solves for optimal allocation. Results show that imbalance ratio cancels, making equal allocation natural. Authors propose efficiency prediction A(pi,f), and empirical tests on 350 U.S. stocks validate ordering of four designs and exact ordering of five design points. However, predicted dependence on pi fails, and authors identify out-of-design channels.",
-      "title": "依赖序列中稀有事件起始预测的最优分层分配",
-      "whyItMatters": "该研究为稀有事件预测中的分层设计提供了理论指导，证明了等分配优于比例分配，并给出了简单可用的效率预测，有助于实践者在有限样本下优化抽样策略。同时，识别了理论预测失效的场景，提醒了实际应用的边界。",
-      "publishedAt": "2026-09-07T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "arXiv q-fin",
-      "limitationsEn": "The study relies on specific assumptions (e.g., class-conditional sampling without replacement), and predicted dependence on pi fails empirically, indicating out-of-design factors. Results based on U.S. equities from 2004-2011 may not generalize to other markets or periods. Truncated allocation gamma=min(2*pi/f,1) may deviate from exact optimum. Label noise and other real-world issues are not addressed.",
-      "summaryProvider": "deepseek",
-      "slug": "optimal-stratified-allocation-for-rare-event-ons-572b1ed57f",
-      "score": 64.68,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "金融研究",
-      "keyPointsEn": [
-        "Under class-weighted loss, optimal stratified allocation is equal, not proportional to class proportions",
-        "Imbalance ratio cancels in optimal allocation, making equal allocation default",
-        "Parameter-free efficiency prediction A(pi,f)=gamma/[pi(1-pi)(1+gamma)^2]",
-        "Empirical validation of ordering of four designs and exact order of five design points (Spearman rho=1)",
-        "Predicted dependence on pi fails empirically due to out-of-design factors"
-      ],
-      "description": "该研究针对稀有事件预测中的分层抽样问题，提出在类别加权损失下，最优分配是等比例而非与类别比例成比例，并给出了参数无关的效率预测。通过实证验证了该预测在金融价格极端波动起始预测中的有效性，同时指出了设计外因素对预测失败的影响。",
-      "descriptionEn": "This study addresses stratified sampling in rare-event prediction, proposing that under class-weighted loss, optimal allocation is equal rather than proportional to class proportions, and provides a parameter-free efficiency prediction. Empirical tests confirm the prediction's validity in forecasting onset of explosive price regimes, while identifying out-of-design factors for discrepancies.",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "method:forecasting",
-          "facet": "method",
-          "value": "forecasting",
-          "label": {
-            "zh": "预测",
-            "en": "Forecasting"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:risk",
-          "facet": "topic",
-          "value": "risk",
-          "label": {
-            "zh": "风险",
-            "en": "Risk"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 2271,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 72,
-        "topicClassification": {
-          "classification": "finance",
-          "confidence": 0.76,
-          "financeEvidence": [
-            "securities"
-          ],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 52.4,
-        "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 5.0,
-          "novelty": 0.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "retrievedAt": "2026-09-07T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2609.04420",
-      "id": "572b1ed57f530cd1",
-      "originalTitle": "Optimal Stratified Allocation for Rare-Event Onset Forecasting in Dependent Sequences",
-      "summary": "该研究推导了在类条件无放回抽样下加权风险估计量的精确有限总体方差，并求解了最优分配。结果表明类别不平衡比在最优分配中抵消，使得等分配成为自然默认。作者提出了效率预测A(pi,f)，并在350只美国股票的实证中，验证了四种设计的排序和五个设计点的顺序。但预测的pi依赖关系在实证中不成立，作者指出了设计外因素。",
-      "contentType": "paper",
-      "tagsEn": [
-        "Stratified Sampling",
-        "Rare-event Prediction",
-        "Optimal Allocation",
-        "Class Imbalance",
-        "Risk Estimation",
-        "Financial Volatility"
-      ],
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "tags": [
-        "分层抽样",
-        "稀有事件预测",
-        "最优分配",
-        "类别不平衡",
-        "风险估计",
-        "金融波动"
-      ],
-      "whyItMattersEn": "This research provides theoretical guidance for stratified design in rare-event prediction, demonstrating equal allocation beats proportional, and offering simple efficiency prediction, aiding practitioners in optimizing sampling under finite samples. It also identifies scenarios where predictions fail, highlighting boundaries in application.",
-      "limitations": "该研究基于特定假设（如类条件无放回抽样），实证中预测的pi依赖关系不成立，表明存在设计外因素影响。结果基于2004-2011年美国股票数据，可能不适用于其他市场或时期。此外，实现中采用截断分配，gamma=min(2*pi/f,1)可能偏离精确最优。研究未考虑标签噪声等现实问题。",
-      "keyPoints": [
-        "在类别加权损失下，最优分层分配是等比例，而非与类别比例成正比",
-        "类别不平衡比在最优分配中抵消，使等分配成为默认",
-        "给出了与参数无关的效率预测A(pi,f)=gamma/[pi(1-pi)(1+gamma)^2]",
-        "实证验证了四种设计的排序和五个设计点的精确排序（Spearman rho=1）",
-        "预测的pi依赖关系在实证中不成立，需考虑设计外因素"
-      ],
-      "titleEn": "Optimal Stratified Allocation for Rare-Event Onset Forecasting in Dependent Sequences",
-      "sourceGroup": "论文"
-    },
-    {
-      "summaryEn": "This is a theoretical analysis paper where the authors derive the variance convergence order for MLMC with Milstein discretization and verify it numerically. The authors suggest that this method exhibits superior convergence compared to standard methods, a conclusion that is supported by numerical evidence but may require further empirical validation.",
-      "title": "多层级蒙特卡洛路径模拟的米尔斯坦离散化分析",
-      "whyItMatters": "蒙特卡洛模拟在期权定价中至关重要，MLMC 方法已显著提高计算效率，而本文进一步证明将米尔斯坦方法引入 MLMC 可提供更优的收敛性能，具有重要的理论贡献和实际应用潜力，尤其对高维金融衍生品定价具有指导意义。",
-      "publishedAt": "2026-09-07T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "arXiv q-fin",
-      "limitationsEn": "The paper primarily relies on theoretical analysis and specific numerical experiments; empirical validation is limited to basket options, and other option types or real market conditions may yield different results.",
-      "summaryProvider": "deepseek",
-      "slug": "analysis-of-multilevel-monte-carlo-path-simulati-05c2fe7a19",
-      "score": 64.23,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "量化研究",
-      "keyPointsEn": [
-        "The standard Euler-Maruyama method has strong order 0.5, while Milstein achieves order 1.0",
-        "MLMC leverages strong convergence to improve computational complexity, and Milstein can enhance this further",
-        "The paper proves that using Milstein improves the variance convergence order of the MLMC estimator",
-        "Numerical experiments on basket options validate the theoretical analysis and relevance"
-      ],
-      "description": "这篇论文分析了在多层级蒙特卡洛（MLMC）路径模拟中使用米尔斯坦（Milstein）离散化方法的效率。与标准欧拉-丸山（Euler-Maruyama）方法相比，米尔斯坦方法具有更高的强收敛阶数，从而可以提高 MLMC 估计方差的收敛速度，进而提升计算复杂度。该研究为金融衍生品定价中的高效路径模拟提供了理论依据和数值验证。",
-      "descriptionEn": "This paper analyzes the efficiency of the multilevel Monte Carlo (MLMC) path simulation method when using the Milstein discretization, which offers a higher order of strong convergence compared to the standard Euler-Maruyama method, leading to an improved order of convergence for the variance of the multilevel estimator. The theoretical results are validated with numerical experiments on basket options, demonstrating improved computational complexity for option pricing.",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:quantitative-finance",
-          "facet": "topic",
-          "value": "quantitative-finance",
-          "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
-          },
-          "evidence": "content.finance+quantitative",
-          "confidence": 0.84
-        }
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 2271,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 75,
-        "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.84,
-          "financeEvidence": [
-            "securities"
-          ],
-          "quantitativeEvidence": [
-            "stochastic"
-          ],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 51.75,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "retrievedAt": "2026-09-07T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/1302.4676",
-      "id": "05c2fe7a191db20f",
-      "originalTitle": "Analysis of multilevel Monte Carlo path simulation using the Milstein discretisation",
-      "summary": "本文为理论分析论文，作者推导了使用米尔斯坦离散化的 MLMC 方法的方差收敛阶数，并通过数值实验验证了理论结果。作者在总结中提出，该方法相比标准方法具有更优的收敛性，该结论属于作者观点，有待更多实证验证。",
-      "contentType": "paper",
-      "tagsEn": [
-        "multilevel Monte Carlo",
-        "Milstein scheme",
-        "strong convergence",
-        "option pricing",
-        "numerical analysis"
-      ],
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "tags": [
-        "蒙特卡洛模拟",
-        "米尔斯坦方法",
-        "强收敛",
-        "期权定价",
-        "数值分析"
-      ],
-      "whyItMattersEn": "Monte Carlo simulation is crucial for option pricing, and MLMC has significantly improved computational efficiency. This paper shows that incorporating Milstein into MLMC provides even better convergence performance, offering theoretical and practical benefits for pricing high-dimensional financial derivatives.",
-      "limitations": "论文主要基于理论分析和特定数值实验，实证验证仅限于篮子期权，其他类型的期权或实际市场情况可能有所不同。",
-      "keyPoints": [
-        "标准欧拉-丸山方法的强收敛阶为 0.5，而米尔斯坦方法可达到 1.0",
-        "MLMC 方法利用强收敛性质改善计算复杂度，而米尔斯坦方法能进一步提升效率",
-        "论文证明使用米尔斯坦离散化可提高 MLMC 估计量的方差收敛阶数",
-        "数值实验以篮子期权为例，验证了理论分析的正确性与相关性"
-      ],
-      "titleEn": "Analysis of Multilevel Monte Carlo Path Simulation Using the Milstein Discretisation",
-      "sourceGroup": "论文"
-    },
-    {
-      "summaryEn": "The study presents MOLE, a benchmark with 150 AI-operated accounts sharing 9 stateful services over 30 workdays, including 12 threats and 8 corpora totaling ~20 billion tokens. Experiments show 72% of 39 agent models complete most harmful objectives, and agent refusal does not predict completion. In single-day audit comparisons, the best monitor misses nearly half of completed harm. Benchmark-guided search improves a mid-tier monitor by 49-64%, while selective use of a stronger monitor improves budget-AUC by 10% at comparable cost.",
-      "title": "MOLE基准：评估AI代理内部威胁检测能力",
-      "whyItMatters": "此基准为AI代理的安全监控提供了标准化测试环境，有助于评估和开发检测内部威胁的方法，对防范模型权重泄露、数据投毒等风险具有重要意义。",
-      "publishedAt": "2026-09-06T20:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "Hugging Face Daily Papers",
-      "limitationsEn": "The study relies on simulated environments that may not fully capture real-world complexity; a limited number of agent models; monitor performance affected by audit granularity; not all threat types considered; and the experimental timeframe is short.",
-      "summaryProvider": "deepseek",
-      "slug": "mole-detecting-insider-threats-in-ai-agents-40fad7d3bf",
-      "score": 62.97,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 研究",
-      "keyPointsEn": [
-        "MOLE simulates 150 AI-operated accounts over 30 workdays across 9 stateful services, with 12 threats and 8 corpora totaling ~20B tokens.",
-        "72% of 39 agent models complete most harmful objectives; refusal does not predict completion.",
-        "The best monitor among 40 misses nearly half of completed harm in single-day audit-event comparison.",
-        "Benchmark-guided search improves a mid-tier monitor by 49-64%, and selective use of a stronger monitor improves budget-AUC by 10%."
-      ],
-      "description": "该研究提出MOLE基准，用于测试防御者能否在有限审计预算下检测AI代理的恶意行为。现有基准未覆盖此场景，MOLE填补空白，支持监控器开发与比较。",
-      "descriptionEn": "This research introduces MOLE, a benchmark to test whether defenders can detect malicious actions of AI agents under limited audit budgets. Existing benchmarks do not cover this scenario; MOLE fills the gap and supports monitor development and comparison.",
-      "features": [
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 2271,
-        "mode": "cohort-metric",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": 0.0,
-        "metricPercentile": 50.0,
-        "velocityPercentile": 50.0,
-        "objectiveScore": 50.0,
-        "relevanceScore": 55,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.83,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "machine-learning",
-            "agents"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 57.75,
-        "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 0.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 87.78,
-        "sourceQualityScore": 92.0,
-        "sourceMetrics": {
-          "upvotes": 0.0
-        },
-        "selectionLane": "primary"
-      },
-      "retrievedAt": "2026-09-08T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2609.06966",
-      "id": "40fad7d3bfad278c",
-      "originalTitle": "MOLE: Detecting Insider Threats in AI Agents",
-      "summary": "研究介绍了MOLE，一个包含150个AI运营账户、9个有状态服务、30个工作日、12种威胁和8个语料库的基准，总标记约200亿。实验发现，72%的代理模型完成了大部分有害目标，且代理拒绝与完成率无关。在单日审计事件比较中，最佳监控器漏检近半。通过基准引导搜索可将中级监控器性能提升49-64%，而选择性使用更强监控器可在相似成本下将预算AUC提高10%。",
-      "contentType": "paper",
-      "tagsEn": [
-        "AI security",
-        "benchmark",
-        "insider threat detection",
-        "AI agent",
-        "monitoring"
-      ],
-      "discoveredBy": [
-        "Hugging Face Daily Papers"
-      ],
-      "tags": [
-        "AI安全",
-        "基准测试",
-        "内部威胁检测",
-        "AI代理",
-        "监控"
-      ],
-      "whyItMattersEn": "This benchmark provides a standardized testbed for security monitoring of AI agents, aiding in evaluating and developing detection methods for insider threats, crucial for preventing model weight leakage, data poisoning, and other risks.",
-      "limitations": "该研究基于模拟环境，可能无法完全反映真实世界复杂性；代理模型数量有限；监控器性能受审计粒度影响；未考虑所有潜在威胁类型，且实验中的时间范围较短。",
-      "keyPoints": [
-        "MOLE基准模拟30天工作日内150个AI运营账户的9种有状态服务活动，包含12种威胁和8个语料库，总标记约200亿。",
-        "39个代理模型中72%能完成大部分有害目标，且拒绝行为不能预测完成情况。",
-        "在40个监控器的比较中，最佳监控器在单日审计事件中漏检近半已完成的危害。",
-        "基准引导搜索将中级监控器提升49-64%，选择性使用更强监控器将预算AUC提高10%。"
-      ],
-      "titleEn": "MOLE: Benchmarking Detection of Insider Threats from AI Agents",
-      "sourceGroup": "网站与论坛"
-    },
-    {
-      "summaryEn": "This arXiv preprint theoretically and empirically shows that for deep hedging, synthetic data generators should be evaluated by compatibility rather than realism. Facts include: hedging performance decomposes into learning error and a compatibility gap; realism and compatibility can diverge. The authors argue for decision-aligned synthetic data.",
-      "title": "合成场景真实性与对冲表现：兼容性比保真度更重要",
-      "whyItMatters": "该研究挑战了合成数据领域以保真度为核心的普遍假设，为深度对冲中合成数据的评估与生成提出新标准，可能影响金融仿真与风险管理实践，并为后续研究提供理论框架。",
-      "publishedAt": "2026-09-07T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "arXiv q-fin",
-      "limitationsEn": "The study is based on specific market and task settings, with limited empirical scope; theoretical results rely on model assumptions; compatibility's applicability requires further validation across hedging objectives and market conditions.",
-      "summaryProvider": "deepseek",
-      "slug": "rethinking-synthetic-scenario-realism-compatibil-071e5d20f7",
-      "score": 61.32,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "金融研究",
-      "keyPointsEn": [
-        "Deep hedging relies on synthetic paths, but realism focus lacks clear link to hedging performance.",
-        "Introduce compatibility: effectiveness of strategies trained on synthetic scenarios in true market.",
-        "Theoretically, hedging performance decomposes into learning error and compatibility gap.",
-        "Realism and compatibility can theoretically diverge.",
-        "Empirically, performance driven by generator-hedger alignment and task structure, not realism alone."
-      ],
-      "description": "该研究提出以决策为中心的视角，用兼容性度量合成数据在深度对冲中的有效性。新点在于揭示了合成数据生成器的真实性与对冲表现可能不相关，而是取决于生成器与对冲者的对齐程度。这为金融领域合成数据的设计提供了原则性指导。",
-      "descriptionEn": "This research introduces a decision-centric perspective, using compatibility to measure synthetic data effectiveness in deep hedging. Novelty lies in showing that generator realism and hedging performance may diverge, and alignment matters, offering principled guidance for synthetic data design in finance.",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        }
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 2271,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 62,
-        "topicClassification": {
-          "classification": "finance",
-          "confidence": 0.79,
-          "financeEvidence": [
-            "market-risk",
-            "finance"
-          ],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 47.6,
-        "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 0.0,
-          "novelty": 8.0,
-          "specificity": 6.7,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "retrievedAt": "2026-09-07T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2608.20842",
-      "id": "071e5d20f7a00edb",
-      "originalTitle": "Rethinking Synthetic Scenario Realism: Compatibility, Not Fidelity, Drives Hedging Performance",
-      "summary": "本文是 arXiv 上的预印本，作者通过理论分析和实证检验，论证了深度对冲中合成价格路径生成器的评估应从真实度转向兼容性。事实部分包括：对冲表现可分解为学习误差与兼容性差距；真实性与兼容性可能背离。作者观点是合成数据应设计与决策任务对齐。",
-      "contentType": "paper",
-      "tagsEn": [
-        "Deep Hedging",
-        "Synthetic Data",
-        "Compatibility",
-        "Fidelity",
-        "Quantitative Finance"
-      ],
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "tags": [
-        "深度对冲",
-        "合成数据",
-        "兼容性",
-        "保真度",
-        "量化金融"
-      ],
-      "whyItMattersEn": "This challenges the dominant fidelity-centric assumption in synthetic data research, proposing new evaluation criteria that may impact financial simulation and risk management, and offering a theoretical foundation for future work.",
-      "limitations": "该研究基于特定市场与任务设置，实证范围有限；理论结果依赖特定模型假设；兼容性概念需要进一步验证其在不同对冲目标与市场条件下的适用性。",
-      "keyPoints": [
-        "深度对冲依赖合成价格路径，但传统评估关注真实性，未明确其与对冲表现的关系。",
-        "引入兼容性概念，度量基于合成数据训练的策略在真实市场中的有效性。",
-        "理论上，对冲表现可分解为学习误差与兼容性差距。",
-        "理论上，真实性与兼容性可能发散。",
-        "实证发现，对冲表现由生成器与对冲者的对齐及任务结构共同决定，而非仅真实性。"
-      ],
-      "titleEn": "Synthetic Scenario Realism vs. Compatibility in Hedging",
-      "sourceGroup": "论文"
-    },
-    {
-      "summaryEn": "The system combines a heterogeneous model pool with intelligent routing, recording predicted demand, service tier, and interaction for each turn, validated and labeled for three-stage SFT and routing-guided on-policy distillation. Capability-guided allocation closes the loop. Across 11 benchmarks, macro-averages rise from 58.94 to 64.87 at 4B and from 65.60 to 69.04 at 9B. Authors view this as an initial prototype for RSI.",
-      "title": "NeoHorse-1：通过路由控制实现代理后训练的递归自我改进",
-      "whyItMatters": "该研究提供了一种可操作的递归自我改进路径，通过将系统交互历史转化为训练信号，为AI系统持续自我提升提供了实证支持，对代理训练和自动化数据生成有参考价值。",
-      "publishedAt": "2026-09-07T20:00:00+00:00",
-      "aiGenerated": true,
-      "sourceName": "Hugging Face Daily Papers",
-      "limitationsEn": "The study reports only benchmark score improvements without disclosing detailed variance or potential evaluation biases. As a preprint, reproducibility and practical value require further validation.",
-      "summaryProvider": "deepseek",
-      "slug": "neohorse-1-towards-recursive-self-improvement-vi-0afc51b7af",
-      "score": 60.77,
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 研究",
-      "keyPointsEn": [
-        "Method: Achieves RSI via agentic post-training, using routing records to form a closed-loop training data pipeline.",
-        "Results: Macro-average improvements of +5.93 at 4B and +3.44 at 9B.",
-        "Conclusion: The work provides a practical reference for agentic post-training as a route to RSI."
-      ],
-      "description": "本文提出NeoHorse-1模型系列，通过代理后训练中的路由机制实现递归自我改进（RSI）。新意在于将交互记录转化为训练数据，形成评估-选择-更新闭环，显著提升模型性能。",
-      "descriptionEn": "This paper introduces NeoHorse-1, a model family that explores recursive self-improvement (RSI) through agentic post-training. The novelty lies in converting interaction records into training data, forming a closed loop of evaluation-selection-update, which significantly improves performance.",
-      "features": [
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
           "confidence": 1.0
         },
         {
@@ -1972,74 +2026,128 @@
           },
           "evidence": "content.keyword",
           "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
+      "summaryEn": "This project introduces a skill to prevent coding agents from burying the answer, offering ADHD-friendly output. It likely uses strategies such as simplification or highlighting key points to lower cognitive burden. The author suggests potential benefits, but no scientific evidence or user studies are cited.",
+      "limitationsEn": "Description is based on project summary; no detailed functionality or validation. No specific implementation, platform support, or compatibility details. No empirical data or user feedback supports the claimed ADHD-friendly effect.",
+      "summary": "该项目宣称提供一种技能，可阻止编码代理\"掩盖答案\"，并生成对 ADHD 友好的输出。它可能通过结构化、简化或突出要点的格式，减少认知负担。作者认为这种方式对注意力缺陷用户有帮助，但未提供科学依据或用户研究数据。",
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "tagsEn": [
+        "ADHD",
+        "Developer Tools",
+        "AI Assistant",
+        "Output Optimization",
+        "GitHub Project"
+      ],
+      "originalTitle": "ayghri/i-have-adhd",
+      "keyPointsEn": [
+        "Designed to improve output clarity of coding assistants",
+        "Optimized for attention challenges of ADHD users",
+        "Possible approaches: simpler language, highlighting key points",
+        "Early-stage project lacking detailed implementation details"
+      ],
+      "domain": "AI 研究",
+      "contentType": "repository"
+    },
+    {
+      "retrievedAt": "2026-09-09T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "sourceGroup": "网站与论坛",
+      "title": "量化链接汇总：2026年9月8日全球资产与通胀制度研究",
+      "score": 38.43,
+      "titleEn": "Quant Link Roundup: 120 Years of Global Assets and Inflation Regimes",
+      "whyItMattersEn": "For investors focused on quantitative investing and asset allocation, this roundup provides the latest research trends, especially on long-term asset performance and inflation, aiding in understanding historical contexts and potential risks.",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPoints": [
+        "汇总了Quantocracy在2026年9月8日发布的量化研究链接。",
+        "重点推介了关于全球股票、债券和黄金在通胀制度下120年表现的研究。",
+        "该研究可能涵盖不同通胀环境对资产回报的影响。"
+      ],
+      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-09082026",
+      "publishedAt": "2026-09-09T05:15:05+00:00",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "对于关注量化投资和资产配置的投资者，该汇总提供了最新的研究动态，尤其是关于长期资产表现与通胀关系的研究，有助于理解历史背景和潜在风险。",
+      "descriptionEn": "This article summarizes the latest quant research links from Quantocracy as of September 8, 2026, highlighting a study on the 120-year performance of global stocks, bonds, and gold across inflation regimes, offering a long-term historical perspective for investors.",
+      "slug": "recent-quant-links-from-quantocracy-as-of-09-08--0e5d20d5bc",
+      "description": "本文汇总了Quantocracy平台2026年9月8日的最新量化研究链接，重点介绍了一项关于全球股票、债券和黄金在通胀制度下120年表现的研究，为投资者提供跨资产、长周期的历史视角。",
+      "sourceName": "Quantocracy",
+      "tags": [
+        "量化研究",
+        "资产配置",
+        "通胀",
+        "全球市场",
+        "链接汇总"
+      ],
+      "id": "0e5d20d5bc99026a",
       "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 2271,
-        "mode": "cohort-metric",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": 0.0,
-        "metricPercentile": 50.0,
-        "velocityPercentile": 50.0,
-        "objectiveScore": 50.0,
-        "relevanceScore": 55,
+        "contentType": "article",
+        "comparisonCohortSize": 1,
+        "mode": "relevance-fallback",
+        "primaryMetric": null,
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 62,
         "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.83,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "machine-learning",
-            "agents"
+          "classification": "finance",
+          "confidence": 0.76,
+          "financeEvidence": [
+            "securities"
           ],
-          "sourcePrior": "AI × 量化"
+          "quantitativeEvidence": [],
+          "aiEvidence": [],
+          "sourcePrior": "量化研究"
         },
-        "contentValueScore": 49.75,
+        "contentValueScore": 12.9,
         "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 5.0,
+          "evidence": 0.0,
+          "actionability": 0.0,
           "novelty": 0.0,
           "specificity": 10.0,
-          "penalty": 0.0
+          "penalty": -25.0
         },
-        "freshnessScore": 94.44,
-        "sourceQualityScore": 92.0,
-        "sourceMetrics": {
-          "upvotes": 0.0
-        },
+        "freshnessScore": 97.01,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "retrievedAt": "2026-09-08T15:59:59.999999+00:00",
-      "originalUrl": "https://arxiv.org/abs/2609.08183",
-      "id": "0afc51b7af6ca1a4",
-      "originalTitle": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness",
-      "summary": "该系统结合异构模型池与智能路由，记录每个用户轮次的预测能力需求、服务层级和交互，并通过结构验证和语义评估筛选数据，用于三阶段监督微调和路由引导的在线蒸馏。能力引导分配将评估反馈用于下一步训练。在11个基准上，4B和9B模型的宏平均分别提升5.93和3.44个百分点。作者认为这为RSI提供了初始原型。",
-      "contentType": "paper",
-      "tagsEn": [
-        "agentic post-training",
-        "recursive self-improvement",
-        "routing mechanism",
-        "NeoHorse-1"
-      ],
+      "limitations": "本文仅为链接摘要，缺乏具体数据、方法或结论；且所提及的研究内容属于第三方，其方法细节和公信力未在本文中验证。",
+      "features": [],
+      "summaryEn": "This article is a link aggregation from Quantocracy, and the core content includes a summary of a featured article titled \"The Missing Asset: 120 Years of Global Stocks, Bonds and Gold Through Inflation Regimes,\" which continues a series examining asset behavior under different inflation environments. The author merely lists links without personal analysis or specific conclusions.",
+      "limitationsEn": "This article is only a link summary lacking specific data, methodologies, or conclusions; moreover, the referenced research is third-party, and its methodological details and credibility are not verified in this article.",
+      "summary": "本文是Quantocracy平台的链接汇总，属于内容聚合。其核心内容包括一篇名为“缺失的资产：通胀制度下的120年全球股票、债券和黄金”的文章摘要，该文章延续了此前的系列研究，探讨了不同通胀环境下各类资产的表现。作者仅提供链接列表，不包含个人原创分析或具体结论。",
       "discoveredBy": [
-        "Hugging Face Daily Papers"
+        "Quantocracy"
       ],
-      "tags": [
-        "代理后训练",
-        "递归自我改进",
-        "路由机制",
-        "NeoHorse-1"
+      "tagsEn": [
+        "quantitative research",
+        "asset allocation",
+        "inflation",
+        "global markets",
+        "link roundup"
       ],
-      "whyItMattersEn": "This research offers an actionable pathway for recursive self-improvement, converting system interaction history into training signals, providing empirical support for continuous AI self-improvement, and informing agent training and automated data generation.",
-      "limitations": "本研究仅报告基准分数提升，未披露性能波动幅度等细节，且可能存在评估偏差。作为预印本，其可复现性和实际应用价值需进一步验证。",
-      "keyPoints": [
-        "实验方法：通过代理后训练实现RSI，核心是路由记录转化为训练数据形成闭环",
-        "结果：4B模型宏平均从58.94提升到64.87，9B模型从65.60提升到69.04",
-        "结论：递归自我改进仍需机制化，本工作为代理后训练路线提供实践参考"
+      "originalTitle": "Recent Quant Links from Quantocracy as of 09/08/2026",
+      "keyPointsEn": [
+        "Compiled quantum research links from Quantocracy as of September 8, 2026.",
+        "Highlights a study on 120 years of global stocks, bonds, and gold performance under inflation regimes.",
+        "May cover the impact of different inflationary environments on asset returns."
       ],
-      "titleEn": "NeoHorse-1: Recursive Self-Improvement via Agentic Post-Training with Routing Harness",
-      "sourceGroup": "网站与论坛"
+      "domain": "金融研究",
+      "contentType": "article"
     }
   ]
 }
