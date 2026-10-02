@@ -1,15 +1,621 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T15:59:59.999999+00:00",
+  "generatedAt": "2026-10-02T15:59:59.999999+00:00",
   "timezone": "Asia/Singapore",
-  "edition": "2026-10-01",
+  "edition": "2026-10-02",
   "cards": [
     {
-      "slug": "multiperiod-bond-portfolio-optimization-with-tra-8c6ab42e48",
-      "description": "该研究提出一个基于模拟的多期债券组合优化框架，用动态Nelson-Siegel模型和VAR因子动态刻画收益率曲线，构建时变离散状态马尔可夫链，并求解有限期马尔可夫决策过程以最大化预期终端财富。其新意在于将利率风险与比例交易成本纳入统一动态规划框架，并量化转移核截断对尾部风险统计的扭曲，对银行司库等需动态调整久期的机构有参考价值。",
-      "domain": "量化研究",
-      "titleEn": "Multiperiod Bond Portfolio Optimization with Transaction Costs Using a Markov Decision Process",
-      "summary": "银行司库组合需在收益率、流动性与利率风险间权衡，静态配置规则难以应对利率上升环境。作者将收益率曲线建模为动态Nelson-Siegel与VAR因子动态，并离散化为时变马尔可夫链，进而构建有限期马尔可夫决策过程，在比例再平衡成本下最大化预期终端财富，用后向归纳求解最优策略。作者指出，截断转移核几乎不改变平均终端财富，但会显著扭曲回撤与尾部统计。",
+      "originalUrl": "https://arxiv.org/abs/2610.01325",
+      "descriptionEn": "The study proposes PPO-HRAP, combining PPO with an interpretable regime prior and a reward design including a VIX-conditioned drawdown penalty. On the 2020-2022 SPY backtest, it reduced maximum drawdown from 34.10% for buy-and-hold to 18.47%, aiming to improve risk-adjusted returns.",
+      "description": "该研究提出PPO-HRAP，将PPO与可解释的市场状态先验结合，并通过VIX条件化回撤惩罚等奖励设计，在2020-2022年SPY回测中把最大回撤从买入持有的34.10%降至18.47%，旨在改善风险调整后收益。",
+      "summaryEn": "Reinforcement learning for trading often struggles to balance upside participation and drawdown control: profit-only policies can collapse toward passive long exposure on upward-drifting assets, while overly strong risk penalties can become too defensive. The authors propose PPO-HRAP, which blends the PPO action with a regime-derived target exposure and uses a reward including a VIX-conditioned drawdown penalty. Backtests show lower drawdown than buy-and-hold, but turnover is high and cross-asset robustness is based only on single runs, requiring further validation.",
+      "score": 83.93,
+      "limitations": "证据限于2020-2022年SPY回测、五个SPY随机种子以及QQQ和DIA的单次运行；未提供交易成本敏感性和其他市场状态下的稳健性测试；高换手可能影响净收益，跨资产结论不能视为普遍成立。",
+      "slug": "ppo-hrap-proximal-policy-optimization-with-a-hyb-8c6be2aaf0",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "If reproducible, combining an interpretable regime prior with PPO may offer a practical reward and action design for controlling drawdowns during trending markets; however, high turnover and limited cross-asset evidence mean cost sensitivity and out-of-sample validation are still needed before deployment.",
+      "keyPoints": [
+        "PPO-HRAP将PPO动作与基于状态先验的目标暴露混合，奖励包含组合对数收益、VIX条件化回撤惩罚、目标暴露偏离和换手成本。",
+        "在2020-2022年SPY留出测试窗口，总收益27.62%、年化8.48%、Sharpe 0.6447，最大回撤从买入持有的34.10%降至18.47%。",
+        "五个SPY随机种子的平均总收益为0.2725±0.0109，平均Sharpe为0.6219±0.0565；QQQ和DIA仅单次运行且该方法收益与Sharpe排名第一。"
+      ],
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "混合状态感知策略PPO-HRAP降低交易最大回撤",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "PPO-HRAP blends the PPO action with a regime-derived target exposure; its reward includes portfolio log return, VIX-conditioned drawdown-increase penalty, target-exposure deviation, and turnover cost.",
+        "On the held-out 2020-2022 SPY test window, total return was 27.62%, annualized return 8.48%, Sharpe 0.6447, and maximum drawdown fell from 34.10% for buy-and-hold to 18.47%.",
+        "Across five SPY seeds, mean total return was 0.2725±0.0109 and mean Sharpe 0.6219±0.0565; for QQQ and DIA, only single runs were reported, with the method ranking first in return and Sharpe."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "reinforcement learning trading",
+        "PPO",
+        "risk control",
+        "drawdown",
+        "market regime",
+        "quantitative backtesting"
+      ],
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "limitationsEn": "Evidence is limited to the 2020-2022 SPY backtest, five SPY random seeds, and single runs on QQQ and DIA; transaction-cost sensitivity and robustness across other market regimes are not provided; high turnover may affect net returns, and cross-asset conclusions should not be viewed as universally valid.",
+      "id": "8c6be2aaf0134e19",
+      "sourceGroup": "论文",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "强化学习交易",
+        "PPO",
+        "风险控制",
+        "回撤",
+        "市场状态",
+        "量化回测"
+      ],
+      "titleEn": "Hybrid Regime-Aware PPO-HRAP Reduces Maximum Drawdown in Trading",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7087,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 100.0,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.93,
+          "financeEvidence": [
+            "portfolio",
+            "trading",
+            "market-risk"
+          ],
+          "quantitativeEvidence": [
+            "optimization",
+            "quant-metrics"
+          ],
+          "aiEvidence": [
+            "agents"
+          ],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 78.0,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 5.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "originalTitle": "PPO-HRAP: Proximal Policy Optimization with a Hybrid Regime-Aware Policy for Risk-Controlled Trading",
+      "contentType": "paper",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "method:reinforcement-learning",
+          "facet": "method",
+          "value": "reinforcement-learning",
+          "label": {
+            "zh": "强化学习",
+            "en": "Reinforcement Learning"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.93
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "domain": "AI × 量化",
+      "summary": "强化学习交易常难以兼顾上行参与和回撤控制：仅追求利润的策略在上涨资产上易退化为被动多头，而风险惩罚过强又会过度防御。作者提出PPO-HRAP，将PPO输出与状态推导的目标暴露混合，并使用包含VIX条件化回撤惩罚等项的奖励。回测显示其回撤低于买入持有，但换手较高，跨资产稳健性仅基于单次运行，尚待更多验证。",
+      "whyItMatters": "若结果可复现，将可解释的市场状态先验与PPO结合，可能为在趋势行情中控制回撤提供一种实用的奖励与动作设计思路；但其高换手和有限的跨资产证据意味着实际部署前仍需成本敏感性和样本外验证。"
+    },
+    {
+      "originalUrl": "https://arxiv.org/abs/2610.00005",
+      "descriptionEn": "This work releases the RED-2400 v2 family, a set of five public benchmark datasets covering Solana-native venues, cross-chain flows, and on-chain oracle behavior, accompanied by fixed-seed reproducibility scripts, SHA-256 manifests, and a CC-BY-4.0 license. Its novelty lies in constructing a reproducible Solana and cross-chain microstructure corpus within a 57-day window under a single public-blockchain observer methodology, addressing the scarcity of public record-level tape",
+      "description": "该工作发布了一个名为RED-2400 v2的公开基准数据集家族，覆盖Solana原生场所、跨链资金流和链上预言机行为等五个数据集，并附带固定随机种子的复现脚本、SHA-256清单和CC-BY-4.0许可。其新意在于以单一公共区块链观察者、统一方法论在57天窗口内构建可复现的Solana与跨链微观结构语料，缓解该领域公共记录级数据稀缺的问题；有用性在于为相关实证研究提供与以太坊经典数据集互补的低门槛基准。",
+      "summaryEn": "The authors release and document the RED-2400 family v2, comprising five public benchmark datasets assembled by a single public-blockchain observer over a concurrent 57-day 2026 window (2026-05-08 to 2026-07-05) under one methodology using only free-tier and public feeds, with no paid data, private accounts, or trading. The five datasets characterize Pyth oracle staleness against centralized-exchange prices, an Aave utilization and Ethereum liquidation panel, spot-perpetual basis and funding coupling, a Solana CEX-versus-DEX spread tape with realized impact, and a Wormhole cross-chain source-flow tape. The authors report three descriptive findings, one honest null, and a field-completeness characterization, explicitly not presenting them as causal estimates.",
+      "score": 82.11,
+      "limitations": "数据集仅覆盖2026年5月8日至7月5日的57天窗口，由单一公共区块链观察者以免费和公开数据源构建，可能受观察者方法、数据源覆盖和时间范围限制。作者仅报告描述性发现、一个零结果和一项字段完整性刻画，明确不将其解释为因果估计。因此结论外推至其他时期、其他场所或因果机制需谨慎，且不构成投资建议。",
+      "slug": "a-multi-venue-solana-defi-microstructure-data-co-9f86ff414d",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "This corpus can help lower the data barrier for Solana and cross-chain microstructure research, complementing the Ethereum-centric datasets that dominate the field. Its public, reproducible benchmark family may support more consistent empirical comparisons, but the authors explicitly present the findings as descriptive rather than causal, limiting direct relevance for strategy inference or investment decisions.",
+      "keyPoints": [
+        "发布RED-2400 v2五个公开基准数据集，覆盖Pyth预言机陈旧度、Aave清算与利用率、现货-永续基差、Solana CEX-DEX价差与Wormhole跨链流。",
+        "数据在2026-05-08至2026-07-05的57天并发窗口内由单一公共区块链观察者采集，仅用免费和公开数据源，不涉及付费数据、私有账户或交易。",
+        "提供固定随机种子复现脚本、SHA-256清单和CC-BY-4.0许可，强调可复现性和公开可用性。"
+      ],
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "RED-2400 v2：Solana与跨链微观结构公开数据集家族",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "Releases five public benchmark datasets in RED-2400 v2 covering Pyth oracle staleness, Aave liquidations and utilization, spot-perpetual basis, Solana CEX-DEX spreads, and Wormhole cross-chain flows.",
+        "Data were collected by a single public-blockchain observer over a concurrent 57-day window from 2026-05-08 to 2026-07-05, using only free-tier and public feeds with no paid data, private accounts, or trading.",
+        "Provides fixed-seed reproducibility scripts, SHA-256 manifests, and a CC-BY-4.0 license, emphasizing reproducibility and public availability."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "Solana",
+        "DeFi",
+        "Market Microstructure",
+        "Dataset",
+        "Cross-Chain",
+        "Oracle"
+      ],
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "limitationsEn": "The datasets cover only a 57-day window from 2026-05-08 to 2026-07-05, were built by a single public-blockchain observer using free-tier and public feeds, and may be constrained by observer methodology, source coverage, and time range. The authors report only descriptive findings, one null result, and a field-completeness characterization, explicitly not interpreting them as causal estimates. Extrapolation to other periods, venues, or causal mechanisms should therefore be cautious, and the work does not constitute investment advice.",
+      "id": "9f86ff414da884f4",
+      "sourceGroup": "论文",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "Solana",
+        "DeFi",
+        "市场微观结构",
+        "数据集",
+        "跨链",
+        "预言机"
+      ],
+      "titleEn": "RED-2400 v2: A Public Dataset Family for Solana and Cross-Chain Microstructure",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7087,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 72,
+        "topicClassification": {
+          "classification": "finance",
+          "confidence": 0.76,
+          "financeEvidence": [
+            "trading"
+          ],
+          "quantitativeEvidence": [],
+          "aiEvidence": [],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 75.4,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "originalTitle": "A Multi-Venue Solana/DeFi Microstructure Data Corpus: The RED-2400 Family v2",
+      "contentType": "paper",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        }
+      ],
+      "domain": "金融研究",
+      "summary": "作者发布并记录了RED-2400家族v2，包含五个公开基准数据集，由单一公共区块链观察者在2026年5月8日至7月5日共57天窗口内以统一方法组装，仅使用免费层和公共数据源，不涉及付费数据、私有账户或交易。五个数据集分别刻画Pyth预言机相对中心化交易所价格的陈旧度、Aave利用率和以太坊清算面板、现货-永续基差与资金费率耦合、Solana CEX对DEX价差带及已实现冲击、Wormhole跨链源流消息。作者报告三项描述性发现、一个诚实的零结果和一项字段完整性刻画，并明确不将其作为因果估计。",
+      "whyItMatters": "该语料有助于降低Solana和跨链微观结构研究的数据门槛，补充以太坊为中心的现有数据集。其公开、可复现的基准家族可能支持更一致的实证比较，但作者明确所述发现均为描述性而非因果估计，因此对策略推断或投资决策的直接参考价值有限。"
+    },
+    {
+      "originalUrl": "https://www.youtube.com/watch?v=HU03WDFB_tQ",
+      "descriptionEn": "This tutorial shows how to build a dots-style, always-on AI assistant using Pi and pi-gateway, with a choice of models on a VPS or another always-on machine. It walks through agent workspaces, skills, Google Workspace access, and a Telegram gateway with local SQLite session routing, offering direct reference value for developers who want to self-host a personal assistant or research agent.",
+      "description": "这篇教程展示如何用Pi和pi-gateway搭建类dots风格的常驻AI助手，支持自选模型并部署在VPS等常开机设备上。它提供了从工作区、技能、Google Workspace接入到Telegram网关与本地SQLite会话路由的完整步骤，对希望自托管个人助手或研究代理的开发者有直接参考价值。",
+      "summaryEn": "The tutorial demonstrates building an always-on assistant centered on Pi and connected to Telegram via pi-gateway, covering agent workspaces, skills, Google Workspace access, and local SQLite-based session routing. The author shows a personal assistant and a research agent as examples, and notes that extending the gateway to more platforms and automations is future work, not built-in features demonstrated here. This is an objective overview of the video content and does not constitute independent verification of its practicality or effectiveness.",
+      "score": 79.77,
+      "limitations": "内容来源是教程视频，未提供独立基准测试、性能数据或安全审计；示例效果依赖所选模型、部署环境与配置，视频中未逐一验证。Telegram研究代理使用Kimi K3，但模型可用性、成本及实际效果可能变化。教程中提到的平台扩展与自动化属于未来工作，并非当前已实现的内置功能。任何部署都需自行评估隐私、权限与运维风险。",
+      "slug": "build-your-own-open-source-dots-with-pi-and-tele-58db28c11c",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "For those who want a self-hosted, customizable, and always-on personal AI assistant, this tutorial offers a practical path based on open-source components, with the ability to connect custom models and Telegram. It highlights engineering considerations such as local session storage and workspace isolation, helping assess whether such an approach fits a given scenario.",
+      "keyPoints": [
+        "使用Pi和pi-gateway在VPS或其他常开机设备上构建常驻AI助手，模型可自选。",
+        "教程覆盖代理工作区、技能、Google Workspace访问，以及Telegram消息网关与本地SQLite会话路由。",
+        "演示了个人助手和研究代理，并指出多平台与自动化扩展属于未来方向，当前未内置。"
+      ],
+      "publishedAt": "2026-10-02T05:47:34+00:00",
+      "title": "开源常驻AI助手搭建：Pi与Telegram网关教程",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "Build always-on AI assistants with Pi and pi-gateway on a VPS or another always-on machine, using your choice of models.",
+        "The tutorial covers agent workspaces, skills, Google Workspace access, and a Telegram message gateway with local SQLite session routing.",
+        "It demonstrates a personal assistant and a research agent, and notes that multi-platform and automation extensions are future directions, not built-in features."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "AI Assistant",
+        "Pi",
+        "Telegram",
+        "Gateway",
+        "Self-Hosting",
+        "Session Routing"
+      ],
+      "discoveredBy": [
+        "Hugging Face"
+      ],
+      "limitationsEn": "The source is a tutorial video and provides no independent benchmarks, performance data, or security audits; example outcomes depend on the chosen model, deployment environment, and configuration, which are not individually verified in the video. The Telegram research agent uses Kimi K3, but model availability, cost, and actual performance may change. Platform extensions and automations mentioned in the tutorial are future work, not currently implemented built-in features. Any deployment requires self-assessment of privacy, permissions, and operational risks.",
+      "id": "58db28c11c8561b9",
+      "sourceGroup": "视频",
+      "sourceName": "Hugging Face",
+      "tags": [
+        "AI助手",
+        "Pi",
+        "Telegram",
+        "网关",
+        "自托管",
+        "会话路由"
+      ],
+      "titleEn": "Building an Open-Source Always-On AI Assistant with Pi and a Telegram Gateway",
+      "scoreBreakdown": {
+        "contentType": "video",
+        "comparisonCohortSize": 1,
+        "mode": "cohort-metric",
+        "primaryMetric": "views",
+        "primaryMetricValue": 3833.0,
+        "metricPercentile": 100.0,
+        "velocityPercentile": 100.0,
+        "objectiveScore": 100.0,
+        "relevanceScore": 60,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.83,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "machine-learning",
+            "agents"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 55.0,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 97.16,
+        "sourceQualityScore": 82.0,
+        "sourceMetrics": {
+          "views": 3833.0
+        },
+        "selectionLane": "primary"
+      },
+      "originalTitle": "Build Your Own Open-Source Dots with Pi and Telegram",
+      "contentType": "video",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "domain": "AI 研究",
+      "summary": "教程演示了以Pi为核心、通过pi-gateway连接Telegram的常驻助手搭建流程，涵盖代理工作区、技能配置、Google Workspace访问以及基于本地SQLite的会话路由。作者展示了个人助手和研究代理两个示例，并说明未来可扩展更多平台与自动化，但这些扩展属于未来工作，并非已内置功能。以上是对视频内容的客观概述，不代表对其实用性或效果的独立验证。",
+      "whyItMatters": "对于希望自托管、可定制且常驻在线的个人AI助手的人来说，该教程提供了一条基于开源组件、可接入自有模型与Telegram的实践路径，并强调了本地会话存储与工作区隔离等工程考量，有助于评估这类方案是否适合自身场景。"
+    },
+    {
+      "originalUrl": "https://arxiv.org/abs/2610.01729",
+      "descriptionEn": "This work proposes Function-Structured Graph Reinforcement Learning (FSG-RL), connecting subproblem graphs and Python implementations via multi-verifier feedback. The novelty lies in using executable verifiers to provide intermediate process rewards. Its usefulness is shown by improving final-answer accuracy from 43.25% to 67.50% and full solution success from 32.25% to 52.25% under a unified evaluation protocol.",
+      "description": "该工作提出函数结构图强化学习（FSG-RL），将子问题图与Python实现通过多验证器反馈连接，新意在于用可执行验证器提供中间过程奖励。其有用性体现在：在统一评估协议下，最终答案准确率从43.25%提升至67.50%，完整解题成功率从32.25%提升至52.25%。",
+      "summaryEn": "Fact: FSG-RL first uses supervised fine-tuning to let the policy generate code from function graphs, then optimizes with GRPO using answer-gated rewards and span-level credit assignment, supporting teacher supervision and structured memory. Author's view: the framework can leverage executable verifiers to improve mathematical reasoning, and gains extend beyond generating correctly formatted code.",
+      "score": 79.63,
+      "limitations": "证据边界：结果基于作者从GSM8K、MathQA、MATH、Omni-MATH构建的特定基准，未在更广泛或真实场景中验证；未探讨计算成本、验证器覆盖范围及对教师监督的依赖；长期泛化性和鲁棒性尚不明确。",
+      "slug": "function-structured-reinforcement-learning-with--34b978a061",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "This work shows how to combine executable verifiers with reinforcement learning to provide finer-grained feedback on intermediate steps in mathematical reasoning, potentially advancing more reliable algorithmic mathematical reasoning systems.",
+      "keyPoints": [
+        "FSG-RL连接子问题图、Python实现与多验证器反馈。",
+        "GRPO使用答案门控奖励和跨度级信用分配进行优化。",
+        "在GSM8K、MathQA、MATH、Omni-MATH构建的基准上，GRPO将最终答案准确率从43.25%提至67.50%，完整解题成功率从32.25%提至52.25%。"
+      ],
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "函数结构强化学习结合可执行验证器提升数学推理",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "FSG-RL connects subproblem graphs, Python implementations, and multi-verifier feedback.",
+        "GRPO optimizes with answer-gated rewards and span-level credit assignment.",
+        "On a benchmark built from GSM8K, MathQA, MATH, and Omni-MATH, GRPO improves final-answer accuracy from 43.25% to 67.50% and full solution success from 32.25% to 52.25%."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "reinforcement learning",
+        "mathematical reasoning",
+        "executable verifiers",
+        "code generation",
+        "GRPO"
+      ],
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "limitationsEn": "Evidence boundary: results are based on a specific benchmark built by the authors from GSM8K, MathQA, MATH, and Omni-MATH, not validated on broader or real-world scenarios; computational cost, verifier coverage, and reliance on teacher supervision are not explored; long-term generalization and robustness remain unclear.",
+      "id": "34b978a06108cd15",
+      "sourceGroup": "论文",
+      "sourceName": "arXiv cs.LG",
+      "tags": [
+        "强化学习",
+        "数学推理",
+        "可执行验证器",
+        "代码生成",
+        "GRPO"
+      ],
+      "titleEn": "Function-Structured Reinforcement Learning with Executable Verifiers Improves Mathematical Reasoning",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7087,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 60,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
+          "quantitativeEvidence": [
+            "optimization"
+          ],
+          "aiEvidence": [
+            "machine-learning"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 75.0,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 15.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "originalTitle": "Function-Structured Reinforcement Learning with Executable Verifiers for Mathematical Reasoning",
+      "contentType": "paper",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "method:reinforcement-learning",
+          "facet": "method",
+          "value": "reinforcement-learning",
+          "label": {
+            "zh": "强化学习",
+            "en": "Reinforcement Learning"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        }
+      ],
+      "domain": "AI 研究",
+      "summary": "论文事实：FSG-RL先用监督微调让策略从函数图生成代码，再用GRPO结合答案门控奖励和跨度级信用分配进行优化，并支持教师监督和结构化记忆。作者观点：该框架能利用可执行验证器改进数学推理，且增益不仅限于生成格式正确的代码。",
+      "whyItMatters": "该工作展示了如何将可执行验证器与强化学习结合，为数学推理中的中间步骤提供更细粒度反馈，可能推动更可靠的算法数学推理系统发展。"
+    },
+    {
+      "originalUrl": "https://arxiv.org/abs/2610.01497",
+      "descriptionEn": "The study introduces a benchmark of 500 synthetic non-small cell lung cancer cases and finds pervasive over-refusal in eight LLM configurations on partially supported labels (83.3-100% failure), then proposes a seven-module deterministic framework reducing over-refusal to 6.7%.",
+      "description": "该研究构建了500例合成非小细胞肺癌病例的基准测试，发现八种LLM配置在部分支持标签上普遍出现过度拒绝（83.3-100%失败），并提出了七模块确定性框架将过度拒绝降至6.7%。",
+      "summaryEn": "OpenMTB-Audit is a benchmark with 500 synthetic NSCLC cases spanning five adversarial error categories and four safety labels to evaluate LLM safety in molecular tumor boards. Testing eight LLM configurations reveals over-refusal: all fail to retain the Partially Supported label in 83.3-100% of true cases, achieving high safety scores via label collapse rather than calibrated reasoning. The proposed MTB-AuditAgent reduces over-refusal to 6.7% with 91.2% accuracy (95% CI: 88.6-93.6%), but a two-oncologist annotation study finds disagreement at the boundary between information sufficiency and treatment optimization.",
+      "score": 78.93,
+      "limitations": "结论基于500例合成非小细胞肺癌病例，可能无法完全反映真实临床复杂性和其他癌种；仅评估了八种LLM配置，泛化性有限；双肿瘤学家标注研究仅涉及两名专家，分歧分析可能不具广泛代表性；MTB-AuditAgent的91.2%准确率需在更大多样化数据集上验证。",
+      "slug": "openmtb-audit-exposing-over-refusal-and-clinical-966740ed88",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "The study exposes the risk that LLMs may mask reasoning deficiencies through label collapse in clinical safety evaluation and provides a deterministic framework to reduce over-refusal, offering an evaluation tool and improvement direction for safe deployment of AI in molecular tumor boards.",
+      "keyPoints": [
+        "OpenMTB-Audit包含500例合成非小细胞肺癌病例，覆盖五种对抗性错误类别和四种安全标签。",
+        "八种LLM配置在部分支持病例中过度拒绝率达83.3-100%，高安全分源于标签坍缩而非临床校准。",
+        "MTB-AuditAgent七模块框架将过度拒绝降至6.7%，准确率达91.2%（95% CI: 88.6-93.6%）。"
+      ],
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "OpenMTB-Audit揭示LLM分子肿瘤板评估过度拒绝问题",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "OpenMTB-Audit contains 500 synthetic NSCLC cases covering five adversarial error categories and four safety labels.",
+        "All eight LLM configurations showed over-refusal in 83.3-100% of true Partially Supported cases, with high safety scores arising from label collapse rather than clinical calibration.",
+        "The MTB-AuditAgent seven-module framework reduces over-refusal to 6.7% and achieves 91.2% accuracy (95% CI: 88.6-93.6%)."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "large language models",
+        "molecular tumor board",
+        "safety evaluation",
+        "over-refusal",
+        "clinical decision support"
+      ],
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "limitationsEn": "Conclusions are based on 500 synthetic NSCLC cases and may not fully reflect real clinical complexity or other cancer types; only eight LLM configurations were evaluated, limiting generalizability; the two-oncologist annotation study involves only two experts, so disagreement analysis may not be broadly representative; the 91.2% accuracy of MTB-AuditAgent requires validation on larger, more diverse datasets.",
+      "id": "966740ed88d62ee1",
+      "sourceGroup": "论文",
+      "sourceName": "arXiv cs.LG",
+      "tags": [
+        "大语言模型",
+        "分子肿瘤板",
+        "安全评估",
+        "过度拒绝",
+        "临床决策支持"
+      ],
+      "titleEn": "OpenMTB-Audit Exposes Over-Refusal and Clinical Expert Perspectives in LLM-Based Molecular Tumor Board Safety Evaluation",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7087,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 80,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.87,
+          "financeEvidence": [
+            "securities"
+          ],
+          "quantitativeEvidence": [
+            "optimization",
+            "calibration"
+          ],
+          "aiEvidence": [
+            "machine-learning",
+            "language-model"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 74.0,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "originalTitle": "OpenMTB-Audit: Exposing Over-Refusal and Clinical Expert Perspectives in LLM-Based Molecular Tumor Board Safety Evaluation",
+      "contentType": "paper",
+      "aiGenerated": true,
       "features": [
         {
           "id": "artifact:paper",
@@ -34,15 +640,396 @@
           "confidence": 1.0
         },
         {
-          "id": "topic:factors",
+          "id": "topic:ai-quant",
           "facet": "topic",
-          "value": "factors",
+          "value": "ai-quant",
           "label": {
-            "zh": "因子",
-            "en": "Factors"
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.87
+        },
+        {
+          "id": "topic:productivity",
+          "facet": "topic",
+          "value": "productivity",
+          "label": {
+            "zh": "效率工具",
+            "en": "Productivity"
           },
           "evidence": "content.keyword",
           "confidence": 0.8
+        }
+      ],
+      "domain": "AI × 量化",
+      "summary": "研究提出OpenMTB-Audit基准，涵盖五种对抗性错误类别和四种安全标签，用于评估LLM在分子肿瘤板场景中的安全性。实验显示所有测试的LLM配置在真实部分支持病例中无法保留该标签的比例高达83.3-100%，通过标签坍缩获得高聚合安全分而非临床校准推理。作者开发MTB-AuditAgent框架，将过度拒绝降至6.7%，准确率达91.2%，但双肿瘤学家标注研究发现分歧集中在信息充分性与治疗优化边界。",
+      "whyItMatters": "该研究揭示了LLM在临床安全评估中通过标签坍缩掩盖推理缺陷的风险，并提供了可降低过度拒绝的确定性框架，为AI辅助分子肿瘤板的安全部署提供了评估工具和改进方向。"
+    },
+    {
+      "originalUrl": "https://arxiv.org/abs/2604.12905",
+      "descriptionEn": "This study proposes a Frequency-aware Decomposition Network (FDN) that splits wrench prediction spectrally into a low-frequency trend and a high-frequency residual to address the insufficient high-frequency estimation and delay-induced staleness of existing sensorless methods in rapid-contact tasks. Its value lies in reducing high-frequency amplitude error on real grinding data without requiring an F/T sensor or an identified robot model.",
+      "description": "该研究提出频率感知分解网络（FDN），将力/力矩预测按频谱拆分为低频趋势和高频残差分别建模，以解决现有无传感器方法在快速接触任务中高频信号估计不足及通信延迟导致估计过时的问题。其价值在于无需力/力矩传感器和已辨识的机器人模型，即可在真实研磨数据上显著降低高频幅值误差。",
+      "summaryEn": "Existing sensorless wrench estimation methods based on proprioception perform well in slow interaction tasks, but their low-pass characteristics struggle to capture the high-frequency signals needed for rapid-contact tasks such as grinding, and communication delays can make their estimates outdated. The authors propose a Frequency-aware Decomposition Network (FDN) that spectrally decomposes the wrench horizon into a low-frequency trend and a high-frequency residual, estimated by pointwise regression and a learned conditional distribution, respectively, in a multi-step-ahead manner. On real-world grinding data from a 6-DoF hydraulic manipulator, FDN reduces high-frequency amplitude error by up to 47% and estimates a 1,000 ms horizon within 11 ms on a single CPU thread.",
+      "score": 76.48,
+      "limitations": "证据主要来自作者自研6自由度液压机械臂的真实研磨数据，尚未在更广泛的机器人平台、接触任务或传感器配置上验证。高频幅值误差降低47%是在假定时间延迟下相对特定基线取得的，实际部署中的延迟分布、噪声特性与任务变化可能影响效果。多步超前估计可行性与11毫秒/1000毫秒时域的结论基于单CPU线程设定，未涵盖其他计算平台或实时控制闭环的端到端表现。迁移学习仅作为探索性研究，低频误差降低8%而高频动态表现出领域特异性，说明跨域泛化仍有限。该研究不构成任何投资建议。",
+      "slug": "frequency-aware-decomposition-learning-for-senso-47da1ce0f2",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "Sensorless wrench estimation can avoid expensive and fragile F/T sensors. Reliably estimating high-frequency wrench in vibration-rich rapid-contact tasks and supporting multi-step-ahead prediction could help enable contact-aware control in deployments with communication delays. This work offers a decomposition-learning approach for high-frequency dynamics modeling and delay compensation.",
+      "keyPoints": [
+        "FDN将力/力矩预测按频谱拆分为低频趋势和高频残差，分别用逐点回归与学习到的条件分布建模，并利用频率感知层施加频带分解先验、自适应增强输入频率幅值。",
+        "在6自由度液压机械臂的真实研磨数据上，FDN在假定时间延迟下将高频幅值误差较基线最多降低47%，同时保持有竞争力的低频逐点精度。",
+        "FDN支持多步超前估计，可在单CPU线程11毫秒内估计1000毫秒时域；消融研究支持其设计选择，探索性迁移学习显示低频动态可迁移而高频动态具领域特异性。",
+        "该方法在估计阶段无需已辨识的机器人模型，也无需力/力矩传感器。"
+      ],
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "面向振动密集型接触任务的频率感知无传感器力估计学习",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "FDN spectrally decomposes wrench prediction into a low-frequency trend and a high-frequency residual, modeled by pointwise regression and a learned conditional distribution, respectively, with frequency-aware layers imposing band decomposition priors and adaptively enhancing input frequency amplitudes.",
+        "On real-world grinding data from a 6-DoF hydraulic manipulator, FDN reduces high-frequency amplitude error by up to 47% over baselines under assumed time delays while maintaining competitive low-frequency pointwise accuracy.",
+        "FDN supports multi-step-ahead estimation, estimating a 1,000 ms horizon within 11 ms on a single CPU thread; ablation studies support its design choices, and an exploratory transfer study shows low-frequency dynamics are transferable while high-frequency dynamics appear domain-specific.",
+        "The method requires neither an identified robot model nor an F/T sensor during estimation."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "sensorless wrench estimation",
+        "frequency decomposition",
+        "robotic contact tasks",
+        "multi-step-ahead prediction",
+        "vibration signals",
+        "hydraulic manipulator"
+      ],
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "limitationsEn": "Evidence mainly comes from real-world grinding data on the authors' 6-DoF hydraulic manipulator and has not been validated on a broader range of robot platforms, contact tasks, or sensor configurations. The 47% reduction in high-frequency amplitude error is relative to specific baselines under assumed time delays, and actual delay distributions, noise characteristics, and task variations may affect performance. Conclusions about multi-step-ahead feasibility and the 11 ms per 1,000 ms horizon are based on a single CPU thread and do not cover other computing platforms or closed-loop real-time control. The transfer study is exploratory: low-frequency error is reduced by 8% while high-frequency dynamics appear domain-specific, indicating limited cross-domain generalization. This study does not constitute investment advice.",
+      "id": "47da1ce0f26cb18a",
+      "sourceGroup": "论文",
+      "sourceName": "arXiv cs.LG",
+      "tags": [
+        "无传感器力估计",
+        "频率分解",
+        "机器人接触任务",
+        "多步超前预测",
+        "振动信号",
+        "液压机械臂"
+      ],
+      "titleEn": "Frequency-aware decomposition learning for sensorless wrench estimation in vibration-rich robotic contact",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7087,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 50,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
+          "quantitativeEvidence": [
+            "econometrics",
+            "stochastic"
+          ],
+          "aiEvidence": [
+            "machine-learning"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 70.5,
+        "contentSignals": {
+          "evidence": 20.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "originalTitle": "Frequency-aware decomposition learning for sensorless wrench estimation in vibration-rich robotic contact",
+      "contentType": "paper",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        }
+      ],
+      "domain": "AI 研究",
+      "summary": "现有基于本体感知的无传感器力/力矩估计方法在缓慢交互任务中表现良好，但因低通特性难以捕捉研磨等快速接触任务所需的高频信号，且通信延迟会让估计结果过时。作者提出频率感知分解网络（FDN），将力/力矩时域按频谱分解为低频趋势与高频残差，分别用逐点回归和学习到的条件分布进行多步超前估计。在6自由度液压机械臂的真实研磨数据上，FDN在高频幅值误差上最多降低47%，并能在单CPU线程11毫秒内估计1000毫秒时域。",
+      "whyItMatters": "无传感器力/力矩估计可避免使用昂贵且易损的力/力矩传感器。若能在振动密集的快速接触任务中可靠估计高频力/力矩并支持多步超前预测，将有助于在存在通信延迟的部署场景下实现接触感知控制。该工作为高频动态建模和延迟补偿提供了一种可参考的分解学习思路。"
+    },
+    {
+      "originalUrl": "https://github.com/Panniantong/Agent-Reach",
+      "descriptionEn": "This project offers a single CLI for AI agents to read and search Twitter, Reddit, YouTube, GitHub, Bilibili and Xiaohongshu, claiming zero API fees. Its novelty lies in consolidating multi-platform access into one command-line channel, which is directly relevant to developers building agents that need external live content.",
+      "description": "该项目以单一 CLI 为 AI 代理提供读取和搜索 Twitter、Reddit、YouTube、GitHub、Bilibili、小红书等平台的能力，宣称零 API 费用。新意在于将多平台信息获取整合为一条命令行通道，对需要外部实时内容的代理开发者有直接参考价值。",
+      "summaryEn": "Agent-Reach, a GitHub Trending project, describes itself as giving AI agents the ability to see the whole internet, reading and searching multiple social and content platforms through one CLI with no API fees. These capability claims come from the project's own description and have not been independently tested or code-audited.",
+      "score": 76.05,
+      "limitations": "当前仅有项目自述，未提供实测数据、代码审计或平台合规评估；零 API 费用是否长期成立、抓取方式是否违反各平台条款、数据完整性与稳定性均未经验证。",
+      "slug": "panniantong-agent-reach-b6bb934108",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "If the capability works reliably, agent developers could obtain multi-source public content without integrating each platform API or paying fees individually, though real usability depends on implementation, platform rules and ongoing maintenance.",
+      "keyPoints": [
+        "以单一 CLI 统一访问 Twitter、Reddit、YouTube、GitHub、Bilibili、小红书等平台",
+        "项目自述强调零 API 费用",
+        "定位是给 AI 代理补充互联网信息读取与搜索能力"
+      ],
+      "publishedAt": "2026-10-02T15:59:59.999999+00:00",
+      "title": "Agent-Reach 让 AI 代理无需 API 费用即可读取多个平台",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "Provides unified CLI access to Twitter, Reddit, YouTube, GitHub, Bilibili and Xiaohongshu",
+        "Project description emphasizes zero API fees",
+        "Positioned to add internet reading and search capabilities to AI agents"
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "AI agents",
+        "CLI tool",
+        "multi-platform search",
+        "open-source project"
+      ],
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "limitationsEn": "Only the project's own description is available; no benchmark data, code audit or platform-compliance review is provided. Whether zero API fees remain true over time, whether scraping methods violate platform terms, and data completeness and stability are all unverified.",
+      "id": "b6bb9341088f0954",
+      "sourceGroup": "开源项目",
+      "sourceName": "GitHub Trending Daily",
+      "tags": [
+        "AI 代理",
+        "命令行工具",
+        "多平台检索",
+        "开源项目"
+      ],
+      "titleEn": "Agent-Reach lets AI agents read multiple platforms without API fees",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 78,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 99.0,
+        "metricPercentile": 100.0,
+        "velocityPercentile": 100.0,
+        "objectiveScore": 100.0,
+        "relevanceScore": 55,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "agents"
+          ],
+          "sourcePrior": null
+        },
+        "contentValueScore": 40.12,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 10.0,
+          "novelty": 0.0,
+          "specificity": 0.37,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 1.0,
+          "trending_rank_score": 99.0,
+          "stars": 88140.0,
+          "stars_delta_1d": 683.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "originalTitle": "Panniantong/Agent-Reach",
+      "contentType": "repository",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "domain": "AI 研究",
+      "summary": "GitHub Trending 项目 Agent-Reach 的简介称其为 AI 代理提供“看见整个互联网”的能力，可读取和搜索多个社交与内容平台，并通过单一 CLI 使用、不支付 API 费用。上述能力描述来自项目自述，尚无独立评测或代码审计验证。",
+      "whyItMatters": "如果该能力可稳定运行，代理开发者可以在不逐一对接各平台 API 和承担费用的情况下获取多源公开内容，但实际可用性取决于项目实现、平台规则与后续维护。"
+    },
+    {
+      "originalUrl": "https://arxiv.org/abs/2610.00051",
+      "descriptionEn": "The study translates short-term NGFS climate scenarios into changes in obligor default risk through a structural credit risk model, simulates joint defaults with Monte Carlo methods using principal components for dependence, and feeds the resulting default-probability estimates into a constrained optimization of lending allocation. Its novelty lies in mapping scenario-dependent climate shocks to the drift of firm value, allowing default distributions and allocation patterns t",
+      "description": "该研究将 NGFS 短期气候情景通过结构性信用风险模型转化为债务人违约概率的变化，并用蒙特卡洛模拟联合违约、以主成分捕捉相依性，进而驱动带约束的优化来考察信贷配置。新意在于把情景依赖的气候冲击映射到企业价值漂移项，从而在同一框架内比较不同 NGFS 情景下的违约分布与配置模式；对银行而言，可用于把 NGFS 情景落到行业层面信用风险，并支持 ICAAP 与气候压力测试的前瞻性叠加。",
+      "summaryEn": "The paper develops a framework to assess the loan portfolio budget in credit portfolios exposed to climate risk over a 3-5 year horizon, using short-term NGFS scenarios to translate transition and physical risk pathways into changes in obligor default risk. Firm performance is modeled in a structural credit risk framework where scenario-dependent climate shocks adjust the drift of firm value dynamics, default occurs when firm value falls below a liability threshold, and joint defaults are simulated via Monte Carlo with dependence captured by principal components. Resulting default-probability estimates inform a constrained optimization of lending allocation across exposures; the author notes that scenario choice affects model-implied default probabilities and the resulting risk-return tradeoff, and that the rankings are model-implied and calibration-dependent rather than empirical rankings of climate-scenario severity.",
+      "score": 75.77,
+      "limitations": "论文结果基于结构性信用风险模型与基准合成组合，违约概率分布、上尾风险与配置模式的排序均为模型隐含且依赖校准，不能当作气候情景严重程度或真实风险高低的经验排序。气候与企业层面数据颗粒度有限，情景到违约风险的传导依赖建模假设；框架虽透明并声明可随数据改进而细化，但当前结论的可迁移性与稳健性仍需在真实组合与更细数据下检验。",
+      "slug": "climate-aware-lending-allocation-under-ngfs-scen-8f7d2f1770",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "The framework helps banks link NGFS scenarios to sector-level credit risk and portfolio loss outcomes, and can support ICAAP and climate stress testing by highlighting exposures most sensitive to climate risk, adding a forward-looking overlay to existing models. It is intended as a transparent analytical tool that can be refined with better data, not as a final judgment on scenario severity or allocation quality.",
+      "keyPoints": [
+        "框架将 NGFS 短期情景映射为结构性信用风险模型中企业价值漂移项的变化，违约由企业价值跌破负债阈值触发。",
+        "联合违约通过蒙特卡洛模拟生成，相依性由主成分捕捉，所得违约概率用于带约束的贷款配置优化。",
+        "在基准合成组合中，HWTP 产生最高均值与上尾违约概率，SWUC 产生最低均值与中位数违约概率，但作者强调这是模型隐含且依赖校准的结果。"
+      ],
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "NGFS 情景下气候感知信贷配置的蒙特卡洛框架",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "The framework maps short-term NGFS scenarios to changes in the drift of firm value in a structural credit risk model, with default triggered when firm value falls below a liability threshold.",
+        "Joint defaults are generated via Monte Carlo simulation with dependence captured by principal components, and the resulting default-probability estimates feed a constrained optimization of lending allocation.",
+        "In the benchmark synthetic portfolio, HWTP produces the highest mean and upper-tail default probabilities while SWUC produces the lowest mean and median default probabilities, but the author stresses these are model-implied and calibration-dependent.",
+        "The approach offers a transparent tool that can be refined as more granular climate and firm-level data become available."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "climate risk",
+        "NGFS scenarios",
+        "credit risk",
+        "Monte Carlo simulation",
+        "lending allocation",
+        "stress testing"
+      ],
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "limitationsEn": "The results are based on a structural credit risk model and a benchmark synthetic portfolio; the default-probability distributions, upper-tail risk, and lending allocation patterns are model-implied and calibration-dependent, and should not be read as empirical rankings of climate-scenario severity or real risk levels. Climate and firm-level data granularity is limited, and the transmission from scenarios to default risk relies on modeling assumptions; although the framework is transparent and stated to be refinable as data improve, the transferability and robustness of the current conclusions still require testing on real portfolios and finer data.",
+      "id": "8f7d2f1770e560ff",
+      "sourceGroup": "论文",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "气候风险",
+        "NGFS情景",
+        "信用风险",
+        "蒙特卡洛模拟",
+        "贷款配置",
+        "压力测试"
+      ],
+      "titleEn": "A Monte Carlo framework for climate-aware lending allocation under NGFS scenarios",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7087,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 85,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.9,
+          "financeEvidence": [
+            "portfolio"
+          ],
+          "quantitativeEvidence": [
+            "optimization",
+            "stochastic",
+            "calibration"
+          ],
+          "aiEvidence": [],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 66.34,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 0.0,
+          "specificity": 8.09,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "originalTitle": "Climate aware lending allocation under NGFS scenarios - A Monte Carlo approach",
+      "contentType": "paper",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
         },
         {
           "id": "topic:portfolio",
@@ -78,1127 +1065,224 @@
           "confidence": 0.8
         }
       ],
-      "id": "8c6ab42e4826c41d",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "bond portfolio optimization",
-        "Markov decision process",
-        "transaction costs",
-        "interest-rate risk",
-        "Dynamic Nelson-Siegel",
-        "bank treasury"
-      ],
-      "limitationsEn": "Evidence comes from a simulation framework under specific model assumptions; no out-of-sample empirical tests or real-market backtests are reported. Results may depend on the Dynamic Nelson-Siegel and VAR factor dynamics, the discrete-state approximation, and the proportional transaction cost specification. The truncation-error conclusion is limited to the parameters and statistics examined and does not constitute investment advice.",
-      "originalUrl": "https://arxiv.org/abs/2609.38765",
-      "summaryProvider": "deepseek",
-      "summaryEn": "Bank treasury portfolios must balance yield, liquidity, and interest-rate risk, and static allocation rules are ill-suited to rising-rate environments. The authors model yield-curve dynamics via Dynamic Nelson-Siegel with VAR factor dynamics, discretize them into a time-inhomogeneous Markov chain, and formulate a finite-horizon Markov Decision Process that maximizes expected terminal wealth subject to proportional rebalancing costs, solved by backward induction. They show that truncating the transition kernel leaves mean terminal wealth almost unchanged while substantially distorting drawdown and tail statistics.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "论文",
-      "whyItMattersEn": "The framework offers a tractable multiperiod dynamic optimization approach for institutions such as bank treasuries facing interest-rate risk and rebalancing costs, helping avoid large mark-to-market losses and liquidity stress from static long-duration allocations when rates rise. Its finding that truncation distorts tail statistics also cautions against relying on simulation-based risk management without checking approximation error.",
-      "sourceName": "arXiv q-fin",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 6721,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 90,
-        "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.9,
-          "financeEvidence": [
-            "securities",
-            "portfolio",
-            "market-risk"
-          ],
-          "quantitativeEvidence": [
-            "optimization"
-          ],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 73.72,
-        "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 10.0,
-          "novelty": 8.0,
-          "specificity": 5.22,
-          "penalty": 0.0
-        },
-        "freshnessScore": 96.67,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "This study develops a simulation-based framework for multiperiod bond portfolio optimization under interest-rate risk and proportional transaction costs. It models yield-curve dynamics with Dynamic Nelson-Siegel and VAR factor dynamics, constructs a time-inhomogeneous discrete-state Markov chain, and solves a finite-horizon Markov Decision Process to maximize expected terminal wealth. Its novelty lies in integrating rate risk and rebalancing costs into a tractable dynamic pro",
-      "keyPointsEn": [
-        "Constructs a time-inhomogeneous discrete-state Markov chain approximating the joint yield process across maturities, based on Dynamic Nelson-Siegel parameterization and VAR factor dynamics.",
-        "Formulates a finite-horizon Markov Decision Process maximizing expected terminal wealth with proportional transaction costs, solved via backward induction.",
-        "Quantifies the approximation error from truncating the transition kernel: mean terminal wealth is almost unchanged, but drawdown and tail statistics are substantially distorted."
-      ],
-      "originalTitle": "Multiperiod bond portfolio optimization with transaction costs using a Markov Decision process",
-      "tags": [
-        "债券组合优化",
-        "马尔可夫决策过程",
-        "交易成本",
-        "利率风险",
-        "动态Nelson-Siegel",
-        "银行司库"
-      ],
-      "score": 80.94,
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "title": "多期债券组合优化：马尔可夫决策过程与交易成本建模",
-      "keyPoints": [
-        "用动态Nelson-Siegel参数化与VAR因子动态构建跨期限联合收益率过程的时变离散状态马尔可夫链。",
-        "在有限期马尔可夫决策过程中以预期终端财富为目标，纳入比例交易成本，通过后向归纳获得最优组合策略。",
-        "量化转移核截断的近似误差：平均终端财富几乎不变，但回撤和尾部统计被显著扭曲。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "该框架为银行司库等面临利率风险与再平衡成本的机构提供了一种可处理的多期动态优化思路，有助于避免静态长久期配置在利率上升时积累大额市值损失和流动性压力。同时，其对截断误差影响尾部统计的提示，对依赖模拟求解的风险管理实践具有警示意义。",
-      "limitations": "证据基于模拟框架与特定模型假设，未报告样本外实证或真实市场数据回测；动态Nelson-Siegel与VAR因子动态、离散状态近似及比例交易成本设定均可能影响结果；截断误差结论限于所考察的参数与统计量，不构成对实际投资决策的建议。"
+      "domain": "量化研究",
+      "summary": "论文提出一个评估气候风险敞口信贷组合 3 至 5 年预算的框架，用 NGFS 短期情景把转型与物理风险路径转成债务人违约风险变化。作者在结构性信用风险模型中让情景依赖的气候冲击调整企业价值动态的漂移项，企业价值低于负债阈值即违约，联合违约用蒙特卡洛模拟并以主成分捕捉相依性。基于所得违约概率估计进行带约束优化，以考察跨敞口的贷款配置；作者指出情景选择会影响模型隐含的违约概率和风险收益权衡，并明确这些排序是模型隐含且依赖校准的，而非对气候情景严重程度的经验排序。",
+      "whyItMatters": "该框架帮助银行把 NGFS 情景与行业层面信用风险及组合损失结果连接起来，可用于 ICAAP 和气候压力测试，识别对气候风险最敏感的敞口，并为现有模型增加前瞻性叠加。它提供的是一种透明、可随更细颗粒度气候与企业数据 refinement 的分析工具，而非对情景严重程度或配置优劣的最终判断。"
     },
     {
-      "slug": "dualcast-a-dual-path-language-model-for-bimodal--c44d7a6421",
-      "description": "该研究提出将冻结语言模型扩展为离散金融词表，用摘要标记与残差形状标记表示收益片段，并构建快速数值预测路径与可切换的新闻条件修正路径。其新意在于以语言模型承载跨资产共享的形状模式，并用收益空间强化学习优化修正器；这可能为多资产、多频率预测提供一种统一框架。",
-      "domain": "AI × 量化",
-      "titleEn": "DualCast: A Dual-Path Language Model for Bimodal Financial Time-Series Forecasting",
-      "summary": "论文事实：DualCast 在冻结 Qwen3-8B 上训练金融标记嵌入和输出头作为快速路径，可切换 LoRA 适配器与新闻条件构成慢速修正路径。论文自述：零样本评估中，慢速路径在 12 个数据集-预测期组合中的 8 个取得最低平均绝对百分比误差，且所有最长预测期均包含在内。作者观点：新闻消融在多数测试场景带来额外增益，但幅度随市场而异；这属于作者解读，非独立验证结论。",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "method:forecasting",
-          "facet": "method",
-          "value": "forecasting",
-          "label": {
-            "zh": "预测",
-            "en": "Forecasting"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:ai-quant",
-          "facet": "topic",
-          "value": "ai-quant",
-          "label": {
-            "zh": "AI × 量化",
-            "en": "AI × Quant"
-          },
-          "evidence": "content.finance+quantitative",
-          "confidence": 0.93
-        }
-      ],
-      "id": "c44d7a64210e419d",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "financial time series",
-        "large language model",
-        "bimodal forecasting",
-        "residual vector quantization",
-        "news-conditioned revision",
-        "zero-shot evaluation"
-      ],
-      "limitationsEn": "The evidence is limited to the paper's own zero-shot evaluations covering equities and energy prices at five-minute, daily, and weekly resolutions against several compared methods. The slow path achieves the lowest mean absolute percentage error in only 8 of 12 dataset-horizon settings and does not dominate in all cases. News ablations show gains in most tested settings but with market-varying magnitude, indicating that benefits from news-conditioned revision are not stable. The slow path relies on news available at forecast time; if news is delayed or missing in deployment, its advantage may shrink. The paper does not provide independent reproduction, transaction costs, statistical significance, or longer historical stress tests, so it cannot support investment advice or live deployment conclusions.",
-      "originalUrl": "https://arxiv.org/abs/2609.38197",
-      "summaryProvider": "deepseek",
-      "summaryEn": "Fact from the paper: DualCast trains financial-token embeddings and output heads on a frozen Qwen3-8B as a fast path, while a toggleable LoRA adapter and news conditioning form a slow revision path. The authors report that in zero-shot evaluations the slow path achieves the lowest mean absolute percentage error in 8 of 12 dataset-horizon settings, including every longest-horizon setting. The authors' stated view is that news ablations add gains in most tested settings, though magnitude varies by market; this is their interpretation, not an independently verified conclusion.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "论文",
-      "whyItMattersEn": "If the framework holds under broader and independent evaluation, it would suggest that price sequences and textual news can be integrated into one forecasting pipeline without fine-tuning the entire large language model, and offer an operational route for sharing short-window shape patterns across assets. For quantitative research, its value is the layered design of fast numerical forecasting plus optional text-based revision, not a direct trading signal.",
-      "sourceName": "arXiv cs.LG",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 6721,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 85,
-        "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.93,
-          "financeEvidence": [
-            "securities",
-            "market-risk",
-            "finance"
-          ],
-          "quantitativeEvidence": [
-            "optimization",
-            "time-series"
-          ],
-          "aiEvidence": [
-            "machine-learning",
-            "language-model"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 76.25,
-        "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 5.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 96.67,
-        "sourceQualityScore": 78.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "This work extends a frozen language model with a discrete financial vocabulary, representing log-return patches by a summary token plus residual shape tokens, and builds a fast numerical forecaster with a toggleable news-conditioned revision path. Its novelty lies in using a language model to share shape patterns across assets and optimizing the reviser via return-space reinforcement learning; it may offer a unified framework for multi-asset, multi-horizon forecasting.",
-      "keyPointsEn": [
-        "Each log-return patch is represented by a learned summary token and three residual shape tokens, preserving local drift and volatility while allowing shape patterns to be shared across assets.",
-        "The fast path trains only the new financial-token embeddings and output heads while the Qwen3-8B backbone remains frozen.",
-        "The slow path uses a toggleable LoRA adapter to condition on the fast forecast and news available at the forecast origin, and is optimized with a return-space group relative policy objective that rewards improvements over the fast forecast."
-      ],
-      "originalTitle": "DualCast: A Dual-Path Language Model for Bimodal Financial Time-Series Forecasting",
-      "tags": [
-        "金融时间序列",
-        "大语言模型",
-        "双模态预测",
-        "残差向量量化",
-        "新闻条件修正",
-        "零样本评估"
-      ],
-      "score": 80.51,
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "title": "DualCast：双路径语言模型实现金融资产价格双模态预测",
+      "originalUrl": "https://arxiv.org/abs/2610.01026",
+      "descriptionEn": "FloWright treats the workflow itself as an optimization harness and uses hierarchical, structure-aware rewards so that a workflow generator and other agent roles can co-evolve under sparse outcome signals; DataWright further converts existing datasets into harder workflow-level tasks, improving small open models across several domains.",
+      "description": "FloWright 将工作流本身作为优化框架，通过层级式结构感知奖励，让工作流生成器与其他智能体角色在稀疏结果信号下共同进化，并配套 DataWright 将现有数据集转化为更高难度的工作流级任务，在多个领域提升小规模开放模型表现。",
+      "summaryEn": "The paper notes that existing multi-agent workflow training usually optimizes only the workflow generator while other agents that build or execute the workflow remain fixed, even though every outcome depends on all of them and a single sparse score cannot attribute failure. The authors propose FloWright, which leverages the workflow as a harness and introduces a hierarchical, structure-aware reward paradigm enabling one role to self-evolve and two or more roles to co-evolve, with no additional models, labels, or executions. Across document, slide, chart, code, math, and finance tasks, small open models trained with FloWright are reported to improve by up to +7.41%, with co-evolving (+5.03%) outperforming optimizing only one role (+2.83%), though these results are limited to the paper's experimental settings.",
+      "score": 75.66,
+      "limitations": "论文报告的提升幅度与协同进化优势仅基于其选定的文档、幻灯片、图表、代码、数学与金融任务，未说明是否适用于其他领域、模型规模或真实部署环境。摘要未提供任务难度、基线选择、统计显著性和失败案例等细节，因此不能推断 FloWright 具有普遍泛化性，也不能将其视为投资或生产决策依据。",
+      "slug": "it-takes-workflows-to-evolve-better-workflows-8f151d6285",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "The effectiveness of multi-agent workflows depends on all participating roles, yet outcome feedback is often sparse and hard to attribute. This work offers a training approach that does not require extra models, labels, or executions, turning workflow structure into assignable reward signals and providing a testable path for coordinated multi-role optimization.",
       "keyPoints": [
-        "用学习到的摘要标记与三个残差形状标记表示每段对数收益，保留局部漂移与波动，形状模式可跨资产共享。",
-        "快速路径仅训练新金融标记嵌入和输出头，骨干 Qwen3-8B 保持冻结。",
-        "慢速路径通过可切换 LoRA 适配器，以快速预测和预测时可得新闻为条件，并用收益空间分组相对策略优化以奖励超越快速预测。"
+        "FloWright 用层级式、结构感知的奖励把单一稀疏结果信号分解到不同角色，支持自进化与多角色协同进化。",
+        "协同进化多个角色带来的提升（+5.03%）高于只优化一个角色（+2.83%），说明优化范围影响效果。",
+        "DataWright 将已有数据集转化为更高难度的工作流级任务，以缓解常见数据对单智能体过于简单的问题。"
       ],
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "多智能体工作流优化：FloWright 实现角色协同进化",
       "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "若该框架在更广泛和独立评估中成立，则表明无需微调整个大语言模型即可将资产价格序列与文本新闻纳入同一预测流程，并为跨资产共享短窗口形状模式提供可操作路径。对量化研究而言，其参考价值在于快速数值预测与可选文本修正的分层设计，而非直接产生交易信号。",
-      "limitations": "证据仅来自论文自述的零样本评估，覆盖股票和能源价格、五分钟至周频，以及与若干对比方法的比较。12 个数据集-预测期组合中仅 8 个取得最低平均绝对百分比误差，未在所有场景占优。新闻消融多数场景有增益，但幅度随市场变化，说明新闻条件修正的收益并不稳定。慢速路径依赖预测时可得新闻，若部署时新闻延迟或缺失，其优势可能减弱。论文未提供独立复现、交易成本、统计显著性或更长历史压力测试结果，因此不能据以获得投资建议或实盘部署结论。"
-    },
-    {
-      "slug": "large-language-model-driven-small-capitalization-685972757d",
-      "description": "本文提出一种不确定性感知的组合构建方法，将LLM预测的风险分解为偶然与认知两部分并直接注入组合优化器的协方差矩阵，而非仅调整预期收益或视风险为固定。作者在罗素2000股票上检验三种选股触发机制，发现分离的纯alpha与纯beta腿在多数持有期上优于两者的交集，且选股机制与分配器选择的重要性不亚于情绪模型本身。",
-      "domain": "AI × 量化",
-      "titleEn": "LLM Risk Decomposition Injected into Covariance Matrices for Small-Cap Trading",
-      "summary": "论文研究一种不确定性感知的组合构建流程，把模型预测的风险分解为偶然（aleatoric）和认知（epistemic）两部分，直接注入组合分配器的协方差矩阵；作者称此前工作多把组合风险视为固定或只调整预期收益。在罗素2000股票上，他们比较纯alpha触发、纯beta触发以及两者同时触发的交集机制。结果显示，纯alpha与纯beta分离的腿在多数持有期的夏普与收益上通常优于交集；在100个基点的交易成本下，纯beta配合GPT-4o mini情绪、Student-t目标、40天持有期与风险平价分配达到夏普2.33。以上属于作者基于特定回测设置的观察与解释，并非投资建议。",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:ai-quant",
-          "facet": "topic",
-          "value": "ai-quant",
-          "label": {
-            "zh": "AI × 量化",
-            "en": "AI × Quant"
-          },
-          "evidence": "content.finance+quantitative",
-          "confidence": 0.93
-        },
-        {
-          "id": "topic:portfolio",
-          "facet": "topic",
-          "value": "portfolio",
-          "label": {
-            "zh": "投资组合",
-            "en": "Portfolio"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:risk",
-          "facet": "topic",
-          "value": "risk",
-          "label": {
-            "zh": "风险",
-            "en": "Risk"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "id": "685972757d8e3431",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "LLM financial sentiment",
-        "small-cap trading",
-        "portfolio risk decomposition",
-        "covariance matrix",
-        "transaction costs",
-        "Russell 2000"
-      ],
-      "limitationsEn": "Evidence comes only from historical backtests on Russell 2000 constituents and depends on the specific data window, sentiment model version (e.g., GPT-4o mini), allocator type, and target distribution. The reported best Sharpe of 2.33 corresponds to a single parameter combination, with no discussion of out-of-sample robustness, multiple-comparison correction, or capacity constraints, so it should not be extrapolated as a reproducible live return expectation. The paper also does not fully address market impact, borrowing, and liquidity constraints beyond transaction costs.",
-      "originalUrl": "https://arxiv.org/abs/2608.12283",
-      "summaryProvider": "deepseek",
-      "summaryEn": "The paper studies an uncertainty-aware construction that feeds model-predicted risk, decomposed into aleatoric and epistemic parts, directly into the covariance matrix of portfolio allocators; the authors note prior work often treats portfolio risk as fixed or adjusts only expected returns. On Russell 2000 equities they compare a pure-alpha trigger, a pure-beta trigger, and a beta intersection in which both channels agree. The separated pure-alpha and pure-beta legs usually dominate the intersection on Sharpe and return across the holding-period grid; under 100 bps costs, pure beta with GPT-4o mini sentiment, a Student-t target, a 40-day holding period, and risk parity reaches Sharpe 2.33. These are observations from a specific backtest setup, not investment advice.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "论文",
-      "whyItMattersEn": "The work suggests that when LLM signals enter portfolio construction, how risk is estimated (decomposed and injected into the covariance matrix) and how stock-selection triggers are defined may affect results at least as much as the sentiment model itself. For practitioners combining news sentiment with macro signals in small-caps, the separation of alpha and beta trigger channels offers a reproducible experimental design.",
-      "sourceName": "arXiv q-fin",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 6721,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 95,
-        "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.93,
-          "financeEvidence": [
-            "securities",
-            "portfolio",
-            "trading",
-            "finance"
-          ],
-          "quantitativeEvidence": [
-            "quant-metrics"
-          ],
-          "aiEvidence": [
-            "language-model"
-          ],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 72.75,
-        "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 10.0,
-          "novelty": 0.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 96.67,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "The paper presents an uncertainty-aware portfolio construction method that decomposes LLM-predicted risk into aleatoric and epistemic components and feeds them directly into the covariance matrix of portfolio allocators, rather than treating risk as fixed or adjusting only expected returns. Evaluated on Russell 2000 equities under three stock-selection triggers, the separated pure-alpha and pure-beta legs usually dominate their intersection on Sharpe and return, suggesting tr",
       "keyPointsEn": [
-        "Decomposing LLM-predicted risk into aleatoric and epistemic parts and injecting them into the covariance matrix differs from methods that only adjust expected returns or treat risk as fixed.",
-        "On Russell 2000 equities, separated pure-alpha and pure-beta legs usually dominate the beta intersection on Sharpe and return.",
-        "Pure beta at a one-day horizon may benefit from immediate lead-lag spillovers from liquid macro and sector indicators into exposed small-caps under low to moderate costs, but this advantage disappears at 100 bps."
+        "FloWright uses hierarchical, structure-aware rewards to decompose a single sparse outcome signal across roles, supporting self-evolution and multi-role co-evolution.",
+        "Co-evolving multiple roles yields a larger gain (+5.03%) than optimizing only one role (+2.83%), indicating that the scope of optimization matters.",
+        "DataWright converts existing datasets into harder workflow-level tasks to address the common issue that data are easy for a single agent."
       ],
-      "originalTitle": "Large Language Model-Driven Small-Capitalization Trading: Integrating Financial News Sentiment, Macroeconomic Indicators, and Technical Signals",
-      "tags": [
-        "LLM金融情绪",
-        "小盘股交易",
-        "组合风险分解",
-        "协方差矩阵",
-        "交易成本",
-        "罗素2000"
-      ],
-      "score": 80.26,
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "title": "将LLM风险预测分解并注入协方差矩阵的小盘股交易框架",
-      "keyPoints": [
-        "把LLM预测的风险拆成偶然与认知两部分后直接注入协方差矩阵，是该文相对于仅用情绪信号调整预期收益方法的差异点。",
-        "在罗素2000上，分离的纯alpha与纯beta触发腿通常在夏普和收益上优于要求两通道同时触发的交集。",
-        "纯beta在1天且低至中等成本下可能受益于宏观与板块指标向小盘股的即时领先-滞后溢出，但在100个基点成本下该优势消失。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "该工作提示量化研究者：在LLM信号进入组合构建时，如何处理风险估计（分解并注入协方差）以及如何定义选股触发机制，可能比更换情绪模型本身更影响结果。对关注小盘股、新闻情绪与宏观信号融合的实践者，这种分离alpha与beta触发通道的思路提供了可复现的实验设计参考。",
-      "limitations": "证据仅来自罗素2000成分股的历史回测，结果依赖于特定数据窗口、情绪模型版本（如GPT-4o mini）、分配器类型与目标分布设定，作者报告的最优夏普2.33对应单一参数组合，未说明样本外稳健性、多重比较校正或容量约束，因此不应外推为实盘可复现的收益预期；论文也未给出交易成本之外的市场冲击、借券与流动性限制的完整处理。"
-    },
-    {
-      "slug": "twinrouterbench-fast-static-and-live-dynamic-eva-2a603a6062",
-      "description": "现有LLM路由基准仅评估单次提示，未暴露智能体中间步骤的前缀，也未验证低成本替换是否保持下游任务成功。该工作提出TwinRouterBench，包含静态与动态两条轨道，支持快速离线迭代与在线智能体执行验证。",
-      "domain": "AI 研究",
-      "titleEn": "TwinRouterBench: Static and Dynamic Benchmark for Realistic Agentic LLM Routing",
-      "summary": "论文指出现有路由基准局限于单次提示，不适用于编码智能体、深度研究等长视野应用。TwinRouterBench静态轨道提供970个来自520个实例的路由器可见前缀，配对执行验证的目标层级，评分不依赖在线LLM裁判；动态轨道在SWE-bench Verified上运行路由器，以官方任务解决率和实际API花费衡量。作者认为该基准能支持快速离线迭代后接在线验证的流程。",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:developer-tools",
-          "facet": "topic",
-          "value": "developer-tools",
-          "label": {
-            "zh": "开发工具",
-            "en": "Developer Tools"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "id": "2a603a6062b1cf93",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "LLM routing",
-        "agent evaluation",
-        "benchmarking",
-        "cost optimization",
-        "SWE-bench"
-      ],
-      "limitationsEn": "The paper reports dynamic-track results only on a 100-case held-out subset, not the full 500 cases; conclusions are based on specific benchmarks and a locked model pool, not all agent scenarios or models; the downgrade-and-cascade protocol is predefined and target tier estimates may depend on protocol choices; benchmark performance does not guarantee generalization in real deployments.",
-      "originalUrl": "https://arxiv.org/abs/2605.18859",
       "summaryProvider": "deepseek",
-      "summaryEn": "The paper argues that existing router benchmarks are limited to one-shot prompts and unsuitable for long-horizon applications like coding agents and deep research. TwinRouterBench's static track provides 970 router-visible prefixes from 520 instances, each paired with an execution-verified target tier, with scoring that avoids online LLM judges; the dynamic track runs routers on SWE-bench Verified, measuring official task resolution and realized API spend. The authors position the benchmark as enabling fast offline iteration followed by online validation.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "论文",
-      "whyItMattersEn": "Long-horizon agent applications trigger many model calls per user request, and routing each call to the cheapest sufficient model can cut costs without sacrificing quality. This benchmark fills the gap in evaluating intermediate-step routing and downstream task success while avoiding online LLM judges at evaluation time.",
-      "sourceName": "arXiv cs.LG",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 6721,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 60,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.86,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "machine-learning",
-            "language-model",
-            "agents"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 75.0,
-        "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 15.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 96.67,
-        "sourceQualityScore": 78.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "Existing LLM routing benchmarks evaluate routers only on one-shot prompts, never exposing the router-visible prefix at intermediate agent steps or testing whether cheaper replacements preserve downstream task success. TwinRouterBench addresses this with a static track for fast offline iteration and a dynamic track for live agent execution validation.",
-      "keyPointsEn": [
-        "Static track: 970 router-visible prefixes across SWE-bench, BFCL, mtRAG, QMSum, and PinchBench, each paired with an execution-verified target tier; deterministic scoring over tier labels, trajectory membership, and token costs.",
-        "Dynamic track: a harness that runs routers on the full 500-case SWE-bench Verified suite; this paper reports a 100-case held-out evaluation disjoint from the static SWE supervision split.",
-        "Evaluation protocol: at each LLM call the router selects a concrete model from a locked pool, with success measured by official task resolution and realized API spend."
-      ],
-      "originalTitle": "TwinRouterBench: Fast Static and Live Dynamic Evaluation for Realistic Agentic LLM Routing",
-      "tags": [
-        "LLM路由",
-        "智能体评估",
-        "基准测试",
-        "成本优化",
-        "SWE-bench"
-      ],
-      "score": 79.63,
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "title": "TwinRouterBench：面向智能体LLM路由的静态与动态基准",
-      "keyPoints": [
-        "静态轨道：970个路由器可见前缀，覆盖SWE-bench、BFCL、mtRAG、QMSum、PinchBench，每个前缀配对执行验证的目标层级，评分基于层级标签、轨迹成员和token成本的确定性计算。",
-        "动态轨道：提供测试框架在完整500例SWE-bench Verified上运行路由器，本文报告与静态SWE监督划分不相交的100例保留评估。",
-        "评估协议：路由器每次LLM调用从锁定模型池中选择具体模型，成功由官方任务解决率和实际API花费衡量。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "长视野智能体应用单次请求触发多次模型调用，按需路由至最便宜且足够的模型可降低成本而不牺牲质量。该基准填补了中间步骤路由评估与下游任务成功验证的空白，并避免评估时依赖在线LLM裁判。",
-      "limitations": "论文仅报告了动态轨道在100例保留子集上的结果，而非完整500例；静态与动态轨道的结论基于特定基准与锁定模型池，未涵盖所有智能体场景或模型；降级与级联协议为预设，其估计的目标层级可能受协议选择影响；基准性能不代表实际部署中的泛化表现。"
-    },
-    {
-      "slug": "quantcode-model-specializing-language-models-for-4ef894c457",
-      "description": "该研究通过继续预训练与监督微调两种机制，将通用语言模型专业化于Backtrader策略代码生成，并引入QuantCode-Bench基准进行评测。其新意在于系统比较两种机制的效果差异，并首次识别出领域专业化导致结构化工具调用能力退化的现象，对量化策略开发自动化具有实践参考价值。",
-      "domain": "AI × 量化",
-      "titleEn": "Specializing Language Models for Executable Algorithmic Trading Code",
-      "summary": "研究探讨了两种让语言模型专业化于可执行算法交易代码的机制：在算法交易框架代码上继续预训练，以及在智能体验证的请求-代码对上做监督微调。实验显示，继续预训练提升单轮评测通过率，但单独使用时在智能体多轮修复后的最终成功率反而下降；继续预训练后再做监督微调则能同时改善两者。作者还发现领域专业化会损害解析器兼容的结构化工具调用能力，针对性恢复微调可修复格式但无法恢复仓库级智能体性能。",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "method:backtesting",
-          "facet": "method",
-          "value": "backtesting",
-          "label": {
-            "zh": "回测",
-            "en": "Backtesting"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:ai-quant",
-          "facet": "topic",
-          "value": "ai-quant",
-          "label": {
-            "zh": "AI × 量化",
-            "en": "AI × Quant"
-          },
-          "evidence": "content.finance+quantitative",
-          "confidence": 0.84
-        }
-      ],
-      "id": "4ef894c457e8f68e",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
       "tagsEn": [
-        "Language Models",
-        "Algorithmic Trading",
-        "Code Generation",
-        "Domain Adaptation",
-        "Quantitative Research"
-      ],
-      "limitationsEn": "Findings are based on specific models (Qwen3.5-397B-A17B, Qwen3.6-35B-A3B) and the Backtrader framework, with unverified generalizability to other models and trading frameworks; the composition of QuantCode-Bench's 400 tasks and the agent validation pipeline is not detailed in the abstract, limiting evaluation coverage; whether the capability-retention failure generalizes to other domain adaptation settings remains unclear.",
-      "originalUrl": "https://arxiv.org/abs/2609.39420",
-      "summaryProvider": "deepseek",
-      "summaryEn": "The study investigates two mechanisms for specializing language models to executable algorithmic trading code: continued pretraining on trading framework code and supervised fine-tuning on agent-validated request-code pairs. Results show that continued pretraining improves single-turn pass rates but alone reduces final agentic success after repair; adding SFT after continued pretraining improves both. The authors also identify that domain specialization degrades parser-conformant structured tool calling, and targeted recovery SFT restores formatting but not repository-level agent performance.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "论文",
-      "whyItMattersEn": "The study provides a reproducible evaluation framework and mechanism comparison for specializing language models in quantitative trading, revealing trade-offs of different training strategies across evaluation dimensions and highlighting that domain adaptation may incur general capability loss, with implications for future model development and benchmark design.",
-      "sourceName": "arXiv q-fin",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 6721,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 90,
-        "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.84,
-          "financeEvidence": [
-            "trading"
-          ],
-          "quantitativeEvidence": [
-            "backtesting"
-          ],
-          "aiEvidence": [
-            "language-model",
-            "agents"
-          ],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 70.5,
-        "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 10.0,
-          "novelty": 0.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 96.67,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "This study compares continued pretraining and supervised fine-tuning for specializing language models to Backtrader strategy code generation, evaluated on the new QuantCode-Bench benchmark. Its novelty lies in systematically contrasting the two mechanisms and identifying that domain specialization degrades structured tool-calling ability, offering practical insights for automating quantitative strategy development.",
-      "keyPointsEn": [
-        "Continued pretraining improves single-turn strategy generation pass rates but negatively affects final success after multi-turn agentic repair.",
-        "Adding supervised fine-tuning after continued pretraining improves single-turn pass rates, backtest success rates, and final multi-turn agentic success simultaneously.",
-        "Domain specialization degrades parser-conformant structured tool calling, and recovery SFT only restores formatting, not repository-level agent performance."
-      ],
-      "originalTitle": "QuantCode Model: Specializing Language Models for Executable Algorithmic Trading Code",
-      "tags": [
-        "语言模型",
-        "算法交易",
-        "代码生成",
-        "领域适配",
-        "量化研究"
-      ],
-      "score": 78.68,
-      "discoveredBy": [
-        "arXiv cs.LG",
-        "arXiv q-fin"
-      ],
-      "title": "面向可执行算法交易代码的语言模型专业化研究",
-      "keyPoints": [
-        "继续预训练提升单轮策略生成通过率，但对智能体多轮修复后的最终成功率有负面影响。",
-        "继续预训练后叠加监督微调可同时提升单轮通过率、回测成功率与智能体多轮最终成功率。",
-        "领域专业化导致解析器兼容的结构化工具调用能力退化，恢复微调仅能修复格式而非仓库级智能体性能。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "该研究为量化交易领域语言模型的专业化路径提供了可复现的评测框架与机制对比，揭示了不同训练策略在不同评测维度上的利弊权衡，并提示领域适配可能附带通用能力损失，对后续模型开发与评测设计有参考意义。",
-      "limitations": "研究结论基于特定模型（Qwen3.5-397B-A17B、Qwen3.6-35B-A3B）与Backtrader框架，结果对其他模型和交易框架的泛化性未经检验；QuantCode-Bench的400个任务及智能体验证流程的具体构成未在摘要中详述，评测覆盖范围有限；能力保留失败的现象是否普遍存在于其他领域适配场景尚不明确。"
-    },
-    {
-      "slug": "g-odel-forest-balancing-search-depth-and-breadth-a96852dd09",
-      "description": "该研究提出哥德尔森林多智能体框架，将数据中心递归自我改进组织为协同演化的搜索树集合，以兼顾搜索深度与广度。在 RSIBench-Data 六个领域上，它比单智能体基线平均提升 10.70%，并在五个任务上减少实际耗时。",
-      "domain": "AI 研究",
-      "titleEn": "Gödel Forest: Multi-Agent Collaborative Tree Search for Data-Centric Recursive Self-Improvement",
-      "summary": "递归自我改进旨在让模型通过自我改进获得复利式收益。现有数据中心 RSI 方法面临单智能体方向狭窄缺乏探索广度，而朴素并行搜索或大量轨迹共享牺牲长程搜索深度的困境。作者提出哥德尔森林：每个智能体自主生长持久树，基于模型反馈深化、分支或剪枝数据策略；并行树探索不同数据区域扩展广度；动态协同演化记忆连接森林，将成功与失败蒸馏为紧凑程序性教训并锚定全局排行榜。实验显示其优于单智能体基线，消融证实共享协同演化记忆带来增益。",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "id": "a96852dd09ecfa43",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "recursive self-improvement",
-        "multi-agent",
-        "data strategy search",
-        "co-evolving memory",
-        "tree search"
-      ],
-      "limitationsEn": "Experiments are limited to six domains of RSIBench-Data, without validating generalization to broader tasks or model scales; the framework relies on multi-agent parallelism and shared memory, with computational and engineering overhead not fully discussed; improvements and wall-clock reductions are baseline-specific results and do not constitute investment advice.",
-      "originalUrl": "https://arxiv.org/abs/2609.36675",
-      "summaryProvider": "deepseek",
-      "summaryEn": "Recursive self-improvement aims to achieve compounding gains by having models improve themselves. Existing data-centric RSI methods face a dilemma: a single agent gets trapped in narrow directions lacking breadth, while naive parallel search or heavy trace sharing sacrifices long-horizon depth. The authors propose Gödel Forest: each agent autonomously grows a persistent tree, deepening, branching, or pruning data strategies based on model feedback; parallel trees explore distinct data regions for breadth; a dynamically co-evolving memory connects the forest by distilling successes and failures into compact procedural lessons anchored to a global leaderboard. Experiments show it outperforms the single-agent baseline, and ablations confirm the shared co-evolving memory yields gains.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "论文",
-      "whyItMattersEn": "This work proposes a multi-agent collaboration mechanism to balance search depth and breadth under expensive training-validation constraints, offering a new direction for scalable data-centric recursive self-improvement with experimental evidence across multiple domains.",
-      "sourceName": "arXiv cs.CL",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 6721,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 60,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.83,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "language-model",
-            "agents"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 73.77,
-        "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 15.0,
-          "novelty": 8.0,
-          "specificity": 8.77,
-          "penalty": 0.0
-        },
-        "freshnessScore": 96.67,
-        "sourceQualityScore": 72.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "This study introduces Gödel Forest, a multi-agent framework that organizes data-centric recursive self-improvement as an ensemble of co-evolving search trees to balance search depth and breadth. On RSIBench-Data across six domains, it outperforms the single-agent baseline by an average of 10.70% while reducing wall-clock time on five tasks.",
-      "keyPointsEn": [
-        "Organizes recursive self-improvement as an ensemble of co-evolving search trees, where each agent autonomously grows a persistent tree and deepens, branches, or prunes data strategies based on model feedback.",
-        "Parallel trees explore distinct data regions to expand breadth; a dynamically co-evolving memory distills successes and failures into procedural lessons anchored to a global leaderboard, avoiding flooding with heavy logs.",
-        "On RSIBench-Data across six domains, it outperforms the single-agent baseline by an average of 10.70%; ablations show co-evolving shared memory yields a 7.00% gain over independent parallel search."
-      ],
-      "originalTitle": "G\\\"odel Forest: Balancing Search Depth and Breadth for Data-Centric Recursive Self-Improvement",
-      "tags": [
-        "递归自我改进",
-        "多智能体",
-        "数据策略搜索",
-        "协同演化记忆",
-        "树搜索"
-      ],
-      "score": 78.17,
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "title": "哥德尔森林：多智能体协同树搜索实现数据中心递归自我改进",
-      "keyPoints": [
-        "将递归自我改进组织为多智能体协同演化的搜索树集合，每个智能体自主生长持久树并根据模型反馈深化、分支或剪枝数据策略。",
-        "并行树探索不同数据区域以扩展广度，动态协同演化记忆将成功与失败蒸馏为程序性教训并锚定全局排行榜，避免重日志淹没。",
-        "在 RSIBench-Data 六个领域上平均比单智能体基线提升 10.70%，消融显示协同演化共享记忆比独立并行搜索增益 7.00%。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "该工作提出一种在昂贵训练验证约束下平衡搜索深度与广度的多智能体协同机制，为数据中心递归自我改进的可扩展性提供了新思路，并给出跨多个领域的实验证据。",
-      "limitations": "实验仅基于 RSIBench-Data 六个领域，未验证更广泛任务或模型规模下的泛化性；框架依赖多智能体并行与共享记忆机制，计算与工程开销未充分讨论；提升与耗时缩减为特定基线对比结果，不构成投资建议。"
-    },
-    {
-      "slug": "re-ranking-and-late-interaction-drive-retrieval--fedbfd2474",
-      "description": "该研究在46万余篇arXiv论文语料上，对六种检索增强生成策略做受控比较，固定生成器、提示与评测协议，并公开合成问题集与代码，为研究检索设计权衡提供可复现测试平台。",
-      "domain": "AI 研究",
-      "titleEn": "A Controlled Comparison of Six RAG Retrieval Strategies for Scientific Question Answering",
-      "summary": "工作比较了六种RAG检索策略：经典top-k稠密检索、LLM查询改写、查询改写加LLM重排、基于RRF的多查询融合、生成器自主决定是否检索的智能体工具调用，以及ColBERTv2晚期交互检索。六条管线共用同一生成器、提示与评测协议，五条单向量管线共用SPECTER2嵌入与Chroma向量库，均从463,971篇2024至2025年arXiv论文中检索。作者同时发布由Llama-3.1-8B-Instruct从1万篇随机论文生成的19,484条合成问题数据集，并采用LLM评委与金标准论文检索指标评估。",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:science",
-          "facet": "topic",
-          "value": "science",
-          "label": {
-            "zh": "科学研究",
-            "en": "Science"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "id": "fedbfd2474ab7668",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "retrieval-augmented generation",
-        "information retrieval",
-        "scientific question answering",
-        "reranking",
-        "late interaction",
-        "reproducible evaluation"
-      ],
-      "limitationsEn": "Results rely on a single generator, a single prompt, and a specific evaluation protocol, so transfer to other models or prompts should be treated with caution. The synthetic question set is model-generated and may carry generation bias, and questions come from a random sample of 10,000 papers rather than the full corpus. The corpus is limited to 2024-2025 arXiv papers, so conclusions may not hold for other domains or scales. LLM-as-a-judge scores depend on the judge model and dimension design.",
-      "originalUrl": "https://arxiv.org/abs/2609.38473",
-      "summaryProvider": "deepseek",
-      "summaryEn": "The work compares six RAG retrieval strategies: classic top-k dense retrieval, LLM-based query rephrasing, rephrasing plus LLM reranking, multi-query fusion via RRF, an agentic tool-call pipeline where the generator decides whether to retrieve, and late-interaction retrieval with ColBERTv2. All six pipelines share the same generator, prompt, and evaluation protocol; the five single-vector pipelines share SPECTER2 embeddings and a Chroma store, and all retrieve from 463,971 arXiv papers dated 2024-2025. The authors also release a synthetic dataset of 19,484 questions generated by Llama-3.1-8B-Instruct from a random sample of 10,000 papers, and evaluate with an LLM-as-a-judge protocol plus direct gold-paper retrieval metrics.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "论文",
-      "whyItMattersEn": "The RAG design space is large and trade-offs on domain-specific corpora are not well understood; this controlled comparison and open testbed help researchers systematically examine cost and quality differences among retrieval strategies and provide a baseline for future work on faithfulness, retrieval robustness, and agentic retrieval.",
-      "sourceName": "arXiv cs.LG",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 6721,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 55,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.86,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "machine-learning",
-            "language-model",
-            "agents"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 72.75,
-        "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 15.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 96.67,
-        "sourceQualityScore": 78.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "This study conducts a controlled comparison of six retrieval-augmented generation strategies on a corpus of over 460,000 arXiv papers, holding the generator, prompt, and evaluation protocol fixed, and releases a synthetic question set and code to provide a reproducible testbed for studying retrieval design trade-offs.",
-      "keyPointsEn": [
-        "Six strategies are compared under the same generator, prompt, and evaluation protocol, reducing confounding factors.",
-        "Reranking and late interaction are identified by the authors as key to retrieval quality, though the original results should be consulted.",
-        "The synthetic question set, code, and evaluation pipeline are released to support reproducible large-scale research."
-      ],
-      "originalTitle": "Re-ranking and Late Interaction Drive Retrieval Quality: A Controlled Comparison of RAG Strategies for Scientific Question Answering",
-      "tags": [
-        "检索增强生成",
-        "信息检索",
-        "科学问答",
-        "重排序",
-        "晚期交互",
-        "可复现评测"
-      ],
-      "score": 78.06,
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "title": "六种RAG检索策略在科学问答中的受控比较",
-      "keyPoints": [
-        "六种策略在相同生成器、提示和评测协议下受控比较，降低混杂因素。",
-        "重排与晚期交互被作者指出是驱动检索质量的关键，但需以原文结果为准。",
-        "公开合成问题集、代码与评测流程，支持大规模可复现研究。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "RAG设计空间庞大而领域语料上的权衡认识有限，该受控比较与开放测试平台帮助研究者系统理解不同检索策略的成本与质量差异，并为忠实性、检索鲁棒性和智能体检索的后续研究提供基线。",
-      "limitations": "结果基于单一生成器、单一提示和特定评测协议，向其他模型或提示迁移需谨慎。合成问题集由模型自动生成，可能带生成偏差，且问题来源于1万篇随机采样的论文，非全语料覆盖。语料限于2024至2025年arXiv论文，结论未必适用于其他领域或规模。LLM评委评分的可靠性受评委模型与维度设计影响。"
-    },
-    {
-      "slug": "cypherturn-a-multi-turn-benchmark-for-conversati-c63b5fb3f2",
-      "description": "现有Text-to-Cypher评测仅针对孤立单轮查询，无法反映分析师真实的多轮交互场景。CypherTurn首次提供721个会话、5927轮的对话式基准，覆盖7个知识图谱和13类对话现象，并揭示自主智能体协议下前沿模型排名重排的『自主性分异』现象，为对话式图数据库推理设立开放挑战。",
-      "domain": "AI 研究",
-      "titleEn": "CypherTurn: A Multi-Turn Benchmark for Conversational Text-to-Cypher and the Autonomy Divergence",
-      "summary": "论文指出，图数据库的自然语言查询评测一直停留在单轮孤立查询，而实际分析工作是多轮会话式的。为此作者构建了CypherTurn基准，包含721个会话、5927个轮次，跨7个知识图谱和13种对话现象，并在引导式预言机协议与完全自主智能体协议下评测15个模型。事实层面：最佳模型执行准确率仅64.7%，会话级正确率不足5%；行动预算从3倍增至10倍未能缩小自主性差距，最强前沿模型每轮自限于约两次行动；单轮Cypher微调会损害多轮指令遵循。作者观点认为，自主运行下排行榜顶部出现有意义的重排（称为Autonomy Divergence），表明错误管理能力与原始生成能力部分独立，且架构适配的专门化可超越部分前沿模型。",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "id": "c63b5fb3f2a3d97a",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "Text-to-Cypher",
-        "Multi-Turn Dialogue",
-        "Graph Databases",
-        "Benchmark Evaluation",
-        "Autonomous Agents",
-        "Knowledge Graphs"
-      ],
-      "limitationsEn": "The conclusions rest on the authors' own benchmark of 721 sessions and 5,927 turns and evaluations of 15 models across 7 knowledge graphs and 13 conversational phenomena, and have not been shown to generalize to other graph databases, query languages, or larger real-world business settings. The 64.7% execution accuracy and sub-5% session-level correctness reflect performance on this benchmark, not an absolute judgment of general model capability. The Autonomy Divergence is based on comparisons between guided and autonomous protocols, its mechanism is not fully explained, and the action-budget experiment compares only x3 and x10 without exhausting other budget settings. The benchmark does not constitute investment advice; although code and data are public, reproduction may still depend on model versions, prompts, and runtime environments.",
-      "originalUrl": "https://arxiv.org/abs/2609.36987",
-      "summaryProvider": "deepseek",
-      "summaryEn": "The paper notes that natural-language querying of graph databases has been evaluated only on isolated single-turn queries, whereas real analytical work is multi-turn and session-based. To address this, the authors build CypherTurn, comprising 721 sessions and 5,927 turns across 7 knowledge graphs and 13 conversational phenomena, and evaluate 15 models under a guided oracle protocol and a fully autonomous agentic protocol. As facts: the best model reaches only 64.7% execution accuracy and session-level correctness stays below 5%; scaling action budgets from x3 to x10 fails to close the autonomy gap, with the strongest frontier models self-limiting to about two actions per turn; and single-turn Cypher fine-tuning degrades multi-turn instruction following. The authors argue that autonomous operation produces a consequential reordering at the top of the leaderboard, called the Autonomy Divergence, revealing error management as partially independent from raw generation skill, while architecture-appropriate specialization outperforms several frontier models.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "论文",
-      "whyItMattersEn": "This benchmark moves Text-to-Cypher evaluation from single-turn to realistic multi-turn sessions and first reveals how model rankings shift under autonomous agentic operation, suggesting error management and generation skill may be partially independent. It offers a reproducible evaluation framework and an open challenge for building reliable conversational graph database assistants, helping avoid overestimating real multi-turn performance from single-turn scores alone.",
-      "sourceName": "arXiv cs.CL",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 6721,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 60,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.83,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "language-model",
-            "agents"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 70.0,
-        "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 10.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 96.67,
-        "sourceQualityScore": 72.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "Existing Text-to-Cypher evaluations target isolated single-turn queries and fail to reflect analysts' actual multi-turn sessions. CypherTurn is the first conversational benchmark with 721 sessions and 5,927 turns across 7 knowledge graphs and 13 conversational phenomena, exposing a reordering of frontier models under autonomous agentic operation termed the Autonomy Divergence and establishing an open challenge for conversational graph database reasoning.",
-      "keyPointsEn": [
-        "CypherTurn is the first conversational Text-to-Cypher benchmark, with 721 sessions and 5,927 turns across 7 knowledge graphs and 13 conversational phenomena.",
-        "Evaluating 15 models under guided and autonomous protocols, the best execution accuracy is only 64.7% and session-level correctness is below 5%; autonomous operation reorders the top of the leaderboard (Autonomy Divergence).",
-        "Scaling action budgets from x3 to x10 fails to close the autonomy gap, the strongest models self-limit to about two actions per turn, and single-turn Cypher fine-tuning degrades multi-turn instruction following while architecture-appropriate specialization outperforms several frontier models."
-      ],
-      "originalTitle": "CypherTurn: A Multi-Turn Benchmark for Conversational Text-to-Cypher Evaluation and the Autonomy Divergence",
-      "tags": [
-        "文本到Cypher",
-        "多轮对话",
-        "图数据库",
-        "基准评测",
-        "自主智能体",
-        "知识图谱"
-      ],
-      "score": 75.53,
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "title": "多轮对话式图查询基准CypherTurn与自主性分异现象",
-      "keyPoints": [
-        "CypherTurn是首个对话式Text-to-Cypher评测基准，含721个会话、5927轮，覆盖7个知识图谱与13类对话现象。",
-        "在引导式与自主式两种协议下评测15个模型，最佳执行准确率仅64.7%，会话级正确率低于5%；自主运行导致前沿模型排行榜顶部重排（Autonomy Divergence）。",
-        "行动预算从3倍扩至10倍未能弥合自主性差距，最强模型每轮自限于约两次行动；单轮Cypher微调损害多轮指令遵循，而架构适配的专门化优于部分前沿模型。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "该基准将Text-to-Cypher评测从单轮推向多轮真实会话，并首次揭示自主智能体运行下模型能力排序的变化，提示错误管理与生成能力可能部分独立。这为构建可靠的对话式图数据库分析助手提供了可复现的评测框架与开放挑战，有助于避免仅凭单轮分数高估模型在多轮场景中的实际表现。",
-      "limitations": "论文结论基于其自建的721个会话、5927轮基准及15个模型的评测结果，覆盖7个知识图谱和13种对话现象，尚未证明可推广至其他图数据库、查询语言或更大规模真实业务场景。64.7%执行准确率与低于5%会话级正确率反映的是该基准下的表现，不构成对模型通用能力的绝对判断。Autonomy Divergence基于引导式与自主式协议对比，其机制未被完全解释，行动预算实验仅比较3倍与10倍两档，未穷尽其他预算设置。该基准不涉及投资建议，代码与数据虽公开，但复现结果仍可能受模型版本、提示与运行环境影响。"
-    },
-    {
-      "slug": "learning-optimal-liquidation-with-closing-auctio-e34df6b144",
-      "description": "作者首次将连续订单簿交易与收盘集合竞价视为两阶段平仓问题，引入清算价格信号和拍卖反馈连接阶段，并用深度强化学习求解。该框架为理解拍卖接入对平仓策略的价值提供了可复现的模拟证据，对执行算法设计有参考意义。",
-      "domain": "金融研究",
-      "titleEn": "Learning Optimal Liquidation with Closing Auctions",
-      "summary": "研究提出一个两阶段平仓模型：交易者先在限价订单簿中卖出，随后在收盘集合竞价中提交带符号的拍卖计划以调整剩余库存，两个阶段通过预测清算价格信号和中间拍卖反馈连接。作者在模拟市场中使用合成粗糙Heston价格和历史中间价路径，比较了DQN与投影DDPG、TD3和SAC策略，以库存惩罚的实现缺口作为选择与评估标准。结果显示，四种学习策略的库存惩罚缺口均低于AS和TWAP基准，合成匹配比较表明拍卖接入对所有学习器都有用；密集拍卖信用改善学习，清算预测有信息价值但增量决策价值因学习器而异。以上结果来自模拟环境，作者观点认为拍卖接入有用，但需注意模拟假设和样本外有效性。",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "method:forecasting",
-          "facet": "method",
-          "value": "forecasting",
-          "label": {
-            "zh": "预测",
-            "en": "Forecasting"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        }
-      ],
-      "id": "e34df6b14448fd9b",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "quantitative finance",
+        "multi-agent workflows",
+        "LLM agents",
+        "workflow optimization",
+        "co-evolution",
         "reinforcement learning",
-        "optimal liquidation",
-        "closing auction",
-        "execution algorithms",
-        "deep Q-network"
+        "reward design"
       ],
-      "limitationsEn": "Evidence is entirely from a simulated market: price paths use a synthetic rough Heston model and historical midprice paths, without real trading data or live validation. The study does not address market impact, transaction costs, competitive games, or regulatory constraints. Policy performance depends on simulation settings and training details, out-of-sample generalization is unknown, and this does not constitute investment advice.",
-      "originalUrl": "https://arxiv.org/abs/2601.17247",
-      "summaryProvider": "deepseek",
-      "summaryEn": "The study proposes a two-stage liquidation model: a trader first sells through a limit-order book, then submits signed auction schedules in the closing auction to adjust remaining inventory, with the two phases connected by a projected clearing price signal and intermediate auction feedback. Using synthetic rough Heston prices and historical midprice paths in a simulated market, the authors compare DQN with projected DDPG, TD3, and SAC policies, selecting and evaluating them by inventory-penalized implementation shortfall. Results show that all four learners achieve lower inventory-penalized shortfall than stylized Avellaneda-Stoikov and TWAP references, matched synthetic comparisons indicate auction access is useful for all learners, dense auction credit improves learning, and the clearing forecast is informative but its incremental decision value is learner-dependent. These findings are based on a simulated environment; the authors' claim that auction access is useful is subject to simulation assumptions and out-of-sample validity.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ],
+      "limitationsEn": "The reported improvements and the advantage of co-evolution are based only on the selected document, slide, chart, code, math, and finance tasks, and it is not stated whether they generalize to other domains, model scales, or real-world deployments. The abstract lacks details on task difficulty, baselines, statistical significance, and failure cases, so FloWright should not be assumed to be universally generalizable, nor should these results be used as a basis for investment or production decisions.",
+      "id": "8f151d62859de93c",
       "sourceGroup": "论文",
-      "whyItMattersEn": "The study offers a reinforcement learning framework for liquidation that combines continuous trading with a closing auction and provides simulated evidence on the value of auction access. It is relevant for quantitative traders designing execution algorithms and assessing the role of the auction phase, but conclusions are based on synthetic data and a simulated market.",
-      "sourceName": "arXiv q-fin",
+      "sourceName": "arXiv cs.CL",
+      "tags": [
+        "多智能体工作流",
+        "LLM 智能体",
+        "工作流优化",
+        "协同进化",
+        "强化学习",
+        "奖励设计"
+      ],
+      "titleEn": "Optimizing Multi-Agent Workflows: FloWright Enables Role Co-Evolution",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6721,
+        "comparisonCohortSize": 7087,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 77,
+        "relevanceScore": 72,
         "topicClassification": {
           "classification": "finance",
           "confidence": 0.76,
           "financeEvidence": [
-            "trading"
+            "finance"
           ],
           "quantitativeEvidence": [],
+          "aiEvidence": [
+            "language-model",
+            "agents"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 70.18,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 15.0,
+          "novelty": 8.0,
+          "specificity": 9.78,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 72.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "originalTitle": "It Takes Workflows to Evolve Better Workflows",
+      "contentType": "paper",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:productivity",
+          "facet": "topic",
+          "value": "productivity",
+          "label": {
+            "zh": "效率工具",
+            "en": "Productivity"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "domain": "金融研究",
+      "summary": "论文指出，现有多智能体工作流训练通常只优化工作流生成器，而负责构建或执行工作流的其他智能体保持固定，但最终结果依赖所有角色，且单一稀疏得分无法定位失败归因。作者提出 FloWright，利用工作流作为优化脚手架，引入层级式结构感知奖励，使单角色可自进化、两个及以上角色可协同进化，无需额外模型、标签或执行。实验覆盖文档、幻灯片、图表、代码、数学与金融任务，报告小规模开放模型性能最高提升 +7.41%，协同进化（+5.03%）优于仅优化单一角色（+2.83%），但指标与结论均限于论文所述实验设置。",
+      "whyItMatters": "多智能体工作流的效果取决于所有参与角色，而结果反馈通常稀疏且难以归因。该工作提供了一种不依赖额外模型、标签或执行资源的训练思路，将工作流结构转化为可分配的奖励信号，为多角色协同优化提供了可检验的路径。"
+    },
+    {
+      "originalUrl": "https://arxiv.org/abs/2610.01187",
+      "descriptionEn": "This work extends stochastic local volatility (SLV) models by introducing a stochastic correlation process and prices American options through reflected forward-backward stochastic differential equations (RBSDEs). It is useful for capturing richer correlation dynamics and for solving pricing and hedging problems with data-driven numerical methods, including convergence analysis.",
+      "description": "该研究将随机相关性过程引入随机局部波动率模型，并用反射倒向随机微分方程（RBSDE）统一刻画美式期权价格，借助数据驱动数值方法求解定价与对冲问题。其价值在于扩展了 SLV 模型的相关性结构，并提供了收敛性分析与数值验证。",
+      "summaryEn": "The paper studies American option pricing under stochastic local volatility (SLV) models extended with stochastic correlation driven by an additional stochastic process. The authors derive reflected forward-backward stochastic differential equations (RBSDEs) and employ data-driven numerical methods to solve them for pricing and hedging. Numerical experiments illustrate the performance of the extended models and the accuracy and efficiency of the RBSDE-based approach, alongside a convergence analysis.",
+      "score": 75.62,
+      "limitations": "该研究仅基于数值实验和收敛性分析，未提供真实市场数据校准或实证检验；RBSDE 方法在高维情形下的计算可行性、随机相关性过程的设定依据以及与其他 SLV 扩展模型的比较均未在摘要中说明。",
+      "slug": "on-the-pricing-of-american-options-under-stochas-255e647c28",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "This work provides an RBSDE framework for pricing and hedging American options under more flexible correlation assumptions, potentially improving the modeling of market correlation dynamics.",
+      "keyPoints": [
+        "将随机相关性结构引入随机局部波动率模型，扩展了 SLV 模型类。",
+        "推导美式期权定价对应的反射倒向随机微分方程（RBSDE）。",
+        "采用数据驱动数值方法求解 RBSDE，用于定价与对冲，并进行收敛性分析和数值实验。"
+      ],
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "随机局部波动率与随机相关性下的美式期权定价：RBSDE框架",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "Introduces a stochastic correlation structure into stochastic local volatility models, generalizing the SLV model class.",
+        "Derives reflected forward-backward stochastic differential equations (RBSDEs) for American option pricing.",
+        "Solves RBSDEs with data-driven numerical methods for pricing and hedging, including convergence analysis and numerical experiments."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "stochastic local volatility",
+        "stochastic correlation",
+        "American options",
+        "reflected BSDE",
+        "numerical methods",
+        "pricing and hedging"
+      ],
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "limitationsEn": "The study is based only on numerical experiments and convergence analysis, without real-market calibration or empirical testing. The computational feasibility of the RBSDE method in high dimensions, the justification for the stochastic correlation specification, and comparisons with other SLV extensions are not addressed in the abstract.",
+      "id": "255e647c28ace2ac",
+      "sourceGroup": "论文",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "随机局部波动率",
+        "随机相关性",
+        "美式期权",
+        "反射倒向随机微分方程",
+        "数值方法",
+        "定价与对冲"
+      ],
+      "titleEn": "Pricing American Options under Stochastic Local Volatility and Stochastic Correlation via the RBSDE Framework",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7087,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 80,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.87,
+          "financeEvidence": [
+            "securities",
+            "market-risk"
+          ],
+          "quantitativeEvidence": [
+            "stochastic"
+          ],
           "aiEvidence": [],
           "sourcePrior": "量化研究"
         },
-        "contentValueScore": 65.41,
+        "contentValueScore": 66.13,
         "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 10.0,
+          "evidence": 15.0,
+          "actionability": 5.0,
           "novelty": 8.0,
-          "specificity": 2.76,
+          "specificity": 2.13,
           "penalty": 0.0
         },
         "freshnessScore": 96.67,
@@ -1206,41 +1290,9 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "descriptionEn": "The authors formulate liquidation as a two-stage problem where continuous limit-order-book trading is followed by a closing auction, linking phases via a projected clearing price signal and intermediate auction feedback, and solve it with deep reinforcement learning. This framework provides reproducible simulated evidence on the value of auction access for execution algorithms.",
-      "keyPointsEn": [
-        "Two-stage liquidation model: continuous limit-order-book trading followed by a closing auction, connected by a projected clearing price signal and auction feedback.",
-        "Policies selected and evaluated by inventory-penalized implementation shortfall; DQN, projected DDPG, TD3, and SAC all outperform AS and TWAP references.",
-        "Matched synthetic comparisons show auction access is useful for all learners; dense auction credit improves learning, while the incremental decision value of the clearing forecast is learner-dependent."
-      ],
-      "originalTitle": "Learning Optimal Liquidation with Closing Auctions",
-      "tags": [
-        "量化金融",
-        "强化学习",
-        "最优平仓",
-        "收盘集合竞价",
-        "执行算法",
-        "深度Q网络"
-      ],
-      "score": 75.12,
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "title": "收盘集合竞价下的最优平仓强化学习研究",
-      "keyPoints": [
-        "两阶段平仓模型：连续订单簿交易后接入收盘集合竞价，通过预测清算价格和拍卖反馈连接两阶段。",
-        "以库存惩罚实现缺口为策略选择和评估标准，DQN、DDPG、TD3和SAC均优于AS和TWAP基准。",
-        "合成匹配比较显示拍卖接入对所有学习者有用；密集拍卖信用改善学习，清算预测的增量决策价值因学习器而异。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "该研究为平仓执行提供了结合连续交易与集合竞价的强化学习框架，并给出模拟环境中拍卖接入价值的证据。对量化交易者设计执行算法、评估拍卖阶段作用有参考价值，但结论基于合成数据与模拟市场。",
-      "limitations": "证据完全来自模拟市场：价格路径采用合成粗糙Heston模型和历史中间价路径，未使用真实交易数据或实盘验证。研究未涉及市场冲击、交易成本、竞合博弈或监管约束等现实因素。策略表现依赖模拟设定和训练细节，样本外泛化能力未知，不构成投资建议。"
-    },
-    {
-      "slug": "a-generalized-langevin-model-of-latent-liquidity-5d070879a5",
-      "description": "该研究将市场冲击建模为对提交订单流的响应，扣除潜在交易者在价格偏离阈值时激活的反向流；订单流耗尽潜在流动性池后，广义朗之万方程控制其跨时间尺度恢复，记忆核为有限指数和，从而实现精确马尔可夫提升。在未耗尽池和明确个体响应假设下，聚合自然产生介于线性小单与线性大单之间的平方根冲击区制，而无需强加平方根定律。",
-      "domain": "量化研究",
-      "titleEn": "A Generalized Langevin Model of Latent Liquidity and Concave Price Impact",
-      "summary": "论文提出用广义朗之万方程描述潜在流动性池的恢复，记忆核为指数和，并给出精确而非近似的马尔可夫提升。作者在未耗尽池和个体交易响应假设下推导出平方根型价格冲击区制；数值实验显示耗尽会收窄该区制，且不同记忆谱在大量先前交易后响应不同。校准到市场数据留待姊妹篇。事实部分为模型与推导结果；观点部分为作者对机制的解释，尚待实证校准。",
+      "originalTitle": "On the Pricing of American Options under Stochastic Local Volatility and Stochastic Correlation via the RBSDE Framework",
+      "contentType": "paper",
+      "aiGenerated": true,
       "features": [
         {
           "id": "artifact:paper",
@@ -1276,29 +1328,59 @@
           "confidence": 0.87
         }
       ],
-      "id": "5d070879a5bf6376",
-      "retrievedAt": "2026-09-30T15:59:59.999999+00:00",
-      "tagsEn": [
-        "Market Impact",
-        "Liquidity",
-        "Langevin Equation",
-        "Square-Root Law",
-        "Order Flow",
-        "Quantitative Finance"
+      "domain": "量化研究",
+      "summary": "论文研究随机局部波动率（SLV）模型下美式期权的定价问题，通过引入由额外随机过程驱动的随机相关性来推广 SLV 模型。作者推导对应的反射倒向随机微分方程（RBSDE），并使用数据驱动数值方法求解定价与对冲。数值实验展示了扩展模型的表现以及 RBSDE 方法的精度与效率，文中还包含收敛性分析。",
+      "whyItMatters": "该工作为在更灵活的相关性假设下对美式期权进行定价与对冲提供了 RBSDE 框架，可能提升模型对市场相关性动态的刻画能力。"
+    },
+    {
+      "originalUrl": "https://arxiv.org/abs/2610.00104",
+      "descriptionEn": "This study addresses the fragility of bank lending decisions when climate scenario probabilities are unreliable, proposing a minimax-regret framework using public data and NGFS short-term scenarios to assess credit risk in sectoral lending commitments. Its novelty lies in comparing minimax regret with symmetric weighting and maximin under two decision scores, offering an operational decision-fragility tool for financial institutions and supervisors.",
+      "description": "该研究针对气候情景概率不可靠时银行贷款决策的脆弱性问题，提出结合公开数据的极小极大遗憾框架，利用NGFS短期情景评估行业贷款承诺的信用风险。其新意在于将极小极大遗憾与对称加权和极大极小策略在两种决策评分下比较，为金融机构和监管者提供操作性的决策脆弱性分析工具。",
+      "summaryEn": "The paper develops a public-data framework to evaluate incremental bank lending when plausible climate scenarios imply different sector credit outcomes but defensible scenario probabilities are unavailable. The calibration combines 2025 Shared National Credit industry commitments, January 2026 U.S. industry leverage and interest coverage, Damodaran equity volatility, and official 2027 sector-level probability-of-default adjustments from the NGFS CLIMACRED model. The author compares minimax regret with symmetric scenario weighting and maximin under two principal decision scores: expected loss and a credit-compensation payoff.",
+      "score": 75.18,
+      "limitations": "该研究基于公开数据校准，不代表银行实际行为，也不主张普遍最优的气候贷款策略。结果依赖于特定数据源、模型假设和行业分类映射，敏感性分析显示价值条件性。",
+      "slug": "modelling-robust-lending-decisions-under-climate-5de130ada0",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "The framework provides banks and supervisors with an operational decision-fragility assessment method when climate scenario probabilities are missing, helping identify robustness boundaries of loan portfolios under climate uncertainty.",
+      "keyPoints": [
+        "在12.5%行业上限下，极小极大遗憾相比对称情景加权将最大预期损失遗憾降低29.1%，在信用补偿评分下降低69.1%。",
+        "DAPS将承诺加权一年期违约概率从0.0592%提升至0.0897%。",
+        "极小极大遗憾的价值取决于情景特定的行业排名在组合约束附近是否不同。"
       ],
-      "limitationsEn": "Results depend on an undepleted pool and explicit assumptions about individual trading responses; numerical experiments are within-model validation, not calibrated to real market data, with calibration deferred to a companion paper. The nonnegative round-trip cost under constant displayed depth and a specific price convention holds only under stated premises. Model implications should not be used directly for trading decisions.",
-      "originalUrl": "https://arxiv.org/abs/2609.37872",
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "气候情景模糊下的稳健贷款决策：极小极大遗憾框架",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "At a 12.5% sector cap, minimax regret reduces maximum expected-loss regret by 29.1% relative to symmetric scenario weighting, and by 69.1% under the credit-compensation score.",
+        "DAPS raises the commitment-weighted one-year PD from 0.0592% to 0.0897%.",
+        "The value of minimax regret is conditional on scenario-specific sector rankings differing near binding portfolio constraints."
+      ],
       "summaryProvider": "deepseek",
-      "summaryEn": "The paper proposes a generalized Langevin equation for the recovery of a latent liquidity pool, with memory kernels as sums of exponentials and an exact rather than approximate Markovian lift. Under assumptions of an undepleted pool and individual trading responses, the author derives a square-root price impact regime; numerical experiments show depletion narrows this regime and that different memory spectra respond differently after substantial prior trading. Calibration to market data is left to a companion paper. The facts are the model and derivations; the interpretations of the mechanism are the author's and await empirical calibration.",
-      "contentType": "paper",
-      "publishedAt": "2026-09-30T04:00:00+00:00",
-      "aiGenerated": true,
+      "tagsEn": [
+        "climate risk",
+        "bank lending",
+        "minimax regret",
+        "NGFS scenarios",
+        "credit risk"
+      ],
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "limitationsEn": "The study is calibrated on public data, not evidence about realized bank behavior, and does not claim a universally optimal climate lending strategy. Results depend on specific data sources, model assumptions, and sector crosswalk weights; sensitivity analysis shows conditional value.",
+      "id": "5de130ada0226832",
       "sourceGroup": "论文",
-      "whyItMattersEn": "This framework offers a microscopic basis for understanding concave price impact and liquidity recovery, potentially helping quantitative researchers link impact functions to order flow, volatility, and execution horizon, and suggesting that calibrating to a single-order impact may not distinguish different memory structures.",
       "sourceName": "arXiv q-fin",
+      "tags": [
+        "气候风险",
+        "银行贷款",
+        "极小极大遗憾",
+        "NGFS情景",
+        "信用风险"
+      ],
+      "titleEn": "Modelling Robust Lending Decisions under Climate Scenario Ambiguity: A Minimax-Regret Framework with NGFS Short-Term Scenarios",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6721,
+        "comparisonCohortSize": 7087,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -1308,10 +1390,11 @@
         "relevanceScore": 90,
         "topicClassification": {
           "classification": "quantitative-finance",
-          "confidence": 0.87,
+          "confidence": 0.9,
           "financeEvidence": [
-            "trading",
-            "market-risk"
+            "portfolio",
+            "market-risk",
+            "finance"
           ],
           "quantitativeEvidence": [
             "calibration"
@@ -1319,54 +1402,22 @@
           "aiEvidence": [],
           "sourcePrior": "量化研究"
         },
-        "contentValueScore": 63.62,
+        "contentValueScore": 65.5,
         "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 5.0,
+          "evidence": 5.0,
+          "actionability": 10.0,
           "novelty": 0.0,
-          "specificity": 3.12,
+          "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 90.0,
+        "freshnessScore": 96.67,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "descriptionEn": "The study models market impact as the response to submitted order flow net of counterflow from latent traders activated when price displacements from the no-order level exceed individual thresholds. Order flow depletes this latent pool, and a generalized Langevin equation governs recovery across several time scales, with memory kernels as finite sums of exponentials enabling an exact Markovian lift. Under explicit assumptions on individual responses for an undepleted pool, ag",
-      "keyPointsEn": [
-        "Market impact is jointly determined by order flow depleting a latent liquidity pool and the pool's recovery across time scales, with memory kernels as finite sums of exponentials in a generalized Langevin equation.",
-        "Under an undepleted pool and explicit individual response assumptions, aggregation naturally produces a square-root impact regime rather than imposing a square-root law.",
-        "Numerical experiments indicate that pool depletion narrows the square-root range and that different memory spectra behave differently after substantial prior trading."
-      ],
-      "originalTitle": "A Generalized Langevin Model of Latent Liquidity and Concave Price Impact",
-      "tags": [
-        "市场冲击",
-        "流动性",
-        "朗之万方程",
-        "平方根定律",
-        "订单流",
-        "量化金融"
-      ],
-      "score": 72.53,
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "title": "广义朗之万模型解释潜在流动性与凹价格冲击",
-      "keyPoints": [
-        "市场冲击由订单流耗尽潜在流动性池及池的跨时间尺度恢复共同决定，广义朗之万方程的记忆核为有限指数和。",
-        "在未耗尽池和明确个体响应假设下，聚合自然产生平方根冲击区制，而非人为强加平方根定律。",
-        "数值实验表明流动性池耗尽会收窄平方根区间，且不同记忆谱在大量先前交易后表现不同。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "该框架为理解凹价格冲击和流动性恢复提供了微观基础，可能帮助量化研究者将冲击函数与订单流、波动率和执行期限联系起来，并提示仅凭单笔冲击校准可能无法区分不同记忆结构。",
-      "limitations": "结果依赖未耗尽池及对个体交易响应的明确假设；数值实验为模型内验证，未对真实市场数据校准，校准留待姊妹篇。常数显示深度和特定价格约定下往返成本非负的结论有前提。应避免将模型推论直接用于交易决策。"
-    },
-    {
-      "slug": "jacobian-rank-collapse-in-decision-focused-learn-4dfc1fc75b",
-      "description": "本文引入雅可比秩与条件谱界来刻画决策聚焦学习中可用的参数更新方向，并通过稀疏指数跟踪、有限参数与全容量实验区分局部秩限制、坐标依赖优化与预测精度。其价值在于提示：雅可比几何可解释学习方向，但实际决策收益仍须看留出集表现。",
-      "domain": "量化研究",
-      "titleEn": "Jacobian Rank Collapse in Decision-Focused Learning and Its Implications",
-      "summary": "作者提出用预测器雅可比刻画决策聚焦学习（DFL）中优化器可读取的协方差条目与可用于学习的参数方向之间的关系，并给出条件谱界描述近似共线性。实验显示：38个单参数股票配置中DFL相对MSE增益低于1.8%，一个385参数条件预测器仍呈逐点秩一；在验证调参的最短路径与背包实验中，全容量SPO+将平均后悔分别降低11.6%与10.6%，但仅背包在八项比较校正后存活。作者认为这些局部秩限制、坐标依赖优化与预测精度需要区分，实际收益应以留出决策质量为准。",
+      "originalTitle": "Modelling Robust Lending Decisions under Climate Scenario Ambiguity: A Minimax-Regret Framework with NGFS Short-Term Scenarios",
+      "contentType": "paper",
+      "aiGenerated": true,
       "features": [
         {
           "id": "artifact:paper",
@@ -1380,15 +1431,148 @@
           "confidence": 1.0
         },
         {
-          "id": "method:forecasting",
-          "facet": "method",
-          "value": "forecasting",
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
           "label": {
-            "zh": "预测",
-            "en": "Forecasting"
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
           },
           "evidence": "content.keyword",
           "confidence": 0.8
+        },
+        {
+          "id": "topic:quantitative-finance",
+          "facet": "topic",
+          "value": "quantitative-finance",
+          "label": {
+            "zh": "量化金融",
+            "en": "Quantitative Finance"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.9
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "domain": "量化研究",
+      "summary": "论文开发了一个公开数据框架，用于在气候情景概率不可得时评估银行增量贷款。校准结合了2025年共享国民信贷行业承诺、2026年1月美国行业杠杆与利息覆盖率、Damodaran股权波动率以及NGFS CLIMACRED模型的2027年行业违约概率调整。作者比较了极小极大遗憾、对称情景加权和极大极小策略在预期损失与信用补偿支付两种评分下的表现。",
+      "whyItMatters": "该框架为银行和监管机构在气候情景概率缺失时提供了一种可操作的决策脆弱性评估方法，有助于识别贷款组合在气候不确定性下的稳健性边界。"
+    },
+    {
+      "originalUrl": "https://arxiv.org/abs/2608.00677",
+      "descriptionEn": "To address the gap that existing safety benchmarks often focus on short, static tasks and fail to capture cumulative risks in long-horizon agents, this work introduces OpenART, an open-ended arena for environment-evolution red teaming, and EMHA, a black-box policy that systematically explores evolving attack surfaces without parameter updates, offering a scalable foundation for agent safety evaluation in complex, evolving environments.",
+      "description": "针对现有安全基准多聚焦短时静态任务、难以捕捉长时程智能体累积风险的问题，该工作提出 OpenART 开放式环境演化竞技场，并提供黑盒策略 EMHA 在无需参数更新的条件下系统探索演化攻击面，为复杂动态环境中的智能体安全评估提供可扩展基础。",
+      "summaryEn": "The paper argues that agents operate in persistent environments where early state changes can influence decisions far into the future, while current safety benchmarks often miss such cumulative risks because they focus on short, static tasks. The authors build OpenART with over 10,000 validated stateful scenarios across 50 domains, drawing from a pool of more than 500,000 tools and skills; tasks require a median of 97 tool calls and support unified evaluation across 75 agent-model configurations. They also propose the Evolutionary Markov Hypergraph Attack (EMHA), a black-box policy that performs feedback-driven environment evolution by coordinating authorized state transitions without parameter updates; during evaluation task objectives remain fixed while only the environment state changes, and EMHA achieves a pooled Attack Success Rate of 85.0%, with its advantage over instruction-only evolution increasing from about 2% on simple environments to over 17% on the most complex ones. The authors' view is that environment evolution increasingly exposes safety failures as task complexity grows, and that an agent's specific runtime implementation explains a significant portion of safety variation.",
+      "score": 74.2,
+      "limitations": "输入仅提供摘要级信息，未给出 1 万个场景的具体筛选标准、EMHA 的完整算法细节、统计不确定性、基线设置或人工复核流程；85.0% 与 2% 至 17% 的优势均来自论文自报评测，需独立复现验证。任务目标固定、仅状态变化的设定也可能无法代表所有真实部署中的攻击面。",
+      "slug": "openart-scaling-agent-red-teaming-via-open-ended-facec8d854",
+      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
+      "whyItMattersEn": "This work extends agent safety evaluation from short, static tasks to long-horizon, stateful, evolving environments, highlighting that early state changes can create cumulative safety risks. It also indicates that the agent's runtime implementation itself can significantly affect safety beyond the underlying model's capabilities, so evaluation and protection should not rely only on model-level ability.",
+      "keyPoints": [
+        "OpenART 提供 50 个领域、超过 1 万个经校验的有状态场景，工具与技能池超过 50 万，任务中位工具调用数为 97，可统一评估 75 种智能体-模型配置。",
+        "EMHA 是黑盒策略，通过反馈驱动的环境演化协调授权状态转移，不需要参数更新；评测中任务目标固定，仅环境状态变化。",
+        "汇总攻击成功率 85.0%，相对仅指令演化的优势从简单环境约 2% 增至最复杂环境超过 17%。"
+      ],
+      "publishedAt": "2026-10-01T04:00:00+00:00",
+      "title": "OpenART：开放式环境演化实现智能体红队规模化",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "OpenART provides over 10,000 validated stateful scenarios across 50 domains, drawing from more than 500,000 tools and skills; tasks require a median of 97 tool calls and enable unified evaluation across 75 agent-model configurations.",
+        "EMHA is a black-box policy that performs feedback-driven environment evolution by coordinating authorized state transitions without parameter updates; task objectives remain fixed while only the environment state changes.",
+        "The pooled Attack Success Rate is 85.0%, and its advantage over instruction-only evolution increases from about 2% on simple environments to over 17% on the most complex ones."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "agent safety",
+        "red teaming",
+        "environment evolution",
+        "long-horizon tasks",
+        "safety benchmark"
+      ],
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ],
+      "limitationsEn": "Only abstract-level information is provided; the specific screening criteria for the 10,000+ scenarios, full algorithm details of EMHA, statistical uncertainty, baseline setup, and human review processes are not given. The 85.0% ASR and the 2% to 17% advantage are self-reported in the paper and require independent reproduction. The setting with fixed task objectives and only state changes may not represent all real deployment attack surfaces.",
+      "id": "facec8d854d0a1b3",
+      "sourceGroup": "论文",
+      "sourceName": "arXiv cs.CL",
+      "tags": [
+        "智能体安全",
+        "红队测试",
+        "环境演化",
+        "长时程任务",
+        "安全基准"
+      ],
+      "titleEn": "OpenART: Scaling Agent Red Teaming via Open-Ended Environment Evolution",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7087,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 60,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.83,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "language-model",
+            "agents"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 70.0,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 90.0,
+        "sourceQualityScore": 72.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "originalTitle": "OpenART: Scaling Agent Red Teaming via Open-Ended Environment Evolution",
+      "contentType": "paper",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
         },
         {
           "id": "platform:arxiv",
@@ -1402,6 +1586,153 @@
           "confidence": 1.0
         },
         {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "domain": "AI 研究",
+      "summary": "论文指出，智能体在持久环境中运行，早期状态变更可能长期影响后续决策，而现有安全基准多基于短时静态任务，难以覆盖此类累积风险。作者构建 OpenART：涵盖 50 个领域、超过 1 万个经校验的有状态场景，工具与技能池超过 50 万，任务中位工具调用数为 97，并支持对 75 种智能体-模型组合进行统一评估。作者还提出 Evolutionary Markov Hypergraph Attack（EMHA）黑盒策略，通过反馈驱动的授权状态转移协调实现环境演化；评测中任务目标固定、仅环境状态改变，EMHA 汇总攻击成功率为 85.0%，相对仅指令演化在简单环境优势约 2%，在最复杂环境优势超过 17%。作者观点是环境演化随任务复杂度提升会暴露更多安全失效，且智能体的具体运行时实现能解释相当一部分安全差异。",
+      "whyItMatters": "该工作把智能体安全评估从短时静态任务扩展到长时程、有状态、可演化的环境，提示早期状态变更可能带来累积安全风险；同时表明智能体运行时实现本身也会显著影响安全表现，因此评估与防护不能只看底层模型能力。"
+    },
+    {
+      "originalUrl": "https://arxiv.org/abs/2610.00158",
+      "descriptionEn": "This study embeds causal risk mandates built from overlapping information blocks as closed subspaces of a predictable Hilbert space in a continuous incomplete Brownian market, and derives iff conditions for exact causal decentralization. It helps quantify when decentralized causal execution preserves pooled optimality and how implementation errors decompose.",
+      "description": "该研究在连续布朗不完全市场中，将重叠信息块构建的因果风险委托嵌入可预测希尔伯特空间的闭子空间，并给出精确因果去中心化成立当且仅当的四个条件；这为多交易台分散执行因果风险委托提供了理论边界，并区分了可实现与不可实现的误差来源。",
+      "summaryEn": "The paper studies whether causal risk mandates constructed from overlapping information blocks can be implemented by one self-financing portfolio optimal under pooled information. In an incomplete continuous Brownian market, the author characterizes causal mandates via projections onto traded Brownian directions and proves that exact causal decentralization holds if and only if four conditions are jointly satisfied. The log-growth regret is decomposed into pooled-interaction loss and common-book distortion, while raw causal implementation error also contains non-attainability and incompatibility.",
+      "score": 71.17,
+      "limitations": "结论是连续市场中的局部均衡陈述；精确去中心化依赖汇总扩张保持参考鞅等理想条件，且论文未声称在离散或不完全满足浸入条件时同样成立。二次惩罚下的唯一配置与两交易台比较静态属于特定模型设定，不可直接外推为一般市场中的实现保证或投资建议。",
+      "slug": "causal-price-of-risk-mandates-under-overlapping--45dfa61ede",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "The results provide testable necessary and sufficient conditions and an error decomposition for aggregating decentralized causal risk mandates into one self-financing portfolio, helping quantitative researchers assess when decentralized causal execution preserves optimality and where losses originate.",
+      "keyPoints": [
+        "精确因果去中心化成立当且仅当汇总扩张保持参考鞅、汇总最优无加性交易台跨度外分量、局部因果影子兼容于同一共同账簿，且该账簿等于加性汇总最优。",
+        "在浸入条件下，对数增长遗憾被分解为汇总交互损失与共同账簿扭曲；原始因果实施误差还包含不可达性与不相容性。",
+        "二次因果委托惩罚下得到唯一配置，并在含共享、交易台特定与汇总交互风险的两交易台模型中给出精确比较静态。"
+      ],
+      "publishedAt": "2026-10-02T04:00:00+00:00",
+      "title": "重叠信息下因果风险委托的精确去中心化条件",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "Exact causal decentralization holds if and only if the pooled enlargement preserves reference martingales, the pooled optimum has no component outside the additive desk span, the local causal shadows are compatible with one common book, and that book equals the additive pooled optimum.",
+        "Under immersion, log-growth regret separates into pooled-interaction loss and common-book distortion; raw causal implementation error also includes non-attainability and incompatibility.",
+        "A quadratic causal-mandate penalty yields a unique allocation, with exact comparative statics in a two-desk model featuring shared, desk-specific, and pooled-interaction risk."
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "causal price-of-risk mandates",
+        "overlapping information",
+        "incomplete markets",
+        "self-financing portfolio",
+        "exact decentralization",
+        "log-growth regret"
+      ],
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "limitationsEn": "The conclusions are partial-equilibrium statements for continuous markets; exact decentralization relies on ideal conditions such as the pooled enlargement preserving reference martingales, and the paper does not claim validity for discrete or non-immersed settings. The unique allocation under quadratic penalty and two-desk comparative statics are specific model results, not general implementation guarantees or investment advice.",
+      "id": "45dfa61edeeb7d54",
+      "sourceGroup": "论文",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "因果风险委托",
+        "重叠信息",
+        "不完全市场",
+        "自融资组合",
+        "精确去中心化",
+        "对数增长遗憾"
+      ],
+      "titleEn": "Exact Decentralization Conditions for Causal Price-of-Risk Mandates under Overlapping Information",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7087,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 90,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.84,
+          "financeEvidence": [
+            "portfolio"
+          ],
+          "quantitativeEvidence": [
+            "stochastic"
+          ],
+          "aiEvidence": [],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 59.76,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 10.0,
+          "novelty": 0.0,
+          "specificity": 4.26,
+          "penalty": 0.0
+        },
+        "freshnessScore": 96.67,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "primary"
+      },
+      "originalTitle": "Causal Price-of-Risk Mandates under Overlapping Information",
+      "contentType": "paper",
+      "aiGenerated": true,
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
           "id": "topic:quantitative-finance",
           "facet": "topic",
           "value": "quantitative-finance",
@@ -1411,99 +1742,111 @@
           },
           "evidence": "content.finance+quantitative",
           "confidence": 0.84
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
-      "id": "4dfc1fc75b1008de",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "decision-focused learning",
-        "Jacobian rank",
-        "optimization geometry",
-        "sparse index tracking",
-        "regret minimization",
-        "held-out decision quality"
-      ],
-      "limitationsEn": "Evidence boundaries include: rank-one and conditional spectral statements are local and do not imply global common minimizers or collinear batch updates; DFL gains over MSE are below 1.8% only in 38 one-parameter equity configurations; full-capacity SPO+ advantages are observed only in validation-tuned shortest-path and knapsack experiments, and after correction across eight comparisons only knapsack survives; a matched neural comparison finds no aggregate DFL advantage; conclusions are limited by architecture, capacity, batch order, training budget, and coordinate scaling settings, and should not be extrapolated as investment advice.",
-      "originalUrl": "https://arxiv.org/abs/2609.39261",
-      "summaryProvider": "deepseek",
-      "summaryEn": "The authors use the predictor Jacobian to characterize the relation between covariance entries read by the optimizer and parameter directions available to learning in decision-focused learning (DFL), with a conditional spectral bound describing near-collinearity. Experiments show that across 38 one-parameter equity configurations DFL gains over MSE remain below 1.8%, a 385-parameter conditional predictor still has pointwise rank one; in validation-tuned shortest-path and knapsack experiments, full-capacity SPO+ reduces mean regret by 11.6% and 10.6%, respectively, but only knapsack survives correction across eight comparisons. The authors argue that local rank restrictions, coordinate-dependent optimization, and predictive accuracy should be distinguished, and practical benefit should be judged by held-out decision quality.",
-      "contentType": "paper",
-      "publishedAt": "2026-10-01T04:00:00+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "论文",
-      "whyItMattersEn": "By linking local Jacobian geometry in decision-focused learning to held-out decision quality, this work helps researchers understand how predictor parameterization restricts learning directions and cautions against inferring practical decision benefits from predictive accuracy or local spectral properties alone.",
-      "sourceName": "arXiv q-fin",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 6721,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 80,
-        "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.84,
-          "financeEvidence": [
-            "finance"
-          ],
-          "quantitativeEvidence": [
-            "optimization"
-          ],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 61.0,
-        "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 96.67,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "The paper introduces Jacobian rank and a conditional spectral bound to characterize parameter-update directions available in decision-focused learning, using sparse index tracking and limited-capacity versus full-capacity experiments to separate local rank restrictions, coordinate-dependent optimization, and predictive accuracy. Its value is in showing that predictor geometry can explain learning directions while practical benefit still depends on held-out decision quality.",
-      "keyPointsEn": [
-        "Rank-one Jacobians make nonzero per-example gradients collinear, and a conditional spectral bound describes near-collinearity; batch-subspace characterization and counterexamples show local statements imply neither common minimizers nor collinear batch updates.",
-        "Across 38 one-parameter equity configurations DFL gains over MSE remain below 1.8%, and a 385-parameter conditional predictor has pointwise rank one; full-capacity SPO+ reduces mean regret by 11.6% and 10.6% on shortest-path and knapsack, but only knapsack survives correction across eight comparisons.",
-        "Holding expressivity fixed, invertible coordinate scaling lowers spectral effective rank and yields ordinary SGD gains; compensating for the scaling restores original trajectories, and financial forward-target controls separate forecast accuracy from decision quality."
-      ],
-      "originalTitle": "Jacobian Rank Collapse in Decision-Focused Learning",
-      "tags": [
-        "决策聚焦学习",
-        "雅可比秩",
-        "优化几何",
-        "稀疏指数跟踪",
-        "后悔最小化",
-        "留出决策质量"
-      ],
-      "score": 72.03,
-      "discoveredBy": [
-        "arXiv cs.LG",
-        "arXiv q-fin"
-      ],
-      "title": "决策聚焦学习中的雅可比秩塌缩及其影响",
-      "keyPoints": [
-        "秩一雅可比会使非零逐样本梯度共线，条件谱界可描述近共线性；但批量子空间与反例表明局部结论不意味着共同最小化点或批量更新共线。",
-        "38个单参数股票配置下DFL相对MSE增益低于1.8%，385参数条件预测器仍具逐点秩一；全容量SPO+在最短路径与背包任务中降低平均后悔11.6%与10.6%，但仅背包通过八项比较校正。",
-        "在表达能力固定时，可逆坐标缩放会降低谱有效秩并带来普通SGD增益；补偿该缩放可恢复原始轨迹，金融前向目标控制可将预测精度与决策质量分离。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "该工作将决策聚焦学习的局部雅可比几何与留出集决策质量相联系，有助于研究者理解预测器参数化如何限制学习方向，并避免仅凭预测精度或局部谱性质推断实际决策收益。",
-      "limitations": "证据边界包括：秩一与条件谱界是局部描述，不能推出全局共同最小化或批量更新共线；DFL相对MSE的增益仅在38个单参数股票配置中低于1.8%，全容量SPO+优势仅在验证调参的最短路径与背包实验中观测，且八项比较校正后仅背包存活；匹配神经对比未发现总体DFL优势，结论受架构、容量、批量顺序、训练预算与坐标缩放等具体设置限制，不应直接外推为投资建议。"
+      "domain": "量化研究",
+      "summary": "论文研究由重叠信息块构建的因果风险委托能否由一个在汇总信息下最优的自融资组合实现。作者在不完全连续布朗市场中用可预测希尔伯特空间投影刻画因果委托，证明精确因果去中心化等价于四个条件同时成立。作者进一步将对数增长遗憾分解为汇总交互损失与共同账簿扭曲，并指出原始因果实施误差还包含不可达性与不相容性。",
+      "whyItMatters": "该结果为将分散的因果风险委托聚合为一个自融资组合提供了可检验的充要条件与误差分解，有助于量化研究者判断在什么市场与信息结构下分散因果执行不损失最优性，以及损失来自哪里。"
     },
     {
-      "slug": "nvidia-openshell-6eb73169f8",
-      "description": "该内容介绍 NVIDIA 在 GitHub 上发布的 OpenShell 项目，定位为自主 AI 智能体的安全、私有运行环境。新意在于将沙箱化与隐私保护作为智能体运行时的核心设计目标，而非事后加固；其用途在于为需要部署自主智能体的开发者提供受控执行边界。受输入信息所限，尚无性能、架构或实测数据可供判断。",
-      "domain": "AI 研究",
-      "titleEn": "NVIDIA Introduces OpenShell as a Secure, Private Runtime for Autonomous AI Agents",
-      "summary": "OpenShell 是 NVIDIA 在 GitHub 上发布的项目，自我定位为自主 AI 智能体的安全、私有运行时。事实层面仅能确认其名称、归属与上述定位描述；至于它采用何种隔离机制、支持哪些模型或框架、是否开源可商用，输入内容均未提供。对其实际安全性、隐私强度与适用场景的判断，属于目前无法由现有信息支持的延伸解读。",
+      "originalUrl": "https://github.com/JuliusBrussee/caveman",
+      "descriptionEn": "The project uses caveman-style prompts and a proxy to compress token consumption of coding agents.",
+      "description": "该项目借助“原始人说话”风格提示词与代理，压缩编码代理的Token消耗。",
+      "summaryEn": "The project condenses coding agent dialogue into minimal phrasing and claims to cut token usage by 65%. This effect is defined and tested by the project itself and has gained attention on GitHub Trending. It reflects a trend of using constrained language to lower large-model inference costs.",
+      "score": 70.38,
+      "limitations": "65%的节省率来自项目作者自述，未提供独立复现、基准条件或任务类型；未说明压缩是否影响代码正确性与代理执行成功率，且条目仅来自GitHub Trending聚合，无同行评审或第三方验证。",
+      "slug": "juliusbrussee-caveman-bac657e60a",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "When frequent interaction with coding agents is needed, token usage directly affects call costs and response speed; if the compression strategy maintains task quality, it may lower API costs for daily development.",
+      "keyPoints": [
+        "通过模仿原始人简短表达，代理Token消耗据称降低65%",
+        "该项目同时提供技能包与代理两种使用形式",
+        "已在GitHub Trending榜获得病毒式传播"
+      ],
+      "publishedAt": "2026-10-02T15:59:59.999999+00:00",
+      "title": "用原始人式说话削减六成五Token的开源代理",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "By mimicking caveman-style short expressions, token consumption is reportedly reduced by 65%",
+        "The project provides both a skill pack and a proxy as usage forms",
+        "It has achieved viral spread on GitHub Trending"
+      ],
+      "summaryProvider": "deepseek",
+      "tagsEn": [
+        "AI Tools",
+        "Token Optimization",
+        "Coding Agents",
+        "Prompt Engineering",
+        "Open Source"
+      ],
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "limitationsEn": "The 65% savings figure is self-reported by the project author without independent reproduction, baseline conditions, or task types; it is unclear whether compression affects code correctness and agent success rates, and the entry comes only from GitHub Trending aggregation with no peer review or third-party validation.",
+      "id": "bac657e60ae022eb",
+      "sourceGroup": "开源项目",
+      "sourceName": "GitHub Trending Daily",
+      "tags": [
+        "AI工具",
+        "Token优化",
+        "编码代理",
+        "提示词工程",
+        "开源项目"
+      ],
+      "titleEn": "Open-source Agent Cuts Token Use by 65% by Talking Like a Caveman",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 78,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 98.0,
+        "metricPercentile": 98.7,
+        "velocityPercentile": 98.7,
+        "objectiveScore": 98.7,
+        "relevanceScore": 55,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "agents"
+          ],
+          "sourcePrior": null
+        },
+        "contentValueScore": 27.08,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 2.33,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 2.0,
+          "trending_rank_score": 98.0,
+          "stars": 108937.0,
+          "stars_delta_1d": 271.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "originalTitle": "JuliusBrussee/caveman",
+      "contentType": "repository",
+      "aiGenerated": true,
       "features": [
         {
           "id": "artifact:repository",
@@ -1548,49 +1891,97 @@
           },
           "evidence": "content.keyword",
           "confidence": 0.8
+        },
+        {
+          "id": "topic:developer-tools",
+          "facet": "topic",
+          "value": "developer-tools",
+          "label": {
+            "zh": "开发工具",
+            "en": "Developer Tools"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
         }
       ],
-      "id": "6eb73169f84ce43f",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "AI agents",
-        "runtime environment",
-        "security sandbox",
-        "privacy protection",
-        "NVIDIA",
-        "open-source project"
+      "domain": "AI 研究",
+      "summary": "该项目将编码代理的对话压缩成极简用语，宣称能减少65%的Token用量。这一效果由项目自身定义并测试，在GitHub Trending上受到关注。整体趋势指向利用受限语言降低大模型推理成本。",
+      "whyItMatters": "在需要与编码代理进行大量交互时，Token用量直接影响调用成本与响应速度；如果压缩策略能维持任务质量，可能降低日常开发的API开销。"
+    },
+    {
+      "originalUrl": "https://github.com/pbakaus/impeccable",
+      "descriptionEn": "The repository proposes a design language aimed at helping AI tools produce better design. Its novelty lies in embedding design rules into AI workflows rather than leaving them as human-only references, which is directly useful to developers generating interfaces with AI.",
+      "description": "该仓库提出面向 AI 工具的设计语言，旨在让 AI 驱动的开发流程产出更好的设计。新意在于把设计规范直接嵌入 AI 工作流，而非仅作为人工参考；对使用 AI 生成界面的开发者有直接价值。",
+      "summaryEn": "The GitHub project pbakaus/impeccable presents itself as a design language intended to improve AI tools' design output. The source summary states it makes a user's AI harness better at design. Both claims come from the project itself and lack independent public verification.",
+      "score": 65.0,
+      "limitations": "仅有项目标题与一句来源摘要，缺少方法说明、评测数据、对比结果与适用场景信息。无法判断其有效性、可迁移性及与既有设计系统的差异，也不构成任何采用或投资建议。",
+      "slug": "pbakaus-impeccable-ec673bd769",
+      "retrievedAt": "2026-10-02T15:59:59.999999+00:00",
+      "whyItMattersEn": "If the quality bottleneck in AI-generated interfaces is a lack of design constraints, putting a design language into the AI workflow is a reusable idea; for teams using AI in product design, it may shape how prompts and specifications are organized.",
+      "keyPoints": [
+        "项目自我定位为面向 AI 工作流的设计语言。",
+        "目标是让 AI 工具在设计中产出更好结果。",
+        "仓库来自 GitHub Trending Daily，无作者与论文信息。"
       ],
-      "limitationsEn": "The evidence boundary is explicit and narrow: the input contains only the project name, source channel, and a one-line official description, with no paper, technical documentation, benchmarks, version information, or code review findings. It is therefore impossible to assess the real effectiveness of its security mechanisms, the strength of its privacy protection, performance overhead, maturity, or maintenance activity. The words “safe” and “private” are the project's self-description and are not conclusions verified by a third party. This card does not constitute any selection or investment advice.",
-      "originalUrl": "https://github.com/NVIDIA/OpenShell",
+      "publishedAt": "2026-10-02T15:59:59.999999+00:00",
+      "title": "impeccable：让 AI 工具提升设计质量的设计语言",
+      "summaryModel": "deepseek-v4-flash",
+      "keyPointsEn": [
+        "The project positions itself as a design language for AI workflows.",
+        "Its stated goal is better design output from AI tools.",
+        "It appears on GitHub Trending Daily with no author or paper details."
+      ],
       "summaryProvider": "deepseek",
-      "summaryEn": "OpenShell is a project released by NVIDIA on GitHub that describes itself as a safe, private runtime for autonomous AI agents. At the factual level, only the name, ownership, and that positioning statement can be confirmed; the input does not state which isolation mechanisms it uses, which models or frameworks it supports, or whether it is open source and commercially usable. Any judgment about its actual security, privacy strength, or suitable use cases goes beyond what the available information supports.",
-      "contentType": "repository",
-      "publishedAt": "2026-10-01T15:59:59.999999+00:00",
-      "aiGenerated": true,
+      "tagsEn": [
+        "AI tools",
+        "design language",
+        "design system",
+        "GitHub project"
+      ],
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "limitationsEn": "Only the project title and a one-line source summary are available; there is no method description, evaluation data, comparison, or scope information. Its effectiveness, transferability, and difference from existing design systems cannot be judged, and this is not an adoption or investment recommendation.",
+      "id": "ec673bd7694d3a65",
       "sourceGroup": "开源项目",
-      "whyItMattersEn": "Autonomous agents often need to execute code, call tools, and reach external resources, which makes runtime isolation and data privacy key concerns before deployment. If OpenShell delivers the secure, private runtime it claims, it could lower the barrier for organizations experimenting with autonomous agents in controlled settings; however, that value is currently an inference from positioning alone and lacks verifiable evidence.",
       "sourceName": "GitHub Trending Daily",
+      "tags": [
+        "AI 工具",
+        "设计语言",
+        "设计系统",
+        "GitHub 项目"
+      ],
+      "titleEn": "impeccable: A Design Language to Make AI Tools Better at Design",
       "scoreBreakdown": {
         "contentType": "repository",
-        "comparisonCohortSize": 79,
+        "comparisonCohortSize": 78,
         "mode": "cohort-metric",
         "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 97.0,
-        "metricPercentile": 99.36,
-        "velocityPercentile": 99.36,
-        "objectiveScore": 99.36,
-        "relevanceScore": 55,
+        "primaryMetricValue": 95.0,
+        "metricPercentile": 96.1,
+        "velocityPercentile": 96.1,
+        "objectiveScore": 96.1,
+        "relevanceScore": 35,
         "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.8,
+          "classification": "other",
+          "confidence": 0.85,
           "financeEvidence": [],
           "quantitativeEvidence": [],
-          "aiEvidence": [
-            "agents"
-          ],
+          "aiEvidence": [],
           "sourcePrior": null
         },
-        "contentValueScore": 24.91,
+        "contentValueScore": 15.91,
         "contentSignals": {
           "evidence": 0.0,
           "actionability": 0.0,
@@ -1601,185 +1992,17 @@
         "freshnessScore": 100.0,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {
-          "trending_rank": 3.0,
-          "trending_rank_score": 97.0,
-          "stars": 13810.0,
-          "stars_delta_1d": 2503.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "This item covers OpenShell, a project published by NVIDIA on GitHub and positioned as a safe, private runtime for autonomous AI agents. Its novelty lies in treating sandboxing and privacy as core design goals of an agent runtime rather than after-the-fact hardening; its usefulness would be in giving developers a controlled execution boundary for deploying autonomous agents. Given the limited input, no performance, architectural, or empirical data is available for judgment.",
-      "keyPointsEn": [
-        "The project is named NVIDIA/OpenShell and surfaced via GitHub Trending Daily.",
-        "Its stated purpose is a safe, private runtime for autonomous AI agents.",
-        "No architecture details, performance figures, or usage examples are provided."
-      ],
-      "originalTitle": "NVIDIA/OpenShell",
-      "tags": [
-        "AI 智能体",
-        "运行时环境",
-        "安全沙箱",
-        "隐私保护",
-        "NVIDIA",
-        "开源项目"
-      ],
-      "score": 69.74,
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "title": "NVIDIA 推出 OpenShell 自主智能体安全私有运行环境",
-      "keyPoints": [
-        "项目名称为 NVIDIA/OpenShell，发布渠道为 GitHub Trending Daily。",
-        "官方定位是面向自主 AI 智能体的安全、私有运行时。",
-        "输入未提供架构细节、性能数据或使用示例。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "自主智能体通常需要执行代码、调用工具并访问外部资源，其运行隔离与数据隐私因此成为落地前的关键问题。若 OpenShell 如定位所述提供安全私有的运行时，则可能降低企业在受控环境中试验自主智能体的门槛；但这一价值目前仅为定位层面的推断，缺乏可验证证据。",
-      "limitations": "证据边界明确且有限：输入仅包含项目名称、来源渠道与一句官方简介，没有论文、技术文档、基准测试、版本信息或代码审查结论。因此无法评估其安全机制的实际有效性、隐私保护强度、性能开销、成熟度与维护活跃度。简介中的“safe”“private”属于项目自我描述，不构成第三方验证的结论。本卡不构成任何选型或投资建议。"
-    },
-    {
-      "slug": "mvschwarz-openrig-a5babe6eb0",
-      "description": "OpenRig 在 GitHub 趋势榜出现，提出把 Claude Code、Codex 与 Pi 等编码智能体组织为带角色、共享上下文和任务归属的持久化团队，新意在于以团队协议而非单次调用方式编排智能体；对需要长期协作的开发流程有参考价值。",
-      "domain": "AI 研究",
-      "titleEn": "OpenRig: Building Persistent Team Networks of Coding Agents",
-      "summary": "OpenRig 的仓库简介称，它可以让你用 Claude Code、Codex 和 Pi 构建自己的智能体网络，形成具有角色分工、共享上下文和明确任务归属的持久化团队。这是项目作者的定位描述，实际能力与效果需以代码和文档为准。",
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "id": "a5babe6eb0c3a37f",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "multi-agent",
-        "coding assistant",
-        "task orchestration",
-        "developer tools"
-      ],
-      "limitationsEn": "The current input only includes the repository title and description from GitHub Trending, with no code structure, documentation, performance evaluation, supported model versions, or real usage cases. The concrete implementation and reliability of persistent teams, shared context, and task ownership cannot be verified, and the depth of integration with Claude Code, Codex, and Pi is unclear.",
-      "originalUrl": "https://github.com/mvschwarz/openrig",
-      "summaryProvider": "deepseek",
-      "summaryEn": "OpenRig's repository description states that it lets you build your own network of agents from Claude Code, Codex, and Pi, forming persistent teams with roles, shared context, and owned work. This is the project author's positioning; actual capabilities and results should be verified against the code and documentation.",
-      "contentType": "repository",
-      "publishedAt": "2026-10-01T15:59:59.999999+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "开源项目",
-      "whyItMattersEn": "If persistent team-style orchestration works, multi-agent collaboration could shift from one-off conversations to work units with roles and accountability boundaries, which may matter for decomposing and tracking complex coding tasks.",
-      "sourceName": "GitHub Trending Daily",
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 79,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 95.0,
-        "metricPercentile": 96.15,
-        "velocityPercentile": 96.15,
-        "objectiveScore": 96.15,
-        "relevanceScore": 55,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.8,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "agents"
-          ],
-          "sourcePrior": null
-        },
-        "contentValueScore": 25.06,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.31,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
           "trending_rank": 5.0,
           "trending_rank_score": 95.0,
-          "stars": 3470.0,
-          "stars_delta_1d": 640.0,
+          "stars": 74072.0,
+          "stars_delta_1d": 717.0,
           "metric_age_days": 1.0
         },
         "selectionLane": "primary"
       },
-      "descriptionEn": "OpenRig appears on GitHub Trending with a proposal to organize coding agents such as Claude Code, Codex, and Pi into persistent teams with roles, shared context, and owned work; its novelty lies in team-style orchestration rather than single-call agent use, which is relevant to long-running development workflows.",
-      "keyPointsEn": [
-        "Positioned as a tool for building agent networks across Claude Code, Codex, and Pi.",
-        "Emphasizes persistent teams, role division, shared context, and task ownership.",
-        "Only a repository description is currently available, with no verifiable implementation details or benchmark data."
-      ],
-      "originalTitle": "mvschwarz/openrig",
-      "tags": [
-        "多智能体",
-        "编码助手",
-        "任务编排",
-        "开发工具"
-      ],
-      "score": 68.68,
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "title": "OpenRig：为编码智能体组建持久化团队网络",
-      "keyPoints": [
-        "定位为跨 Claude Code、Codex 与 Pi 的智能体网络构建工具。",
-        "强调持久化团队、角色分工、共享上下文与任务归属。",
-        "目前仅有仓库简介，缺少可核实的实现细节与评测数据。"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "如果持久化团队式编排可行，多智能体协作可能从一次性对话转向有角色与责任边界的工作单元，这对复杂编码任务的拆分与追踪有潜在意义。",
-      "limitations": "当前输入仅来自 GitHub 趋势榜的仓库标题与简介，未提供代码结构、文档、性能评测、支持的模型版本或真实使用案例。持久化团队、共享上下文和任务归属的具体实现方式与可靠性无法验证，与 Claude Code、Codex 和 Pi 的集成深度也不明确。"
-    },
-    {
-      "slug": "firebase-firebase-ios-sdk-c63c63846d",
-      "description": "该仓库是 Firebase 面向 Apple 平台（iOS、macOS 等）的官方 SDK 实现，新在将 Firebase 各项后端服务以原生方式引入苹果开发生态。对苹果开发者而言，可减少自行封装网络与数据层的工作，从而聚焦应用功能。",
-      "domain": "开源工程",
-      "titleEn": "Firebase Releases Apple Platform Development SDK Repository",
-      "summary": "事实：firebase/firebase-ios-sdk 是 Firebase 官方的苹果 App 开发 SDK 仓库。作者观点：该 SDK 旨在为苹果平台提供集成 Firebase 服务的开发支持。",
+      "originalTitle": "pbakaus/impeccable",
+      "contentType": "repository",
+      "aiGenerated": true,
       "features": [
         {
           "id": "artifact:repository",
@@ -1815,172 +2038,9 @@
           "confidence": 1.0
         }
       ],
-      "id": "c63c63846d9c5392",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "Firebase",
-        "Apple Development",
-        "SDK",
-        "Open Source Repository"
-      ],
-      "limitationsEn": "The current input only contains the repository description; no version numbers, feature lists, compatibility notes, performance data, or community reviews are provided, so the specific service quality and applicable boundaries cannot be judged.",
-      "originalUrl": "https://github.com/firebase/firebase-ios-sdk",
-      "summaryProvider": "deepseek",
-      "summaryEn": "Fact: firebase/firebase-ios-sdk is the official Firebase SDK repository for Apple app development. Author's view: this SDK aims to provide development support for integrating Firebase services on Apple platforms.",
-      "contentType": "repository",
-      "publishedAt": "2026-10-01T15:59:59.999999+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "开源项目",
-      "whyItMattersEn": "For developers using Apple technology stacks, this repository offers an official path to integrate Firebase backend services, simplifying the integration of common capabilities such as authentication and data storage, and reducing maintenance costs.",
-      "sourceName": "GitHub Trending Daily",
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 79,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 96.0,
-        "metricPercentile": 97.44,
-        "velocityPercentile": 97.44,
-        "objectiveScore": 97.44,
-        "relevanceScore": 35,
-        "topicClassification": {
-          "classification": "other",
-          "confidence": 0.85,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": null
-        },
-        "contentValueScore": 15.85,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.1,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 4.0,
-          "trending_rank_score": 96.0,
-          "stars": 6830.0,
-          "stars_delta_1d": 112.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "This repository is the official SDK implementation of Firebase for Apple platforms (iOS, macOS, etc.), newly bringing Firebase backend services natively to the Apple development ecosystem. For Apple developers, it can reduce the work of custom networking and data layers, allowing focus on app features.",
-      "keyPointsEn": [
-        "Official repository for Apple app development",
-        "Provides native SDK access to Firebase services",
-        "Sourced from GitHub Trending Daily"
-      ],
-      "originalTitle": "firebase/firebase-ios-sdk",
-      "tags": [
-        "Firebase",
-        "苹果开发",
-        "SDK",
-        "开源仓库"
-      ],
-      "score": 65.44,
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "title": "Firebase 发布苹果平台开发 SDK 仓库",
-      "keyPoints": [
-        "官方仓库，面向 Apple 应用开发",
-        "提供 Firebase 服务的原生 SDK 接入方式",
-        "来源为 GitHub Trending Daily"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "对使用苹果技术栈的开发者，该仓库提供了接入 Firebase 后端服务的官方途径，可简化认证、数据存储等常见能力的集成流程，降低维护成本。",
-      "limitations": "当前输入仅含仓库简介，未提供版本号、功能列表、兼容性说明、性能数据或社区评价，无法判断具体服务质量与适用边界。"
-    },
-    {
-      "slug": "recent-quant-links-from-quantocracy-as-of-09-30--3d44c65ccb",
-      "description": "这是Quantocracy于2026年9月30日发布的近期量化链接汇总，同时宣布2027年Quantpedia奖项回归；对关注量化研究动态的读者而言，它提供了集中获取近期内容与新奖项信息的入口。",
-      "domain": "其他研究",
-      "titleEn": "Quant Aggregator Posts Recent Links Roundup and Launches 2027 Awards",
-      "summary": "该内容为Quantocracy截至2026年9月30日的近期链接汇总。文中提到2027年Quantpedia奖项再次启动，并说明将公布获奖者。作者观点体现在对奖项回归的推介语气，而链接汇总与日期属于事实信息。",
-      "features": [],
-      "id": "3d44c65ccb5f5dee",
-      "retrievedAt": "2026-10-01T15:59:59.999999+00:00",
-      "tagsEn": [
-        "quant research",
-        "link roundup",
-        "Quantocracy",
-        "Quantpedia Awards",
-        "research updates"
-      ],
-      "limitationsEn": "The input only provides a summary page description and does not list specific link titles, authors, or research conclusions, so the evidence quality of individual items cannot be assessed. Details about the awards, schedule, and winners are also not provided, and such information should be verified against the original page and official announcements.",
-      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-09302026",
-      "summaryProvider": "deepseek",
-      "summaryEn": "The item is a Quantocracy roundup of recent quant links as of September 30, 2026. It notes that the Quantpedia Awards 2027 are starting again and says winners will be announced. The promotional tone toward the awards reflects the author's view, while the roundup and date are factual.",
-      "contentType": "article",
-      "publishedAt": "2026-10-01T05:15:05+00:00",
-      "aiGenerated": true,
-      "sourceGroup": "网站与论坛",
-      "whyItMattersEn": "For quant researchers, such roundups can help consolidate recent quant content in one place; the awards announcement also provides a time marker for following related research competitions.",
-      "sourceName": "Quantocracy",
-      "scoreBreakdown": {
-        "contentType": "article",
-        "comparisonCohortSize": 1,
-        "mode": "relevance-fallback",
-        "primaryMetric": null,
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 40,
-        "topicClassification": {
-          "classification": "uncertain",
-          "confidence": 0.5,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 3.0,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 10.0,
-          "penalty": -25.0
-        },
-        "freshnessScore": 97.01,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "descriptionEn": "This is Quantocracy's roundup of recent quant links as of September 30, 2026, along with the announcement that the Quantpedia Awards 2027 are returning; for readers tracking quant research, it offers a single entry point to recent content and news about the awards.",
-      "keyPointsEn": [
-        "Summarizes quant links recently featured by Quantocracy as of September 30, 2026",
-        "Announces the return of the Quantpedia Awards 2027 and mentions an upcoming winners announcement",
-        "Directs readers to the Quant Mashup for the most recent links"
-      ],
-      "originalTitle": "Recent Quant Links from Quantocracy as of 09/30/2026",
-      "tags": [
-        "量化研究",
-        "链接汇总",
-        "Quantocracy",
-        "Quantpedia奖项",
-        "研究动态"
-      ],
-      "score": 31.5,
-      "discoveredBy": [
-        "Quantocracy"
-      ],
-      "title": "量化聚合站发布近期链接汇总并启动2027奖项",
-      "keyPoints": [
-        "汇总Quantocracy截至2026年9月30日近期收录的量化链接",
-        "宣布2027年Quantpedia奖项回归并提及将公布获奖者",
-        "引导读者访问Quant Mashup查看最新链接"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "whyItMatters": "对量化研究者而言，此类汇总可帮助集中了解近期被收录的量化内容；奖项启动信息也可作为关注相关研究评选活动的时间节点参考。",
-      "limitations": "输入仅提供汇总页面摘要，未列出具体链接标题、作者或研究结论，无法评估各条内容的证据质量；奖项细节、时间安排与获奖者信息也未给出，相关内容需以原文及官方发布为准。"
+      "domain": "AI 工具",
+      "summary": "GitHub 上的 pbakaus/impeccable 项目将自身定位为一种设计语言，用来提升 AI 工具的设计能力。项目来源摘要称其能让用户的 AI 工作流在设计方面表现更好。以上均为项目自身的表述，尚无独立验证公开。",
+      "whyItMatters": "若 AI 生成界面的质量瓶颈在于缺乏设计约束，把设计语言前置到 AI 工作流是一种可复用的思路；对依赖 AI 辅助做产品设计的团队，可能影响其提示与规范组织方式。"
     }
   ]
 }
