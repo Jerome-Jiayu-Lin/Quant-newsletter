@@ -5,56 +5,84 @@
   "edition": "2026-10-11",
   "cards": [
     {
-      "contentType": "paper",
-      "titleEn": "Structured Disambiguation Paradigm: ARCS Reveals Real Ambiguity Challenges in Text-to-SQL",
-      "tags": [
-        "text-to-SQL",
-        "歧义消解",
-        "基准数据集",
-        "结构化交互",
-        "自然语言处理"
+      "retrievedAt": "2026-10-08T15:59:59.999999+00:00",
+      "descriptionEn": "This work proposes structured disambiguation, where users resolve ambiguity through explicit, constrained interactions instead of free-form dialogue clarification, and introduces the ARCS benchmark, which annotates naturally occurring ambiguity points, interpretations, and SQL queries over real-world databases. Its value lies in turning ambiguity from a conversational burden into a reproducible input condition for evaluating intent misalignment in text-to-SQL deployment.",
+      "originalUrl": "https://arxiv.org/abs/2610.09396",
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        }
       ],
       "keyPointsEn": [
-        "Proposes structured disambiguation, a new paradigm replacing free-form clarification with explicit, constrained interactions.",
-        "Builds ARCS, the first text-to-SQL benchmark for naturally occurring, unconstrained ambiguities over real-world databases.",
-        "Experiments show text-to-SQL remains highly challenging under ambiguity: gpt-6-sol reaches 51% end-to-end execution accuracy, open-source models no more than 27%."
+        "Proposes structured disambiguation: explicit, constrained interactions replace free-form dialogue clarification to resolve ambiguity in text-to-SQL.",
+        "Builds the ARCS benchmark: over real-world databases, annotating naturally occurring ambiguity points, corresponding interpretations, and SQL queries.",
+        "Experiments show text-to-SQL remains challenging under ambiguity: gpt-6-sol reaches 51% end-to-end execution accuracy, and no open-source model exceeds 27%."
       ],
-      "originalTitle": "ARCS: Towards Precise Text-to-SQL via Structured Disambiguation",
+      "contentType": "paper",
+      "limitationsEn": "The summary only reports end-to-end execution accuracy numbers for gpt-6-sol and open-source models, without specifying model versions, evaluation settings, prompting strategies, or statistical uncertainty; it provides no controlled comparison between structured disambiguation and conversational clarification, nor quantitative results on human efficiency or cognitive load. ARCS annotation consistency, coverage, database and question distribution, and whether it includes unresolvable or adversarial ambiguities are not described in the given text, so it cannot be concluded that this paradigm already outperforms existing clarification methods or applies to all real-world workflows.",
+      "domain": "AI 研究",
+      "score": 72.53,
+      "description": "该工作提出结构化消歧范式，要求用户通过受约束的交互显式选择歧义解释，而非自由对话澄清；并构建ARCS基准，首次在真实数据库上系统标注自然出现的歧义点、解释与SQL查询。其价值在于将歧义从“对话负担”转为可评测的输入条件，为文本到SQL部署中的意图偏离问题提供可复现的测试基础。",
+      "sourceName": "arXiv cs.CL",
+      "tags": [
+        "文本到SQL",
+        "歧义消解",
+        "结构化消歧",
+        "基准数据集",
+        "人机交互"
+      ],
       "id": "8f9a65c5140723bc",
-      "whyItMattersEn": "In real-world deployment, ambiguity in user questions is a primary source of text-to-SQL errors, and traditional conversational clarification is inefficient and poorly aligned with actual workflows. This work formalizes ambiguity resolution as structured interaction and provides a fully annotated benchmark, helping drive more reliable and evaluable text-to-SQL research.",
+      "title": "结构化消歧能否提升文本到SQL系统的准确率",
+      "publishedAt": "2026-10-08T04:00:00+00:00",
+      "limitations": "摘要仅给出gpt-6-sol与开源模型的端到端执行准确率数字，未说明模型版本、评测设置、提示策略或统计不确定性；未提供结构化消歧相对对话澄清的对照实验或人工效率、认知负担的量化结果；ARCS的标注一致性、覆盖率、数据库与问题分布、是否包含不可消歧或恶意歧义等均未在给定文本中说明，因此不能据此断言该范式已优于既有澄清方法或适用于所有真实工作流。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "If structured disambiguation and benchmarks like ARCS hold, text-to-SQL evaluation will move beyond translating unambiguous questions to explicitly measuring intent alignment and execution correctness under real, subtle ambiguity, helping locate silent deviations from user intent in deployment.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "若结构化消歧与ARCS这类基准成立，文本到SQL评测将不再只关注无歧义问题的翻译能力，而会显式衡量系统在真实、细微歧义下的意图对齐与执行正确性，有助于定位部署中悄然偏离用户意图的错误来源。",
+      "originalTitle": "ARCS: Towards Precise Text-to-SQL via Structured Disambiguation",
+      "aiGenerated": true,
+      "keyPoints": [
+        "提出结构化消歧：用显式、受约束的交互替代自由对话澄清来消除文本到SQL中的歧义。",
+        "构建ARCS基准：面向真实数据库，标注自然出现的歧义点、对应解释与SQL查询。",
+        "实验显示歧义场景下文本到SQL仍具挑战：gpt-6-sol端到端执行准确率51%，开源模型均不超过27%。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "arcs-towards-precise-text-to-sql-via-structured--8f9a65c514",
+      "titleEn": "Can Structured Disambiguation Improve Text-to-SQL Accuracy?",
+      "summaryEn": "The paper argues that as text-to-SQL systems move toward real-world deployment, ambiguity in user questions becomes a primary error source; such ambiguities are often subtle, domain- or data-specific, and can silently cause outputs to deviate from true intent, while traditional conversational clarification is inefficient, cognitively demanding, and misaligned with real workflows. The authors propose structured disambiguation, resolving ambiguity through explicit, constrained interactions rather than free-form dialogue. They construct ARCS, claimed as the first text-to-SQL benchmark featuring naturally occurring, unconstrained ambiguities over real-world databases, with complete annotations of all valid ambiguity points, interpretations, and SQL queries; experiments show the task remains challenging under ambiguity, with gpt-6-sol achieving only 51% end-to-end execution accuracy and no open-source model exceeding 27%.",
       "tagsEn": [
         "text-to-SQL",
         "ambiguity resolution",
+        "structured disambiguation",
         "benchmark dataset",
-        "structured interaction",
-        "natural language processing"
+        "human-computer interaction"
       ],
-      "title": "结构化消歧新范式：ARCS 揭示 text-to-SQL 真实歧义挑战",
-      "summary": "论文指出，当 text-to-SQL 系统从演示走向真实部署时，用户问题中的歧义成为主要错误来源，这些歧义往往细微、依赖领域或数据，并可能悄无声息地使输出偏离用户真实意图。作者提出结构化消歧，即通过显式、受约束的交互而非自由对话来消解歧义，并构建 ARCS 基准，完整标注所有有效歧义点、解释和 SQL 查询。实验显示，gpt-6-sol 端到端执行准确率仅 51%，开源模型不超过 27%。",
-      "sourceGroup": "论文",
-      "summaryEn": "The paper notes that as text-to-SQL systems move from demonstrations to real-world deployment, ambiguity in user questions becomes a primary source of errors, often subtle and domain- or data-specific, silently causing outputs to deviate from user intent. The authors propose structured disambiguation, resolving ambiguity through explicit, constrained interactions rather than free-form dialogue, and construct ARCS, a benchmark with complete annotations of all valid ambiguity points, interpretations, and SQL queries. Experiments show gpt-6-sol achieves only 51% end-to-end execution accuracy, and no open-source model exceeds 27%.",
-      "summaryModel": "deepseek-v4-flash",
-      "sourceName": "arXiv cs.CL",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "This work proposes structured disambiguation, a paradigm that resolves ambiguity through explicit, constrained interactions rather than free-form dialogue, and builds ARCS, the first text-to-SQL benchmark featuring naturally occurring, unconstrained ambiguities over real-world databases. Its value lies in showing that even the strongest model achieves only 51% end-to-end execution accuracy under ambiguity, with open-source models below 27%, offering a new benchmark and resear",
-      "keyPoints": [
-        "提出结构化消歧新范式，用显式受约束交互代替自由对话式澄清。",
-        "构建 ARCS，首个面向真实数据库、自然发生且无约束歧义的 text-to-SQL 基准。",
-        "实验表明歧义场景下 text-to-SQL 仍极具挑战：gpt-6-sol 端到端执行准确率 51%，开源模型不超过 27%。"
-      ],
-      "limitations": "论文仅基于 arXiv 摘要信息，未提供数据集规模、歧义类型分布、结构化交互的具体设计细节及人工评估方案。实验仅报告 gpt-6-sol 和开源模型的端到端执行准确率，未说明是否包含消歧交互后的最终准确率、其他基线或消融实验。ARCS 覆盖的数据库领域和问题类型未知，结论向其他语言、领域或系统迁移时需谨慎。",
-      "slug": "arcs-towards-precise-text-to-sql-via-structured--8f9a65c514",
       "discoveredBy": [
         "arXiv cs.CL"
       ],
-      "score": 72.53,
-      "aiGenerated": true,
-      "limitationsEn": "This is based only on the arXiv abstract; dataset size, ambiguity type distribution, concrete design of structured interactions, and human evaluation protocols are not provided. Experiments report end-to-end execution accuracy only for gpt-6-sol and open-source models, without clarifying final accuracy after disambiguation interactions, other baselines, or ablations. The database domains and question types covered by ARCS are unknown, so conclusions should be transferred cautiously to other languages, domains, or systems.",
-      "description": "该研究提出结构化消歧范式，通过受约束的显式交互而非自由对话来解决用户问题中的歧义，并构建了首个包含自然发生、无约束真实数据库歧义的 text-to-SQL 基准 ARCS。其价值在于揭示当前最强模型在歧义场景下端到端执行准确率仅 51%，开源模型不超过 27%，为 text-to-SQL 落地提供了新的评测基准和研究方向。",
-      "domain": "AI 研究",
+      "summary": "论文指出，文本到SQL系统走向真实部署时，用户问题中的歧义是主要错误来源，且歧义常细微、依赖领域或数据，可能悄悄使输出偏离用户真实意图；传统对话澄清效率低、认知负担重，也不贴合真实工作流。作者提出结构化消歧，即通过显式且受约束的交互解决歧义，而非自由形式对话。作者构建ARCS，宣称是首个在真实数据库上包含自然出现、未受约束歧义，并完整标注所有有效歧义点、解释与SQL查询的文本到SQL基准；实验显示歧义下任务仍困难，gpt-6-sol端到端执行准确率仅51%，开源模型均不超过27%。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -84,123 +112,12 @@
         "sourceQualityScore": 72.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.09396",
-      "retrievedAt": "2026-10-08T15:59:59.999999+00:00",
-      "whyItMatters": "真实部署中，用户问题歧义是 text-to-SQL 系统出错的主要来源，传统对话式澄清效率低且不符合实际工作流。该工作将歧义问题形式化为结构化交互，并提供带完整标注的基准，有助于推动更可靠、可评测的 text-to-SQL 研究。",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        }
-      ],
-      "publishedAt": "2026-10-08T04:00:00+00:00"
+      }
     },
     {
-      "contentType": "paper",
-      "titleEn": "VERSE: Verified Self-Evolving Optimizer for Agent Harnesses",
-      "tags": [
-        "智能体编排",
-        "自演化优化",
-        "执行式验证",
-        "大语言模型智能体"
-      ],
-      "keyPointsEn": [
-        "VERSE lets the optimizer test draft edits, replay failures, and perturb suspected steps before submission, while tracking fixes and regressions across rounds.",
-        "The optimizer and executor model weights stay fixed; what changes are the executor harness and the optimizer's own prompts, skills, tools, hooks, and notes.",
-        "Under a shared protocol, VERSE improves all four evaluated harness optimizers on SWE-rebench and newer out-of-distribution tasks in five languages, reaching 42.3% and 37.7% accuracy for the best validation-selected harness."
-      ],
-      "originalTitle": "VERSE: Verified Self-Evolving Optimizer for Agent Harnesses",
-      "id": "bc0b191182a139a0",
-      "whyItMattersEn": "If an optimizer can self-improve its diagnosis, editing, and verification procedures, iterating on agent harnesses may rely less on blind trial and error and manual tuning. The reported results indicate execution-based verification is a key condition for self-evolving optimization to work, offering methodological value for building more reliable agent workflows.",
-      "tagsEn": [
-        "agent harness",
-        "self-evolving optimization",
-        "execution-based verification",
-        "LLM agents"
-      ],
-      "title": "VERSE：面向智能体编排的验证式自演化优化器",
-      "summary": "事实：论文提出VERSE，一个面向智能体编排的验证式自演化优化器，允许优化器测试草稿编辑、重放失败并扰动可疑步骤，同时追踪多轮修复与回归。事实：在共享协议与不相交训练、验证和测试任务下，VERSE在SWE-rebench及五种语言的新分布外任务上提升了四个被评估的编排优化器，最佳验证选择编排达到42.3%和37.7%准确率，而最强基线为39.2%和29.3%。作者观点：受控研究表明，没有基于执行的验证时，优化器自演化无法提升性能；有验证时则取得该研究最佳结果。",
-      "sourceGroup": "论文",
-      "summaryEn": "Fact: The paper introduces VERSE, a verified self-evolving optimizer for agent harnesses, which lets the optimizer test draft edits, replay failures, perturb suspected steps, and track fixes and regressions across rounds. Fact: Under a shared protocol with disjoint training, validation, and test tasks, VERSE improves all four evaluated harness optimizers on held-out SWE-rebench tasks and newer out-of-distribution tasks in five languages, with the best validation-selected harness reaching 42.3% and 37.7% accuracy versus 39.2% and 29.3% for the strongest baselines. Author view: A controlled study indicates that optimizer self-evolution fails to improve performance without execution-based verification, but achieves the best result of that study when verification is available.",
-      "summaryModel": "deepseek-v4-flash",
-      "sourceName": "arXiv cs.LG",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "This paper studies whether an optimizer can improve another LLM agent more effectively by also improving how it diagnoses failures, develops edits, and tests their effects. Its novelty lies in letting the optimizer test draft edits, replay failures, and perturb suspected steps before submission while tracking fixes and regressions, improving the harness without changing model weights. For AI and quantitative researchers, it offers a verifiable self-evolution approach that may",
-      "keyPoints": [
-        "VERSE让优化器在提交前测试草稿编辑、重放失败并扰动可疑步骤，并跨轮追踪修复与回归。",
-        "优化器与执行器模型权重保持固定，被修改的是执行器编排以及优化器自身的提示、技能、工具、钩子和笔记。",
-        "在共享协议下，VERSE在SWE-rebench与五种语言的分布外任务上提升了四个被评估的编排优化器，最佳验证选择编排分别达42.3%和37.7%准确率。"
-      ],
-      "limitations": "证据主要来自论文设定的共享协议、SWE-rebench任务和五种语言的分布外任务；被评估对象是四个编排优化器，模型权重保持固定。因此，结论是否适用于其他任务域、其他基座模型、允许权重更新或不同验证成本约束的场景尚不明确。准确率数字为特定协议下的结果，不构成任何投资建议。",
-      "slug": "verse-verified-self-evolving-optimizer-for-agent-bc0b191182",
-      "discoveredBy": [
-        "arXiv cs.CL",
-        "arXiv cs.LG"
-      ],
-      "score": 71.63,
-      "aiGenerated": true,
-      "limitationsEn": "The evidence comes mainly from the paper's shared protocol, SWE-rebench tasks, and newer out-of-distribution tasks in five languages; the evaluated subjects are four harness optimizers, and model weights stay fixed. Therefore, it is unclear whether the conclusions extend to other task domains, other base models, settings that allow weight updates, or different verification cost constraints. The accuracy numbers are results under a specific protocol and do not constitute investment advice.",
-      "description": "这篇论文研究优化器能否通过改进自身的诊断、编辑与测试方式，更有效地优化另一个LLM智能体。其新意在于让优化器在提交修改前测试草稿、重放失败并扰动可疑步骤，同时追踪修复与回归，从而在模型权重不变的情况下改善编排。对量化与AI研究者而言，它提供了一种可验证的自演化优化思路，有助于降低智能体工作流调试中的盲目试错。",
-      "domain": "AI 研究",
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 7840,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 60,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.86,
-          "financeEvidence": [],
-          "quantitativeEvidence": [
-            "econometrics"
-          ],
-          "aiEvidence": [
-            "machine-learning",
-            "language-model",
-            "agents"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 75.0,
-        "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 15.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 56.67,
-        "sourceQualityScore": 78.0,
-        "sourceMetrics": {},
-        "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.02616",
       "retrievedAt": "2026-10-05T15:59:59.999999+00:00",
-      "whyItMatters": "如果优化器能自我改进诊断、编辑和验证流程，智能体编排的迭代可能更少依赖盲目试错和人工调参。论文报告的结果表明执行式验证是自演化优化生效的关键条件，这对构建更可靠的智能体工作流具有方法学参考价值。",
+      "descriptionEn": "Existing methods typically fix the optimizer's own tools and procedures, improving only the target agent's prompts, tools, and workflow. VERSE enables the optimizer to also improve how it diagnoses failures, develops edits, and tests effects, using execution-based verification, failure replay, and step perturbation to enhance optimization. On SWE-rebench in-distribution and cross-language out-of-distribution tasks, its best validation-selected harness reaches 42.3% and 37.7% ",
+      "originalUrl": "https://arxiv.org/abs/2610.02616",
       "features": [
         {
           "id": "artifact:paper",
@@ -258,95 +175,222 @@
           "confidence": 0.8
         }
       ],
-      "publishedAt": "2026-10-05T04:00:00+00:00"
-    },
-    {
-      "contentType": "paper",
-      "titleEn": "World-Model Policy Arbitration for Goal-Conditioned Reinforcement Learning",
-      "tags": [
-        "离线强化学习",
-        "目标条件强化学习",
-        "世界模型",
-        "策略组合",
-        "测试时决策"
-      ],
       "keyPointsEn": [
-        "WMPA composes multiple frozen goal-conditioned policies at test time: it rolls out each policy in a world model, compares imagined futures via a shared goal-conditioned value function, and selects the best policy for a short commitment interval.",
-        "The method avoids direct comparison of policies' own value functions, making it compatible with policies that use different scales or lack value functions, while controlling switching frequency to maintain stable control.",
-        "On 18 state-based datasets under the OGBench protocol, the macro-average success rate rises from 44% to 58%, with statistically significant gains on 12 datasets, including +33 percentage points on cube-double-play and +36 percentage points on scene-play."
+        "In the controlled study, optimizer self-evolution fails to improve performance without execution-based verification, but achieves the best result of that study when verification is available.",
+        "VERSE lets the optimizer test draft edits, replay failures, and perturb suspected steps before submission, while tracking fixes and regressions across rounds.",
+        "Under a shared protocol with disjoint training, validation, and test tasks, VERSE improves all four evaluated harness optimizers on held-out SWE-rebench tasks and newer out-of-distribution tasks in five languages."
       ],
-      "originalTitle": "World-Model Policy Arbiter for Goal-Conditioned Reinforcement Learning",
-      "id": "03026da2a3ca5aa2",
-      "whyItMattersEn": "This work suggests that instead of finding or deploying a single best policy in offline GCRL, one can dynamically arbitrate among a set of frozen policies at test time, improving success across environments and goals without retraining or task-specific knowledge. It offers a verifiable engineering path for policy reuse and compositional decision-making, relevant to multi-task goal-reaching control and planning scenarios.",
-      "tagsEn": [
-        "Offline Reinforcement Learning",
-        "Goal-Conditioned Reinforcement Learning",
-        "World Models",
-        "Policy Composition",
-        "Test-Time Decision Making"
-      ],
-      "title": "基于世界模型的目标条件强化学习策略仲裁",
-      "summary": "事实：离线目标条件强化学习（GCRL）中不存在单一最优策略，不同环境、目标乃至同一任务不同阶段表现各异。该工作提出WMPA，将一组冻结策略作为投资组合，借助学习的世界模型推演未来，并用共享目标条件价值函数评分，每隔短承诺区间选择并执行最优策略。作者报告在OGBench协议下18个状态数据集上，宏平均成功率从最佳单策略的44%提升至58%，12个数据集增益统计显著。作者观点：WMPA无需策略重训练或特权任务知识，是一种测试时框架。",
-      "sourceGroup": "论文",
-      "summaryEn": "Fact: In offline goal-conditioned reinforcement learning (GCRL), no single algorithm performs best across environments, goals, or even phases of the same task. The work proposes WMPA, which treats a set of frozen policies as a portfolio, rolls out each in a learned world model, scores imagined futures with a shared goal-conditioned value function, and executes the top-scoring policy for a short commitment interval. The authors report that under the official OGBench protocol on 18 state-based datasets, the macro-average success rate improves from 44% for the best per-dataset policy to 58%, with statistically significant gains on 12 datasets. Author view: WMPA requires no policy retraining or privileged task-specific knowledge and is a test-time framework.",
-      "summaryModel": "deepseek-v4-flash",
+      "contentType": "paper",
+      "limitationsEn": "The evidence comes from the paper's controlled study, shared protocol, and tasks from SWE-rebench and five languages; reported results include accuracy of the best validation-selected harness, and do not show generalization to other task distributions, other models, other verification mechanisms, or real production environments. The weights of the optimizer and executor models stay fixed, so the conclusions do not directly apply to settings involving weight updates.",
+      "domain": "AI 研究",
+      "score": 71.63,
+      "description": "现有方法通常固定优化器自身的工具与流程，仅改进被优化代理的提示、工具与工作流。VERSE 让优化器也能改进自身诊断失败、开发修改和测试效果的方式，并通过执行验证、失败重放与步骤扰动提升优化效果。在 SWE-rebench 同分布与跨语言分布外任务上，其最优验证集选择的执行框架准确率分别达到 42.3% 与 37.7%，优于最强基线 39.2% 与 29.3%。",
       "sourceName": "arXiv cs.LG",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "This work introduces the World-Model Policy Arbiter (WMPA), a test-time framework that treats a set of frozen goal-conditioned policies as a portfolio. At each state, it rolls out each frozen policy in a learned state-space world model, evaluates the imagined futures with a shared goal-conditioned value function, and executes the highest-scoring policy for a short commitment interval. Its novelty lies in arbitrating among policies without retraining or task-specific privilege",
-      "keyPoints": [
-        "WMPA在测试时组合多个冻结的目标条件策略，通过世界模型推演各策略的未来轨迹，用共享目标条件价值函数比较想象结果，选择短期承诺内的最优策略。",
-        "该方法不依赖策略自身的价值函数直接比较，从而兼容价值尺度不同或没有价值函数的策略，并控制策略切换频率以保持控制稳定。",
-        "在OGBench协议下18个状态数据集上，宏平均成功率从44%提升至58%，12个数据集增益统计显著，包括cube-double-play +33个百分点和scene-play +36个百分点。"
+      "tags": [
+        "AI 代理",
+        "执行框架优化",
+        "自我进化优化器",
+        "执行验证",
+        "代码智能"
       ],
-      "limitations": "证据来自OGBench的18个状态数据集，涵盖迷宫导航以及立方体、场景和拼图操作，未报告在连续控制、视觉输入或真实机器人上的结果。WMPA依赖学习的状态空间世界模型和共享目标条件价值函数，其仲裁质量受两者精度限制；世界模型在分布外或长时推演中的误差可能影响策略选择。方法需要一组预先存在的冻结目标条件策略作为输入，策略库覆盖不足时增益可能受限。短承诺区间长度等超参数对稳定性与性能的影响未在摘要中说明。",
-      "slug": "world-model-policy-arbiter-for-goal-conditioned--03026da2a3",
+      "id": "bc0b191182a139a0",
+      "title": "VERSE：可验证的自我进化优化器提升代理执行框架",
+      "publishedAt": "2026-10-05T04:00:00+00:00",
+      "limitations": "证据来自论文设定的受控研究、共享协议以及 SWE-rebench 与五种语言的新分布外任务；报告结果包含验证集选择后的最优执行框架准确率，未说明在其他任务分布、其他模型、其他验证机制或真实生产环境中的泛化能力。优化器与执行器模型权重保持固定，因此结论不直接适用于涉及权重更新的场景。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "This work suggests that agent harness optimization can come not only from modifying the target agent but also from improving the optimizer's own diagnosis and verification process; mechanisms such as execution-based verification, failure replay, and step perturbation may improve optimization and can transfer across multiple harnesses and language tasks without changing model weights.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该工作表明，代理执行框架优化不仅来自修改被优化代理，也可来自优化器自身的诊断与验证流程改进；执行验证、失败重放和步骤扰动等机制可能提升优化效果，并可在不改变模型权重的情况下迁移到多种执行框架和语言任务。",
+      "originalTitle": "VERSE: Verified Self-Evolving Optimizer for Agent Harnesses",
+      "aiGenerated": true,
+      "keyPoints": [
+        "在受控研究中，优化器自我进化缺少执行验证时无法提升性能，具备验证时取得最佳结果。",
+        "VERSE 允许优化器测试草稿修改、重放失败、扰动可疑步骤，并跨轮次追踪修复与回归。",
+        "在共享协议与互不重叠的训练、验证、测试任务下，VERSE 在 SWE-rebench 留出任务和五种语言的新分布外任务上提升了全部四个被评估的执行框架优化器。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "verse-verified-self-evolving-optimizer-for-agent-bc0b191182",
+      "titleEn": "VERSE: A Verified Self-Evolving Optimizer for Agent Harnesses",
+      "summaryEn": "The authors study whether an optimizer can improve another agent more effectively by also improving how it diagnoses failures, develops edits, and tests their effects. In a controlled study, optimizer self-evolution fails to improve performance without execution-based verification but achieves the best result of that study when verification is available. Based on this, VERSE tests draft edits, replays failures, and perturbs suspected steps before submission while tracking fixes and regressions across rounds. The weights of the optimizer and executor models stay fixed; only the executor harness and the optimizer's own prompts, skills, tools, hooks, and notes are revised.",
+      "tagsEn": [
+        "AI agents",
+        "harness optimization",
+        "self-evolving optimizer",
+        "execution-based verification",
+        "code intelligence"
+      ],
       "discoveredBy": [
+        "arXiv cs.CL",
         "arXiv cs.LG"
       ],
-      "score": 70.25,
-      "aiGenerated": true,
-      "limitationsEn": "Evidence comes from 18 state-based datasets in OGBench, covering maze navigation and cube, scene, and puzzle manipulation; no results are reported for continuous control, visual inputs, or real robots. WMPA depends on a learned state-space world model and a shared goal-conditioned value function, so arbitration quality is bounded by their accuracy; world-model errors in out-of-distribution or long-horizon rollouts may affect policy selection. The method requires a pre-existing bank of frozen goal-conditioned policies as input, and gains may be limited if the pool lacks coverage. The impact of hyperparameters such as the short commitment interval on stability and performance is not detailed in the abstract.",
-      "description": "该研究提出世界模型策略仲裁器（WMPA），在测试阶段将一组冻结的目标条件策略组成投资组合，利用学习的世界模型推演各策略可能到达的状态，并由共享目标条件价值函数评估想象未来，从而在每个状态选出评分最高的策略执行。其新意在于无需重新训练策略，也无需任务特定知识，即可在多个策略间动态仲裁，提升离线目标条件强化学习的整体成功率。",
-      "domain": "金融研究",
+      "summary": "作者研究优化器能否通过改进自身诊断失败、开发修改和测试效果的方式，更有效地提升另一个代理。受控实验表明，没有基于执行的验证时，优化器自我进化无法提升性能；有验证时则取得该实验中的最佳结果。基于此提出 VERSE，它在提交前测试草稿修改、重放失败并扰动可疑步骤，同时跨轮次追踪修复与回归。优化器与执行器模型权重保持固定，仅修改执行框架与优化器自身的提示、技能、工具、钩子和笔记。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 72,
+        "relevanceScore": 60,
         "topicClassification": {
-          "classification": "finance",
-          "confidence": 0.79,
-          "financeEvidence": [
-            "securities",
-            "portfolio"
+          "classification": "ai-engineering",
+          "confidence": 0.86,
+          "financeEvidence": [],
+          "quantitativeEvidence": [
+            "econometrics"
           ],
-          "quantitativeEvidence": [],
           "aiEvidence": [
-            "machine-learning"
+            "machine-learning",
+            "language-model",
+            "agents"
           ],
           "sourcePrior": "AI × 量化"
         },
-        "contentValueScore": 65.4,
+        "contentValueScore": 75.0,
         "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 10.0,
+          "evidence": 15.0,
+          "actionability": 15.0,
           "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 83.33,
+        "freshnessScore": 56.67,
         "sourceQualityScore": 78.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.10932",
+      }
+    },
+    {
+      "retrievedAt": "2026-10-11T15:59:59.999999+00:00",
+      "descriptionEn": "The project connects real open-source spatial intelligence data to a browser-based 3D globe, offering a satellite-reconnaissance-like visualization; it is novel in combining live data with a photorealistic 3D globe as an interactive tool, useful for developers interested in geospatial visualization.",
+      "originalUrl": "https://github.com/bilawalsidhu/gods-eye-view",
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        }
+      ],
+      "keyPointsEn": [
+        "Runs in the browser, without installing specialized geospatial software locally",
+        "Uses real open-source spatial intelligence data rather than simulated data",
+        "Presents live spatial information on a photorealistic 3D globe"
+      ],
+      "contentType": "repository",
+      "limitationsEn": "Generated only from the brief GitHub Trending project description; the data source, accuracy, licensing, update frequency, or practical usability are unverified. No performance metrics, user reviews, or comparisons with similar tools are provided, so its reliability or scope cannot be inferred from this input.",
+      "domain": "开源工程",
+      "score": 70.3,
+      "description": "该项目将真实开源空间情报数据接入浏览器内的三维地球界面，提供类似卫星侦察的可视化体验；新在把实时数据与照片级三维地球结合为可交互工具，对关注地理空间可视化的开发者有用。",
+      "sourceName": "GitHub Trending Daily",
+      "tags": [
+        "开源工程",
+        "地理空间可视化",
+        "三维地球",
+        "浏览器",
+        "空间情报"
+      ],
+      "id": "f3d0d1f85de671d5",
+      "title": "浏览器内开源卫星侦察模拟器呈现真实空间数据",
+      "publishedAt": "2026-10-11T15:59:59.999999+00:00",
+      "limitations": "仅依据 GitHub Trending 的简短项目描述生成，未验证数据来源、精度、授权、更新频率或实际可用性；未提供性能指标、用户评测或与同类工具的对比，不能据此推断其可靠性或适用范围。",
+      "sourceGroup": "开源项目",
+      "whyItMattersEn": "The project offers a low-barrier interactive format for open-source geospatial visualization, potentially helping developers, researchers, or the public engage with public spatial data more intuitively. Its value depends on the reliability and update mechanism of the data source, for which no evidence is provided in the input.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该项目为开源地理空间可视化提供了一种低门槛的交互形式，可能帮助开发者、研究者或公众更直观地接触公开空间数据；其价值取决于数据来源的可靠性与更新机制，输入未提供相关证据。",
+      "originalTitle": "bilawalsidhu/gods-eye-view",
+      "aiGenerated": true,
+      "keyPoints": [
+        "浏览器内运行，无需本地安装专业地理空间软件",
+        "使用真实开源空间情报数据，而非模拟数据",
+        "在照片级三维地球上呈现实时空间信息"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "bilawalsidhu-gods-eye-view-f3d0d1f85d",
+      "titleEn": "Browser-Based Open-Source Spy Satellite Simulator Uses Real Spatial Data",
+      "summaryEn": "The GitHub project gods-eye-view is described as a browser-based spy satellite simulator whose data is real rather than fictional. It presents live open-source spatial intelligence on a photorealistic 3D globe. These points come from the project description, with no technical details or validation provided.",
+      "tagsEn": [
+        "open-source engineering",
+        "geospatial visualization",
+        "3D globe",
+        "browser",
+        "spatial intelligence"
+      ],
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "summary": "GitHub 项目 gods-eye-view 被描述为一款浏览器内的侦察卫星模拟器，其数据来自真实空间情报而非虚构。它将实时开源空间信息呈现在照片级三维地球上。以上是项目自述，未提供技术细节或验证信息。",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 58,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 98.0,
+        "metricPercentile": 97.32,
+        "velocityPercentile": 97.32,
+        "objectiveScore": 97.32,
+        "relevanceScore": 35,
+        "topicClassification": {
+          "classification": "other",
+          "confidence": 0.85,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [],
+          "sourcePrior": null
+        },
+        "contentValueScore": 28.09,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 2.34,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 2.0,
+          "trending_rank_score": 98.0,
+          "stars": 53013.0,
+          "stars_delta_1d": 1903.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      }
+    },
+    {
       "retrievedAt": "2026-10-09T15:59:59.999999+00:00",
-      "whyItMatters": "该工作表明，与其在离线GCRL中寻找或部署单一最优策略，不如在测试时对一组冻结策略进行动态仲裁，从而在不重新训练、不引入任务特定知识的情况下提升跨环境与跨目标的成功率。这为策略复用和组合式决策提供了可验证的工程路径，对需要多任务目标到达的机器人控制与规划场景具有参考价值。",
+      "descriptionEn": "This work introduces a test-time framework that, without retraining policies, combines multiple frozen goal-conditioned policies into a portfolio, selecting the best policy at each state by imagining futures in a world model. Its novelty lies in comparing heterogeneous policies via a shared value function and avoiding excessive switching. On 18 state-based OGBench datasets, it improves macro-average success from 44% to 58%, offering a plug-and-play policy integration approach",
+      "originalUrl": "https://arxiv.org/abs/2610.10932",
       "features": [
         {
           "id": "artifact:paper",
@@ -393,93 +437,95 @@
           "confidence": 0.8
         }
       ],
-      "publishedAt": "2026-10-09T04:00:00+00:00"
-    },
-    {
-      "contentType": "paper",
-      "titleEn": "Real-Time Embodied Agent Safety Benchmark Reveals Physical Risks from Decision Latency",
-      "tags": [
-        "具身智能体安全",
-        "实时约束",
-        "基准评测",
-        "视觉语言模型",
-        "离线强化学习"
-      ],
       "keyPointsEn": [
-        "RT-SAFE allows the world to evolve throughout inference and action execution, jointly evaluating decision quality and decision latency.",
-        "Across eight VLMs, only 0.7% of episodes finish without a safety event in the hardest setting, while real-time execution increases collisions by 12.3×.",
-        "The benchmark can support offline RL training, substantially reducing collision rates while maintaining strong task completion."
+        "WMPA takes a set of frozen goal-conditioned policies as input and requires no retraining or task-specific knowledge.",
+        "It rolls out each policy's imagined future in a world model, scores them with a shared goal-conditioned value function, and executes the highest-scoring policy for a short commitment interval.",
+        "On 18 state-based OGBench datasets, macro-average success improves from 44% to 58%, with significant gains on 12 datasets, including +33 percentage points on cube-double-play and +36 percentage points on scene-play."
       ],
-      "originalTitle": "RT-Safe: Benchmarking Agent Safety in Real-Time Embodied Environment",
-      "id": "b76e5d32271e95b5",
-      "whyItMattersEn": "Embodied agents in the physical world differ from digital environments: failures can cause human injury and hardware damage. This work shows that standard task success can mask substantial safety failures and that inference latency can become physical risk, adding a real-time dimension to embodied-agent safety evaluation and training.",
-      "tagsEn": [
-        "embodied agent safety",
-        "real-time constraints",
-        "benchmark evaluation",
-        "vision-language models",
-        "offline reinforcement learning"
-      ],
-      "title": "实时具身智能体安全评测揭示决策延迟引发的物理风险",
-      "summary": "RT-SAFE 是一个面向实时约束的具身智能体安全模拟城市基准，融合导航任务、移动参与者、环境危险与交通规则。实验显示智能体任务完成率极高但几乎无法安全完成，实时执行使碰撞显著增加；作者认为决策延迟本身构成物理风险。作者还展示该基准可用于离线强化学习训练并降低碰撞率，但具体效果应视为该基准下的初步证据。",
-      "sourceGroup": "论文",
-      "summaryEn": "RT-SAFE is a simulated urban benchmark for evaluating embodied-agent safety under real-time constraints, combining navigation tasks, moving actors, environmental hazards, and traffic rules. Experiments show agents achieve high task completion but almost never complete safely, with real-time execution substantially increasing collisions; the authors argue decision latency itself becomes a source of physical risk. They also show the benchmark supports offline RL training that reduces collision rates, though this should be treated as preliminary evidence within the benchmark.",
-      "summaryModel": "deepseek-v4-flash",
+      "contentType": "paper",
+      "limitationsEn": "Experiments are limited to 18 state-based OGBench datasets covering maze navigation, cube, scene, and puzzle manipulation; WMPA relies on a bank of frozen goal-conditioned policies and a learned world model, so performance may depend on policy bank quality and world model accuracy; the paper does not address higher-dimensional visual inputs or real robots, nor does it discuss computational cost and the trade-off of switching frequency.",
+      "domain": "金融研究",
+      "score": 70.25,
+      "description": "该工作提出一种测试时框架，无需重新训练策略，而是将多个冻结的目标条件策略组合成一个投资组合，在每个状态通过世界模型想象未来并选择最优策略执行。其新意在于用共享价值函数比较异构策略，避免切换过于频繁。在OGBench的18个状态数据集上，宏观平均成功率从44%提升至58%，为离线目标条件强化学习提供了一种即插即用的策略整合方案。",
       "sourceName": "arXiv cs.LG",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "The study introduces RT-SAFE, a simulated urban benchmark for evaluating embodied-agent safety under continuous world evolution, finding high task completion alongside frequent safety events under real-time constraints and showing offline RL can reduce collisions.",
-      "keyPoints": [
-        "RT-SAFE 允许世界在推理与动作执行期间持续演化，同时评估决策质量与决策延迟。",
-        "在八个视觉语言模型中，最难设置下仅 0.7% 回合未发生安全事件，实时执行使碰撞增加 12.3 倍。",
-        "该基准可支持离线强化学习训练，在保持任务完成的同时大幅降低碰撞率。"
+      "tags": [
+        "离线强化学习",
+        "目标条件强化学习",
+        "世界模型",
+        "策略组合",
+        "OGBench"
       ],
-      "limitations": "证据来自模拟城市环境与特定八个视觉语言模型，迁移到真实世界或其他任务需谨慎。离线强化学习降碰撞结果仅在 RT-SAFE 内验证，未提供真实部署或跨环境泛化证据。",
-      "slug": "rt-safe-benchmarking-agent-safety-in-real-time-e-b76e5d3227",
+      "id": "03026da2a3ca5aa2",
+      "title": "世界模型仲裁器整合冻结策略提升目标条件强化学习",
+      "publishedAt": "2026-10-09T04:00:00+00:00",
+      "limitations": "实验限于OGBench的18个状态数据集，涉及迷宫导航、立方体、场景和拼图操作；WMPA依赖一组已冻结的目标条件策略和学习到的世界模型，其表现可能受策略库质量与世界模型精度影响；论文未说明在更高维视觉输入或真实机器人上的效果，也未讨论计算开销与切换频率的权衡。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "This method offers a test-time policy combination approach that does not rely on a single best policy, potentially providing a reusable framework for policy selection and ensemble in offline reinforcement learning.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该方法提供了一种不依赖单一最优策略的测试时策略组合思路，可能为离线强化学习中的策略选择与集成提供可复用的框架。",
+      "originalTitle": "World-Model Policy Arbiter for Goal-Conditioned Reinforcement Learning",
+      "aiGenerated": true,
+      "keyPoints": [
+        "WMPA以一组冻结的目标条件策略为输入，无需重训练或任务特定知识。",
+        "通过在世界模型中展开每个策略的想象未来，用共享目标条件价值函数评分，选择最优策略执行短承诺区间。",
+        "在OGBench的18个状态数据集上，宏观平均成功率从44%提升至58%，12个数据集提升显著，包括cube-double-play +33个百分点和scene-play +36个百分点。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "world-model-policy-arbiter-for-goal-conditioned--03026da2a3",
+      "titleEn": "World-Model Policy Arbiter Integrates Frozen Policies for Goal-Conditioned Reinforcement Learning",
+      "summaryEn": "The paper notes that no single algorithm performs best across environments, goals, and task phases in offline goal-conditioned reinforcement learning. The authors propose World-Model Policy Arbiter (WMPA), which takes a set of frozen policies as input, rolls out imagined futures in a world model, scores them with a shared goal-conditioned value function, and executes the highest-scoring policy for a short commitment interval. Under the official OGBench protocol, WMPA improves the macro-average success rate from 44% to 58%, with significant gains on 12 datasets.",
+      "tagsEn": [
+        "Offline Reinforcement Learning",
+        "Goal-Conditioned Reinforcement Learning",
+        "World Models",
+        "Policy Portfolio",
+        "OGBench"
+      ],
       "discoveredBy": [
         "arXiv cs.LG"
       ],
-      "score": 70.21,
-      "aiGenerated": true,
-      "limitationsEn": "Evidence comes from a simulated urban environment and eight specific VLMs, so transfer to the real world or other tasks requires caution. The offline RL collision-reduction result is validated only within RT-SAFE, with no real-world deployment or cross-environment generalization evidence.",
-      "description": "该研究提出 RT-SAFE 模拟城市基准，在持续演化的动态环境中评估具身智能体安全，发现实时约束下高任务完成率伴随大量安全事故，并验证离线强化学习可缓解碰撞。",
-      "domain": "AI 研究",
+      "summary": "论文指出离线目标条件强化学习中不存在单一算法在所有环境、目标和任务阶段都最优。作者提出World-Model Policy Arbiter (WMPA)，以一组冻结策略为输入，通过世界模型展开想象未来并用共享目标条件价值函数评分，选择最高分策略执行一段承诺区间。在OGBench官方协议下，WMPA将宏观平均成功率从44%提升至58%，12个数据集上提升显著。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 65,
+        "relevanceScore": 72,
         "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.83,
-          "financeEvidence": [],
+          "classification": "finance",
+          "confidence": 0.79,
+          "financeEvidence": [
+            "securities",
+            "portfolio"
+          ],
           "quantitativeEvidence": [],
           "aiEvidence": [
-            "machine-learning",
-            "agents"
+            "machine-learning"
           ],
           "sourcePrior": "AI × 量化"
         },
-        "contentValueScore": 67.25,
+        "contentValueScore": 65.4,
         "contentSignals": {
-          "evidence": 10.0,
+          "evidence": 5.0,
           "actionability": 10.0,
           "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 76.67,
+        "freshnessScore": 83.33,
         "sourceQualityScore": 78.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.09294",
+      }
+    },
+    {
       "retrievedAt": "2026-10-08T15:59:59.999999+00:00",
-      "whyItMatters": "物理世界的具身智能体不同于数字环境，失败可能造成人身伤害与硬件损坏。该工作表明仅看任务成功率会掩盖严重安全失败，且推理延迟可转化为物理风险，为具身智能体的安全评测和训练提供了实时维度。",
+      "descriptionEn": "Existing agent safety evaluations mostly focus on digital environments. This work introduces RT-SAFE, a simulated urban benchmark in which the world keeps evolving during inference and action execution, bringing decision latency into embodied safety assessment. Its value lies in showing that high task completion can mask safety failures and in offering an environment for offline RL training to reduce collisions.",
+      "originalUrl": "https://arxiv.org/abs/2610.09294",
       "features": [
         {
           "id": "artifact:paper",
@@ -526,94 +572,231 @@
           "confidence": 0.8
         }
       ],
-      "publishedAt": "2026-10-08T04:00:00+00:00"
-    },
-    {
-      "contentType": "paper",
-      "titleEn": "Knowledge boundary probing and demand-guided intervention for LLM-based power system code generation",
-      "tags": [
-        "电力系统",
-        "代码生成",
-        "大语言模型",
-        "知识边界",
-        "本地部署"
-      ],
       "keyPointsEn": [
-        "Introduces PowerCodeBench: a parameterised benchmark generator with a frozen 2,000-task suite for pandapower",
-        "Proposes a deployment-time workflow without weight updates, including documentation-driven L0-L3 probes, query-side demand estimation, and execution-feedback repair",
-        "Validated on ten open-weight models (1.5B-480B) and four mid-tier APIs, raising scalar-match accuracy by 32-56 percentage points after up to three repair rounds"
+        "RT-SAFE incorporates real-time constraints into embodied-agent safety evaluation: the world does not pause while the agent reasons, so an action that appears safe at observation time may become unsafe before execution.",
+        "Across eight VLMs, task completion is high but safe completion is extremely low, with only 0.7% of episodes finishing without a safety event in the hardest setting.",
+        "Matched static and real-time evaluations yield similar task completion rates (91.3% and 94.1%), but real-time execution increases collisions by about 12.3x, indicating that latency can translate into physical risk."
       ],
-      "originalTitle": "Knowledge boundary probing and demand-guided intervention for LLM-based power system code generation",
-      "id": "4a6722fa328dff65",
-      "whyItMattersEn": "For utilities and research laboratories requiring on-premise LLM deployment for power system simulation, this workflow offers a practical, fine-tuning-free approach to improve code generation reliability, and provides measured throughput, latency, energy, and GPU memory as a practical serving envelope.",
-      "tagsEn": [
-        "power systems",
-        "code generation",
-        "large language models",
-        "knowledge boundary",
-        "on-premise deployment"
-      ],
-      "title": "基于LLM的电力系统代码生成：知识边界探测与需求引导干预",
-      "summary": "论文针对本地部署的LLM电力系统代码生成场景，指出首轮失败常源于API知识边界问题，包括函数幻觉、参数误用和结果表处理错误。作者提出PowerCodeBench参数化基准生成器（冻结版含2000个pandapower任务）及一套部署时工作流，通过文档驱动的L0-L3探测、查询侧需求估计和执行反馈修复来提升生成质量。在十款开源权重模型和四款中端API上的验证表明，该工作流可显著提升标量匹配准确率。",
-      "sourceGroup": "论文",
-      "summaryEn": "The paper addresses on-premise LLM-based power system code generation, identifying first-pass failures at API knowledge boundaries including hallucinated functions, misused parameters, and mishandled result tables. It introduces PowerCodeBench, a parameterised benchmark generator with a frozen 2,000-task suite for pandapower, and a deployment-time workflow using documentation-driven L0-L3 probes, query-side demand estimation, and execution feedback for targeted repair. Validation across ten open-weight models and four mid-tier APIs shows substantial accuracy gains.",
-      "summaryModel": "deepseek-v4-flash",
-      "sourceName": "arXiv cs.CL",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "The study proposes PowerCodeBench, a benchmark generator, and a deployment-time workflow without weight updates to diagnose and repair LLM failures in power system code generation caused by API knowledge boundaries, such as hallucinated functions, misused parameters, and mishandled result tables. It is practically relevant for on-premise deployment of power system simulation tools.",
-      "keyPoints": [
-        "提出PowerCodeBench：参数化基准生成器，冻结版包含2000个pandapower任务",
-        "部署时工作流无需权重更新，包含文档驱动的L0-L3探测、查询侧需求估计和执行反馈修复",
-        "在十款开源权重模型（1.5B-480B）和四款中端API上验证，经最多三轮修复后标量匹配准确率提升32-56个百分点"
-      ],
-      "limitations": "验证结果基于特定基准（PowerCodeBench）和十款开源权重模型及四款中端API，未见对其他电力仿真工具（仅提及OpenDSS和PyPSA的Round-0试点）或更大规模模型/闭源模型的全面评估。工程审查确认率（88% vs 66%）基于通过数值检查的模型-项目对，可能不适用于未通过数值检查的案例。实际部署效果可能受具体基础设施和任务分布影响。",
-      "slug": "knowledge-boundary-probing-and-demand-guided-int-4a6722fa32",
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "score": 69.96,
-      "aiGenerated": true,
-      "limitationsEn": "Validation is based on a specific benchmark (PowerCodeBench) and ten open-weight models plus four mid-tier APIs, with no comprehensive evaluation on other power simulation tools (only Round-0 pilots on OpenDSS and PyPSA) or larger/closed-source models. The engineering review confirmation rates (88% vs 66%) are based on model-item pairs passing numerical checks under both workflows and may not apply to cases failing numerical checks. Real-world deployment effectiveness may vary with infrastructure and task distribution.",
-      "description": "该研究提出PowerCodeBench基准生成器及一套无需权重更新的部署工作流，用于诊断和修复LLM在电力系统代码生成中因API知识边界导致的幻觉函数、参数误用等问题。对本地化部署的电力仿真工具具有实用价值。",
+      "contentType": "paper",
+      "limitationsEn": "The work is based on a simulated urban environment, and its conclusions cannot be directly extrapolated to real roads or real robotic systems. It evaluates eight VLMs and does not represent all embodied-agent architectures. Safety events and collisions are defined and measured by the simulator, leaving real-world sensor noise, actuator errors, and complex human-agent interaction uncovered. The offline RL training demonstration shows improvement within this benchmark, not a guarantee of safety in real scenarios.",
       "domain": "AI 研究",
+      "score": 70.21,
+      "description": "现有智能体安全评测多集中于数字环境，该工作提出模拟城市基准 RT-SAFE，让世界在推理与动作执行期间持续演化，从而把决策延迟纳入具身安全评估。其价值在于揭示任务完成率高并不代表安全，并可作为离线强化学习训练环境以降低碰撞。",
+      "sourceName": "arXiv cs.LG",
+      "tags": [
+        "具身智能体",
+        "智能体安全",
+        "实时约束",
+        "基准评测",
+        "视觉语言模型",
+        "离线强化学习"
+      ],
+      "id": "b76e5d32271e95b5",
+      "title": "RT-SAFE：实时具身智能体安全评测基准",
+      "publishedAt": "2026-10-08T04:00:00+00:00",
+      "limitations": "该工作基于模拟城市环境，结论不能直接外推到真实道路或真实机器人系统；评测覆盖八个视觉语言模型，不代表所有具身智能体架构；安全事件与碰撞由模拟器定义和度量，真实世界的传感器噪声、执行器误差与复杂人机交互未被覆盖；离线强化学习训练展示的是该基准内的改进，不等于真实场景安全保证。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "As agents move from digital environments into the physical world, failures can cause human injury and hardware damage. This benchmark suggests that measuring embodied agents only by task success systematically underestimates safety risk and that real-time latency should be part of safety metrics. It can also support offline RL training, providing an evaluable path to reduce collisions under real-time constraints.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "随着智能体从数字环境走向物理世界，失败可能造成人身伤害与硬件损坏。该基准提示：仅以任务成功率衡量具身智能体会系统性低估安全风险，实时延迟应作为安全指标的一部分；同时其可支持离线强化学习训练，为在实时约束下降低碰撞提供可评测路径。",
+      "originalTitle": "RT-Safe: Benchmarking Agent Safety in Real-Time Embodied Environment",
+      "aiGenerated": true,
+      "keyPoints": [
+        "RT-SAFE 将实时性纳入具身智能体安全评测：世界不会因智能体推理而暂停，观测时安全的动作在执行前可能已不安全。",
+        "对八个视觉语言模型的评测中，任务完成率很高但安全完成率极低，最难设置下仅 0.7% 的回合无安全事件。",
+        "静态与实时匹配评估的任务完成率接近（91.3% 与 94.1%），但实时执行使碰撞增加约 12.3 倍，说明延迟可转化为物理风险。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "rt-safe-benchmarking-agent-safety-in-real-time-e-b76e5d3227",
+      "titleEn": "RT-SAFE: Benchmarking Agent Safety in Real-Time Embodied Environments",
+      "summaryEn": "RT-SAFE is a simulated urban benchmark for evaluating embodied-agent safety under real-time constraints, combining navigation tasks with moving actors, environmental hazards, and traffic rules while allowing the world to evolve throughout inference and action execution. Across eight VLMs, task completion is high but safe completion is extremely rare: in the hardest setting, only 0.7% of episodes finish without a safety event, and matched static versus real-time evaluations yield task completion rates of 91.3% and 94.1% while real-time execution increases collisions by about 12.3x. The authors argue that standard task success can mask substantial safety failures and that decision latency itself can become a source of physical risk, and they show the benchmark can support offline RL training to substantially reduce collision rates.",
+      "tagsEn": [
+        "embodied agents",
+        "agent safety",
+        "real-time constraints",
+        "benchmark evaluation",
+        "vision-language models",
+        "offline reinforcement learning"
+      ],
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "summary": "RT-SAFE 是一个面向实时约束的模拟城市具身智能体安全基准，包含导航任务、移动角色、环境危险与交通规则，并允许世界在推理和动作执行过程中持续变化。对八个视觉语言模型的评测显示，任务完成率可达九成以上，但安全完成率极低，最难设置下仅 0.7% 的回合无安全事件；静态与实时对比中，实时执行使碰撞增加约 12.3 倍。作者认为，标准任务成功率可能掩盖严重安全失败，决策延迟本身可成为物理风险来源，并展示该基准可支持离线强化学习训练、显著降低碰撞率。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 55,
+        "relevanceScore": 65,
         "topicClassification": {
           "classification": "ai-engineering",
-          "confidence": 0.8,
+          "confidence": 0.83,
           "financeEvidence": [],
-          "quantitativeEvidence": [
-            "calibration"
-          ],
+          "quantitativeEvidence": [],
           "aiEvidence": [
-            "language-model"
+            "machine-learning",
+            "agents"
           ],
           "sourcePrior": "AI × 量化"
         },
-        "contentValueScore": 67.75,
+        "contentValueScore": 67.25,
         "contentSignals": {
-          "evidence": 15.0,
+          "evidence": 10.0,
           "actionability": 10.0,
           "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
         "freshnessScore": 76.67,
-        "sourceQualityScore": 72.0,
+        "sourceQualityScore": 78.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2605.31478",
+      }
+    },
+    {
+      "retrievedAt": "2026-10-11T15:59:59.999999+00:00",
+      "descriptionEn": "The GitHub trending project rea proposes using agents for reverse engineering, covering everything from app behavior down to native binaries. By delegating reverse-engineering workflows to agents, it may offer a more automated path for security analysis and program understanding.",
+      "originalUrl": "https://github.com/morluto/rea",
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "keyPointsEn": [
+        "Positioned as using agents to perform reverse engineering tasks.",
+        "Claims to cover from app behavior down to native binaries.",
+        "Sourced from GitHub Trending Daily, with no author or paper information."
+      ],
+      "contentType": "repository",
+      "limitationsEn": "Only the project title and a one-line description are available; there are no code details, benchmarks, experimental results, or independent reproductions. Its actual coverage, accuracy, and applicable boundaries cannot be judged, and it does not constitute any security or investment advice.",
+      "domain": "AI 研究",
+      "score": 69.98,
+      "description": "GitHub 热门项目 rea 提出用智能体进行逆向工程，覆盖从应用行为到原生二进制文件。它把逆向流程交给智能体，可能为安全分析与程序理解提供更自动化的路径。",
+      "sourceName": "GitHub Trending Daily",
+      "tags": [
+        "逆向工程",
+        "智能体",
+        "AI 工具",
+        "二进制分析"
+      ],
+      "id": "458c04cd04ca960b",
+      "title": "基于智能体的逆向工程工具 rea",
+      "publishedAt": "2026-10-11T15:59:59.999999+00:00",
+      "limitations": "仅有项目标题与一句话简介，没有代码细节、基准测试、实验结果或独立复现；无法判断其实际覆盖范围、准确率与适用边界，也不构成任何安全或投资建议。",
+      "sourceGroup": "开源项目",
+      "whyItMattersEn": "If feasible, this approach could reduce repetitive manual effort in behavior observation and binary analysis during reverse engineering, with potential value for security research, vulnerability analysis, and program understanding.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "若该思路可行，智能体可降低逆向工程中行为观察与二进制分析的重复性人力投入，对安全研究、漏洞分析与程序理解有潜在价值。",
+      "originalTitle": "morluto/rea",
+      "aiGenerated": true,
+      "keyPoints": [
+        "项目定位是用智能体完成逆向工程任务。",
+        "声称覆盖范围从应用行为到原生二进制文件。",
+        "来源为 GitHub Trending Daily，缺乏作者与论文信息。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "morluto-rea-458c04cd04",
+      "titleEn": "Rea: An Agent-Based Reverse Engineering Tool",
+      "summaryEn": "Rea is a project listed on GitHub Trending Daily whose description says it can reverse engineer anything with agents, ranging from app behavior down to native binaries. That description is the project's own positioning; its actual capabilities and effectiveness require verification through code and testing.",
+      "tagsEn": [
+        "reverse engineering",
+        "agents",
+        "AI tools",
+        "binary analysis"
+      ],
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "summary": "rea 是 GitHub Trending Daily 收录的一个项目，其简介称可用智能体逆向工程任何对象，范围从应用行为到原生二进制文件。该描述属于项目自我定位，实际能力与效果需由代码和实测验证。",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 58,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 99.0,
+        "metricPercentile": 100.0,
+        "velocityPercentile": 100.0,
+        "objectiveScore": 100.0,
+        "relevanceScore": 55,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "agents"
+          ],
+          "sourcePrior": null
+        },
+        "contentValueScore": 24.95,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 0.2,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 1.0,
+          "trending_rank_score": 99.0,
+          "stars": 141371.0,
+          "stars_delta_1d": 45495.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      }
+    },
+    {
       "retrievedAt": "2026-10-08T15:59:59.999999+00:00",
-      "whyItMatters": "对于需要在本地部署LLM进行电力系统仿真的公用事业和研究实验室，该工作流提供了一种无需微调即可提升代码生成可靠性的实用方案，并给出了吞吐、延迟、能耗和GPU内存的部署包络参考。",
+      "descriptionEn": "This study addresses first-pass failures in locally deployed LLM-generated power-system simulation code, proposing a deployment-time workflow that requires no weight updates: documentation-driven L0-L3 probes build per-model API profiles, query-side demand estimation selects layered API evidence before generation, and execution feedback routes targeted repair. Its value lies in turning common API hallucination and parameter misuse into a diagnosable and calibratable engineeri",
+      "originalUrl": "https://arxiv.org/abs/2605.31478",
       "features": [
         {
           "id": "artifact:paper",
@@ -649,225 +832,96 @@
           "confidence": 0.8
         }
       ],
-      "publishedAt": "2026-10-08T04:00:00+00:00"
-    },
-    {
-      "contentType": "repository",
-      "titleEn": "Open-Source Browser Satellite Simulator Shows Real Spatial Intelligence",
-      "tags": [
-        "开源情报",
-        "三维地球",
-        "卫星模拟",
-        "地理可视化",
-        "浏览器应用"
-      ],
       "keyPointsEn": [
-        "The project combines real open-source spatial intelligence data with a browser-based 3D globe to create an interactive satellite-view simulation.",
-        "It is positioned as a 'spy satellite simulator' emphasizing real-time and photorealistic 3D globe rendering.",
-        "Hosted on GitHub and featured in Trending Daily, indicating attention from the open-source community."
+        "Releases PowerCodeBench, a frozen 2,000-task benchmark for pandapower, with documentation-driven L0-L3 probes that produce per-model API profiles.",
+        "Deployment-time workflow requires no weight updates: a query-side demand estimator selects layered API evidence, and execution feedback routes targeted repair.",
+        "Across ten open-weight LLMs (1.5B-480B) and four mid-tier APIs, the validation-enabled workflow raises scalar-match accuracy by 32-56 percentage points after up to three repair rounds; 70B-120B open-weight models reach the four-vendor mid-tier accuracy range under matched no-tool conditions."
       ],
-      "originalTitle": "bilawalsidhu/gods-eye-view",
-      "id": "f3d0d1f85de671d5",
-      "whyItMattersEn": "It demonstrates a feasible path for integrating real-time open-source spatial intelligence with 3D globe rendering in ordinary browsers, potentially lowering the barrier to spatial intelligence visualization and offering reference for open-source intelligence, geospatial visualization, and educational demos.",
-      "tagsEn": [
-        "Open-source intelligence",
-        "3D globe",
-        "Satellite simulation",
-        "Geospatial visualization",
-        "Browser application"
-      ],
-      "title": "开源浏览器卫星模拟器展现真实空间情报",
-      "summary": "gods-eye-view 是一个在浏览器中运行的卫星模拟器，其数据来自真实开源空间情报，而非虚构。项目描述称其提供实时、逼真的三维地球空间观测体验。作者将其定位为“间谍卫星模拟器”式的交互工具，但具体数据源、覆盖范围与更新机制未在摘要中说明。",
-      "sourceGroup": "开源项目",
-      "summaryEn": "gods-eye-view is a browser-based satellite simulator that uses real open-source spatial intelligence data rather than fictional content. The project describes itself as providing a live, photorealistic 3D globe experience. The author positions it as a spy-satellite-style interactive tool, but the specific data sources, coverage, and update mechanisms are not stated in the summary.",
-      "summaryModel": "deepseek-v4-flash",
-      "sourceName": "GitHub Trending Daily",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "This project overlays real open-source spatial intelligence data on a photorealistic 3D globe in the browser, offering an interactive satellite-view simulation. Its novelty lies in delivering real-time data-driven spatial observation via the web, with reference value for open-source intelligence and geospatial visualization.",
-      "keyPoints": [
-        "项目将真实开源空间情报数据与浏览器端三维地球结合，形成可交互的卫星视角模拟。",
-        "定位为“间谍卫星模拟器”，强调实时性与照片级真实感的三维地球呈现。",
-        "托管于 GitHub 并进入 Trending Daily，表明开源社区对其关注。"
-      ],
-      "limitations": "输入仅提供项目摘要，未给出具体数据来源、数据更新频率、精度、覆盖范围、许可证或技术栈；无法验证“实时”与“逼真”的实际程度，也无法判断其是否适用于专业情报分析或决策。",
-      "slug": "bilawalsidhu-gods-eye-view-f3d0d1f85d",
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "score": 69.89,
-      "aiGenerated": true,
-      "limitationsEn": "The input only provides the project summary and does not specify data sources, update frequency, accuracy, coverage, license, or tech stack. The actual degree of 'real-time' and 'photorealism' cannot be verified, nor can its suitability for professional intelligence analysis or decision-making be judged.",
-      "description": "该项目将真实的开源空间情报数据叠加在浏览器端逼真三维地球上，提供可交互的卫星视角模拟；新意在于用网页实现实时数据驱动的空间观测体验，对开源情报与地理信息可视化具有参考价值。",
-      "domain": "开源工程",
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 54,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 95.0,
-        "metricPercentile": 96.15,
-        "velocityPercentile": 96.15,
-        "objectiveScore": 96.15,
-        "relevanceScore": 35,
-        "topicClassification": {
-          "classification": "other",
-          "confidence": 0.85,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": null
-        },
-        "contentValueScore": 28.09,
-        "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 5.0,
-          "novelty": 0.0,
-          "specificity": 2.34,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 5.0,
-          "trending_rank_score": 95.0,
-          "stars": 51039.0,
-          "stars_delta_1d": 872.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "originalUrl": "https://github.com/bilawalsidhu/gods-eye-view",
-      "retrievedAt": "2026-10-11T15:59:59.999999+00:00",
-      "whyItMatters": "它展示了在普通浏览器中整合实时开源空间情报与三维地球渲染的可行路径，可能降低空间情报可视化的使用门槛，并为开源情报、地理信息可视化及教育演示提供参考。",
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        }
-      ],
-      "publishedAt": "2026-10-11T15:59:59.999999+00:00"
-    },
-    {
       "contentType": "paper",
-      "titleEn": "Systemic Risk of Agentic AI Systems and Ex-Ante Structural Prevention",
+      "limitationsEn": "Evidence boundaries are explicit: results come from the authors' PowerCodeBench and specific pandapower tasks and should not be directly extrapolated to other libraries or domains; accuracy gains are measured under up to three repair rounds and validation-enabled conditions, so the benefit without validation needs separate evaluation; OpenDSS and PyPSA are only reported as round-0 pilots, constituting early motivational evidence; all comparisons are limited to ten open-weight models and four mid-tier APIs, not covering closed frontier models or broader toolchains; engineering review covers only model-item pairs passing numerical checks under both workflows, so the 88% versus 66% confirmation rates should not be generalized to all generated outputs.",
+      "domain": "AI 研究",
+      "score": 69.96,
+      "description": "该研究针对本地部署下LLM生成电力系统仿真代码时的首轮失败问题，提出无需更新权重的部署期工作流：先用文档驱动的L0-L3探测建立逐模型API画像，再在生成前按查询需求分层注入API证据，并用执行反馈定向修复。其价值在于把常见的API幻觉与参数误用转化为可诊断、可校准的工程流程，并在十款开源权重模型和四家API上验证了准确率提升。",
+      "sourceName": "arXiv cs.CL",
       "tags": [
-        "代理型AI",
-        "系统性风险",
-        "金融稳定",
-        "模型风险",
-        "事前预防"
+        "大语言模型",
+        "电力系统仿真",
+        "代码生成",
+        "知识边界",
+        "本地部署",
+        "基准测试"
       ],
-      "keyPointsEn": [
-        "Recasts the PD/LGD/EAD decomposition of expected loss as an expected-harm identity and introduces a set-valued containment-risk measure; under a lever-assignment axiom that review cannot intercept an irreversible action, no non-preventive control satisfies a coherent tail constraint.",
-        "In a fleet sharing a foundation model, the shared model is a non-diversifiable common exposure whose expected-shortfall floor holds however large the fleet grows, and a percolation threshold governs contagion.",
-        "Recasts dynamics as a marked, Hawkes-excited jump diffusion, identifying the robust stress problem with a time-consistent entropic risk measure; treats runtime guardrails as partially observed stochastic control, giving an observability trichotomy, a detection floor, and a runtime-impossibility corollary under commit exogeneity.",
-        "Makes the adversary a player, yielding an underinvestment wedge proportional to systemic reach; makes capability a state variable in an arms race.",
-        "One claim runs through all six settings: the systematic component of agentic risk cannot be diversified, detected away, or reversed, and only ex-ante structural prevention moves it."
-      ],
-      "originalTitle": "Agentic AI Systems and Financial Stability, From Model Risk to Systemic Risk",
-      "id": "9716fb8c97038e82",
-      "whyItMattersEn": "If agentic AI systems become shared infrastructure for financial decision-making, regulatory and risk-management frameworks need to shift from model risk management for individual deployments toward systemic risk governance of common population exposures. The study suggests that runtime guardrails, ex-post review, or diversification alone may be insufficient to constrain tail risks from irreversible actions, and ex-ante structural prevention may be a necessary complement.",
-      "tagsEn": [
-        "Agentic AI",
-        "Systemic Risk",
-        "Financial Stability",
-        "Model Risk",
-        "Ex-Ante Prevention"
-      ],
-      "title": "代理型AI系统的系统性风险与事前结构预防",
-      "summary": "金融稳定的传统前提是困境主要具有异质性因而可分散，但当众多决策者依赖同一基础设施时这一前提失效。代理型AI系统因采取有后果的行动而非仅输出预测，正成为这样的共享基底，核心担忧从单一部署的模型风险转向人群层面的系统性风险。作者在六个数学设定中展开论证，并主张代理型风险的系统性成分无法被分散、检测消除或逆转，只能通过事前结构性预防来改变。",
+      "id": "4a6722fa328dff65",
+      "title": "电力系统代码生成的知识边界探测与按需干预",
+      "publishedAt": "2026-10-08T04:00:00+00:00",
+      "limitations": "证据边界明确：结果来自作者构建的PowerCodeBench及特定pandapower任务，不应直接外推到其他库或领域；准确率提升是在最多三轮修复和启用验证的条件下测得，未验证流程的增益需另行评估；OpenDSS与PyPSA仅报告第一轮试点，属早期动机性证据；所有对比限于十个开源权重模型和四个中端API，未覆盖闭源前沿模型或更广泛工具链；工程审查仅覆盖在两种工作流下均通过数值检查的模型-条目对，88%与66%的确认率不能推广到所有生成输出。",
       "sourceGroup": "论文",
-      "summaryEn": "Financial stability traditionally presumes that distress is largely idiosyncratic and therefore diversifiable, but this premise fails when many decision-makers depend on the same infrastructure. Agentic AI systems, which take consequential actions rather than only emitting predictions, are becoming such a shared substrate, shifting the binding concern from model risk of a single deployment to systemic risk of the population. The authors develop this account in six mathematical settings and argue that the systematic component of agentic risk cannot be diversified, detected away, or reversed, and only ex-ante structural prevention moves it.",
-      "summaryModel": "deepseek-v4-flash",
-      "sourceName": "arXiv q-fin",
+      "whyItMattersEn": "Power-system simulation code generation often demands on-premise deployment and is highly sensitive to API-call correctness and result-table handling. This work localizes first-pass failures to the API knowledge boundary and provides an actionable deployment-time diagnosis and intervention path, helping evaluate models, allocate documentation, and calibrate backends without weight fine-tuning, while offering a practical on-premise serving envelope for throughput, latency, energy, and allocated GPU memory.",
       "summaryProvider": "deepseek",
-      "descriptionEn": "This study treats agentic AI systems as shared infrastructure, shifting the financial stability focus from model risk of a single deployment to systemic risk at the population level. Across six mathematical settings, it argues that the systematic component of agentic risk cannot be diversified away, detected away, or reversed, and only ex-ante structural prevention can move it.",
-      "keyPoints": [
-        "将预期损失的PD/LGD/EAD分解重构为预期伤害恒等式，并引入集合值遏制风险度量；在杠杆分配公理下，若审查无法拦截不可逆行动，则没有非预防性控制能满足连贯的尾部约束。",
-        "在共享基础模型的机群中，共享模型构成不可分散的共同暴露，其预期短缺下限不随机群规模增大而消失，且存在渗流阈值支配传染。",
-        "将动态重构为带标记的Hawkes激发跳跃扩散，把稳健压力问题识别为时间一致熵风险度量；将运行时护栏视为部分观测随机控制，给出可观测性三分法、检测下限及承诺外生性下的运行时不可能性推论。",
-        "将对手建模为博弈参与方，得到与系统性触达成比例的投资不足楔子；将能力作为军备竞赛中的状态变量。",
-        "贯穿六个设定的一致主张是：代理型风险的系统性成分无法被分散、检测消除或逆转，只有事前结构性预防能改变它。"
-      ],
-      "limitations": "该研究基于六个抽象数学设定展开论证，其结论依赖于所引入的公理、假设与模型结构，尚需实证检验其与现实金融系统的对应程度。文中未提供具体校准数据、真实市场验证或政策实施效果评估，因此不能直接推断监管措施的有效性或给出操作建议。",
-      "slug": "agentic-ai-systems-and-financial-stability-from--9716fb8c97",
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "score": 68.21,
+      "whyItMatters": "电力系统仿真代码生成往往要求本地部署，且对API调用正确性和结果表处理高度敏感。该工作把首轮失败定位到API知识边界，并给出可操作的部署期诊断与干预路径，有助于在无法微调权重的情况下评估模型、分配文档与校准后端，同时为吞吐、延迟、能耗和显存占用提供可参考的本地服务边界。",
+      "originalTitle": "Knowledge boundary probing and demand-guided intervention for LLM-based power system code generation",
       "aiGenerated": true,
-      "limitationsEn": "The study develops its argument through six abstract mathematical settings, and its conclusions depend on the introduced axioms, assumptions, and model structures; empirical validation of their correspondence to real financial systems is still needed. It provides no specific calibration data, real-market validation, or policy implementation evaluation, so it cannot directly infer the effectiveness of regulatory measures or offer operational recommendations.",
-      "description": "该研究将代理型AI系统视为共享基础设施，把金融稳定性关注点从单一模型的模型风险转移到整个人群层面的系统性风险。通过六类数学设定，论证代理型AI风险的系统性成分无法通过分散、检测或事后逆转来消除，只有事前结构性预防才能改变它。",
-      "domain": "AI × 量化",
+      "keyPoints": [
+        "发布PowerCodeBench：面向pandapower的2000任务冻结基准，并配套L0-L3文档驱动探测以形成逐模型API画像。",
+        "部署期工作流不更新权重：查询侧需求估计选择分层API证据，执行反馈用于定向修复。",
+        "在十个开源权重模型（1.5B-480B）与四个中端API上，启用验证的工作流经最多三轮修复将标量匹配准确率提高32-56个百分点；70B-120B开源模型在无工具条件下达到四厂商中端API准确率区间。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "knowledge-boundary-probing-and-demand-guided-int-4a6722fa32",
+      "titleEn": "Knowledge Boundary Probing and Demand-Guided Intervention for LLM-Based Power System Code Generation",
+      "summaryEn": "Fact: The authors release PowerCodeBench, a frozen 2,000-task suite for pandapower, and propose a deployment-time workflow combining L0-L3 probing, query-side demand estimation, and execution-feedback repair without weight updates. Fact: Across ten open-weight LLMs (1.5B-480B) and four mid-tier APIs, the validation-enabled workflow raises scalar-match accuracy by 32-56 percentage points after up to three repair rounds relative to an unassisted first pass; selective injection approaches the full-layer reference using 41% of prompt tokens. Author view: such probing and demand-guided intervention can support diagnosis, model comparison, documentation allocation, and backend calibration, motivating staged onboarding from broad retrieval at cold start to calibrated selective injection.",
+      "tagsEn": [
+        "large language models",
+        "power system simulation",
+        "code generation",
+        "knowledge boundary",
+        "on-premise deployment",
+        "benchmark"
+      ],
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ],
+      "summary": "事实：作者发布PowerCodeBench（面向pandapower的2000任务冻结套件），并提出包含L0-L3探测、查询侧需求估计与执行反馈修复的部署期工作流，不更新模型权重。事实：在1.5B-480B的十个开源权重模型和四个中端API上，启用验证的工作流经最多三轮修复后，标量匹配准确率相较无辅助首轮提升32-56个百分点；选择性注入以41%提示词元接近全层参考。作者观点：这类探测与按需干预可用于诊断、模型比较、文档分配和后端校准，并支持从冷启动广泛检索逐步过渡到校准后的选择性注入。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 85,
+        "relevanceScore": 55,
         "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.84,
-          "financeEvidence": [
-            "finance"
-          ],
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
           "quantitativeEvidence": [
-            "stochastic"
+            "calibration"
           ],
           "aiEvidence": [
-            "agents"
+            "language-model"
           ],
-          "sourcePrior": "量化研究"
+          "sourcePrior": "AI × 量化"
         },
-        "contentValueScore": 61.25,
+        "contentValueScore": 67.75,
         "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 0.0,
+          "evidence": 15.0,
+          "actionability": 10.0,
           "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
         "freshnessScore": 76.67,
-        "sourceQualityScore": 100.0,
+        "sourceQualityScore": 72.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.08806",
+      }
+    },
+    {
       "retrievedAt": "2026-10-08T15:59:59.999999+00:00",
-      "whyItMatters": "若代理型AI系统成为金融决策的共享基础设施，监管与风控框架需要从针对单个模型部署的模型风险管理，转向针对人群共同暴露的系统性风险治理。该研究提示，仅靠运行时护栏、事后审查或分散化配置可能不足以约束不可逆行动带来的尾部风险，事前结构性预防可能成为必要补充。",
+      "descriptionEn": "Formalizes the systemic risk of agentic AI across six mathematical settings: from an expected-harm identity for expected loss and the non-diversifiable common exposure of a shared foundation model to an observability trichotomy and runtime-impossibility corollary for runtime guardrails, arguing the systematic component of agentic risk cannot be diversified away, detected away, or reversed and can only be met by ex-ante structural prevention.",
+      "originalUrl": "https://arxiv.org/abs/2610.08806",
       "features": [
         {
           "id": "artifact:paper",
@@ -914,92 +968,98 @@
           "confidence": 0.8
         }
       ],
-      "publishedAt": "2026-10-08T04:00:00+00:00"
-    },
-    {
-      "contentType": "paper",
-      "titleEn": "Optimal Transport Provides a Distributional Framework for Comparison and Stress Testing in Actuarial Science",
-      "tags": [
-        "最优传输",
-        "精算科学",
-        "Wasserstein距离",
-        "风险度量",
-        "分布稳健性"
-      ],
       "keyPointsEn": [
-        "Part one covers core tools: couplings, push-forwards, discrete and continuous Kantorovich problems, duality, Wasserstein distances, quantile transport, barycenters, entropic regularization, and statistical optimal transport.",
-        "Part two applies these tools to risk measures, Wasserstein robustness, pricing and capital, portfolio drift, reserving cash-flow distributions, climate-prevention diagnostics, reinsurance, dependence uncertainty, capital allocation, distributional fairness diagnostics, and longevity risk.",
-        "Later chapters and appendices discuss counterfactual transport, dynamic formulations, unbalanced transport, Schrödinger bridges, cost engineering, and computational labs in R."
+        "A shared foundation model is a non-diversifiable common exposure whose expected-shortfall floor persists as the fleet grows, with a percolation threshold governing contagion.",
+        "Under a lever-assignment axiom that review cannot intercept an irreversible action, no non-preventive control satisfies a coherent tail constraint.",
+        "Modeling runtime guardrails as partially observed stochastic control yields an observability trichotomy, a detection floor, and, under commit exogeneity, a runtime-impossibility corollary."
       ],
-      "originalTitle": "Optimal Transport for Actuarial Science",
-      "id": "33afbb87065cbb9e",
-      "whyItMattersEn": "The lecture notes provide a unified distributional language for actuarial science, enabling robust comparison, stress testing, and interpolation of objects like losses, premiums, and reserves within one framework. For quantitative researchers, it helps systematically understand the modeling implications and choices of tools such as Wasserstein distances and entropic regularization in risk measures, capital allocation, reinsurance, and longevity risk, while noting its pedagogical nature rather than empirical conclusions.",
-      "tagsEn": [
-        "optimal transport",
-        "actuarial science",
-        "Wasserstein distance",
-        "risk measures",
-        "distributional robustness"
-      ],
-      "title": "最优传输为精算科学提供分布比较与压力测试框架",
-      "summary": "讲义事实：作者提出将精算中的损失、保费、资本情景等作为概率测度，用最优传输工具进行分布层面的比较、传输、平均、压力测试和插值。作者观点：传输映射和耦合应作为分布对象使用，除非附加假设，否则不应解释为因果声明。该材料属于教学讲义，强调建模选择（状态空间、基础成本、模糊半径、参考分布）的重要性，并包含R计算实验。",
-      "sourceGroup": "论文",
-      "summaryEn": "Fact: the author proposes treating actuarial quantities like losses, premiums, and capital scenarios as probability measures, using optimal transport tools for distributional comparison, transport, averaging, stress testing, and interpolation. Author's view: transport maps and couplings are distributional objects and should not be interpreted as causal claims unless additional assumptions are imposed. This is a lecture note emphasizing the importance of modeling choices (state space, ground cost, ambiguity radius, reference distribution) and includes R computational labs.",
-      "summaryModel": "deepseek-v4-flash",
+      "contentType": "paper",
+      "limitationsEn": "This is an arXiv preprint; its conclusions rest on six abstract mathematical settings and their axiomatic assumptions rather than empirical study, and it provides no calibration data, real-market backtests, or regulatory implementation assessments. Its results on non-diversifiability, percolation thresholds, the observability trichotomy, and runtime impossibility depend on specific assumptions (such as the lever-assignment axiom and commit exogeneity); conclusions may change under different assumptions, and applicability to specific institutions, models, or markets requires separate verification.",
+      "domain": "AI × 量化",
+      "score": 68.21,
+      "description": "将智能体AI的系统性风险在六个数学设定中形式化：从预期损失的期望-危害恒等式、共享基础模型的不可分散共同敞口，到运行时护栏的可观测三分法与不可能性推论，主张对智能体AI的系统性成分不可分散、不可检测清除或逆转，只能通过事前结构性预防应对。",
       "sourceName": "arXiv q-fin",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "These lecture notes treat actuarial objects such as losses, premiums, reserves, and climate losses as probability measures, using optimal transport tools for comparison, averaging, stress testing, and interpolation. The novelty lies in systematically introducing couplings, Kantorovich problems, Wasserstein distances, barycenters, and entropic regularization into actuarial modeling, covering risk measures, pricing, reserving, reinsurance, and longevity risk. For quantitative r",
-      "keyPoints": [
-        "第一部分覆盖耦合、推前、离散与连续Kantorovich问题、对偶、Wasserstein距离、分位数传输、重心、熵正则化及统计最优传输等核心工具。",
-        "第二部分将工具应用于风险度量、Wasserstein稳健性、定价与资本、组合漂移、准备金现金流分布、气候预防诊断、再保险、相依不确定性、资本分配、分布公平诊断和长寿风险。",
-        "后续章节与附录讨论反事实传输、动态公式、非平衡传输、Schrödinger桥、成本工程以及R计算实验。"
+      "tags": [
+        "智能体AI",
+        "金融稳定",
+        "系统性风险",
+        "模型风险",
+        "基础模型",
+        "传染与渗流"
       ],
-      "limitations": "本内容为讲义摘要，未提供具体数值结果、实证验证或模拟实验细节。作者明确强调传输映射和耦合是分布对象，除非额外假设，不应解释为因果声明。工具的应用效果依赖于状态空间、基础成本、模糊半径和参考分布等建模选择，讲义未给出这些选择的统一准则。参考文献为单一作者，尚未经同行评议，证据边界限于方法介绍与教学目的。",
-      "slug": "optimal-transport-for-actuarial-science-33afbb8706",
+      "id": "9716fb8c97038e82",
+      "title": "智能体AI从模型风险到系统性风险",
+      "publishedAt": "2026-10-08T04:00:00+00:00",
+      "limitations": "本文为arXiv预印本，结论建立在六个抽象数学设定及其公理假设之上，非实证研究，未提供校准数据、真实市场回测或监管落地评估。其关于无分散化、渗流阈值、可观测性三分法与运行时不可能性等结果依赖于特定假设（如杠杆分配公理、承诺外生性），换用不同假设后结论可能改变；对具体机构、模型或市场的适用性需另行验证。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "If the systematic component of agentic risk cannot be eliminated through diversification, detection, or post-hoc reversal, then regulatory frameworks relying only on runtime guardrails and ex-post review may be insufficient and may need to be repositioned toward ex-ante structural prevention. This provides a formal framework for discussing financial stability policy and the governance boundaries of agentic AI deployment.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "若智能体风险的系统性成分既不能通过分散、检测清除或事后逆转来消除，则仅依赖运行时护栏与事后审查的监管框架可能不足，需要重新定位为事前结构性预防。这为金融稳定政策与智能体AI部署的治理边界提供了形式化讨论框架。",
+      "originalTitle": "Agentic AI Systems and Financial Stability, From Model Risk to Systemic Risk",
+      "aiGenerated": true,
+      "keyPoints": [
+        "共享基础模型是不可分散的共同敞口，其预期短缺下限不随群体规模增大而消失，渗流阈值决定传染条件。",
+        "在“审查无法拦截不可逆动作”的杠杆分配公理下，任何非预防性控制都无法满足一致的尾部约束。",
+        "把运行时护栏建模为部分可观测随机控制，得到可观测性三分法、检测下限，并在承诺外生性下给出运行时不可能性推论。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "agentic-ai-systems-and-financial-stability-from--9716fb8c97",
+      "titleEn": "Agentic AI Systems and Financial Stability: From Model Risk to Systemic Risk",
+      "summaryEn": "This work argues that when many decision-makers depend on the same infrastructure, distress is no longer approximately idiosyncratic and diversifiable, so the binding concern shifts from the model risk of a single deployment to the systemic risk of the population. The authors formalize this across six mathematical settings: a shared foundation model is a non-diversifiable common exposure whose expected-shortfall floor does not vanish as the fleet grows, and a percolation threshold governs contagion. The authors' central claim is that the systematic component of agentic risk cannot be diversified away, detected away, or reversed, and only ex-ante structural prevention moves it.",
+      "tagsEn": [
+        "agentic AI",
+        "financial stability",
+        "systemic risk",
+        "model risk",
+        "foundation models",
+        "contagion and percolation"
+      ],
       "discoveredBy": [
         "arXiv q-fin"
       ],
-      "score": 67.99,
-      "aiGenerated": true,
-      "limitationsEn": "This content is a lecture note abstract; it provides no specific numerical results, empirical validation, or simulation experiment details. The author explicitly emphasizes that transport maps and couplings are distributional objects and should not be interpreted as causal claims unless additional assumptions are imposed. The effectiveness of the tools depends on modeling choices such as state space, ground cost, ambiguity radius, and reference distribution, for which the notes offer no unified criteria. It is a single-author reference, not yet peer-reviewed, with evidence boundaries limited to methodological introduction and pedagogical purposes.",
-      "description": "该讲义将损失、保费、准备金、气候损失等精算对象视为概率测度，用最优传输工具进行对比、平均、压力测试与插值。新意在于系统性地把耦合、Kantorovich问题、Wasserstein距离、重心、熵正则化等传输工具引入精算建模，并覆盖风险度量、定价、准备金、再保险、长寿风险等场景。对量化研究者而言，它提供了统一的分布视角和R计算实验，有助于理解建模选择（状态空间、成本函数、模糊半径）对结果的影响，但不构成投资建议。",
-      "domain": "金融研究",
+      "summary": "该研究主张，当大量决策者依赖同一基础设施时，困境不再近似个体化因而可分散，关注点从单一部署的模型风险转向群体层面的系统性风险。作者在六个数学设定中形式化该论点：共享基础模型构成不可分散的共同敞口，其预期短缺下限不随群体规模扩大而降低，并存在传染渗流阈值。作者的核心观点是：智能体AI风险的系统性成分无法被分散、检测清除或逆转，只能靠事前结构性预防。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 77,
+        "relevanceScore": 85,
         "topicClassification": {
-          "classification": "finance",
-          "confidence": 0.76,
+          "classification": "quantitative-finance",
+          "confidence": 0.84,
           "financeEvidence": [
-            "portfolio"
+            "finance"
           ],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
+          "quantitativeEvidence": [
+            "stochastic"
+          ],
+          "aiEvidence": [
+            "agents"
+          ],
           "sourcePrior": "量化研究"
         },
-        "contentValueScore": 60.94,
+        "contentValueScore": 61.25,
         "contentSignals": {
           "evidence": 5.0,
-          "actionability": 10.0,
+          "actionability": 0.0,
           "novelty": 8.0,
-          "specificity": 3.29,
+          "specificity": 10.0,
           "penalty": 0.0
         },
         "freshnessScore": 76.67,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.08797",
+      }
+    },
+    {
       "retrievedAt": "2026-10-08T15:59:59.999999+00:00",
-      "whyItMatters": "该讲义为精算科学提供了统一的分布分析语言，使损失、保费、准备金等对象可在同一框架下进行稳健性比较、压力测试和插值。对量化研究者，它有助于系统理解Wasserstein距离、熵正则化等工具在风险度量、资本分配、再保险和长寿风险中的建模含义与选择影响，但需注意其教学性质而非实证结论。",
+      "descriptionEn": "These lecture notes introduce optimal transport as a mathematical language for actuarial science, treating losses, premiums, reserves, and climate losses as probability measures to be compared, transported, averaged, stressed, and interpolated. The novelty lies in systematically connecting optimal transport tools with actuarial problems such as risk measures, Wasserstein robustness, pricing, capital allocation, and longevity risk, while emphasizing the interpretation of model",
+      "originalUrl": "https://arxiv.org/abs/2610.08797",
       "features": [
         {
           "id": "artifact:paper",
@@ -1057,60 +1117,59 @@
           "confidence": 0.8
         }
       ],
-      "publishedAt": "2026-10-08T04:00:00+00:00"
-    },
-    {
-      "contentType": "paper",
-      "titleEn": "DSTNet: Dynamic Spectral Trajectory Network for Causal Multi-Horizon Financial Forecasting",
-      "tags": [
-        "因果预测",
-        "小波变换",
-        "多期预测",
-        "金融时间序列",
-        "谱轨迹"
-      ],
       "keyPointsEn": [
-        "DSTNet retains the recent evolution of filter-bank magnitudes as a causal Dynamic Spectral Trajectory, using a one-sided Morlet-derived filter bank, a twenty-day lookback, and an explicit burn-in for the left-boundary transient to avoid reading information after the forecast origin.",
-        "Across seven equity indices and gold, persistence is the strongest of ten fixed competitors in 29 of 32 series-horizon cells, and DSTNet is the only model below it in every cell, by 0.7 to 0.9 percent at one day and 3.4 to 4.5 percent at ten days.",
-        "At one day, paired testing favours DSTNet against weaker learned baselines but is inconclusive against persistence and the strongest learned forecasters; a downstream allocation diagnostic does not support an equity-timing advantage on any of the seven indices."
+        "Optimal transport models losses, premiums, reserves, climate losses, and lifetime distributions as probability measures, enabling comparison, averaging, stressing, and interpolation.",
+        "Core tools include couplings, push-forwards, discrete and continuous Kantorovich problems, duality, Wasserstein distances, quantile transport, barycenters, and entropic regularization.",
+        "Applications cover risk measures and Wasserstein robustness, pricing and capital, portfolio drift, reserving cash flows, climate-prevention diagnostics, reinsurance, dependence uncertainty, capital allocation, and longevity risk."
       ],
-      "originalTitle": "DSTNet: Dynamic Spectral Trajectory Network for Causal Multi-Horizon Financial Forecasting",
-      "id": "f42bf09da03fc412",
-      "whyItMattersEn": "This work explicitly introduces causality constraints into a wavelet-based spectral forecasting pipeline and provides a reproducible comparison baseline through multi-horizon one-pass forecasting and strict hold-out evaluation; however, its downstream allocation diagnostic shows no equity-timing advantage on the seven indices, suggesting that improved forecast accuracy need not translate into an actionable investment advantage.",
-      "tagsEn": [
-        "causal forecasting",
-        "wavelet transform",
-        "multi-horizon forecasting",
-        "financial time series",
-        "spectral trajectory"
-      ],
-      "title": "DSTNet：动态谱轨迹网络用于因果多期金融预测",
-      "summary": "DSTNet 的核心事实是：它用单边 Morlet 滤波器组、二十天回看窗口与显式 burn-in 构建因果动态谱轨迹，并通过因子化谱 Transformer 和 horizon 特定门控做多期预测。实验事实是：在共同扩张窗口协议与一年未触碰的留出集上，持续基准在 32 个“序列-期限”单元中的 29 个里是最强的十个固定竞争模型之一，而 DSTNet 是唯一在每个单元中都低于持续基准的模型，一天期低 0.7%–0.9%，十天期低 3.4%–4.5%。作者观点推断是：动态谱轨迹与因果设计可能带来优势，但一天期配对检验对持续基准和最强学习基线尚无定论，且下游配置诊断不支持对七个股指的择时优势。",
-      "sourceGroup": "论文",
-      "summaryEn": "The core factual claim of DSTNet is that it builds a causal Dynamic Spectral Trajectory using a one-sided Morlet filter bank, a twenty-day lookback, and explicit burn-in, and performs multi-horizon forecasting via a factorized spectral Transformer and horizon-specific gates. The experimental facts are that under a common expanding-window protocol and an untouched one-year hold-out, persistence is the strongest of ten fixed competitors in 29 of 32 series-horizon cells, and DSTNet is the only model below it in every cell, by 0.7 to 0.9 percent at one day and 3.4 to 4.5 percent at ten days. The authors' view is that the dynamic spectral trajectory and causal design may offer advantages, but paired testing at one day is inconclusive against persistence and the strongest learned forecasters, and a downstream allocation diagnostic does not support an equity-timing advantage on any of the seven indices.",
-      "summaryModel": "deepseek-v4-flash",
+      "contentType": "paper",
+      "limitationsEn": "These are lecture notes and do not provide new empirical results or causal identification. All applications depend on modeling choices (state space, ground cost, ambiguity radius, reference distribution) and additional assumptions; transport maps and couplings represent distributional relationships and cannot automatically be interpreted as causal effects. Later chapters and appendices discuss counterfactual transport, dynamic formulations, unbalanced transport, and Schrödinger bridges, but the evidence boundary remains confined to methodological introduction and computational labs.",
+      "domain": "金融研究",
+      "score": 67.99,
+      "description": "这篇讲义将最优传输引入精算学，把损失、保费、准备金和气候损失等视为概率测度，提供耦合、Wasserstein距离、重心和熵正则化等工具，用于比较、传输、平均、压力和插值分布。其新意在于系统性地将最优传输与风险度量、稳健性、定价、资本分配和长寿风险等精算问题结合，并强调建模选择（状态空间、成本函数、模糊半径、参考分布）的解释。",
       "sourceName": "arXiv q-fin",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "Existing wavelet-based financial forecasters typically use the transform only to denoise, or reduce it to a single spectral snapshot at the forecast origin, and the convolution producing coefficients is often bilateral, so it may read information after the forecast origin, breaking causality. DSTNet retains the recent evolution of filter-bank magnitudes as a causal Dynamic Spectral Trajectory, builds it from seven trailing technical indicators over a twenty-day lookback with ",
-      "keyPoints": [
-        "DSTNet 保留滤波器组幅值的近期演化作为因果动态谱轨迹，使用单边 Morlet 滤波器组、二十天回看和显式 burn-in 处理左边界瞬态，避免读到预测起点之后的信息。",
-        "在七个股指与黄金上，持续基准在 32 个“序列-期限”单元中的 29 个里是最强固定竞争模型，DSTNet 是唯一在所有单元中都低于持续基准的模型，一天期低 0.7%–0.9%，十天期低 3.4%–4.5%。",
-        "一天期配对检验中，DSTNet 优于较弱学习基线，但对持续基准和最强学习预测器结果不确定；下游配置诊断未支持对七个股指的择时优势。"
+      "tags": [
+        "最优传输",
+        "精算科学",
+        "Wasserstein距离",
+        "风险度量",
+        "稳健性",
+        "资本分配"
       ],
-      "limitations": "证据边界包括：仅评估七个股指与黄金，未覆盖其他资产类别或市场；仅使用一年未触碰留出集与扩张窗口协议；持续基准在多数单元中仍是最强固定竞争模型，DSTNet 一天期配对检验对持续基准和最强学习预测器结论不确定；下游配置诊断仅针对七个股指，未支持择时优势；未报告交易成本、滑点或容量约束；未与更广泛的小波或谱方法做消融对比。",
-      "slug": "dstnet-dynamic-spectral-trajectory-network-for-c-f42bf09da0",
+      "id": "33afbb87065cbb9e",
+      "title": "最优传输为精算科学提供分布比较与压力测试的新数学语言",
+      "publishedAt": "2026-10-08T04:00:00+00:00",
+      "limitations": "讲义为课程笔记，不提供新的实证结果或因果识别。所有应用依赖于建模选择（状态空间、成本函数、模糊半径、参考分布）和额外假设；传输映射和耦合表示分布关系，不能自动解释为因果效应。后续章节和附录涉及反事实传输、动态形式、非平衡传输和Schrödinger桥等内容，但证据边界仍限于方法论介绍和计算实验。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "For actuarial research, these notes provide a unified distributional framework that helps formalize uncertainty in robustness, fairness diagnostics, and stress testing. They highlight the impact of modeling choices, cautioning users to consider assumptions such as state space, cost function, and reference distribution, rather than interpreting transport results directly as causal effects.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "对精算研究而言，该讲义提供了一套统一的分布型分析框架，有助于在稳健性、公平性诊断和压力测试中更形式化地处理不确定性。它强调建模选择的影响，提醒使用者注意状态空间、成本函数和参考分布等假设，而非将传输结果直接解释为因果关系。",
+      "originalTitle": "Optimal Transport for Actuarial Science",
+      "aiGenerated": true,
+      "keyPoints": [
+        "最优传输把损失、保费、准备金、气候损失和寿命分布等建模为概率测度，从而支持比较、平均、压力和插值操作。",
+        "核心工具包括耦合、推前、离散与连续Kantorovich问题、对偶、Wasserstein距离、分位数传输、重心和熵正则化。",
+        "应用覆盖风险度量与Wasserstein稳健性、定价与资本、组合漂移、准备金现金流、气候预防诊断、再保险、依赖不确定性、资本分配和长寿风险。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "optimal-transport-for-actuarial-science-33afbb8706",
+      "titleEn": "Optimal Transport Offers a New Mathematical Language for Distributional Comparison and Stress Testing in Actuarial Science",
+      "summaryEn": "The notes argue that optimal transport can serve as a unified mathematical language for actuarial science, handling distributional objects. They are divided into two parts: first introducing tools such as couplings, Kantorovich problems, duality, Wasserstein distances, quantile transport, barycenters, and entropic regularization; then applying them to risk measures, robustness, pricing, capital, reserving, climate prevention, reinsurance, dependence uncertainty, and longevity risk. The author stresses that transport maps and couplings are distributional objects, not causal claims unless additional assumptions are imposed.",
+      "tagsEn": [
+        "Optimal Transport",
+        "Actuarial Science",
+        "Wasserstein Distance",
+        "Risk Measures",
+        "Robustness",
+        "Capital Allocation"
+      ],
       "discoveredBy": [
-        "arXiv cs.LG",
         "arXiv q-fin"
       ],
-      "score": 67.09,
-      "aiGenerated": true,
-      "limitationsEn": "Evidence boundaries include: evaluation only on seven equity indices and gold, without other asset classes or markets; use of only a one-year untouched hold-out and an expanding-window protocol; persistence remains the strongest fixed competitor in most cells, and one-day paired testing is inconclusive against persistence and the strongest learned forecasters; the downstream allocation diagnostic covers only the seven equity indices and does not support a timing advantage; no reporting of transaction costs, slippage, or capacity constraints; no ablation against a broader set of wavelet or spectral methods.",
-      "description": "现有基于小波的金融预测方法通常仅用小波变换去噪，或把变换压缩为预测起点的一个谱快照，且生成系数的卷积常为双边卷积，可能读到预测起点之后的信息，破坏因果性。DSTNet 提出保留滤波器组幅值的近期演化作为因果动态谱轨迹，并设计因子化尺度-时间谱 Transformer 分别沿时间和滤波器组轴注意力，再与 CNN-BiLSTM 门控融合，单次输出 1、3、5、10 天预测。其有用性在于：在七个股指与黄金上，DSTNet 是唯一在所有 32 个“序列-期限”单元中优于随机游走持续基",
-      "domain": "金融研究",
+      "summary": "讲义主张最优传输可作为精算学的统一数学语言，用来处理分布型对象。它分两部分：先介绍耦合、Kantorovich问题、对偶、Wasserstein距离、分位数传输、重心和熵正则化等工具；再应用于风险度量、稳健性、定价、资本、准备金、气候预防、再保险、依赖不确定性和长寿风险。作者强调传输映射和耦合是分布对象，除非额外假设，否则不构成因果主张。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -1122,28 +1181,30 @@
           "classification": "finance",
           "confidence": 0.76,
           "financeEvidence": [
-            "finance"
+            "portfolio"
           ],
           "quantitativeEvidence": [],
           "aiEvidence": [],
           "sourcePrior": "量化研究"
         },
-        "contentValueScore": 59.65,
+        "contentValueScore": 60.94,
         "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 5.0,
-          "novelty": 0.0,
-          "specificity": 10.0,
+          "evidence": 5.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 3.29,
           "penalty": 0.0
         },
         "freshnessScore": 76.67,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.09654",
+      }
+    },
+    {
       "retrievedAt": "2026-10-08T15:59:59.999999+00:00",
-      "whyItMatters": "该工作把因果性约束显式引入小波谱预测流程，并通过多期单次预测与严格留出评估，为量化研究提供了可复现的比较基线；但其下游配置诊断未显示对七个股指的择时优势，提示预测精度提升未必转化为可操作的投资优势。",
+      "descriptionEn": "DSTNet introduces a causal spectral trajectory representation that retains the recent evolution of wavelet filter-bank magnitudes rather than only denoising or using a single-point snapshot, combined with a scale-temporal factored Transformer and gated fusion. On seven equity indices and gold under an expanding-window protocol, the model beats the random-walk persistence benchmark in all 32 series-horizon cells, but paired testing is inconclusive against the strongest competi",
+      "originalUrl": "https://arxiv.org/abs/2610.09654",
       "features": [
         {
           "id": "artifact:paper",
@@ -1179,348 +1240,95 @@
           "confidence": 1.0
         }
       ],
-      "publishedAt": "2026-10-08T04:00:00+00:00"
-    },
-    {
-      "contentType": "repository",
-      "titleEn": "PyTorch: Python Tensors and Dynamic Neural Networks with Strong GPU Acceleration",
-      "tags": [
-        "开源工程",
-        "深度学习框架",
-        "GPU加速",
-        "张量计算",
-        "动态神经网络"
-      ],
       "keyPointsEn": [
-        "Provides Python tensor computation and dynamic neural network support.",
-        "Features strong GPU acceleration.",
-        "Is the official open-source repository for PyTorch."
+        "Constructs a causal Dynamic Spectral Trajectory from seven trailing technical indicators over a twenty-day lookback using a one-sided Morlet-derived filter bank with explicit left-boundary burn-in.",
+        "Uses a factorized Scale-Temporal Spectral Transformer, a learned gate fusing with a CNN-BiLSTM, and horizon-specific gates to emit 1, 3, 5, and 10 day forecasts in a single pass.",
+        "Across 32 series-horizon cells, persistence is the strongest of ten fixed competitors in 29 cells, and DSTNet is the only model below it in every cell."
       ],
-      "originalTitle": "pytorch/pytorch",
-      "id": "6ee2c2a30826817d",
-      "whyItMattersEn": "As one of the mainstream deep learning frameworks, PyTorch provides researchers and developers with foundational tools for building and training neural networks, and its open-source implementation promotes reproducible research and engineering applications.",
-      "tagsEn": [
-        "open-source engineering",
-        "deep learning framework",
-        "GPU acceleration",
-        "tensor computation",
-        "dynamic neural networks"
-      ],
-      "title": "PyTorch：GPU 加速的 Python 张量计算与动态神经网络库",
-      "summary": "该仓库是 PyTorch 的官方代码库，定位为在 Python 中提供张量计算和动态神经网络，并强调 GPU 加速。它本身不提出新的算法或实验结论，而是作为开源基础设施存在。",
-      "sourceGroup": "开源项目",
-      "summaryEn": "This repository is the official codebase for PyTorch, positioned to provide tensor computation and dynamic neural networks in Python with an emphasis on GPU acceleration. It does not itself introduce new algorithms or experimental conclusions but exists as open-source infrastructure.",
-      "summaryModel": "deepseek-v4-flash",
-      "sourceName": "GitHub Trending Daily",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "This is the official PyTorch repository, offering Python tensor computation and dynamic neural networks with strong GPU acceleration, serving as a foundational framework for deep learning research and development.",
-      "keyPoints": [
-        "提供 Python 张量计算与动态神经网络支持。",
-        "具备强 GPU 加速能力。",
-        "是 PyTorch 官方开源仓库。"
-      ],
-      "limitations": "本卡仅基于仓库的简短描述生成，未涉及具体版本、功能细节、性能数据或与其他框架的对比；不构成对其实际能力或适用性的完整评估。",
-      "slug": "pytorch-pytorch-6ee2c2a308",
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "score": 66.38,
-      "aiGenerated": true,
-      "limitationsEn": "This card is generated only from the repository's short description and does not cover specific versions, feature details, performance data, or comparisons with other frameworks; it is not a complete assessment of its actual capabilities or applicability.",
-      "description": "这是 PyTorch 官方仓库，提供 Python 张量计算与动态神经网络能力，支持强 GPU 加速，为深度学习研究与开发提供基础框架。",
-      "domain": "AI 研究",
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 54,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 94.0,
-        "metricPercentile": 92.31,
-        "velocityPercentile": 92.31,
-        "objectiveScore": 92.31,
-        "relevanceScore": 50,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.8,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "machine-learning"
-          ],
-          "sourcePrior": null
-        },
-        "contentValueScore": 22.68,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.18,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 6.0,
-          "trending_rank_score": 94.0,
-          "stars": 104345.0,
-          "stars_delta_1d": 314.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "originalUrl": "https://github.com/pytorch/pytorch",
-      "retrievedAt": "2026-10-11T15:59:59.999999+00:00",
-      "whyItMatters": "作为主流深度学习框架之一，PyTorch 为研究人员和开发者提供了构建与训练神经网络的底层工具，其开源实现促进了可复现研究与工程应用。",
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        }
-      ],
-      "publishedAt": "2026-10-11T15:59:59.999999+00:00"
-    },
-    {
-      "contentType": "repository",
-      "titleEn": "AnyPS5 project claims automatic porting of PS5 executables to Linux and Windows",
-      "tags": [
-        "开源项目",
-        "PS5",
-        "跨平台移植",
-        "Linux",
-        "Windows"
-      ],
-      "keyPointsEn": [
-        "The project describes itself as automatically porting PS5 executables to Linux and Windows",
-        "The item comes from GitHub Trending Daily, an open-source project feed rather than peer-reviewed research",
-        "Beyond the summary, no implementation approach, support scope, or validation results are provided"
-      ],
-      "originalTitle": "boykopovar/AnyPS5",
-      "id": "393266ea5adfae70",
-      "whyItMattersEn": "If automatic porting were feasible, it could offer a new open-source tooling path for running PS5 programs across platforms, so its later code and reproducible tests merit attention. Until then, it is merely an unverified trending project and should not be treated as a basis for use or investment.",
-      "tagsEn": [
-        "open-source project",
-        "PS5",
-        "cross-platform porting",
-        "Linux",
-        "Windows"
-      ],
-      "title": "AnyPS5 项目实现 PS5 可执行文件向 Linux 与 Windows 的自动移植",
-      "summary": "事实：GitHub 上的项目 boykopovar/AnyPS5 被描述为一款把 PS5 可执行文件自动移植到 Linux 与 Windows 的工具。作者观点：自动移植这一功能定位来自项目自身的简介。尚无独立验证、平台细节或具体输出形式被提供，现有信息不足以判断实效。",
-      "sourceGroup": "开源项目",
-      "summaryEn": "Fact: the GitHub project boykopovar/AnyPS5 is described as a tool that automatically ports PS5 executables to Linux and Windows. Author's claim: the automatic-porting capability comes from the project's own summary. No independent verification, platform details, or concrete outputs are given, so the current information is insufficient to judge its effectiveness.",
-      "summaryModel": "deepseek-v4-flash",
-      "sourceName": "GitHub Trending Daily",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "The project surfaced on GitHub Trending and claims to automatically port PS5 executables to Linux and Windows. If the claim holds, it could lower the tooling barrier for running PS5 programs across platforms, but only the project's own description is available and no reproducible evidence is provided.",
-      "keyPoints": [
-        "项目自述功能为自动将 PS5 可执行文件移植到 Linux 和 Windows",
-        "该条目来自 GitHub Trending Daily，属于开源项目动态而非同行评审研究",
-        "除简介外，未提供实现方式、支持范围或验证结果"
-      ],
-      "limitations": "信息仅来源于项目标题与一句简介，没有代码细节、构建方式、支持的游戏或可执行文件类型、依赖条件、性能数据或第三方测试。无法确认自动移植的实际可行性、合法性与稳定性，也不清楚针对哪些 PS5 可执行文件格式或系统版本。不应据此推断该工具已可用或产生实际效果。",
-      "slug": "boykopovar-anyps5-393266ea5a",
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "score": 66.36,
-      "aiGenerated": true,
-      "limitationsEn": "The information comes only from the project title and a one-sentence summary, with no code details, build method, supported games or executable types, dependencies, performance data, or third-party tests. The actual feasibility, legality, and stability of the automatic porting cannot be confirmed, nor is it clear which PS5 executable formats or system versions are targeted. It should not be inferred that the tool is already usable or has demonstrated real effects.",
-      "description": "该项目在 GitHub 趋势榜出现，其宣称目标是自动把 PS5 可执行文件移植到 Linux 与 Windows。若能力如描述般成立，可降低跨平台运行 PS5 程序的工具门槛，但当前仅有项目自述，缺少可复现证据。",
-      "domain": "开源工程",
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 54,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 98.0,
-        "metricPercentile": 100.0,
-        "velocityPercentile": 100.0,
-        "objectiveScore": 100.0,
-        "relevanceScore": 35,
-        "topicClassification": {
-          "classification": "other",
-          "confidence": 0.85,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": null
-        },
-        "contentValueScore": 15.91,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.16,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 2.0,
-          "trending_rank_score": 98.0,
-          "stars": 28909.0,
-          "stars_delta_1d": 3977.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "originalUrl": "https://github.com/boykopovar/AnyPS5",
-      "retrievedAt": "2026-10-11T15:59:59.999999+00:00",
-      "whyItMatters": "若自动移植方案可行，可能为跨平台运行 PS5 程序提供新的开源工具路径，因此值得关注其后续代码与可复现测试；但在此之前，它只是趋势榜上的一个待验证项目，不构成任何使用或投资依据。",
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        }
-      ],
-      "publishedAt": "2026-10-11T15:59:59.999999+00:00"
-    },
-    {
       "contentType": "paper",
-      "titleEn": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
-      "tags": [
-        "粗糙波动率",
-        "Dyson-Schwinger方程",
-        "有效作用量",
-        "期权定价",
-        "随机波动率模型"
-      ],
-      "keyPointsEn": [
-        "In the exponential-OU model, the 2PI effective-action method reduces the Hartree error by 20–130x through the melon level, achieving 0.01–0.11 bp.",
-        "For rough Bergomi, the method matches Monte Carlo references within about 0.01–0.1 bp down to H=0.07 and rho=-0.9; SABR pricing error is 0.97 bp and rough SABR is 0.92 bp.",
-        "Conditional on the volatility field, forward-start smiles and continuously-monitored barriers reduce to field-only quadratures on the native Volterra field, and the causal response block yields the impulse-vega curve in one adjoint contraction."
-      ],
-      "originalTitle": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
-      "id": "4fb2bd81ccaed54f",
-      "whyItMattersEn": "This framework provides a new non-perturbative computational route for calibration, exotic option pricing, and risk management in rough volatility models, potentially improving efficiency while maintaining high accuracy, especially for path-dependent derivatives and risk sensitivity calculations.",
-      "tagsEn": [
-        "rough volatility",
-        "Dyson-Schwinger equations",
-        "effective action",
-        "option pricing",
-        "stochastic volatility models"
-      ],
-      "title": "基于Dyson-Schwinger有效作用量的粗糙波动率定价框架",
-      "summary": "论文开发了一个基于量子场论中双粒子不可约（2PI）有效作用量和Dyson-Schwinger间隙方程的非微扰框架，用于随机波动率期权定价。在指数OU模型中，melone层次将Hartree误差降低20-130倍至0.01-0.11个基点；在粗糙Bergomi模型下，该方法在H=0.07、rho=-0.9时与蒙特卡洛参考约在0.01-0.1个基点内匹配。作者认为这些闭合方案能高效处理条件积分、远期起算微笑和连续障碍期权，并可通过伴随收缩得到脉冲Vega曲线；但框架的适用性和数值稳定性仍需进一步检验。",
-      "sourceGroup": "论文",
-      "summaryEn": "The paper develops a non-perturbative framework for stochastic-volatility option pricing based on the two-particle-irreducible (2PI) effective action and Dyson-Schwinger gap equations from quantum field theory. In the exponential-OU model, the melon level reduces the Hartree error by 20–130x to 0.01–0.11 bp; for rough Bergomi, the closures match Monte Carlo references approximately at their resolution (0.01–0.1 bp) down to H=0.07 and rho=-0.9. The author argues that these closures efficiently handle conditional integration, forward-start smiles, and continuously-monitored barriers, and yield the impulse-vega curve via a single adjoint contraction; however, the framework's applicability and numerical stability require further scrutiny.",
-      "summaryModel": "deepseek-v4-flash",
+      "limitationsEn": "Evidence boundaries are explicit. First, this is based only on the abstract; dataset splits, hyperparameters, and computational cost are not provided. Second, paired testing at the one-day horizon is inconclusive against persistence and the strongest learned forecasters, so a general superiority claim is unsupported. Third, the downstream allocation diagnostic does not support a timing advantage on any of the seven indices, implying error improvements may not translate into tradable returns. Fourth, evaluation is limited to seven equity indices and gold, without other asset classes, market regimes, or longer horizons. Fifth, a single untouched one-year hold-out window is insufficient to establish robustness.",
+      "domain": "金融研究",
+      "score": 67.09,
+      "description": "DSTNet提出一种因果谱轨迹表示，保留小波滤波幅值的近期演化而非仅做去噪或单点快照，并配以尺度-时间分解Transformer与门控融合。在七个股票指数与黄金的扩展窗口测试中，该模型在全部32个序列-步长单元中优于随机游走持续性基准，但统计检验对最强持续性基准不具结论性，下游择时诊断亦未显示优势。",
       "sourceName": "arXiv q-fin",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "A non-perturbative effective-action method based on the two-particle-irreducible action and Dyson-Schwinger gap equations is developed for stochastic-volatility option pricing. In exponential-OU and CEV models, the approach substantially reduces pricing errors and matches Monte Carlo benchmarks for rough Bergomi and SABR within 0.01–1 basis point, offering a new route for rough volatility calibration, exotics, and risk hedging.",
-      "keyPoints": [
-        "在指数OU模型中，2PI有效作用量方法通过melone层次将Hartree误差降低20-130倍，达到0.01-0.11个基点。",
-        "对于粗糙Bergomi模型，该方法在H=0.07、rho=-0.9时与蒙特卡洛参考约在0.01-0.1个基点内匹配；SABR定价误差为0.97个基点，粗糙SABR为0.92个基点。",
-        "在波动率场条件下，远期起算微笑和连续障碍期权可简化为对原生Volterra场的仅场求积，因果响应块通过一次伴随收缩给出脉冲Vega曲线。"
+      "tags": [
+        "金融预测",
+        "因果建模",
+        "小波变换",
+        "谱轨迹",
+        "Transformer",
+        "多步预测"
       ],
-      "limitations": "论文目前仅基于蒙特卡洛参考进行验证，未提供与市场数据的校准结果或实证检验；所推导的闭合方案在极端参数（如H=0.07、rho=-0.9）下的数值稳定性、收敛性和计算成本尚未系统评估；框架对模型假设的敏感性以及与其他近似方法的比较分析缺失；所有结果均来自作者自述，需独立复现。",
-      "slug": "dyson-schwinger-effective-action-methods-for-rou-4fb2bd81cc",
+      "id": "f42bf09da03fc412",
+      "title": "DSTNet：用于因果多步金融预测的动态谱轨迹网络",
+      "publishedAt": "2026-10-08T04:00:00+00:00",
+      "limitations": "证据边界明确：首先，文章仅基于摘要，未提供数据集划分细节、超参数与计算成本。其次，统计检验在1日步长上对持续性基准和最强学习预测器不具结论性，因此不能宣称普遍优于最强竞争者。第三，下游配置诊断在七个股票指数上不支持择时优势，说明误差改进未必转化为可交易收益。第四，评估限于七个股票指数与黄金，未覆盖其他资产类别、市场状态或更长步长。第五，一年留出集虽未触碰，但单一样本外窗口不足以证明稳健性。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "If validated, the causal spectral trajectory design offers a modeling path for multi-horizon financial forecasting that does not sacrifice causality for spectral information, and it pushes research to distinguish clearly between beating weak learned baselines and beating a strong persistence benchmark. For quantitative researchers, its value lies in reporting statistical significance alongside a downstream allocation diagnostic rather than error metrics alone.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "若该因果谱轨迹设计成立，可为多步金融预测提供一条不以牺牲因果性换取谱信息的建模路径，并促使研究更严格地区分‘优于弱学习基线’与‘优于强持续性基准’。对量化研究者而言，其价值在于把统计显著性与下游配置诊断同时纳入评估，而非仅报告误差指标。",
+      "originalTitle": "DSTNet: Dynamic Spectral Trajectory Network for Causal Multi-Horizon Financial Forecasting",
+      "aiGenerated": true,
+      "keyPoints": [
+        "以二十日回看、七种技术指标和单边Morlet滤波器组构造因果动态谱轨迹，并显式处理左边界瞬态。",
+        "采用分解的尺度-时间谱Transformer、学习门控融合CNN-BiLSTM，以及按步长门控一次输出1、3、5、10日预测。",
+        "在32个序列-步长单元中，持续性基准在29个单元是最强固定竞争对手，DSTNet是唯一在所有单元低于它的模型。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "dstnet-dynamic-spectral-trajectory-network-for-c-f42bf09da0",
+      "titleEn": "DSTNet: Dynamic Spectral Trajectory Network for Causal Multi-Horizon Financial Forecasting",
+      "summaryEn": "The work addresses the common limitation of wavelet-based financial forecasters that use the transform only for denoising or reduce it to a single spectral snapshot at the forecast origin, with a bilateral convolution that can read past that origin; it proposes a one-sided Morlet-derived filter bank with explicit burn-in to build a causal Dynamic Spectral Trajectory. Evaluated on seven equity indices and gold with an expanding-window protocol and an untouched one-year hold-out against nine learned baselines and a persistence benchmark, DSTNet is reported to be the only model below persistence under MAE and MAPE in every cell. The authors also report a negative downstream allocation diagnostic and do not claim an equity-timing advantage.",
+      "tagsEn": [
+        "financial forecasting",
+        "causal modeling",
+        "wavelet transform",
+        "spectral trajectory",
+        "Transformer",
+        "multi-horizon forecasting"
+      ],
       "discoveredBy": [
+        "arXiv cs.LG",
         "arXiv q-fin"
       ],
-      "score": 66.35,
-      "aiGenerated": true,
-      "limitationsEn": "Validation is currently based solely on Monte Carlo references, with no market-data calibration or empirical tests; the numerical stability, convergence, and computational cost of the proposed closures under extreme parameters (e.g., H=0.07, rho=-0.9) have not been systematically evaluated; sensitivity to model assumptions and comparisons with other approximation methods are lacking; all results are author-reported and require independent replication.",
-      "description": "提出非微扰有效作用量方法，将二维粒子不可约作用量与Dyson-Schwinger间隙方程用于随机波动率期权定价。在指数OU和CEV模型中，该方法大幅降低定价误差，并与粗糙Bergomi、SABR等基准的蒙特卡洛结果在0.01-1个基点内吻合，为粗糙波动率校准、奇异期权和风险对冲提供新途径。",
-      "domain": "量化研究",
+      "summary": "该工作针对小波类金融预测器通常仅将变换用于去噪、或在预测原点仅取单一谱快照且卷积具有双边性（可越过预测原点）的问题，提出用单边Morlet滤波器组与显式burn-in构造因果动态谱轨迹。作者在七个股票指数与黄金上按扩展窗口与一年未触碰的留出集，对比九种学习基线和随机游走持续性基准，报告DSTNet在MAE与MAPE下均低于持续性基准。作者将下游资产配置诊断的负面结果也一并报告，未声称择时优势。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 90,
+        "relevanceScore": 77,
         "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.9,
+          "classification": "finance",
+          "confidence": 0.76,
           "financeEvidence": [
-            "securities",
-            "market-risk"
+            "finance"
           ],
-          "quantitativeEvidence": [
-            "stochastic",
-            "calibration"
-          ],
+          "quantitativeEvidence": [],
           "aiEvidence": [],
           "sourcePrior": "量化研究"
         },
-        "contentValueScore": 60.5,
+        "contentValueScore": 59.65,
         "contentSignals": {
-          "evidence": 5.0,
+          "evidence": 10.0,
           "actionability": 5.0,
           "novelty": 0.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 70.0,
+        "freshnessScore": 76.67,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2609.37741",
+      }
+    },
+    {
       "retrievedAt": "2026-10-07T15:59:59.999999+00:00",
-      "whyItMatters": "该框架为粗糙波动率模型的校准、奇异期权定价和风险管理提供了新的非微扰计算路径，有望在保持高精度的同时提升计算效率，尤其对路径依赖衍生品和风险敏感度计算具有潜在价值。",
+      "descriptionEn": "The work introduces the two-particle-irreducible effective action and Dyson-Schwinger gap equations from quantum field theory into stochastic-volatility option pricing as a non-perturbative closure. Its novelty lies in replacing Taylor truncation with the exact Gaussian moment-generating function for exponential and CEV vertices; in exp-OU the melon-level correction reduces the Hartree error by 20-130x to 0.01-0.11 bp. The method targets calibration, forward-start smiles, bar",
+      "originalUrl": "https://arxiv.org/abs/2609.37741",
       "features": [
         {
           "id": "artifact:paper",
@@ -1567,98 +1375,98 @@
           "confidence": 0.8
         }
       ],
-      "publishedAt": "2026-10-07T04:00:00+00:00"
-    },
-    {
-      "contentType": "paper",
-      "titleEn": "A Price-Based Framework for Stochastic Portfolio Theory",
-      "tags": [
-        "随机组合理论",
-        "价格权重",
-        "拆股调整",
-        "相对套利",
-        "自融资条件",
-        "财富分解"
-      ],
       "keyPointsEn": [
-        "Trading strategies are generated from nominal price weights and evaluated relative to a price-weighted benchmark.",
-        "Stock splits and reverse splits induce jumps in generating weights without changing the value of existing investments; the self-financing condition must incorporate share adjustments.",
-        "Under additive generation, an entropy-based example has relative wealth tending to negative infinity almost surely under repeated splits, so the long-horizon relative arbitrage argument does not apply directly."
+        "A non-perturbative Gaussian closure for stochastic volatility pricing is built from 2PI effective action and Dyson-Schwinger gap equations; exponential vertices sum skeletons in closed form, with melon level cutting Hartree error to 0.01-0.11 bp.",
+        "The method separates Markovian models, where the gap equation collapses to a few ODEs, from rough (Volterra) models, where the full two-time propagator is retained, based on whether the dressed inverse propagator is time-local.",
+        "Rough Bergomi matches Monte Carlo references near H=0.07 and rho=-0.9; SABR reaches about 0.97 bp over a 72-cell grid with maturities to ten years, and rough SABR about 0.92 bp."
       ],
-      "originalTitle": "A Price-Based Framework for Stochastic Portfolio Theory",
-      "id": "96234c62700dd110",
-      "whyItMattersEn": "The framework offers a price-weight perspective on stochastic portfolio theory and clarifies how corporate actions such as splits affect wealth decompositions of generated strategies. It warns that classic capitalization-based conclusions cannot be transferred to price-weight or split-adjusted settings without correction, providing a theoretical caution for constructing and evaluating relative arbitrage strategies.",
-      "tagsEn": [
-        "stochastic portfolio theory",
-        "price weights",
-        "split adjustment",
-        "relative arbitrage",
-        "self-financing condition",
-        "wealth decomposition"
-      ],
-      "title": "基于价格权重的随机组合理论新框架",
-      "summary": "作者在可预测调整事件的半鞅市场中建立基于价格权重的随机组合理论框架，将拆股/合股引起的份额调整纳入自融资条件，并给出加法与乘法生成策略的跳跃修正财富分解。理论结果表明，加法生成下熵基例子在反复拆股时相对财富几乎必然趋于负无穷，说明长期相对套利的常见论证不能直接推广；提前调整信息本身也不提供无模型性能保证。作者使用NYSE日度数据比较价格与市值加权基准及相应多样性加权组合，但该实证仅为示例性说明，不构成策略推荐。",
-      "sourceGroup": "论文",
-      "summaryEn": "The authors develop a price-based stochastic portfolio theory framework in a semimartingale market with predictable adjustment events, embedding share adjustments from splits and reverse splits into the self-financing condition and deriving jump-corrected wealth decompositions for additive and multiplicative generation. Theoretically, an entropy-based additive example has relative wealth tending to negative infinity almost surely under repeated splits, showing that the standard long-horizon relative arbitrage argument does not extend directly, and advance adjustment information alone provides no model-free performance guarantee. Using daily NYSE data, they compare price- and capitalization-weighted benchmarks and diversity-weighted portfolios, but this empirical illustration is not a strategy recommendation.",
-      "summaryModel": "deepseek-v4-flash",
+      "contentType": "paper",
+      "limitationsEn": "All accuracy figures (e.g., 0.01-0.11 bp, 0.97 bp, 0.92 bp) come from the author's benchmarks and ancillary technical supplement without independent replication; the method relies on Gaussian approximations and specific vertex treatments, so error bounds under extreme parameters, untested models or non-Gaussian features are unknown; no live data or market calibration results are provided, and trading costs, model risk or investment advice are not addressed.",
+      "domain": "量化研究",
+      "score": 66.35,
+      "description": "该工作将量子场论中两粒子不可约有效作用与Dyson-Schwinger间隙方程引入随机波动率期权定价，构造非微扰闭包。其新意在于用指数和CEV顶点的精确高斯矩生成函数替代泰勒截断，在exp-OU中 melon 级修正将Hartree误差降低20-130倍至0.01-0.11 bp。方法可用于粗糙Bergomi、SABR与rough SABR的校准、远期起微笑和障碍期权定价以及vega风险，提供了一条统一处理校准、奇异期权与风险的路径。",
       "sourceName": "arXiv q-fin",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "This work recasts stochastic portfolio theory by generating strategies from nominal price weights and evaluating them against a price-weighted benchmark. Its novelty lies in incorporating split- and reverse-split-induced jumps into the self-financing condition with explicit jump-corrected wealth decompositions, and in showing that an entropy-based additively generated example exhibits relative wealth diverging to negative infinity under repeated splits, thereby limiting the u",
-      "keyPoints": [
-        "以名义价格权重生成交易策略，并以价格加权基准评估相对表现。",
-        "拆股与合股导致生成权重跳跃，但不改变已有投资价值；自融资条件需纳入份额调整。",
-        "加法生成下熵基例子在反复拆股时相对财富几乎必然趋于负无穷，长期相对套利论证不直接适用。"
+      "tags": [
+        "粗糙波动率",
+        "随机波动率",
+        "量子场论方法",
+        "Dyson-Schwinger方程",
+        "期权定价",
+        "奇异期权"
       ],
-      "limitations": "原文为理论工作并附带NYSE日度数据示例，未给出样本外交易成本、流动性与容量分析。结果依赖半鞅市场与可预测调整事件等模型假设；熵基反例说明特定加法生成策略在反复拆股下的相对财富趋于负无穷，但不代表所有价格权重策略均失败。提前调整信息无模型无关性能保证，实证比较也不构成投资建议。",
-      "slug": "a-price-based-framework-for-stochastic-portfolio-96234c6270",
+      "id": "4fb2bd81ccaed54f",
+      "title": "粗糙波动率的Dyson-Schwinger有效作用方法：校准、奇异期权与风险的相关响应架构",
+      "publishedAt": "2026-10-07T04:00:00+00:00",
+      "limitations": "所有精度数字（如0.01-0.11 bp、0.97 bp、0.92 bp）均来自作者基准与辅助技术补充，未经独立复现；方法依赖Gaussian近似与特定顶点处理，在极端参数、未测试模型或非高斯特征下误差边界未知；文中未提供实盘数据或市场校准结果，也未涉及交易成本、模型风险或投资建议。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "If independently validated, the method could offer a unified framework for calibration, forward-start smiles, continuously-monitored barriers and vega computation for rough volatility, lowering computational dimensionality while approaching Monte Carlo accuracy. Its Dyson-Schwinger causal response block yields the impulse-vega curve directly, providing new analytical structure for risk management and exotic option pricing.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "若该方法经独立验证，可为粗糙波动率提供统一的校准、远期起微笑、连续障碍与vega计算框架，在保持接近蒙特卡洛精度的同时降低计算维度。其Dyson-Schwinger相关响应块可直接给出impulse-vega曲线，为风险管理和奇异期权定价提供新的解析结构。",
+      "originalTitle": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
+      "aiGenerated": true,
+      "keyPoints": [
+        "用2PI有效作用与Dyson-Schwinger间隙方程构造随机波动率定价的非微扰高斯闭包，指数顶点下骨架图闭式求和，melon级将Hartree误差降至0.01-0.11 bp。",
+        "该方法按传播子是否时间局部区分马尔可夫模型（间隙方程退化为少数ODE）与粗糙（Volterra）模型（保留全程两时间传播子）。",
+        "对粗糙Bergomi在H=0.07、rho=-0.9附近与蒙特卡洛参考精度相当，SABR在72格、10年内精度约0.97 bp，rough SABR约0.92 bp。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "dyson-schwinger-effective-action-methods-for-rou-4fb2bd81cc",
+      "titleEn": "Dyson-Schwinger Effective-Action Methods for Rough Volatility: A Correlation-Response Architecture for Calibration, Exotics and Risk",
+      "summaryEn": "The author approximates the joint law of state variables via 2PI effective action and Dyson-Schwinger gap equations, summing skeletons in closed form for exponential vertices; for nonzero correlation, conditional Gaussian modes and moment matching handle integrated variance and leverage integral. The framework reduces Markovian volatility models to a few ODEs while retaining the full two-time propagator for rough models, and numerically matches Monte Carlo references for rough Bergomi, SABR and rough SABR. These findings rely on the author's benchmarks and ancillary technical supplement and require independent replication.",
+      "tagsEn": [
+        "rough volatility",
+        "stochastic volatility",
+        "quantum field theory methods",
+        "Dyson-Schwinger equations",
+        "option pricing",
+        "exotic options"
+      ],
       "discoveredBy": [
         "arXiv q-fin"
       ],
-      "score": 66.02,
-      "aiGenerated": true,
-      "limitationsEn": "The paper is theoretical with an illustrative NYSE daily data example, and does not analyze out-of-sample transaction costs, liquidity, or capacity. Results rely on semimartingale market and predictable adjustment event assumptions; the entropy-based counterexample shows failure of a specific additive generation under repeated splits but does not imply all price-weight strategies fail. Advance adjustment information offers no model-free performance guarantee, and the empirical comparison is not investment advice.",
-      "description": "该研究将随机组合理论的生成策略从市值权重转向名义价格权重，并以价格加权基准评估表现。其新意在于将拆股与合股导致的权重跳跃纳入自融资条件，构造显式跳跃修正的财富分解，并揭示熵基加法生成策略在反复拆股下相对财富趋于负无穷，从而限制长期相对套利论证的适用性。",
-      "domain": "量化研究",
+      "summary": "作者提出以2PI有效作用与Dyson-Schwinger间隙方程近似状态变量联合律，在指数顶点下将骨架图闭式求和；在非零相关时通过条件高斯模与矩匹配处理积分方差和杠杆积分。该框架将马尔可夫波动率模型化为少数ODE，粗糙模型保留全程两时间传播子，数值上对粗糙Bergomi、SABR和rough SABR达到与蒙特卡洛参考相近的精度。上述结论基于作者提供的基准与辅助技术补充，尚需独立复现验证。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 85,
+        "relevanceScore": 90,
         "topicClassification": {
           "classification": "quantitative-finance",
           "confidence": 0.9,
           "financeEvidence": [
             "securities",
-            "portfolio",
-            "trading"
+            "market-risk"
           ],
           "quantitativeEvidence": [
-            "stochastic"
+            "stochastic",
+            "calibration"
           ],
           "aiEvidence": [],
           "sourcePrior": "量化研究"
         },
-        "contentValueScore": 61.94,
+        "contentValueScore": 60.5,
         "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 10.0,
+          "evidence": 5.0,
+          "actionability": 5.0,
           "novelty": 0.0,
-          "specificity": 3.69,
+          "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 63.33,
+        "freshnessScore": 70.0,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.04348",
+      }
+    },
+    {
       "retrievedAt": "2026-10-06T15:59:59.999999+00:00",
-      "whyItMatters": "该框架为随机组合理论提供了一种价格权重视角，并明确拆股等公司行为对生成策略财富分解的影响。它提醒研究者，基于市值权重的经典结论不能不加修正地迁移到价格权重或存在拆股调整的场景；对构建和评估相对套利策略具有理论警示意义。",
+      "descriptionEn": "This study proposes a stochastic portfolio theory framework in which trading strategies are generated from nominal price weights and evaluated against a price-weighted benchmark. Its novelty lies in incorporating split- and reverse-split-induced jumps in generating weights into the self-financing condition and providing explicit jump-corrected wealth decompositions; it is useful because it shows that the usual long-horizon relative arbitrage argument does not extend directly ",
+      "originalUrl": "https://arxiv.org/abs/2610.04348",
       "features": [
         {
           "id": "artifact:paper",
@@ -1705,92 +1513,225 @@
           "confidence": 0.9
         }
       ],
-      "publishedAt": "2026-10-06T04:00:00+00:00"
-    },
-    {
-      "contentType": "paper",
-      "titleEn": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
-      "tags": [
-        "可信度理论",
-        "多元分布",
-        "狄利克雷混合模型",
-        "保险定价",
-        "车联网"
-      ],
       "keyPointsEn": [
-        "DMMM represents policyholder risk as a stable composition over latent risk classes: baseline characteristics determine the prior, and repeated multivariate experience updates the posterior.",
-        "The posterior predictive distribution can be written exactly as a convex combination of portfolio and experience components, extending the classical credibility-factor structure from the conditional mean to the distributional level.",
-        "Simulation shows simple experts can capture complex multivariate insurance distributions and learn individual risk; in telematics, recent claims and driving behavior provide complementary information, giving similar policyholders different experience-rated assessments."
+        "Stock splits and reverse splits induce jumps in generating weights without changing the value of existing investments, requiring share adjustments to be included in the self-financing condition.",
+        "Under additive generation, an entropy-based example shows that repeated splits can drive relative wealth to negative infinity almost surely, so the long-horizon relative arbitrage argument cannot be applied directly.",
+        "Wealth-preserving restarts in multiplicative generation retain the classical portfolio allocation evaluated at current price weights; conversion to the capitalization-based framework preserves absolute wealth and is strategy-independent."
       ],
-      "originalTitle": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
-      "id": "ae656ea07b5a6a12",
-      "whyItMattersEn": "Classical credibility theory focuses primarily on conditional means and expected premiums, whereas insurance pricing often needs to consider multiple correlated outcomes and their distributional shapes. DMMM offers an exact and flexible distributional credibility framework for heterogeneous multivariate insurance experience while retaining interpretability, helping distinguish individual risk in settings such as telematics where complementary information is available.",
-      "tagsEn": [
-        "credibility theory",
-        "multivariate distribution",
-        "Dirichlet mixed-membership model",
-        "insurance pricing",
-        "telematics"
-      ],
-      "title": "狄利克雷混合隶属模型实现精确多元分布可信度",
-      "summary": "论文提出狄利克雷混合隶属模型（DMMM）用于多元分布可信度：保单持有人风险表示为其潜在风险类别上的稳定混合比例，基线特征决定先验评估，重复多元经验逐步更新后验评估。后验预测分布可精确表示为组合成分与经验成分的凸组合，将经典可信度因子结构推广到条件均值之外。模拟实验显示相对简单的专家分布可捕捉复杂多元保险分布并随经验累积学习个体风险；车联网应用表明近期索赔与驾驶行为提供互补信息，相似保单持有人可获得不同的经验评级。",
-      "sourceGroup": "论文",
-      "summaryEn": "The paper proposes a Dirichlet mixed-membership model (DMMM) for multivariate distributional credibility: policyholder risk is represented by a stable composition over latent risk classes, baseline characteristics determine the a priori assessment, and repeated multivariate experience progressively updates the a posteriori assessment. The posterior predictive distribution can be written exactly as a convex combination of portfolio and experience components, extending the familiar credibility-factor structure beyond the conditional mean. Simulation shows relatively simple experts can capture complex multivariate insurance distributions and learn policyholder-specific risk as experience accumulates; the telematics application shows recent claims and driving behavior provide complementary information, allowing similar policyholders to receive different experience-rated assessments.",
-      "summaryModel": "deepseek-v4-flash",
+      "contentType": "paper",
+      "limitationsEn": "The abstract does not specify whether the model assumptions cover all real-world split and adjustment events, nor whether the empirical illustration is statistically significant; the entropy-based counterexample and the no-model-free-guarantee conclusion depend on the specific generation method and predictable adjustment setting and cannot be generalized directly to all strategies or markets; this is not investment advice, and practical application requires independent validation of data and execution assumptions.",
+      "domain": "量化研究",
+      "score": 66.02,
+      "description": "该研究提出一个以名义价格权重生成交易策略、并以价格加权基准评估的随机投资组合理论框架。其新意在于把拆股与反向拆股引发的生成权重跳跃纳入自融资条件，并给出带跳跃修正的财富分解；其有用性在于说明传统长期相对套利论证在重复拆股下不能直接移植，并建立与市值加权框架的财富保持转换。",
       "sourceName": "arXiv q-fin",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "This study extends classical credibility theory from conditional means and expected premiums to the multivariate distributional level by proposing a Dirichlet mixed-membership model (DMMM). It preserves the credibility-factor structure while allowing the posterior predictive distribution to be written exactly as a convex combination of portfolio and experience components. Its novelty lies in modeling multivariate insurance outcome distributions directly and characterizing exp",
-      "keyPoints": [
-        "DMMM用潜在风险类别上的稳定混合比例表示保单持有人风险，先验由基线特征决定，后验随重复多元经验更新。",
-        "后验预测分布可精确写成组合成分与经验成分的凸组合，将经典可信度因子结构从条件均值扩展到分布层面。",
-        "模拟显示简单专家分布能捕捉复杂多元保险分布并学习个体风险；车联网中近期索赔与驾驶行为提供互补信息，使相似保单持有人获得不同经验评级。"
+      "tags": [
+        "随机投资组合理论",
+        "价格加权基准",
+        "拆股调整",
+        "自融资条件",
+        "相对套利",
+        "市值加权框架"
       ],
-      "limitations": "论文仅有仿真实验和一个车联网应用，不能保证在其他险种、数据生成机制或样本规模下同样有效；DMMM依赖潜在风险类别与专家分布的设定，专家分布选择的稳健性、参数可识别性、计算扩展性以及先验敏感性尚需进一步检验；文中结论限于作者报告的场景，不应直接外推为通用保险定价结论。",
-      "slug": "a-dirichlet-mixed-membership-model-for-exact-mul-ae656ea07b",
+      "id": "96234c62700dd110",
+      "title": "基于价格的随机投资组合理论框架：拆股调整下的策略生成与基准转换",
+      "publishedAt": "2026-10-06T04:00:00+00:00",
+      "limitations": "摘要未给出模型假设是否覆盖所有现实拆股与调整事件的完整条件，也未说明实证是否具有统计显著性；熵型反例与无模型保证的结论依赖特定生成方式与可预测调整设定，不能直接推广为所有策略或所有市场的普遍结论；文中不构成投资建议，实际应用需自行验证数据与执行假设。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "The framework explicitly incorporates price weights and split adjustments into stochastic portfolio theory, helping clarify the evaluation boundary of strategies under a price-weighted benchmark and the impact of split events on the long-term relative performance of generated portfolios, while providing structure for comparing price-weighted and capitalization-weighted approaches.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该框架把价格权重和拆股调整显式纳入随机投资组合理论，有助于理解价格加权基准下的策略评估边界，并澄清拆分事件对生成组合长期相对表现的影响，为比较价格加权与市值加权方法提供结构。",
+      "originalTitle": "A Price-Based Framework for Stochastic Portfolio Theory",
+      "aiGenerated": true,
+      "keyPoints": [
+        "拆股和反向拆股会在生成权重中造成跳跃，但不改变既有投资价值，需把股份调整纳入自融资条件。",
+        "加性生成下熵型例子显示，重复拆股可导致相对财富几乎必然趋于负无穷，长期相对套利论证不能直接套用。",
+        "乘性生成的财富保持重启保留按当前价格权重评估的经典组合配置；与市值加权框架的转换保持绝对财富且基准转换与策略无关。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "a-price-based-framework-for-stochastic-portfolio-96234c6270",
+      "titleEn": "A Price-Based Framework for Stochastic Portfolio Theory: Strategy Generation and Benchmark Conversion under Split Adjustments",
+      "summaryEn": "In a semimartingale market with predictable adjustment events, the paper writes share adjustments from splits into the self-financing condition and constructs additively and multiplicatively generated strategies with explicit jump-corrected wealth decompositions. The authors show that under additive generation an entropy-based example has relative wealth tending to negative infinity almost surely under repeated splits, and that advance adjustment information alone provides no model-free guarantee of improved performance. They also establish a correspondence with the capitalization-based framework that preserves absolute wealth and yields a strategy-independent benchmark conversion, illustrated with daily NYSE data.",
+      "tagsEn": [
+        "stochastic portfolio theory",
+        "price-weighted benchmark",
+        "split adjustment",
+        "self-financing condition",
+        "relative arbitrage",
+        "capitalization-based framework"
+      ],
       "discoveredBy": [
         "arXiv q-fin"
       ],
-      "score": 65.7,
-      "aiGenerated": true,
-      "limitationsEn": "The paper includes only a simulation experiment and one telematics application, so effectiveness is not guaranteed for other lines of business, data-generating mechanisms, or sample sizes. DMMM relies on specifications of latent risk classes and expert distributions; robustness to expert choice, parameter identifiability, computational scalability, and prior sensitivity require further testing. The conclusions are limited to the scenarios reported by the authors and should not be directly extrapolated as general insurance pricing conclusions.",
-      "description": "该研究将经典可信度理论从条件均值与期望保费拓展到多元分布层面，提出一种狄利克雷混合隶属模型（DMMM），在保留可信度因子结构的同时，使后验预测分布可精确写成组合与经验成分的凸组合。其新意在于直接对多元保险结果分布建模并刻画经验更新过程，在车联网应用中展示近期索赔与驾驶行为对未来索赔频率的互补信息。",
-      "domain": "金融研究",
+      "summary": "论文在可预测调整事件的半鞅市场中，将拆股对应的股份调整写入自融资条件，构造了加性与乘性生成策略及显式跳跃修正财富分解。作者证明，加性生成下熵型例子在重复拆股时相对财富几乎必然趋于负无穷，并指出仅凭提前调整信息无法获得模型无关的业绩改进保证。作者还给出与市值加权框架的对应关系，保持绝对财富并产生策略无关的基准转换，并用日度纽交所数据作说明。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 7840,
+        "comparisonCohortSize": 7876,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 77,
+        "relevanceScore": 85,
         "topicClassification": {
-          "classification": "finance",
-          "confidence": 0.76,
+          "classification": "quantitative-finance",
+          "confidence": 0.9,
           "financeEvidence": [
-            "portfolio"
+            "securities",
+            "portfolio",
+            "trading"
           ],
-          "quantitativeEvidence": [],
+          "quantitativeEvidence": [
+            "stochastic"
+          ],
           "aiEvidence": [],
           "sourcePrior": "量化研究"
         },
-        "contentValueScore": 61.47,
+        "contentValueScore": 61.94,
         "contentSignals": {
-          "evidence": 5.0,
+          "evidence": 10.0,
           "actionability": 10.0,
-          "novelty": 8.0,
-          "specificity": 3.82,
+          "novelty": 0.0,
+          "specificity": 3.69,
           "penalty": 0.0
         },
         "freshnessScore": 63.33,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "carryover"
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.05741",
+      }
+    },
+    {
+      "retrievedAt": "2026-10-11T15:59:59.999999+00:00",
+      "descriptionEn": "Open WebUI is a user-friendly AI interface that supports backends such as Ollama and the OpenAI API. It is new in offering a unified interaction entry compatible with multiple model services, simplifying daily use of local or cloud-based large models; it is practical for users who need a self-hosted AI chat entry.",
+      "originalUrl": "https://github.com/open-webui/open-webui",
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        }
+      ],
+      "keyPointsEn": [
+        "Positioned as a user-friendly AI interface focused on interaction experience",
+        "Supports multiple backends including Ollama and OpenAI API",
+        "Appeared on GitHub Trending Daily, indicating recent attention"
+      ],
+      "contentType": "repository",
+      "limitationsEn": "The input contains only a one-line summary and the GitHub Trending source; it provides no specific features, deployment requirements, performance data, security mechanisms, or maintenance status. Its maturity, applicable scale, or differences from similar tools cannot be assessed from this input.",
+      "domain": "AI 工具",
+      "score": 65.86,
+      "description": "Open WebUI 是一个支持 Ollama 和 OpenAI API 等后端的用户友好型 AI 界面。新在提供兼容多种模型服务的统一交互入口，用于简化本地或云端大模型的日常使用；对需要自托管 AI 对话入口的用户具有实用性。",
+      "sourceName": "GitHub Trending Daily",
+      "tags": [
+        "AI 工具",
+        "用户界面",
+        "本地部署",
+        "大模型",
+        "Ollama",
+        "OpenAI API"
+      ],
+      "id": "7c94eb734f17ebfc",
+      "title": "Open WebUI：本地大模型友好前端界面",
+      "publishedAt": "2026-10-11T15:59:59.999999+00:00",
+      "limitations": "输入内容仅包含一句话简介和 GitHub Trending 来源，未提供具体功能、部署要求、性能数据、安全机制或维护状态；无法据此评估其成熟度、适用规模或与其他同类工具的差异。",
+      "sourceGroup": "开源项目",
+      "whyItMattersEn": "For users who need a unified interface to access local models or cloud model APIs, Open WebUI may offer an entry that reduces switching costs, reflecting a trend toward multi-backend compatibility and user-friendly frontends in AI tooling.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "对于需要统一界面访问本地模型或云端模型 API 的用户，Open WebUI 提供了一种可能降低切换成本的入口，反映了 AI 工具向多后端兼容和易用前端发展的趋势。",
+      "originalTitle": "open-webui/open-webui",
+      "aiGenerated": true,
+      "keyPoints": [
+        "定位为用户友好的 AI 界面，聚焦交互体验",
+        "支持 Ollama、OpenAI API 等多种后端",
+        "在 GitHub Trending Daily 出现，表明近期受到关注"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "open-webui-open-webui-7c94eb734f",
+      "titleEn": "Open WebUI: A User-Friendly Frontend for Local Large Models",
+      "summaryEn": "Fact: Open WebUI appeared on GitHub Trending Daily and is described as a user-friendly AI interface supporting Ollama, OpenAI API, and more. Opinion: The input positions it as a user-facing frontend suitable for unifying access to different model backends, but provides no performance or feature details.",
+      "tagsEn": [
+        "AI Tools",
+        "User Interface",
+        "Local Deployment",
+        "Large Models",
+        "Ollama",
+        "OpenAI API"
+      ],
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "summary": "事实：Open WebUI 在 GitHub Trending Daily 上出现，被描述为一个用户友好的 AI 界面，支持 Ollama、OpenAI API 等。观点：输入内容将其定位为面向用户的前端工具，适合希望统一接入不同模型后端的使用场景，但未提供性能或功能细节。",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 58,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 95.0,
+        "metricPercentile": 92.86,
+        "velocityPercentile": 92.86,
+        "objectiveScore": 92.86,
+        "relevanceScore": 35,
+        "topicClassification": {
+          "classification": "other",
+          "confidence": 0.85,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [],
+          "sourcePrior": null
+        },
+        "contentValueScore": 20.9,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 0.15,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 5.0,
+          "trending_rank_score": 95.0,
+          "stars": 154633.0,
+          "stars_delta_1d": 142.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      }
+    },
+    {
       "retrievedAt": "2026-10-06T15:59:59.999999+00:00",
-      "whyItMatters": "经典可信度理论主要关注条件均值与期望保费，而保险定价常需同时考虑多个相关结果及其分布形态。DMMM在保留可信度可解释性的同时，为多元异构保险经验提供了一种精确且灵活的分布可信度框架，有助于在车联网等场景中利用补充信息区分个体风险。",
+      "descriptionEn": "The study proposes a Dirichlet mixed-membership model that extends classical credibility theory from conditional means to multivariate distributions, enabling insurers to combine portfolio priors and individual experience posteriors exactly.",
+      "originalUrl": "https://arxiv.org/abs/2610.05741",
       "features": [
         {
           "id": "artifact:paper",
@@ -1848,54 +1789,151 @@
           "confidence": 0.8
         }
       ],
-      "publishedAt": "2026-10-06T04:00:00+00:00"
+      "keyPointsEn": [
+        "DMMM represents policyholder risk as a stable composition over latent risk classes via a Dirichlet mixed-membership structure, with baseline characteristics determining the prior and multivariate experience updating the posterior.",
+        "Support-specific expert distributions accommodate heterogeneous outcomes, dependence is induced through the shared latent structure, and the posterior predictive distribution is exactly a convex combination of portfolio and experience components.",
+        "Simulation shows that relatively simple experts can capture complex multivariate insurance distributions and learn policyholder-specific risk as experience accumulates; in a vehicle telematics application, recent claims and driving behaviour provide complementary information."
+      ],
+      "contentType": "paper",
+      "limitationsEn": "Evidence is based on a simulation experiment and a single vehicle telematics application, not yet validated on large-scale multi-line real portfolios; the choice of expert distributions and number of latent classes may affect results, and computational complexity and parameter estimation uncertainty are not discussed.",
+      "domain": "金融研究",
+      "score": 65.7,
+      "description": "该研究提出Dirichlet混合隶属模型，将经典信度理论从条件均值扩展到多元分布层面，使保险公司能精确结合组合先验与个体经验后验。",
+      "sourceName": "arXiv q-fin",
+      "tags": [
+        "信度理论",
+        "Dirichlet混合模型",
+        "多元分布",
+        "保险定价",
+        "远程信息处理"
+      ],
+      "id": "ae656ea07b5a6a12",
+      "title": "Dirichlet混合隶属模型实现多元分布信度定价",
+      "publishedAt": "2026-10-06T04:00:00+00:00",
+      "limitations": "文中的证据基于模拟实验和单一车辆远程信息处理应用，尚未在大规模多险种真实组合中验证；专家分布的选择和潜在类别数设定可能影响结果，且未讨论计算复杂度与参数估计不确定性。",
+      "sourceGroup": "论文",
+      "whyItMattersEn": "The framework preserves the interpretability of classical credibility while generalizing credibility weighting from means to full multivariate distributions, helping insurers use heterogeneous experience for more granular individualized pricing.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该框架在保留经典信度可解释性的同时，将信度加权从均值推广到完整多元分布，有助于保险公司利用异质经验进行更精细的个体化定价。",
+      "originalTitle": "A Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
+      "aiGenerated": true,
+      "keyPoints": [
+        "DMMM通过Dirichlet混合隶属结构将投保人风险表示为潜在风险类别上的稳定构成，基线特征决定先验，多元经验更新后验。",
+        "支持特定专家分布可容纳异质结果，依赖关系通过共享潜在结构诱导，后验预测分布精确等于组合成分与经验成分的凸组合。",
+        "模拟实验表明简单专家分布能捕捉复杂多元保险分布并随经验积累学习个体风险；车辆远程信息处理应用中近期索赔与驾驶行为提供互补信息。"
+      ],
+      "summaryModel": "deepseek-v4-flash",
+      "slug": "a-dirichlet-mixed-membership-model-for-exact-mul-ae656ea07b",
+      "titleEn": "Dirichlet Mixed-Membership Model for Exact Multivariate Distributional Credibility",
+      "summaryEn": "Credibility theory combines individual experience with portfolio information for insurance pricing, but classical formulations focus primarily on conditional means and expected premiums. The authors propose a Dirichlet mixed-membership model (DMMM) for multivariate distributional credibility, representing policyholder risk as a stable composition over latent risk classes, with baseline characteristics determining the a priori assessment and repeated multivariate experience progressively updating the a posteriori assessment. The resulting posterior predictive distribution can be written exactly as a convex combination of portfolio and experience components, extending the credibility-factor structure beyond the conditional mean.",
+      "tagsEn": [
+        "Credibility theory",
+        "Dirichlet mixed-membership model",
+        "Multivariate distributions",
+        "Insurance pricing",
+        "Telematics"
+      ],
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "summary": "信度理论用于保险定价，但经典方法主要针对条件均值和期望保费。作者提出Dirichlet混合隶属模型（DMMM），用潜在风险类别上的稳定构成表示投保人风险，基线特征决定先验评估，重复多元经验逐步更新后验评估。后验预测分布可精确写成组合成分与经验成分的凸组合，从而将信度因子结构推广到条件均值之外。",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 7876,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 77,
+        "topicClassification": {
+          "classification": "finance",
+          "confidence": 0.76,
+          "financeEvidence": [
+            "portfolio"
+          ],
+          "quantitativeEvidence": [],
+          "aiEvidence": [],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 61.47,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 3.82,
+          "penalty": 0.0
+        },
+        "freshnessScore": 63.33,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
+      }
     },
     {
-      "contentType": "article",
-      "titleEn": "Quantocracy Quant Links Roundup as of October 10, 2026",
-      "tags": [
-        "量化研究",
-        "链接汇总",
-        "债券配置",
-        "美债收益率"
+      "retrievedAt": "2026-10-11T15:59:59.999999+00:00",
+      "descriptionEn": "This card is based on Quantocracy's link digest dated Oct 10, 2026, which includes a discussion on the role of long bonds in portfolios; however, the given content only mentions that the 30-year Treasury yield closed at 5.60% in the first week of October, its highest since 2002, and then truncates after 'TLT', without providing specific new findings or conclusions.",
+      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-10102026",
+      "features": [
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
       ],
       "keyPointsEn": [
-        "Aggregates quant research links featured on Quantocracy as of October 10, 2026.",
-        "The summary mentions the 30-year Treasury yield closed at 5.60% in the first week of October, the highest since 2002.",
-        "Includes an article (Beyond Passive) arguing long bonds still belong in a portfolio."
+        "Quantocracy published a quant link digest dated Oct 10, 2026",
+        "One article is titled 'Why Long Bonds Still Belong in the Portfolio'",
+        "The summary mentions the 30-year Treasury yield closed at 5.60% in the first week of October, its highest since 2002"
       ],
-      "originalTitle": "Recent Quant Links from Quantocracy as of 10/10/2026",
-      "id": "02d91aa722e40a53",
-      "whyItMattersEn": "This roundup offers quant researchers a centralized index of recent multi-source discussions, helping them quickly identify currently debated topics, such as bond allocation when long-term rates are at multi-year highs.",
-      "tagsEn": [
-        "quant research",
-        "link roundup",
-        "bond allocation",
-        "Treasury yields"
-      ],
-      "title": "Quantocracy 2026年10月10日量化链接汇总",
-      "summary": "Quantocracy发布了截至2026年10月10日的近期量化链接汇总。摘要提到10月第一周30年期美债收益率收于5.60%，为2002年以来最高，并引述一篇关于长债在组合中仍应占有一席之地的文章。上述收益率数据为事实陈述，而长债配置观点来自被链接文章作者，非Quantocracy官方结论。",
-      "sourceGroup": "网站与论坛",
-      "summaryEn": "Quantocracy published a roundup of recent quant links as of October 10, 2026. The summary notes that in the first week of October the 30-year Treasury yield closed at 5.60%, its highest since 2002, and cites an article arguing that long bonds still belong in a portfolio. The yield figure is a factual statement, while the bond allocation view comes from the linked article's author, not from Quantocracy as an official conclusion.",
-      "summaryModel": "deepseek-v4-flash",
+      "contentType": "article",
+      "limitationsEn": "This card is based only on a link digest snippet and cannot access the full arguments, data, methods, or backtest results of the original articles; the 30-year yield of 5.60% and its highest-since-2002 status are statements from the summary and have not been independently verified; it should not be treated as investment advice or a complete research conclusion.",
+      "domain": "金融研究",
+      "score": 43.51,
+      "description": "该卡片基于Quantocracy 2026年10月10日的链接汇总，其中一项讨论涉及长债在投资组合中的角色；但给定内容仅提到30年期美债收益率在10月第一周收于5.60%，为2002年以来最高，并出现“TLT”后截断，未提供具体新发现或结论。",
       "sourceName": "Quantocracy",
-      "summaryProvider": "deepseek",
-      "descriptionEn": "This page aggregates recent quant research links featured on Quantocracy as of October 10, 2026. It opens with the context of the 30-year Treasury yield reaching 5.60% and a discussion of long bonds' role in portfolios. Its value lies in providing a single entry point to recently discussed quant topics from multiple sources.",
-      "keyPoints": [
-        "汇总了截至2026年10月10日Quantocracy收录的量化研究链接。",
-        "摘要提及10月第一周30年期美债收益率收于5.60%，为2002年以来最高。",
-        "涉及一篇主张长债仍应留在投资组合中的文章（Beyond Passive）。"
+      "tags": [
+        "量化投资",
+        "债券",
+        "资产配置",
+        "链接汇总"
       ],
-      "limitations": "该内容仅为链接汇总和简短摘要，未提供每篇文章的完整论证、数据细节或回测结果；所提及的收益率数据仅覆盖10月第一周，且长债配置观点来自被链接文章，未经独立验证。读者需查阅原始文章以评估其方法和结论。",
+      "id": "02d91aa722e40a53",
+      "title": "量化链接汇总：长债在组合中的角色再讨论",
+      "publishedAt": "2026-10-11T05:15:06+00:00",
+      "limitations": "该卡片仅基于链接汇总片段，无法获取原文的完整论点、数据、方法或回测结果；30年期收益率5.60%与2002年以来最高为摘要陈述，未经独立核实；不应将摘要视为投资建议或完整研究结论。",
+      "sourceGroup": "网站与论坛",
+      "whyItMattersEn": "This digest helps quant researchers track recent community discussions; the role of long bonds involves duration risk, interest rate cycles, and asset allocation, and merits attention, but requires the full original article for evaluation.",
+      "summaryProvider": "deepseek",
+      "whyItMatters": "该汇总可帮助量化研究者了解近期社区讨论方向；长债在组合中的角色涉及久期风险、利率周期与资产配置，值得关注，但需结合完整原文评估。",
+      "originalTitle": "Recent Quant Links from Quantocracy as of 10/10/2026",
+      "aiGenerated": true,
+      "keyPoints": [
+        "Quantocracy发布2026年10月10日量化链接汇总",
+        "其中一篇文章标题为“为什么长债仍应留在投资组合中”",
+        "摘要提及30年期美债收益率在10月第一周收于5.60%，为2002年以来最高"
+      ],
+      "summaryModel": "deepseek-v4-flash",
       "slug": "recent-quant-links-from-quantocracy-as-of-10-10--02d91aa722",
+      "titleEn": "Quant Links Digest: Revisiting the Role of Long Bonds in Portfolios",
+      "summaryEn": "Fact: Quantocracy published a quant link digest dated Oct 10, 2026, including an article discussing whether long bonds still belong in portfolios. Fact: The summary mentions that the 30-year Treasury yield closed at 5.60% in the first week of October, its highest since 2002. Author's view: The article title suggests the role of long bonds remains worth discussing, but the summary does not provide specific arguments.",
+      "tagsEn": [
+        "quantitative investing",
+        "bonds",
+        "asset allocation",
+        "link digest"
+      ],
       "discoveredBy": [
         "Quantocracy"
       ],
-      "score": 43.51,
-      "aiGenerated": true,
-      "limitationsEn": "The content is only a link roundup with brief summaries and does not provide full arguments, data details, or backtest results for each article. The yield figure covers only the first week of October, and the long-bond allocation view comes from the linked article without independent verification. Readers need to consult the original articles to assess their methods and conclusions.",
-      "description": "该页面汇总了截至2026年10月10日Quantocracy收录的量化研究链接，开篇提及30年期美债收益率触及5.60%的背景下，讨论长债在投资组合中的配置价值。新意在于提供近期量化议题的聚合入口，便于读者集中获取多来源讨论。",
-      "domain": "金融研究",
+      "summary": "事实：Quantocracy发布2026年10月10日量化链接汇总，其中包含讨论长债是否仍应留在投资组合的文章。事实：该摘要提及10月第一周30年期美债收益率收于5.60%，为2002年以来最高。作者观点：链接标题暗示长债在组合中的角色仍值得讨论，但摘要未提供具体观点。",
       "scoreBreakdown": {
         "contentType": "article",
         "comparisonCohortSize": 1,
@@ -1929,24 +1967,7 @@
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
         "selectionLane": "primary"
-      },
-      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-10102026",
-      "retrievedAt": "2026-10-11T15:59:59.999999+00:00",
-      "whyItMatters": "该汇总为量化研究者提供了近期多来源讨论的集中索引，有助于快速了解当前受关注的议题，例如在长端利率处于多年高位的环境下，债券配置的争论。",
-      "features": [
-        {
-          "id": "topic:portfolio",
-          "facet": "topic",
-          "value": "portfolio",
-          "label": {
-            "zh": "投资组合",
-            "en": "Portfolio"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "publishedAt": "2026-10-11T05:15:06+00:00"
+      }
     }
   ]
 }
