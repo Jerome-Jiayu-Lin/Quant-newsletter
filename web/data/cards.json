@@ -5,29 +5,17 @@
   "edition": "2026-10-20",
   "cards": [
     {
-      "keyPointsEn": [
-        "Sector rotation is modeled as ranking by forward sector-benchmark Sharpe ratios, preserving temporal information.",
-        "RegimeRank achieves interpretable ranking via expert-defined temporal features, macro-regime cross-attention, and cross-sector self-attention.",
-        "On weekly S&P 500 data from 2002 to 2024, it outperforms baselines on multiple ranking metrics, with ablations supporting each component."
+      "tags": [
+        "行业轮动",
+        "量化选股",
+        "可解释机器学习",
+        "宏观状态",
+        "注意力机制"
       ],
-      "sourceName": "arXiv q-fin",
-      "title": "RegimeRank：可解释行业轮动排序新框架",
-      "tagsEn": [
-        "sector rotation",
-        "interpretable ranking",
-        "macro regimes",
-        "attention mechanism",
-        "quantitative investing"
-      ],
-      "whyItMattersEn": "It provides an interpretable ranking tool for overweight/underweight sector decisions in benchmark-relative portfolio management, helping understand how macro regime changes and sector relationships affect rankings and supporting model diagnostics.",
-      "sourceGroup": "论文",
-      "score": 84.19,
-      "discoveredBy": [
-        "arXiv cs.LG",
-        "arXiv q-fin"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "量化研究",
+      "description": "该研究提出RegimeRank模型，将行业轮动任务形式化为按预期风险调整主动绩效排序行业，并通过专家定义的时间特征、宏观状态条件化和跨行业依赖建模提升排序表现，同时保持可解释性。其新意在于融合宏观状态感知与注意力机制，为量化选股提供可诊断的排序工具。",
+      "originalTitle": "Regime-Aware Interpretable Ranking for Sector Rotation",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "This study proposes RegimeRank, a model that formulates sector rotation as ranking sectors by expected future risk-adjusted active performance, and enhances ranking performance while maintaining interpretability through expert-defined temporal features, macro-regime conditioning, and cross-sector dependency modeling. Its novelty lies in integrating regime awareness with attention mechanisms to provide a diagnosable ranking tool for quantitative portfolio management.",
       "contentType": "paper",
       "features": [
         {
@@ -97,16 +85,9 @@
           "confidence": 0.8
         }
       ],
-      "slug": "regime-aware-interpretable-ranking-for-sector-ro-6f7326b645",
-      "id": "6f7326b645f44858",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "Fact: The authors formulate sector rotation as ranking sector actions by expected future risk-adjusted active performance, measured by forward sector-benchmark Sharpe ratios, and propose RegimeRank. The model represents fundamental and technical signals through expert-defined temporal characteristics, conditions them on learned macro factors via cross-attention, and models cross-sector dependencies through self-attention. On weekly S&P 500 data from 2002 to 2024 under combinatorial purged cross-validation, RegimeRank outperforms representative ranking and machine-learning baselines across multiple ranking metrics; ablation studies support the contributions of latent macro states, regime conditioning, and cross-sector modeling. Authors' view: attribution and attention analyses can illustrate the temporal characteristics, macro states, and sector relationships underlying its rankings.",
-      "whyItMatters": "为基准相对组合管理中的行业超配/低配决策提供可解释的排序工具，帮助理解宏观环境变化和行业关联如何影响排序，并支持模型诊断。",
-      "description": "该研究提出RegimeRank模型，将行业轮动排序任务转化为基于前瞻行业-基准夏普比率的排序问题，并通过专家定义时序特征、宏观状态条件化和跨行业注意力机制提升排序表现与可解释性。其新意在于融合宏观环境依赖与行业间关联，并用预期梯度归因和注意力图提供诊断。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -139,52 +120,59 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "Evidence is based on backtests using weekly S&P 500 data from 2002 to 2024 under combinatorial purged cross-validation; other markets, asset classes, or higher-frequency data are not covered. Performance depends on expert-defined feature transformations and baseline choices; attribution and attention analyses are diagnostic rather than causal evidence. Real trading costs, capacity constraints, and out-of-sample stability are not addressed in the abstract.",
-      "originalTitle": "Regime-Aware Interpretable Ranking for Sector Rotation",
-      "descriptionEn": "The study proposes RegimeRank, which formulates sector rotation as ranking sector actions by forward sector-benchmark Sharpe ratios. It enhances ranking performance and interpretability via expert-defined temporal features, macroeconomic regime conditioning, and cross-sector attention. The novelty lies in integrating regime dependence and cross-sector dependencies with attribution and attention diagnostics.",
-      "keyPoints": [
-        "将行业轮动建模为按前瞻行业-基准夏普比率排序的任务，保留时间信息。",
-        "RegimeRank通过专家定义时序特征、宏观状态交叉注意力和跨行业自注意力实现可解释排序。",
-        "在2002-2024年标普500周度数据上，多个排序指标优于基线，消融支持各组件贡献。"
+      "slug": "regime-aware-interpretable-ranking-for-sector-ro-6f7326b645",
+      "id": "6f7326b645f44858",
+      "keyPointsEn": [
+        "RegimeRank represents fundamental and technical signals through expert-defined temporal characteristics and conditions them on learned macro factors via cross-attention.",
+        "The model captures cross-sector dependencies using self-attention and provides interpretability diagnostics through expected-gradient attributions and attention maps.",
+        "On weekly S&P 500 data from 2002 to 2024 under combinatorial purged cross-validation, the model outperforms baselines on multiple ranking metrics."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "RegimeRank: An Interpretable Ranking Framework for Sector Rotation",
-      "limitations": "证据基于2002-2024年标普500周度数据的回测，采用组合净化交叉验证；未涉及其他市场、资产类别或更高频数据。模型表现依赖专家定义的特征变换和基线选择，归因与注意力分析为诊断性而非因果证据；实际交易成本、容量约束和样本外稳定性未在摘要中说明。",
+      "sourceName": "arXiv q-fin",
+      "summaryEn": "The authors define sector rotation as ranking sectors by forward sector-benchmark Sharpe ratios and propose RegimeRank, an interpretable model that represents signals via expert-defined temporal characteristics, conditions on learned macro factors via cross-attention, and models cross-sector dependencies via self-attention. On weekly S&P 500 data from 2002 to 2024 under combinatorial purged cross-validation, the model outperforms representative ranking and machine-learning baselines across multiple ranking metrics. Ablation studies support the contributions of latent macro states, regime conditioning, and cross-sector modeling, while attribution and attention analyses illustrate the temporal characteristics, macro states, and sector relationships underlying its rankings.",
+      "tagsEn": [
+        "sector rotation",
+        "quantitative stock selection",
+        "interpretable machine learning",
+        "macro regimes",
+        "attention mechanisms"
+      ],
       "originalUrl": "https://arxiv.org/abs/2610.26456",
-      "summary": "事实：作者将行业轮动形式化为按预期风险调整主动表现（前瞻行业-基准夏普比率）排序行业动作的任务，并提出RegimeRank模型。模型以专家定义时序特征表示基本面和技术信号，经交叉注意力条件化于学习到的宏观因子，并通过自注意力建模跨行业依赖。在2002-2024年标普500周度数据上，采用组合净化交叉验证，RegimeRank在多个排序指标上优于代表性排序与机器学习基线；消融研究支持潜在宏观状态、状态条件化和跨行业建模的贡献。作者观点：归因与注意力分析可揭示排序背后的时序特征、宏观状态和行业关系。",
-      "tags": [
-        "行业轮动",
-        "可解释排序",
-        "宏观状态",
-        "注意力机制",
-        "量化投资"
+      "keyPoints": [
+        "RegimeRank通过专家定义的时间特征表示基本面和技术信号，并利用跨注意力对学习到的宏观因子进行条件化。",
+        "模型使用自注意力捕捉行业间依赖，并通过预期梯度归因和注意力图提供可解释性诊断。",
+        "在2002-2024年标普500周度数据上，组合净化交叉验证显示模型在多个排序指标上优于基线。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "证据基于2002-2024年标普500周度数据的回测，采用组合净化交叉验证，但未涉及其他市场或资产类别；模型性能依赖于专家定义的时间特征和宏观因子学习，实际部署需考虑交易成本、容量约束和样本外稳定性；归因和注意力分析提供的是相关性诊断而非因果解释。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "RegimeRank: Interpretable Ranking for Sector Rotation",
+      "score": 84.19,
+      "aiGenerated": true,
+      "limitationsEn": "Evidence is based on backtests using weekly S&P 500 data from 2002 to 2024 under combinatorial purged cross-validation, without covering other markets or asset classes; model performance relies on expert-defined temporal features and learned macro factors, and practical deployment requires considering transaction costs, capacity constraints, and out-of-sample stability; attribution and attention analyses provide correlational diagnostics rather than causal explanations.",
+      "domain": "量化研究",
+      "summary": "作者将行业轮动任务定义为依据未来行业-基准夏普比率对行业进行排序，并提出RegimeRank模型，通过专家定义的时间特征、跨注意力宏观状态条件化和自注意力跨行业依赖建模来实现可解释排序。在2002-2024年标普500周度数据上，采用组合净化交叉验证，该模型在多个排序指标上优于代表性排序和机器学习基线。消融实验支持潜在宏观状态、状态条件化和跨行业建模的贡献，归因和注意力分析展示了排序背后的时间特征、宏观状态和行业关系。",
+      "whyItMattersEn": "This research offers a ranking framework for sector rotation that balances predictive performance and interpretability, helping portfolio managers understand how macro regimes and sector relationships influence active allocation decisions and supporting model diagnostics and improvement.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "该研究为行业轮动提供了一种兼顾预测性能与可解释性的排序框架，有助于投资组合经理理解宏观状态和行业关联如何影响主动配置决策，并支持模型诊断与改进。",
+      "title": "RegimeRank：可解释的行业轮动排序模型",
+      "discoveredBy": [
+        "arXiv cs.LG",
+        "arXiv q-fin"
+      ]
     },
     {
-      "keyPointsEn": [
-        "The framework combines off-the-shelf analytical tools with LLM reasoning to enable end-to-end agentic time series question answering.",
-        "It releases TimeToolBench, a dataset of 100k expert tool-use trajectories for training strategic tool invocation.",
-        "A four-stage training strategy is proposed to let the model learn from its own early experiences and self-reflections, enhancing generalization.",
-        "The 8B model achieves consistent state-of-the-art performance on multiple TSQA tasks, validating the approach."
+      "tags": [
+        "时间序列推理",
+        "智能体",
+        "工具增强",
+        "大语言模型",
+        "时间序列问答"
       ],
-      "sourceName": "arXiv cs.LG",
-      "title": "TimeART：工具增强的智能体时间序列推理框架",
-      "tagsEn": [
-        "time series question answering",
-        "agent",
-        "tool augmentation",
-        "large language model",
-        "training strategy"
-      ],
-      "whyItMattersEn": "Time series analysis is valuable in domains such as disaster prediction and financial risk control, but current workflows rely on human data scientists, incurring high labor costs and limited automation. TimeART offers a fully automated agentic solution that could reduce human dependence and advance automation in time series reasoning.",
-      "sourceGroup": "论文",
-      "score": 83.41,
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI × 量化",
+      "description": "TimeART 提出一种融合强工具分析能力与大语言模型推理能力的智能体框架，用于时间序列问答（TSQA），并构建 10 万条专家轨迹数据集 TimeToolBench 及四阶段训练策略，以提升基于 LLM 的时间序列推理模型（TSRM）的工具使用与泛化能力。",
+      "originalTitle": "TimeART: Towards Agentic Time Series Reasoning via Tool-Augmentation",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "TimeART proposes an agentic framework that integrates powerful tool-based analysis with LLM reasoning for time series question answering (TSQA). It also introduces a 100k expert trajectory corpus, TimeToolBench, and a four-stage training strategy to enhance tool-use and generalization of LLM-based time series reasoning models (TSRMs).",
       "contentType": "paper",
       "features": [
         {
@@ -243,16 +231,9 @@
           "confidence": 0.8
         }
       ],
-      "slug": "timeart-towards-agentic-time-series-reasoning-vi-d4b40c9838",
-      "id": "d4b40c98387ed386",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "TimeART is an agentic framework that fuses tool augmentation with LLM reasoning for automated time series question answering (TSQA). The authors build TimeToolBench, a dataset of 100k expert tool-use trajectories, and design a four-stage training strategy to improve model generalization. Experiments show that an 8B time series reasoning model achieves consistent state-of-the-art performance across multiple TSQA tasks.",
-      "whyItMatters": "时间序列分析在灾害预测、金融风控等领域价值显著，但当前流程依赖人工数据科学家，成本高且自动化不足。TimeART 提供了一种全自动智能体方案，有望降低人力依赖并推动时间序列推理的自动化发展。",
-      "description": "TimeART 将现成分析工具与大型语言模型推理能力结合，构建全自动时间序列问答智能体，并发布含10万专家轨迹的 TimeToolBench 数据集及四阶段训练策略，使8B模型在多项TSQA任务上达到领先水平。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -289,52 +270,58 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "Experiments are limited to selected TSQA tasks and an 8B model scale; performance on other model sizes or in real production environments is not reported. The construction and coverage of TimeToolBench may affect generalization conclusions. Comparisons with human experts in complex scenarios and long-term stability have not been fully validated.",
-      "originalTitle": "TimeART: Towards Agentic Time Series Reasoning via Tool-Augmentation",
-      "descriptionEn": "TimeART integrates off-the-shelf analytical tools with LLM reasoning to build a fully automated time series question answering agent, and releases TimeToolBench containing 100k expert trajectories along with a four-stage training strategy, enabling an 8B model to achieve state-of-the-art performance on multiple TSQA tasks.",
-      "keyPoints": [
-        "框架结合现成分析工具与LLM推理，实现端到端智能体式时间序列问答。",
-        "发布 TimeToolBench 数据集，包含10万条专家工具使用轨迹，用于训练策略性工具调用。",
-        "提出四阶段训练策略，使模型从自身早期经验和自我反思中学习，增强泛化能力。",
-        "8B 模型在多个TSQA任务上达到一致的最优性能，验证了方法的有效性。"
+      "slug": "timeart-towards-agentic-time-series-reasoning-vi-d4b40c9838",
+      "id": "d4b40c98387ed386",
+      "keyPointsEn": [
+        "TimeART fuses tool-based analysis with LLM reasoning to build a fully agentic framework for time series question answering.",
+        "The authors construct TimeToolBench, a 100k expert trajectory corpus, to train LLM-based TSRMs for strategic tool use.",
+        "A four-stage training strategy enhances TSRM generalization via early experiences and self-reflection; the 8B model achieves state-of-the-art results on multiple tasks."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "TimeART: Tool-Augmented Agentic Time Series Reasoning Framework",
-      "limitations": "实验仅在作者选定的TSQA任务和8B模型规模上进行，未报告在其他模型规模或真实生产环境中的表现；TimeToolBench 数据集的构建方式和覆盖范围可能影响泛化结论；与人类专家在复杂场景下的对比及长期稳定性尚未充分验证。",
+      "sourceName": "arXiv cs.LG",
+      "summaryEn": "This work introduces TimeART, a framework combining strong out-of-the-box tools with LLM reasoning to serve as a fully agentic data scientist for time series question answering. The authors collect a 100k expert trajectory corpus, TimeToolBench, and devise a four-stage training strategy that enables TSRMs to learn from their own early experiences and self-reflections. Experiments show that an 8B TSRM trained on TimeToolBench and equipped with TimeART achieves consistent state-of-the-art performance across multiple TSQA tasks.",
+      "tagsEn": [
+        "time series reasoning",
+        "agent",
+        "tool augmentation",
+        "large language models",
+        "time series question answering"
+      ],
       "originalUrl": "https://arxiv.org/abs/2601.13653",
-      "summary": "TimeART 提出一种融合工具增强与LLM推理的智能体框架，用于自动化时间序列问答（TSQA）。作者构建了10万条专家工具使用轨迹的 TimeToolBench 数据集，并设计四阶段训练策略提升模型泛化能力。实验显示，基于8B模型的时间序列推理模型在多个TSQA任务上取得一致的最优性能。",
-      "tags": [
-        "时间序列问答",
-        "智能体",
-        "工具增强",
-        "大语言模型",
-        "训练策略"
+      "keyPoints": [
+        "TimeART 融合工具分析与 LLM 推理，构建面向时间序列问答的全智能体框架。",
+        "作者构建 10 万条专家轨迹数据集 TimeToolBench，用于训练 LLM 基 TSRM 的策略性工具使用。",
+        "提出四阶段训练策略，通过早期经验和自我反思增强 TSRM 泛化能力，8B 模型在多任务上达到当前最优。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "证据来自 arXiv 预印本及作者自述实验，尚未经过同行评审；性能提升仅在与特定基线对比中报告，未涵盖所有 TSQA 场景；四阶段训练策略的独立贡献缺乏消融细节；TimeToolBench 的构建质量与覆盖范围可能影响泛化结论；8B 模型之外的规模未验证。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "TimeART: An Agentic Time Series Reasoning Framework via Tool Augmentation",
+      "score": 83.41,
+      "aiGenerated": true,
+      "limitationsEn": "Evidence comes from an arXiv preprint and the authors' self-reported experiments, without peer review; performance gains are reported only against selected baselines and do not cover all TSQA scenarios; ablation details for the independent contribution of the four-stage training strategy are lacking; the construction quality and coverage of TimeToolBench may affect generalization conclusions; model scales beyond 8B are not validated.",
+      "domain": "AI × 量化",
+      "summary": "该工作提出 TimeART 框架，将现有强工具的分析能力与 LLM 的推理能力结合，实现全智能体的时间序列问答。作者收集 10 万条专家轨迹构成 TimeToolBench，并设计四阶段训练策略，使 TSRM 从自身早期经验和自我反思中学习。实验表明，8B 参数 TSRM 在 TimeToolBench 上训练并配备 TimeART 后，在多个 TSQA 任务上取得一致的当前最优性能。",
+      "whyItMattersEn": "This work offers an automated agent paradigm for time series analysis, reducing reliance on human data scientists and demonstrating the potential of combining tool augmentation with training strategies to improve LLM generalization in time series reasoning.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "该工作为时间序列分析提供了一种自动化智能体范式，减少对人工数据科学家的依赖，并展示了工具增强与训练策略结合在提升 LLM 时间序列推理泛化性方面的潜力。",
+      "title": "TimeART：基于工具增强的智能体时间序列推理框架",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ]
     },
     {
-      "keyPointsEn": [
-        "Proposes the branched signature model, generalizing classical geometric rough paths.",
-        "Establishes a universal approximation theorem and proves that iterative compositions of lower-level signature maps can approximate higher-level signatures.",
-        "Realizes branched signatures as classical geometric signatures of extended paths via an extension map Ψ, providing an efficient computational scheme."
+      "tags": [
+        "分支签名",
+        "粗糙路径",
+        "通用逼近",
+        "计算框架",
+        "量化金融"
       ],
-      "sourceName": "arXiv q-fin",
-      "title": "分支签名模型：高阶签名的通用逼近与路径扩展",
-      "tagsEn": [
-        "branched signature",
-        "rough paths",
-        "universal approximation",
-        "path extension",
-        "quantitative finance"
-      ],
-      "whyItMattersEn": "This framework not only provides an efficient computational scheme for branched signatures but also opens new avenues for data-driven modeling and applications. The effectiveness is demonstrated through two representative applications: rough volatility calibration and optimal execution.",
-      "sourceGroup": "论文",
-      "score": 82.71,
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "量化研究",
+      "description": "该论文提出分支签名模型，基于分支粗糙路径理论推广经典几何粗糙路径，并证明其通用逼近定理；通过构造扩展映射将分支签名转化为经典几何签名，为粗糙波动率校准和最优执行等数据驱动建模提供计算方案。",
+      "originalTitle": "Branched Signature Model",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "This paper introduces the branched signature model, generalizing classical geometric rough paths based on branched rough path theory, and establishes a universal approximation theorem. By constructing an extension map, branched signatures are realized as classical geometric signatures of extended paths, providing a computational scheme for data-driven modeling such as rough volatility calibration and optimal execution.",
       "contentType": "paper",
       "features": [
         {
@@ -371,16 +358,9 @@
           "confidence": 0.84
         }
       ],
-      "slug": "branched-signature-model-b9aa510286",
-      "id": "b9aa5102864b343c",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The paper introduces the branched signature model motivated by Gubinelli's branched rough path framework, which generalizes classical geometric rough paths. The authors establish a universal approximation theorem for the model and demonstrate that iterative compositions of lower-level signature maps can approximate higher-level signatures. Furthermore, building on the existence of the extension map from Hairer-Kelly, they show how to explicitly construct the extension of original paths into higher-dimensional spaces via a map Ψ, so that the branched signature can be realized as the classical geometric signature of the extended path.",
-      "whyItMatters": "该框架不仅为分支签名提供了高效的计算方案，还为数据驱动建模开辟了新途径。论文通过粗糙波动率校准和最优执行两个代表性应用展示了其有效性。",
-      "description": "该研究提出分支签名模型，基于分支粗糙路径框架推广经典几何粗糙路径，证明了模型的通用逼近定理，并给出通过扩展映射将分支签名实现为经典几何签名的方法，为数据驱动建模提供新工具。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -413,52 +393,59 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "The abstract does not discuss the boundaries of applicability in broader scenarios, detailed analysis of computational complexity, or experimental details and comparative results in the two applications. The evidence is primarily based on theoretical proofs and two examples; practical applications may be limited by the curse of dimensionality in path extension or the feasibility of constructing the map.",
-      "originalTitle": "Branched Signature Model",
-      "descriptionEn": "This paper introduces the branched signature model, generalizing classical geometric rough paths within the branched rough path framework. It establishes a universal approximation theorem and shows how to realize branched signatures as classical geometric signatures of extended paths via an extension map, enabling efficient computation and data-driven modeling.",
-      "keyPoints": [
-        "提出分支签名模型，推广经典几何粗糙路径。",
-        "建立通用逼近定理，并证明低阶签名映射的迭代复合可逼近高阶签名。",
-        "利用扩展映射Ψ将分支签名实现为扩展路径的经典几何签名，提供高效计算方案。"
+      "slug": "branched-signature-model-b9aa510286",
+      "id": "b9aa5102864b343c",
+      "keyPointsEn": [
+        "Proposes the branched signature model, generalizing classical geometric rough paths, and establishes a universal approximation theorem.",
+        "Shows that iterative compositions of lower-level signature maps can approximate higher-level signatures, providing a computational scheme.",
+        "Constructs explicit path extensions using an existing extension map to realize branched signatures as classical geometric signatures."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "Branched Signature Model: Universal Approximation and Path Extension for Higher-Order Signatures",
-      "limitations": "论文摘要未提及模型在更广泛场景下的适用性边界、计算复杂度的具体分析，以及两个应用中的实验细节与对比结果。证据主要基于理论证明和两个示例，实际应用中可能受路径扩展的维数灾难或映射构造的可行性限制。",
+      "sourceName": "arXiv q-fin",
+      "summaryEn": "The authors introduce the branched signature model, extending the classical geometric rough path framework, and establish a universal approximation theorem. They also show that iterative compositions of lower-level signature maps can approximate higher-level signatures, and explicitly construct path extensions based on an existing extension map so that branched signatures can be realized as classical geometric signatures. Two applications—rough volatility calibration and optimal execution—demonstrate the framework's effectiveness, though the abstract does not report quantitative comparisons.",
+      "tagsEn": [
+        "branched signature",
+        "rough paths",
+        "universal approximation",
+        "computational framework",
+        "quantitative finance"
+      ],
       "originalUrl": "https://arxiv.org/abs/2511.00018",
-      "summary": "论文引入分支签名模型，该模型受Gubinelli的分支粗糙路径框架启发，推广了经典几何粗糙路径。作者建立了该模型的通用逼近定理，并证明低阶签名映射的迭代复合可以逼近高阶签名。此外，基于Hairer-Kelly提出的扩展映射存在性，作者展示了如何通过映射Ψ显式构造原始路径到高维空间的扩展，从而将分支签名实现为扩展路径的经典几何签名。",
-      "tags": [
-        "分支签名",
-        "粗糙路径",
-        "通用逼近",
-        "路径扩展",
-        "量化金融"
+      "keyPoints": [
+        "提出分支签名模型，推广经典几何粗糙路径，并建立通用逼近定理。",
+        "证明低层签名映射的迭代组合可逼近高层签名，提供计算方案。",
+        "利用已有扩展映射显式构造路径扩展，将分支签名转化为经典几何签名。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "证据仅来自论文摘要，未提供与现有方法的定量比较或实证细节；两个应用（粗糙波动率校准和最优执行）的有效性需进一步验证；扩展映射的存在性依赖已有文献，其构造细节和计算复杂度未在摘要中说明。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Branched Signature Model: Universal Approximation and Efficient Computational Framework",
+      "score": 82.71,
+      "aiGenerated": true,
+      "limitationsEn": "Evidence is limited to the paper's abstract, with no quantitative comparison to existing methods or empirical details provided; the effectiveness of the two applications (rough volatility calibration and optimal execution) requires further validation; the existence of the extension map relies on prior literature, and its construction details and computational complexity are not described in the abstract.",
+      "domain": "量化研究",
+      "summary": "作者引入分支签名模型，扩展了经典几何粗糙路径框架，并建立了通用逼近定理。他们还证明低层签名映射的迭代组合可逼近高层签名，并基于已有扩展映射显式构造路径扩展，使分支签名实现为经典几何签名。论文通过粗糙波动率校准和最优执行两个应用展示框架有效性，但摘要未报告定量比较结果。",
+      "whyItMattersEn": "The framework provides an efficient computational approach for branched signatures and may advance data-driven modeling in quantitative finance problems such as rough volatility calibration and optimal execution.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "该框架为分支签名提供了高效计算途径，并可能推动数据驱动建模在粗糙波动率校准和最优执行等量化金融问题中的应用。",
+      "title": "分支签名模型：通用逼近与高效计算框架",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ]
     },
     {
-      "keyPointsEn": [
-        "Pair trading is modeled as a hierarchical reinforcement learning problem, with a high level for asset-pair selection and a low level for execution under partial observability.",
-        "Both high-level and low-level policies are parameterized by large language models and optimized solely through prompt updates, without gradient-based fine-tuning.",
-        "A policy memory and belief revision mechanism is introduced to adjust abstractions and execution using trajectory-level and episode-level textual feedback."
+      "tags": [
+        "分层强化学习",
+        "配对交易",
+        "大语言模型智能体",
+        "策略记忆",
+        "信念修正",
+        "非平稳市场"
       ],
-      "sourceName": "arXiv cs.CL",
-      "title": "语言模型代理在非平稳配对交易中的策略记忆与信念修正",
-      "tagsEn": [
-        "hierarchical reinforcement learning",
-        "pair trading",
-        "LLM agents",
-        "policy memory",
-        "belief revision",
-        "non-stationarity"
-      ],
-      "whyItMattersEn": "This work provides a language-driven optimization approach without fine-tuning for delayed feedback and hierarchical credit assignment, helping distinguish flawed abstractions from suboptimal execution in non-stationary market environments; it has methodological reference value for building interpretable and adaptable quantitative trading agents.",
-      "sourceGroup": "论文",
-      "score": 81.99,
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI × 量化",
+      "description": "提出MOIRA框架，将配对交易建模为分层强化学习问题，用大语言模型分别参数化高层资产对选择与低层执行策略，并通过提示更新和文本反馈进行优化，无需梯度微调。",
+      "originalTitle": "MOIRA: Policy Memory and Belief Revision for Language-Model Agents in Non-Stationary Pair Trading",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "Proposes MOIRA, a framework that formulates pair trading as hierarchical reinforcement learning and uses large language models to parameterize both high-level pair selection and low-level execution, optimized via prompt updates and textual feedback without gradient fine-tuning.",
       "contentType": "paper",
       "features": [
         {
@@ -517,16 +504,9 @@
           "confidence": 0.84
         }
       ],
-      "slug": "moira-policy-memory-and-belief-revision-for-lang-5fb9f0b17b",
-      "id": "5fb9f0b17b490261",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The paper formulates pair trading as a hierarchical reinforcement learning problem, where both high-level semantic selection and low-level execution are optimized through prompt updates by large language models. The authors propose the MOIRA framework, which uses trajectory- and episode-level textual feedback for policy memory and belief revision to handle delayed and ambiguous feedback. Experiments on real-world market data show consistent improvements over traditional and LLM-based baselines.",
-      "whyItMatters": "该工作为延迟反馈和层级信用分配问题提供了一种无需微调的语言驱动优化思路，有助于在非平稳市场环境中区分抽象选择错误与执行次优，对构建可解释、可适配的量化交易代理具有方法参考意义。",
-      "description": "该研究提出 MOIRA 框架，将配对交易建模为分层强化学习问题，用大语言模型分别参数化高层资产对选择与低层执行策略，仅通过提示更新优化，并引入策略记忆与信念修正机制应对非平稳性。其新意在于显式分离抽象与执行以减少跨层非平稳性，且无需梯度微调；对量化交易中延迟反馈下的信用分配问题有参考价值。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -562,53 +542,60 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "The experimental conclusions are based on the real-world market data and specific baseline settings reported in the paper, and have not been validated across broader markets, asset classes, or longer horizons; the framework relies on prompt design and textual feedback quality from large language models, and its robustness and generalization boundaries require further testing; it does not constitute any investment advice.",
-      "originalTitle": "MOIRA: Policy Memory and Belief Revision for Language-Model Agents in Non-Stationary Pair Trading",
-      "descriptionEn": "This study proposes the MOIRA framework, which formulates pair trading as a hierarchical reinforcement learning problem and parameterizes high-level asset-pair selection and low-level execution with large language models, optimizing solely through prompt updates and incorporating policy memory and belief revision to address non-stationarity. Its novelty lies in explicitly separating abstraction from execution to reduce cross-level non-stationarity without gradient fine-tuning",
-      "keyPoints": [
-        "将配对交易建模为分层强化学习问题，高层负责资产对选择，低层负责部分可观测下的执行。",
-        "高层与低层策略均由大语言模型参数化，仅通过提示更新优化，不使用梯度微调。",
-        "引入策略记忆与信念修正机制，利用轨迹级和回合级文本反馈分别调整抽象与执行。"
+      "slug": "moira-policy-memory-and-belief-revision-for-lang-5fb9f0b17b",
+      "id": "5fb9f0b17b490261",
+      "keyPointsEn": [
+        "Formulates pair trading as a hierarchical reinforcement learning problem, separating high-level pair selection from low-level execution.",
+        "Both high-level and low-level policies are parameterized by large language models and optimized solely through prompt updates, without gradient fine-tuning.",
+        "Uses trajectory- and episode-level textual feedback for credit assignment, reducing non-stationarity across hierarchy levels and enabling targeted adaptation."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "Policy Memory and Belief Revision for Language-Model Agents in Non-Stationary Pair Trading",
-      "limitations": "实验结论基于论文所报告的真实市场数据与特定基线设置，尚未在更广泛市场、资产类别或更长周期上验证；框架依赖大语言模型的提示设计与文本反馈质量，其稳健性和泛化边界需进一步检验；不构成任何投资建议。",
+      "sourceName": "arXiv cs.CL",
+      "summaryEn": "The paper studies credit assignment in hierarchical sequential decision-making, using pair trading where high-level semantic choices constrain downstream execution under delayed and ambiguous feedback. The authors propose a language-driven optimization framework in which both policies are LLM-parameterized and updated exclusively through prompts using trajectory- and episode-level textual feedback to adapt to non-stationary markets. Experiments on real market data show improvements over traditional and LLM-based baselines.",
+      "tagsEn": [
+        "hierarchical reinforcement learning",
+        "pair trading",
+        "LLM agents",
+        "policy memory",
+        "belief revision",
+        "non-stationary markets"
+      ],
       "originalUrl": "https://arxiv.org/abs/2605.01954",
-      "summary": "论文将配对交易形式化为分层强化学习问题，高层语义选择与低层执行均由大语言模型通过提示更新来优化。作者提出 MOIRA 框架，利用轨迹级与回合级文本反馈进行策略记忆与信念修正，以应对延迟且模糊的反馈。实验在真实市场数据上显示，该方法相对传统基线和基于大语言模型的基线取得一致改进。",
-      "tags": [
-        "分层强化学习",
-        "配对交易",
-        "大语言模型代理",
-        "策略记忆",
-        "信念修正",
-        "非平稳性"
+      "keyPoints": [
+        "将配对交易形式化为分层强化学习问题，分离高层资产对选择与低层执行。",
+        "高层与低层策略均由大语言模型参数化，仅通过提示更新优化，不进行梯度微调。",
+        "利用轨迹级和回合级文本反馈进行信用分配，减少层级间非平稳性并实现针对性适应。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "证据仅来自论文所述的真实市场数据实验，未在输入中提供具体统计显著性、交易成本敏感性或不同市场阶段的稳健性检验；框架依赖LLM提示设计，其对提示质量与文本反馈粒度的敏感性未充分说明；配对交易场景的结论向其他分层决策问题的外推需谨慎。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Policy Memory and Belief Revision for Language-Model Agents in Non-Stationary Pair Trading",
+      "score": 81.99,
+      "aiGenerated": true,
+      "limitationsEn": "Evidence is limited to the real-market experiments described, with no specific statistical significance, transaction-cost sensitivity, or robustness checks across market regimes provided in the input; the framework depends on LLM prompt design, and its sensitivity to prompt quality and textual feedback granularity is not fully addressed; extrapolation from pair trading to other hierarchical decision problems requires caution.",
+      "domain": "AI × 量化",
+      "summary": "论文研究分层序贯决策中的信用分配难题，以配对交易为场景，高层语义选择约束下游执行且反馈延迟模糊。作者提出语言驱动的优化框架，两级策略均由LLM通过提示更新优化，利用轨迹和回合级文本反馈适应非平稳市场。实验显示在真实市场数据上优于传统及LLM基线。",
+      "whyItMattersEn": "The work demonstrates a path for hierarchical policy learning and belief revision with language models without fine-tuning, offering an interpretable optimization approach for sequential decision-making under delayed feedback and partial observability, with relevance to strategy adaptation in quantitative trading.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "该工作展示了无需微调即可用语言模型进行分层策略学习与信念修正的路径，为延迟反馈和部分可观测下的序贯决策提供了可解释的优化思路，对量化交易中的策略适应问题有参考价值。",
+      "title": "语言模型智能体的策略记忆与信念修正用于非平稳配对交易",
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ]
     },
     {
-      "keyPointsEn": [
-        "The CEEMDAN-SE-SSA-VMGL framework handles high-frequency mode mixing via sample-entropy clustering and singular spectrum analysis, and achieves volatility-adaptive memory through the GARCH gate in VMGL.",
-        "On five US and Chinese financial series, the model reduces forecasting error by 9% to 24% relative to the best benchmark and by 60% to 70% relative to a standard LSTM.",
-        "Diebold-Mariano tests, model confidence set tests, spectral analyses, and backtesting respectively support statistical significance, stability, denoising efficacy, and economic utility of the gains."
+      "tags": [
+        "分解集成预测",
+        "奇异谱分析",
+        "LSTM",
+        "GARCH",
+        "模态混叠",
+        "股价预测"
       ],
-      "sourceName": "arXiv cs.LG",
-      "title": "分解集成框架结合奇异谱分析与波动自适应LSTM用于股价预测",
-      "tagsEn": [
-        "decomposition-integration forecasting",
-        "singular spectrum analysis",
-        "CEEMDAN",
-        "GARCH-LSTM",
-        "stock price forecasting",
-        "mode mixing"
-      ],
-      "whyItMattersEn": "This work provides an end-to-end trainable solution to high-frequency mode mixing and heterogeneous volatility matching in decomposition-integration forecasting frameworks, and offers evidence of performance gains through multi-series comparisons and statistical tests, which is informative for method design in financial time series forecasting.",
-      "sourceGroup": "论文",
-      "score": 81.73,
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI × 量化",
+      "description": "该研究提出CEEMDAN-SE-SSA-VMGL框架，针对现有CEEMDAN混合模型的高频模态混叠与波动异质性未匹配问题，引入样本熵聚类、奇异谱分析去噪及可微分GARCH层调制LSTM遗忘门，在五条中美金融序列上相对最佳基准降低9%至24%的预测误差。",
+      "originalTitle": "A decomposition-integration framework coupling singular spectrum analysis with a volatility-adaptive LSTM for stock price forecasting",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "The study proposes CEEMDAN-SE-SSA-VMGL to address high-frequency mode mixing and unmatched volatility heterogeneity in existing CEEMDAN hybrids, combining sample-entropy clustering, singular spectrum analysis denoising, and a differentiable GARCH layer that modulates the LSTM forget gate; it reports 9%–24% lower forecasting error than the best benchmark across five US and Chinese financial series.",
       "contentType": "paper",
       "features": [
         {
@@ -678,16 +665,9 @@
           "confidence": 0.8
         }
       ],
-      "slug": "a-decomposition-integration-framework-coupling-s-d40c19524d",
-      "id": "d40c19524da1310f",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "To address high-frequency mode mixing and heterogeneous volatility in CEEMDAN-based decomposition-integration models, the paper proposes CEEMDAN-SE-SSA-VMGL: sample-entropy clustering groups intrinsic mode functions, singular spectrum analysis decouples pseudo-oscillatory modes in the high-frequency group, and a volatility-modulated GARCH-LSTM (VMGL) embeds a GARCH(1,1) layer inside the LSTM cell to adapt memory decay to conditional volatility. On CSI 300, CSI 500, AAPL, GOOGL, and S&P 500, the model lowers forecasting error by 9% to 24% relative to the best of eleven benchmark architectures and by 60% to 70% relative to a standard LSTM. Diebold-Mariano and model confidence set tests, spectral analyses, and backtesting respectively support statistical significance, stability, denoising efficacy, and economic utility.",
-      "whyItMatters": "该工作为分解集成预测框架中的高频模态混叠和波动异质性匹配问题提供了可端到端训练的解决方案，并通过多序列比较和统计检验给出了性能增益的证据，对金融时间序列预测的方法设计有参考价值。",
-      "description": "该研究提出CEEMDAN-SE-SSA-VMGL框架，针对现有CEEMDAN混合模型的高频模态混叠和波动异质性问题，引入样本熵聚类、奇异谱分析降噪以及波动调制GARCH-LSTM（VMGL）。在五个中美金融序列上，相比最佳基准模型降低预测误差9%至24%，并通过统计检验和回测验证了增益的显著性与经济效用。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -725,53 +705,59 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "Evidence is limited to five financial series (CSI 300, CSI 500, AAPL, GOOGL, S&P 500) and eleven benchmark architectures, without covering other asset classes or market regimes; the economic utility conclusion from backtesting depends on specific trading strategy and cost assumptions not detailed in the abstract; the GARCH layer in VMGL increases model complexity, and its robustness across data frequencies and sample sizes remains to be independently verified.",
-      "originalTitle": "A decomposition-integration framework coupling singular spectrum analysis with a volatility-adaptive LSTM for stock price forecasting",
-      "descriptionEn": "The study proposes CEEMDAN-SE-SSA-VMGL, a framework addressing high-frequency mode mixing and heterogeneous volatility in existing CEEMDAN hybrids by combining sample-entropy clustering, singular spectrum analysis denoising, and a volatility-modulated GARCH-LSTM (VMGL). On five US and Chinese financial series, it reduces forecasting error by 9% to 24% relative to the best benchmark, with statistical tests and backtesting supporting the gains.",
-      "keyPoints": [
-        "CEEMDAN-SE-SSA-VMGL框架通过样本熵聚类和奇异谱分析处理高频模态混叠，并利用VMGL的GARCH门控实现波动自适应记忆。",
-        "在五个中美金融序列上，该模型相比最佳基准降低预测误差9%至24%，相比标准LSTM降低60%至70%。",
-        "Diebold-Mariano检验、模型置信集检验、谱分析和回测分别支持增益的统计显著性、稳定性、降噪有效性和经济效用。"
+      "slug": "a-decomposition-integration-framework-coupling-s-d40c19524d",
+      "id": "d40c19524da1310f",
+      "keyPointsEn": [
+        "CEEMDAN decomposition is followed by sample-entropy-based clustering into high-, mid-, low-frequency and residual groups; the high-frequency group is reconstructed via SSA principal components to decouple pseudo-oscillatory modes.",
+        "VMGL embeds a differentiable GARCH(1,1) layer inside the LSTM cell as a risk gate, multiplicatively scaling forget-gate activation by conditional volatility while remaining end-to-end trainable.",
+        "On CSI 300, CSI 500, AAPL, GOOGL and S&P 500, forecasting error is 9%–24% lower than the best benchmark, with statistical tests supporting significance."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "Decomposition-Integration Framework Coupling Singular Spectrum Analysis with Volatility-Adaptive LSTM for Stock Price Forecasting",
-      "limitations": "证据仅基于五个金融序列（CSI 300、CSI 500、AAPL、GOOGL、S&P 500）和十一个基准架构，未涵盖其他资产类别或市场状态；回测的经济效用结论依赖于具体交易策略与成本假设，论文未在摘要中说明；VMGL中GARCH层的引入增加了模型复杂度，其在不同数据频率和样本量下的稳健性尚待独立验证。",
+      "sourceName": "arXiv cs.LG",
+      "summaryEn": "The paper introduces a decomposition-integration framework that decomposes financial series with CEEMDAN, groups intrinsic mode functions via sample-entropy-driven K-means clustering, applies singular spectrum analysis to the high-frequency group to mitigate mode mixing, and designs VMGL, which embeds a differentiable GARCH(1,1) layer in the LSTM cell so memory decay adapts to instantaneous volatility. The authors report 9%–24% lower error than the best of eleven benchmarks and 60%–70% lower than a standard LSTM on five US and Chinese series, supported by Diebold-Mariano and MCS tests. These gains are the authors' reported results under their experimental setup and require independent replication and broader market validation.",
+      "tagsEn": [
+        "decomposition-integration forecasting",
+        "singular spectrum analysis",
+        "LSTM",
+        "GARCH",
+        "mode mixing",
+        "stock price forecasting"
+      ],
       "originalUrl": "https://arxiv.org/abs/2610.24384",
-      "summary": "论文针对CEEMDAN分解集成模型在高频模态混叠和波动异质性匹配上的不足，提出CEEMDAN-SE-SSA-VMGL框架：用样本熵聚类分组本征模态函数，对高频组应用奇异谱分析解耦伪振荡模态，并设计将GARCH(1,1)层嵌入LSTM单元的VMGL模型，使记忆衰减随条件波动自适应。在CSI 300、CSI 500、AAPL、GOOGL和S&P 500五个序列上，该模型相比十一个基准架构中最佳者降低预测误差9%至24%，相比标准LSTM降低60%至70%。作者通过Diebold-Mariano检验、模型置信集检验、谱分析和回测分别验证了统计显著性、稳定性、降噪效果和经济效用。",
-      "tags": [
-        "分解集成预测",
-        "奇异谱分析",
-        "CEEMDAN",
-        "GARCH-LSTM",
-        "股价预测",
-        "模态混叠"
+      "keyPoints": [
+        "CEEMDAN分解后按样本熵聚类为高、中、低频及残差组，高频组经SSA主成分重构以解耦伪振荡模态。",
+        "VMGL将可微分GARCH(1,1)层嵌入LSTM单元作为风险门，用条件波动率乘性缩放遗忘门激活，保持端到端训练。",
+        "在CSI 300、CSI 500、AAPL、GOOGL、S&P 500上，较最佳基准误差降低9%–24%，统计检验支持显著性。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "证据仅基于论文所选五条中美金融序列与十一个基准架构，样本外时段、交易成本假设及回测细节未在摘要中展开；降低误差的幅度属特定实验设置下的报告，独立复现与跨市场、跨资产类别的稳健性仍需验证；不应将预测精度提升直接视为可交易收益。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Decomposition-Integration Framework Coupling SSA with a Volatility-Adaptive LSTM for Stock Price Forecasting",
+      "score": 81.73,
+      "aiGenerated": true,
+      "limitationsEn": "Evidence is limited to the five US and Chinese financial series and eleven benchmark architectures selected in the paper; out-of-sample periods, transaction-cost assumptions and backtest details are not elaborated in the abstract; reported error reductions are specific to the experimental setup, and independent replication plus robustness across markets and asset classes remain to be verified; improved forecasting accuracy should not be interpreted directly as tradable returns.",
+      "domain": "AI × 量化",
+      "summary": "论文提出一种分解-集成框架，用CEEMDAN分解金融序列，以样本熵驱动K-means聚类分组，对高频组应用奇异谱分析缓解模态混叠，并设计嵌入可微分GARCH(1,1)层的VMGL模型使LSTM记忆衰减随瞬时波动调整。作者报告在五个中美金融序列上，该模型较十一个基准中最佳者降低9%至24%误差，较标准LSTM降低60%至70%，并通过Diebold-Mariano与MCS检验。上述性能提升为作者基于其实验设置的报告，尚需独立复现与更广泛市场验证。",
+      "whyItMattersEn": "The work introduces volatility modeling as a differentiable gate within a decomposition-integration forecasting pipeline, offering a structured end-to-end approach to multi-scale, high-noise and non-stationary financial dynamics, with statistical tests and backtesting-based economic utility assessment.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "该工作将波动率建模以可微分门控形式引入分解集成预测流程，为处理金融序列的多尺度、高噪声与非平稳波动提供了一种结构化的端到端方案，并给出了统计检验与回测层面的经济效用评估。",
+      "title": "分解集成框架耦合SSA与波动自适应LSTM预测股价",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ]
     },
     {
-      "keyPointsEn": [
-        "Order-level LOBSTER-format data is reconstructed from Polymarket, and market-making agents are trained and evaluated on 417 real markets.",
-        "Market making is decomposed into a cooperative quoter and risk manager trained with recurrent IPPO, with reward blending and post-fill markout studied to mitigate credit assignment.",
-        "The redesigned single agent quotes more frequently and has smaller held-out losses, but the contributions of jointly changed observations, actions, and risk constraints cannot be separately identified."
+      "tags": [
+        "预测市场做市",
+        "多智能体强化学习",
+        "奖励塑形",
+        "订单簿仿真",
+        "Polymarket"
       ],
-      "sourceName": "arXiv q-fin",
-      "title": "预测市场订单簿做市的多智能体强化学习研究",
-      "tagsEn": [
-        "prediction markets",
-        "market making",
-        "multi-agent reinforcement learning",
-        "order book",
-        "reward design"
-      ],
-      "whyItMattersEn": "Prediction-market order books are thin, and traditional market making faces adverse selection, delayed credit assignment, and missing order-level data; this work provides reusable data reconstruction, a simulation environment, and an evaluation protocol, and highlights the key role of reward design in multi-agent market-making cooperation, laying a foundation for makers covering many linked markets at once.",
-      "sourceGroup": "论文",
-      "score": 81.67,
-      "discoveredBy": [
-        "arXiv cs.LG",
-        "arXiv q-fin"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI × 量化",
+      "description": "该研究针对Polymarket薄订单簿的挑战，重构订单级数据并训练合作式多智能体做市策略；其价值在于揭示了奖励设计对分解式做市的关键作用及未实现正收益的证据边界。",
+      "originalTitle": "Cooperative Multi-Agent Reinforcement Learning for Market Making on Prediction-Market Order Books",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "This study reconstructs order-level data from Polymarket's thin order books and trains cooperative multi-agent market-making policies; its value lies in highlighting the critical role of reward design in decomposed market making and the evidentiary boundary of no positive portfolio value.",
       "contentType": "paper",
       "features": [
         {
@@ -852,16 +838,9 @@
           "confidence": 0.8
         }
       ],
-      "slug": "cooperative-multi-agent-reinforcement-learning-f-11f0517476",
-      "id": "11f0517476c995d2",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The research addresses market making on thin prediction-market order books by reconstructing LOBSTER-format order-level data on 417 real markets and training single-agent and cooperative two-agent policies. Facts: the redesigned single agent quotes more frequently and incurs smaller held-out losses, but jointly changed components cannot be separately attributed; decomposition alone performs poorly, while careful reward design yields the best result. Author's view: no configuration establishes positive average portfolio value in periodic held-out evaluation, and each configuration was trained with one seed.",
-      "whyItMatters": "预测市场订单簿稀薄，传统做市方法面临逆向选择、延迟信用分配和订单级数据缺失等挑战；该工作提供了可复用的数据重建、仿真环境与评估协议，并揭示奖励设计对多智能体做市协作的关键作用，为同时覆盖多个关联市场的做市系统奠定基础。",
-      "description": "该研究在Polymarket薄订单簿上重建订单级数据，并用多智能体强化学习训练做市策略；其新意在于将做市分解为报价与风控两个协作智能体，并探索奖励设计缓解信用分配问题，为多关联市场同时做市提供环境与协议基础。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -898,51 +877,62 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "No configuration establishes positive average portfolio value in periodic held-out evaluation, and each configuration was trained with one seed, so stability is unknown; the single-agent improvement stems from jointly changed observations, actions, and risk constraints, with individual contributions not separable; decomposition alone performs poorly and depends on reward design; conclusions are limited to the specific Polymarket markets and simulation protocol and do not demonstrate live profitability.",
-      "originalTitle": "Cooperative Multi-Agent Reinforcement Learning for Market Making on Prediction-Market Order Books",
-      "descriptionEn": "The study reconstructs order-level data from Polymarket's thin order books and trains market-making policies with multi-agent reinforcement learning; its novelty lies in decomposing market making into a cooperative quoter and risk manager and exploring reward design to ease credit assignment, providing an environment and protocol for making across many linked markets.",
-      "keyPoints": [
-        "从Polymarket重建订单级LOBSTER格式数据，在417个真实市场上训练和评估做市智能体。",
-        "将做市分解为报价者与风险管理者的协作多智能体，用循环IPPO训练，并研究奖励混合与成交后markout以缓解信用分配。",
-        "重新设计的单智能体报价更频繁且样本外损失更小，但观测、动作与风险约束的联合改动贡献无法单独识别。"
+      "slug": "cooperative-multi-agent-reinforcement-learning-f-11f0517476",
+      "id": "11f0517476c995d2",
+      "keyPointsEn": [
+        "Reconstructs Polymarket order-level data for simulation training and designs a cooperative multi-agent decomposition (quoter + risk manager) trained with recurrent IPPO.",
+        "Reward shaping (reward blending and post-fill markout) mitigates credit assignment and substantially improves the decomposed policy, yielding the best result.",
+        "The redesigned single-agent market maker quotes more frequently and incurs smaller held-out losses, but contributions of jointly changed observations, actions, and risk constraints are not separately identified.",
+        "No configuration establishes positive average portfolio value in periodic held-out evaluation, and each configuration is trained with one seed."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "Cooperative Multi-Agent Reinforcement Learning for Market Making on Prediction-Market Order Books",
-      "limitations": "所有配置均未在周期性样本外评估中实现正的平均组合价值，且每个配置仅用一个随机种子训练，结果稳定性未知；单智能体的改进来自观测、动作与风险约束的联合改动，无法分离各因素贡献；分解方法单独使用表现差，依赖奖励设计；结论限于Polymarket特定市场与仿真协议，未证明实盘盈利。",
+      "sourceName": "arXiv q-fin",
+      "summaryEn": "The study reconstructs Polymarket L2 data into order-level LOBSTER format and trains market-making agents with JaxMARL-HFT on 417 real markets. The authors propose a cooperative decomposition into a quoter and a risk manager, and find that reward shaping (reward blending and post-fill markout) substantially improves the decomposed policy. However, the redesigned single-agent market maker quotes more frequently with smaller held-out losses, yet no configuration achieves positive average portfolio value in periodic held-out evaluation, and each configuration is trained with one seed.",
+      "tagsEn": [
+        "prediction market making",
+        "multi-agent reinforcement learning",
+        "reward shaping",
+        "order book simulation",
+        "Polymarket"
+      ],
       "originalUrl": "https://arxiv.org/abs/2610.26789",
-      "summary": "研究针对预测市场薄订单簿的做市难题，在417个真实市场上重建LOBSTER格式订单级数据，并训练单智能体与协作双智能体做市策略。事实：重新设计的单智能体报价更频繁、样本外损失更小，但联合改动无法分离归因；仅分解无奖励设计时表现差，奖励设计后取得最佳结果。作者观点：当前配置在周期性样本外评估中均未实现正的平均组合价值，且每个配置仅用一个随机种子训练。",
-      "tags": [
-        "预测市场",
-        "做市",
-        "多智能体强化学习",
-        "订单簿",
-        "奖励设计"
+      "keyPoints": [
+        "重构Polymarket订单级数据以支持仿真训练，并设计合作多智能体分解（报价者+风险管理者）用循环IPPO训练。",
+        "奖励塑形（奖励混合与成交后markout）缓解信用分配问题，使分解策略表现大幅提升并成为最佳结果。",
+        "重设计的单智能体做市商报价更频繁且持有期损失更小，但观察、动作与风险约束的联合改动贡献无法单独识别。",
+        "所有配置在留出市场的定期评估中均未实现正的平均组合价值，且每个配置仅训练一个种子。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "仅使用一个随机种子训练每个配置，结果随机性未评估；联合改动观察空间、动作与风险约束的贡献无法单独归因；所有配置在定期留出评估中均未实现正的平均组合价值，无法支持策略盈利性结论；重构数据与仿真环境可能未完全反映真实市场摩擦。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Cooperative Multi-Agent Reinforcement Learning for Market Making on Prediction-Market Order Books",
+      "score": 81.67,
+      "aiGenerated": true,
+      "limitationsEn": "Each configuration is trained with only one random seed, so stochasticity is not assessed; contributions of jointly changed observation space, actions, and risk constraints cannot be separately attributed; no configuration achieves positive average portfolio value in periodic held-out evaluation, so no profitability conclusion is supported; reconstructed data and simulation environment may not fully capture real market frictions.",
+      "domain": "AI × 量化",
+      "summary": "研究将Polymarket的L2数据重构为订单级LOBSTER格式，并在417个真实市场上用JaxMARL-HFT训练做市智能体。作者提出将做市分解为报价者与风险管理者两个合作智能体，并发现奖励塑形（奖励混合与成交后markout）能显著改善分解策略的表现。但单智能体重设计虽报价更频繁且持有期损失更小，所有配置均未在定期留出评估中实现正的平均组合价值，且仅使用一个随机种子训练。",
+      "whyItMattersEn": "It provides a reusable data reconstruction, simulation environment, and evaluation protocol for prediction-market making, and explicitly identifies the key role of reward design in multi-agent decomposition; meanwhile, the negative result of no positive portfolio value delineates the current evidentiary boundary and prevents overinterpretation.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "为预测市场做市提供了可复用的数据重构、仿真环境与评估协议，并明确指出奖励设计在多智能体分解中的关键作用；同时以未实现正收益的负面结果划定了当前方法的证据边界，避免过度解读。",
+      "title": "合作多智能体强化学习在预测市场做市中的应用研究",
+      "discoveredBy": [
+        "arXiv cs.LG",
+        "arXiv q-fin"
+      ]
     },
     {
-      "keyPointsEn": [
-        "The framework models scammer–baiter interactions as a two-player game with empirically grounded strategies and utility functions.",
-        "LLMs learn counter-strategies through in-context experience without fine-tuning, and adaptive selection aligns closer to Nash equilibrium than non-adaptive baselines.",
-        "The study releases code and an annotated dataset of 300 dialogues with turn-level strategy labels and utility scores."
+      "tags": [
+        "电话诈骗",
+        "大语言模型",
+        "博弈论",
+        "纳什均衡",
+        "反诈baiting",
+        "策略学习"
       ],
-      "sourceName": "arXiv cs.CL",
-      "title": "博弈论框架助LLM动态反制电话诈骗",
-      "tagsEn": [
-        "phone scams",
-        "game theory",
-        "large language models",
-        "counter-scam strategies",
-        "Nash equilibrium"
-      ],
-      "whyItMattersEn": "Existing countermeasures often impose no resource cost on scammers; this framework explores LLM-driven strategic scam-baiting to deplete scammers' operational capacity and provides a game-theoretic benchmark for evaluating such adaptive behavior.",
-      "sourceGroup": "论文",
-      "score": 81.24,
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "金融研究",
+      "description": "该研究提出一种博弈论框架，使大语言模型无需微调即可通过上下文经验学习动态反制策略，并用纳什均衡作为评估基准。其新意在于将诈骗者与反诈 baiting 的交互建模为双人博弈，并释放带策略标签的对话数据集，为主动反诈提供了可量化的策略优化路径。",
+      "originalTitle": "Game of Phones: Harnessing Game Theory and LLMs in 'Bot Wars' to Counteract Phone Scams",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "The study introduces a game-theoretic framework that lets large language models learn dynamic counter-strategies through in-context experience without fine-tuning, using Nash equilibrium as an evaluation benchmark. Its novelty lies in modeling scammer–baiter interactions as a two-player game and releasing a dialogue dataset with turn-level strategy labels, offering a quantifiable path for proactive anti-scam strategy optimization.",
       "contentType": "paper",
       "features": [
         {
@@ -979,16 +969,9 @@
           "confidence": 0.8
         }
       ],
-      "slug": "game-of-phones-harnessing-game-theory-and-llms-i-2cc73f7753",
-      "id": "2cc73f77532cc2d7",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The study models scammer–baiter interactions as a two-player game and uses Nash equilibrium as an evaluation benchmark. Experiments across three LLM architectures and 300 simulated dialogues show that adaptive strategy selection is closer to Nash equilibrium than non-adaptive baselines. The authors argue this offers a dynamically adjustable approach to proactively depleting scammers' operational capacity.",
-      "whyItMatters": "现有反诈措施通常不消耗诈骗者资源，该框架探索用LLM驱动的策略性反诈对话主动消耗诈骗者运营能力，并为评估此类自适应行为提供博弈论基准。",
-      "description": "提出一个博弈论框架，让LLM无需微调即可通过上下文经验学习反制电话诈骗的策略，并在300段模拟对话中验证其策略选择比非自适应基线更接近纳什均衡。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -1022,52 +1005,59 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "Evidence is based on 300 simulated dialogues rather than real scam calls, with strategies and utility functions set from empirical assumptions; closer alignment with Nash equilibrium does not equal real-world anti-scam effectiveness; costs, risks, and ethical impacts of real deployment are not reported.",
-      "originalTitle": "Game of Phones: Harnessing Game Theory and LLMs in 'Bot Wars' to Counteract Phone Scams",
-      "descriptionEn": "Introduces a game-theoretic framework that lets LLMs learn counter-scam strategies through in-context experience without fine-tuning, and shows in 300 simulated dialogues that adaptive strategy selection aligns closer to Nash equilibrium than non-adaptive baselines.",
-      "keyPoints": [
-        "框架将诈骗者与反诈机器人的交互建模为两人博弈，并定义经验策略与效用函数。",
-        "LLM无需微调，仅通过上下文经验即可学习反制策略，自适应选择比非自适应基线更接近纳什均衡。",
-        "研究释放了300段带回合级策略标签和效用分数的对话数据集及代码。"
+      "slug": "game-of-phones-harnessing-game-theory-and-llms-i-2cc73f7753",
+      "id": "2cc73f77532cc2d7",
+      "keyPointsEn": [
+        "The framework models scammer–baiter interactions as a two-player game with empirically grounded strategies and utility functions, using Nash equilibrium as a formal benchmark for evaluating learned behavior.",
+        "Across 300 simulated dialogues and three LLM architectures, adaptive strategy selection aligns 28.9–79.7% closer to Nash equilibrium than non-adaptive baselines.",
+        "LLMs learn counter-strategies through in-context experience without fine-tuning; the study releases code and an annotated dataset of 300 dialogues with turn-level strategy labels and utility scores."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "Game-Theoretic Framework Enables LLMs to Dynamically Counter Phone Scams",
-      "limitations": "证据基于300段模拟对话而非真实诈骗通话，策略和效用函数依赖经验设定；纳什均衡对齐度提升不等于实际反诈效果；未报告真实部署中的成本、风险与伦理影响。",
+      "sourceName": "arXiv cs.CL",
+      "summaryEn": "The research models interactions between phone scammers and automated scam-baiting agents as a two-player game, with empirically grounded strategies and utility functions, and uses Nash equilibrium as a formal benchmark for learned behavior. Across 300 simulated dialogues and three LLM architectures, adaptive strategy selection aligns 28.9–79.7% closer to Nash equilibrium than non-adaptive baselines. The authors present this as a viable framework for dynamic LLM counter-strategies without fine-tuning, and release code plus an annotated dataset of 300 dialogues with turn-level strategy labels and utility scores.",
+      "tagsEn": [
+        "phone scams",
+        "large language models",
+        "game theory",
+        "Nash equilibrium",
+        "scam baiting",
+        "strategy learning"
+      ],
       "originalUrl": "https://arxiv.org/abs/2610.26781",
-      "summary": "研究将诈骗者与反诈机器人互动建模为两人博弈，以纳什均衡作为评估基准。实验显示，三种LLM架构在300段模拟对话中的自适应策略选择比非自适应基线更接近纳什均衡。作者认为这为主动消耗诈骗者资源提供了可动态调整的反制思路。",
-      "tags": [
-        "电话诈骗",
-        "博弈论",
-        "大语言模型",
-        "反诈策略",
-        "纳什均衡"
+      "keyPoints": [
+        "框架将诈骗者与baiting代理的交互建模为双人博弈，策略与效用函数有实证依据，纳什均衡作为评估学习行为的正式基准。",
+        "在300段模拟对话和三种LLM架构中，自适应策略选择比非自适应基线更接近纳什均衡，提升幅度为28.9%至79.7%。",
+        "LLM通过上下文经验学习反制策略，无需微调；研究公开了代码和带轮次策略标签与效用分数的300段对话数据集。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "证据基于300段模拟对话和三种LLM架构，并非真实电话诈骗场景的实地部署结果；效用函数和策略的实证依据程度、模拟环境与真实诈骗者行为的差距、以及纳什均衡作为基准的适用边界，均需进一步验证；未报告真实诈骗者资源消耗或诈骗成功率变化的现场数据。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Game-Theoretic Framework Enables LLMs to Learn Counter-Scam Strategies",
+      "score": 81.24,
+      "aiGenerated": true,
+      "limitationsEn": "Evidence is based on 300 simulated dialogues and three LLM architectures, not field deployments against real phone scams; the extent of empirical grounding for utility functions and strategies, the gap between simulated and real scammer behavior, and the applicability boundaries of Nash equilibrium as a benchmark all require further validation; no field data on real scammer resource depletion or changes in scam success rates are reported.",
+      "domain": "金融研究",
+      "summary": "研究将电话诈骗者与自动反诈 baiting 代理的交互建模为双人博弈，策略与效用函数有实证依据，并以纳什均衡作为学习行为的正式基准。在300段模拟对话和三种LLM架构上，自适应策略选择比非自适应基线更接近纳什均衡，提升幅度为28.9%至79.7%。作者认为这为无需微调的LLM动态反制策略提供了可行框架，并公开了代码和带轮次策略标签与效用分数的数据集。",
+      "whyItMattersEn": "Phone scams impose substantial and growing costs on individuals and financial systems, while existing countermeasures impose no resource cost on perpetrators. The framework explores automated baiting to deplete scammer operational capacity and introduces Nash equilibrium as a quantifiable evaluation benchmark, offering a reproducible research path for proactive anti-scam strategy learning.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "电话诈骗对个人和金融系统造成显著且持续增长的成本，而现有反制措施不消耗诈骗者资源。该框架探索通过自动化baiting消耗诈骗者运营能力，并引入纳什均衡作为可量化评估基准，为主动反诈策略学习提供了可复现的研究路径。",
+      "title": "博弈论框架让LLM学会反制电话诈骗",
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ]
     },
     {
-      "keyPointsEn": [
-        "LOBGrad couples an autoregressive RNN encoder with a conditional DDPM generator for probabilistic limit order book forecasting.",
-        "The authors establish an excess-risk oracle inequality for the one-step DDPM noise-prediction objective under exponential mixing and regularity assumptions.",
-        "Experiments show LOBGrad outperforms the encoder-free diffusion ablation on all reported queue metrics and reproduces stylized facts of LOB microstructure."
+      "tags": [
+        "限价订单簿",
+        "扩散模型",
+        "概率预测",
+        "量化金融",
+        "市场微观结构"
       ],
-      "sourceName": "arXiv q-fin",
-      "title": "条件扩散模型实现限价订单簿概率预测",
-      "tagsEn": [
-        "limit order book",
-        "diffusion models",
-        "probabilistic forecasting",
-        "quantitative finance",
-        "deep learning"
-      ],
-      "whyItMattersEn": "This work provides a diffusion-model framework with both theoretical guarantees and empirical performance for probabilistic limit order book forecasting, useful for market forecasting and execution-strategy evaluation.",
-      "sourceGroup": "论文",
-      "score": 80.92,
-      "discoveredBy": [
-        "arXiv cs.LG",
-        "arXiv q-fin"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "量化研究",
+      "description": "该研究提出LOBGrad，将自回归循环神经网络编码器与条件扩散模型结合，用于限价订单簿的概率预测，并首次为一步DDPM噪声预测目标建立了超额风险oracle不等式，在BTC/USDT、GOOGL和META数据上优于无编码器消融版本。",
+      "originalTitle": "Probabilistic Limit Order Book Forecasting with Conditional Diffusion Models",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "The study introduces LOBGrad, a conditional DDPM framework combining an autoregressive RNN encoder with a diffusion generator for probabilistic limit order book forecasting, establishes an excess-risk oracle inequality for the one-step DDPM noise-prediction objective, and shows improvements over an encoder-free ablation on BTC/USDT, GOOGL, and META.",
       "contentType": "paper",
       "features": [
         {
@@ -1126,16 +1116,9 @@
           "confidence": 0.8
         }
       ],
-      "slug": "probabilistic-limit-order-book-forecasting-with--beb258efb2",
-      "id": "beb258efb2edc299",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The authors introduce LOBGrad, a conditional DDPM framework for probabilistic limit order book forecasting that combines an autoregressive RNN encoder with a diffusion-based generator. Theoretically, under exponential mixing and regularity assumptions, they establish an excess-risk oracle inequality for the one-step DDPM noise-prediction objective and show that under contractive dynamics the dependence on conditioning-window length can be reduced to the latent-state dimension. Experiments on BTC/USDT, GOOGL, and META show that LOBGrad improves over its encoder-free diffusion ablation across all reported queue metrics and is competitive against other baselines.",
-      "whyItMatters": "该工作为限价订单簿的概率预测提供了兼具理论保证与实证表现的扩散模型框架，有助于市场预测与执行策略评估。",
-      "description": "LOBGrad将自回归RNN编码器与条件DDPM生成器结合，为限价订单簿提供概率预测，并首次给出一步DDPM噪声预测目标的超额风险oracle不等式；实验显示其优于无编码器消融，且能复现微观结构典型事实。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -1168,51 +1151,59 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "The theoretical guarantees rely on exponential mixing and regularity assumptions whose validity on real market data needs verification; experiments cover only BTC/USDT, GOOGL, and META, limiting generalizability; the downstream task is a stylized illustration whose practical value requires further assessment.",
-      "originalTitle": "Probabilistic Limit Order Book Forecasting with Conditional Diffusion Models",
-      "descriptionEn": "LOBGrad combines an autoregressive RNN encoder with a conditional DDPM generator for probabilistic limit order book forecasting, and provides an excess-risk oracle inequality for the one-step DDPM noise-prediction objective; experiments show it outperforms an encoder-free ablation and reproduces stylized facts of LOB microstructure.",
-      "keyPoints": [
-        "LOBGrad将自回归RNN编码器与条件DDPM生成器结合，实现限价订单簿概率预测。",
-        "作者在指数混合与正则性假设下建立了一步DDPM噪声预测目标的超额风险oracle不等式。",
-        "实验表明LOBGrad在所有报告的队列指标上优于无编码器扩散消融，并复现LOB微观结构典型事实。"
+      "slug": "probabilistic-limit-order-book-forecasting-with--beb258efb2",
+      "id": "beb258efb2edc299",
+      "keyPointsEn": [
+        "LOBGrad combines an autoregressive RNN encoder with a conditional DDPM for probabilistic limit order book forecasting.",
+        "An excess-risk oracle inequality is established for the one-step DDPM noise-prediction objective under exponential mixing and regularity assumptions.",
+        "On BTC/USDT, GOOGL, and META, it improves over the encoder-free ablation on all reported queue metrics and reproduces stylized facts of LOB microstructure."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "Conditional Diffusion Models for Probabilistic Limit Order Book Forecasting",
-      "limitations": "理论保证依赖于指数混合与正则性假设，实际市场数据是否满足尚需验证；实验仅覆盖BTC/USDT、GOOGL和META三个标的，结论的普适性有限；下游任务仅为风格化示例，其实际价值需进一步评估。",
+      "sourceName": "arXiv q-fin",
+      "summaryEn": "Fact: The authors propose LOBGrad, which couples an RNN encoder with a diffusion generator, and prove an excess-risk oracle inequality for the one-step DDPM noise-prediction objective under exponential mixing and regularity assumptions. Experiments on three datasets show LOBGrad improves over its encoder-free diffusion ablation on all reported queue metrics and is competitive with other baselines. Author view: Under contractive dynamics, the dependence on conditioning-window length can be reduced to dependence on latent-state dimension, and the generated forecasts show potential value in a downstream task.",
+      "tagsEn": [
+        "limit order book",
+        "diffusion models",
+        "probabilistic forecasting",
+        "quantitative finance",
+        "market microstructure"
+      ],
       "originalUrl": "https://arxiv.org/abs/2610.25495",
-      "summary": "作者提出LOBGrad，一个结合RNN编码器与扩散生成器的条件DDPM框架，用于限价订单簿的概率预测。理论上，在指数混合与正则性假设下建立了一步DDPM噪声预测目标的超额风险oracle不等式，并表明在收缩动态下条件窗口长度的依赖可降至潜在状态维度。实验在BTC/USDT、GOOGL和META上显示，LOBGrad在所有报告的队列指标上优于无编码器扩散消融，并与其他基线具有竞争力。",
-      "tags": [
-        "限价订单簿",
-        "扩散模型",
-        "概率预测",
-        "量化金融",
-        "深度学习"
+      "keyPoints": [
+        "LOBGrad将自回归RNN编码器与条件DDPM结合，实现限价订单簿的概率预测。",
+        "在指数混合与正则性假设下，为一步DDPM噪声预测目标建立了超额风险oracle不等式。",
+        "在BTC/USDT、GOOGL和META上，所有报告的队列指标均优于无编码器消融，并复现LOB微观结构典型事实。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "理论保证依赖于指数混合、正则性和收缩动态等假设，实际市场未必满足；实证仅覆盖BTC/USDT、GOOGL和META三个数据集，队列指标之外的表现未充分报告；下游任务仅为风格化示例，生成预测的实际经济价值需进一步验证。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Probabilistic Limit Order Book Forecasting with Conditional Diffusion Models",
+      "score": 80.92,
+      "aiGenerated": true,
+      "limitationsEn": "Theoretical guarantees rely on exponential mixing, regularity, and contractive dynamics assumptions that may not hold in real markets; empirical evidence covers only BTC/USDT, GOOGL, and META, with limited reporting beyond queue metrics; the downstream task is a stylized illustration, and the practical economic value of generated forecasts requires further validation.",
+      "domain": "量化研究",
+      "summary": "文章事实：作者提出LOBGrad框架，结合RNN编码器与扩散生成器，并在指数混合与正则性假设下证明了一步DDPM噪声预测目标的超额风险oracle不等式。实验显示在三个数据集上，LOBGrad在所有报告的队列指标上优于无编码器的扩散消融版本，并与其他基线具有竞争力。作者观点：在收缩动态下，条件窗口长度的依赖可简化为潜在状态维度的依赖；生成预测在下游任务中具有潜在价值。",
+      "whyItMattersEn": "It offers a probabilistic modeling framework with both theoretical guarantees and empirical improvements for limit order book forecasting, which can support more reliable evaluation of execution strategies and quantitative market risk, though applicability depends on assumptions and data scope.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "为限价订单簿预测提供了兼具理论保证与实证改进的概率建模框架，有助于更可靠地评估执行策略和量化市场风险，但其应用需考虑假设条件与数据范围。",
+      "title": "条件扩散模型实现限价订单簿概率预测",
+      "discoveredBy": [
+        "arXiv cs.LG",
+        "arXiv q-fin"
+      ]
     },
     {
-      "keyPointsEn": [
-        "On 3,875 held-out decisions, the typed encoder matches the logged next hop 32.2% of the time (34.9% within declared options) in 10 ms, versus 2.2 s per LLM hop.",
-        "Two feature readouts reach 32.8% and 32.3%, with a paired test unable to resolve the ordering; the typed layer is chosen for cost.",
-        "Gains are attributed to per-node candidate restriction (+3.5 points over a flat catalog) rather than graph traversal (zero within its interval); cross-trace leave-one-out shows lower ceilings as state keys grow more specific (25.6%–44.9%)."
+      "tags": [
+        "工具使用智能体",
+        "路由层",
+        "类型化决策",
+        "动作图",
+        "低延迟推理"
       ],
-      "sourceName": "arXiv cs.LG",
-      "title": "NIOCIS路由层：以类型化下一跳降低工具智能体决策成本",
-      "tagsEn": [
-        "tool-use agents",
-        "routing layer",
-        "action graph",
-        "cost optimization",
-        "next-hop prediction"
-      ],
-      "whyItMattersEn": "It offers a low-cost routing alternative for tool-use agents, quickly selecting the next action without generating text, which can reduce per-hop LLM latency and compute; however, limited agreement makes it suitable as a fast path in a cascade rather than a full replacement.",
-      "sourceGroup": "论文",
-      "score": 80.51,
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI × 量化",
+      "description": "NIOCIS 将工具使用智能体的执行日志压缩为循环折叠的动作图，通过小模型单次输出类型化选项分布，以极低延迟替代耗时的大模型逐跳推理。",
+      "originalTitle": "NIOCIS: Typed-Decision Next-Hop Routing with Node-Conditioned Option Spaces for Tool-Use Agents",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "NIOCIS compresses tool-use agent logs into a loop-collapsed action graph and uses a small model to emit a typed option distribution in one pass, replacing costly per-hop LLM reasoning with very low latency.",
       "contentType": "paper",
       "features": [
         {
@@ -1260,16 +1251,9 @@
           "confidence": 0.84
         }
       ],
-      "slug": "niocis-typed-decision-next-hop-routing-with-node-f317b65635",
-      "id": "f317b6563545c416",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "NIOCIS is a routing layer that folds execution logs into an action graph with recovery back-edges, letting a small model read the state once and output a probability distribution over next-hop options without generating text. On production security-operations data, its typed encoder makes decisions in about 10 ms versus 2.2 s per LLM hop, but next-hop agreement is only about 32%. The authors argue the typed layer is chosen for cost rather than a separated lead, and that more specific state keys lead to more disagreement among repeated states, bounding the protocol's ceiling.",
-      "whyItMatters": "为工具使用智能体提供一种低成本路由替代方案，在不生成文本的情况下快速选择下一动作，有助于降低逐跳LLM调用的延迟和计算开销；但匹配率有限，适合作为级联中的快速路径而非完全替代。",
-      "description": "NIOCIS将执行日志折叠为循环折叠的动作图，用小型模型一次性输出下一跳选项分布，替代LLM逐跳重读状态并思考的昂贵决策；在1615个生产安全运营片段上测量了该层替代、回报与边界。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -1306,52 +1290,58 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "Evidence comes only from a single production security-operations setting with 1,615 episodes and 3,875 held-out decisions, not validated in other domains; next-hop agreement is about 32%, repeated-state consistency is low, and ceilings range from 25.6% to 44.9% as state keys become more specific; 7.9% of decisions fall outside declared options and 9.3% outside the model's top twenty; a confidence-gated cascade loses agreement when the escalation arm is a zero-shot stand-in; agreement past a third of the fleet requires a state carrying the plan and observation.",
-      "originalTitle": "NIOCIS: Typed-Decision Next-Hop Routing with Node-Conditioned Option Spaces for Tool-Use Agents",
-      "descriptionEn": "NIOCIS collapses execution logs into a loop-collapsed action graph and uses a small model to emit a next-hop option distribution in one pass, replacing costly per-hop LLM state re-reading and reasoning; evaluated on 1,615 production security-operations episodes for what the layer replaces, returns, and is bounded by.",
-      "keyPoints": [
-        "在3875个留出决策中，类型化编码器10毫秒内匹配记录的下一跳32.2%（声明选项内34.9%），LLM每跳2.2秒。",
-        "两个特征读出分别达32.8%和32.3%，配对检验无法区分排序，类型化层因成本被选中。",
-        "收益归因于按节点限制候选（比扁平目录高3.5个百分点），图遍历贡献为零；跨轨迹留一法显示状态键越具体上限越低（25.6%–44.9%）。"
+      "slug": "niocis-typed-decision-next-hop-routing-with-node-f317b65635",
+      "id": "f317b6563545c416",
+      "keyPointsEn": [
+        "On 3,875 held-out decisions, the typed encoder matched the logged next hop 32.2% of the time in 10 ms, while each LLM hop takes 2.2 s.",
+        "Fine-tuned jpt-4b reaches 31.9% accuracy versus 9.9% zero-shot, with a paired test showing no significant difference (p=0.68).",
+        "Option-space ablation attributes the gain to per-node candidate restriction (+3.5 points over a flat catalog) rather than graph traversal."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "NIOCIS Routing Layer Reduces Decision Cost for Tool-Use Agents via Typed Next-Hop Selection",
-      "limitations": "证据仅来自单一生产安全运营场景的1615个片段和3875个留出决策，未验证其他领域；下一跳匹配率约32%，重复状态一致性低，状态键细化后上限为25.6%–44.9%；7.9%的决策实际跳转落在声明选项外，9.3%落在模型前二十外；置信度门控级联在零样本替代下会降低一致性；协议超过三分之一即需携带计划和观察的状态。",
+      "sourceName": "arXiv cs.LG",
+      "summaryEn": "NIOCIS is a routing layer that folds execution logs into a loop-collapsed action graph and uses a small model to output a calibrated distribution over typed options in a single pass, without generating text. On 1,615 production security-operations episodes, its encoder matched 32.2% of held-out next-hop decisions in 10 ms, versus 2.2 s per LLM hop. The authors argue the typed layer is chosen for cost, not a separated performance lead.",
+      "tagsEn": [
+        "tool-use agents",
+        "routing layer",
+        "typed decisions",
+        "action graph",
+        "low-latency inference"
+      ],
       "originalUrl": "https://arxiv.org/abs/2610.25985",
-      "summary": "NIOCIS 是一个路由层，把执行日志折叠成带恢复回边的动作图，让小型模型单次读取状态并输出下一跳选项的概率分布，不生成文本。在生产安全运营数据上，它的类型化编码器用约10毫秒完成决策，而LLM每跳约2.2秒，但下一跳匹配率仅约32%。作者观点认为类型化层的选择依据是成本而非明显领先，且状态键越具体重复状态越不一致，限制了协议上限。",
-      "tags": [
-        "工具使用智能体",
-        "路由层",
-        "动作图",
-        "成本优化",
-        "下一跳预测"
+      "keyPoints": [
+        "在 3,875 个留出决策上，类型化编码器 10 毫秒内匹配记录下一跳的 32.2%，而 LLM 每跳耗时 2.2 秒。",
+        "微调后的 jpt-4b 达到 31.9% 准确率，零样本为 9.9%，配对检验未发现显著差异（p=0.68）。",
+        "选项空间消融显示，增益来自每节点候选限制（较平坦目录提升 3.5 个百分点），而非图遍历。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "跨轨迹留一法测试表明，随着状态键更具体，发布状态的天花板仅 25.6–44.9%，重复状态的分歧常多于一致；置信门控级联在升级臂为零样本替代时反而损失一致性；结论基于特定生产安全运营数据，泛化性待验证。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "NIOCIS Routing Layer: Typed Decisions and Node-Conditioned Option Spaces for Tool-Use Agents",
+      "score": 80.51,
+      "aiGenerated": true,
+      "limitationsEn": "A cross-trace leave-one-out test puts the ceiling of the released state at only 25.6–44.9% as the state key grows more specific, with repeated states disagreeing more often than agreeing; a confidence-gated cascade loses agreement when the escalation arm is a zero-shot stand-in; conclusions are based on specific production security-operations data and generalization remains to be validated.",
+      "domain": "AI × 量化",
+      "summary": "NIOCIS 是一个路由层，把执行日志折叠成循环折叠的动作图，用小型模型单次前向输出类型化选项的校准分布，而不生成文本。在生产安全运营的 1,615 个回合上，其编码器以 10 毫秒匹配 32.2% 的留出下一步决策，对比 LLM 每跳 2.2 秒。作者认为类型化层的选择基于成本，而非分离的性能领先。",
+      "whyItMattersEn": "The work quantifies the cost-accuracy trade-off of replacing per-hop LLM reasoning with a lightweight typed routing layer, offering reference boundary evidence for low-latency deployment of tool-use agents.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "该工作量化了用轻量类型化路由层替代 LLM 逐跳推理的成本与精度取舍，为工具使用智能体的低延迟部署提供了可参考的边界证据。",
+      "title": "NIOCIS 路由层：以类型化决策与节点条件选项空间优化工具智能体",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ]
     },
     {
-      "keyPointsEn": [
-        "Rule adherence was high across all four agents, including the unprofitable one; 97.5% of gross loss stayed within declared stops, and 23 of 24 runs respected the position limit.",
-        "Institutional-style controls ran by default and contained losses through a 29% market drawdown and recovery, with documented exceptions.",
-        "Profitability tracked whether agents' win rates exceeded their break-even win rates, rather than rule adherence alone."
+      "tags": [
+        "AI交易代理",
+        "规则遵守",
+        "风险评估",
+        "交易纪律",
+        "代理评估"
       ],
-      "sourceName": "arXiv q-fin",
-      "title": "规则遵循型交易智能体的控制层评估：策略纪律与市场条件",
-      "tagsEn": [
-        "AI trading agents",
-        "rule adherence",
-        "risk control",
-        "strategy evaluation",
-        "market drawdown"
-      ],
-      "whyItMattersEn": "The study offers a reproducible evaluation method to test whether AI trading agents comply with predefined rules before granting them capital or autonomy, helping distinguish discipline from luck and reducing unexpected risks from rule failures.",
-      "sourceGroup": "论文",
-      "score": 79.66,
-      "discoveredBy": [
-        "arXiv cs.LG",
-        "arXiv q-fin"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "金融研究",
+      "description": "该研究通过2627笔平仓交易，检验四个AI交易代理是否遵守策略与风控规则，并提供可复用的代理评估工具，帮助在赋予代理自主权或资金前区分规则遵循与运气。",
+      "originalTitle": "The Control Layer Behind Rule-Following Agents Trading Across Market Conditions",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "The study examines whether four AI trading agents followed their strategies and risk rules across 2,627 closed positions and offers a reusable agent evaluation toolkit to distinguish rule-following from luck before granting autonomy or capital.",
       "contentType": "paper",
       "features": [
         {
@@ -1399,16 +1389,9 @@
           "confidence": 0.8
         }
       ],
-      "slug": "the-control-layer-behind-rule-following-agents-t-2ef3fff8fe",
-      "id": "2ef3fff8fec279e9",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The study tested whether four AI trading agents followed their declared strategies, stops, and targets under the same asset universe and execution conditions. Facts show high rule adherence (97.5% of gross loss within declared stops), one logged position-limit violation, and net positive fleet performance, with profitability tied to win rates relative to break-even. The authors argue discipline should be an entry test, not the only test, for capital allocation, and provide a reproducible trade-log test toolkit.",
-      "whyItMatters": "该研究提供了一种可复现的评估方法，用于在赋予AI交易智能体资本或自主权前，检验其是否遵守既定规则，从而帮助区分纪律与运气，降低因规则失效导致的意外风险。",
-      "description": "该研究通过分析2026年2月至8月间四个AI交易智能体的2,627个已平仓头寸，检验其在真实市场条件下对策略与风险规则的遵循程度，并发布评估工具包以区分运气与规则遵循，为智能体获得资本或自主权前的准入测试提供证据。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -1442,51 +1425,59 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "Trade-level results are not account-level returns and do not prove a lasting edge; most positions were simulated (only 18% were real Hyperliquid orders), stop-breach tolerance is specified in Section 3.5, findings are bounded by the sample period and asset universe, and details of the single position-limit violation are only in logs.",
-      "originalTitle": "The Control Layer Behind Rule-Following Agents Trading Across Market Conditions",
-      "descriptionEn": "The study analyzes 2,627 closed positions from four AI trading agents between February and August 2026 to test adherence to declared strategies and risk rules under live market conditions, and releases an evaluation toolkit to distinguish rule-following from luck as an entry test before agents receive capital or autonomy.",
-      "keyPoints": [
-        "四个智能体中规则遵循度普遍较高，包括未盈利的智能体；97.5%的总亏损在声明止损内，23/24次运行遵守头寸上限。",
-        "在29%的市场回撤与恢复期间，机构式控制默认运行并遏制了损失，但存在有记录的例外。",
-        "盈利能力与智能体胜率是否超过其盈亏平衡胜率相关，而非单纯由规则遵循决定。"
-      ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "Control Layer Evaluation of Rule-Following Trading Agents: Strategy Discipline Across Market Conditions",
-      "limitations": "交易层面结果不代表账户层面收益，也不证明存在持久优势；多数头寸为模拟撮合（仅18%为真实Hyperliquid订单），止损违规容忍度定义在3.5节，结论受限于样本期与资产范围，且一次头寸限制违规的具体规模与时长仅见于日志。",
-      "originalUrl": "https://arxiv.org/abs/2610.26324",
-      "summary": "研究测试了四个AI交易智能体在相同资产与执行条件下是否遵循其声明的策略、止损与目标。事实显示：规则遵循度高（97.5%的总亏损控制在声明止损内），一次头寸限制违规被日志记录；整体净收益为正，但盈利能力与胜率相对盈亏平衡胜率的关系有关。作者观点是：纪律应作为资本配置的入门测试而非唯一测试，并提供了可复现的交易日志测试工具包。",
-      "tags": [
-        "AI交易智能体",
-        "规则遵循",
-        "风险控制",
-        "策略评估",
-        "市场回撤"
-      ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
-    },
-    {
+      "slug": "the-control-layer-behind-rule-following-agents-t-2ef3fff8fe",
+      "id": "2ef3fff8fec279e9",
       "keyPointsEn": [
-        "Synthetic probability mass varies independently of draw count under a fixed training protocol, and optimal generator fidelity is not assumed.",
-        "Generated scenarios understate volatility and tail losses and distort cross-asset dependence; longer training improves reconstruction loss but not correlation accuracy.",
-        "Replacement raises turnover and is sensitive to the modified objective's denominator floor; changing the floor does not uniformly improve realized downside risk."
+        "All four agents maintained high rule adherence, with 97.5% of gross loss kept within declared stops.",
+        "Profitability was linked to how often agents won relative to their break-even win rates, not rule adherence alone.",
+        "23 of 24 runs respected the position limit, with logs documenting the size and duration of the exception."
       ],
       "sourceName": "arXiv q-fin",
-      "title": "TimeGAN情景在Rachev比率组合优化中的替代与补充评估",
+      "summaryEn": "The study analyzed 2,627 closed positions from four AI trading agents between February and August 2026; most were simulated against live prices, with 18% real Hyperliquid orders. Rule adherence was high across all four agents, including the unprofitable one, and profitability tracked how often agents won relative to their break-even win rates. The authors argue discipline should be an entry test for capital allocation, but stress that trade-level results are not account-level returns or proof of a lasting edge.",
       "tagsEn": [
-        "TimeGAN",
-        "Rachev ratio",
-        "portfolio optimization",
-        "generated scenarios",
-        "model risk"
+        "AI trading agents",
+        "rule adherence",
+        "risk assessment",
+        "trading discipline",
+        "agent evaluation"
       ],
-      "whyItMattersEn": "The study suggests that when time-series generative models are used for tail-sensitive portfolio allocation, scenario fidelity, numerical behavior, and realized investment outcomes should be evaluated jointly rather than relying solely on generation error or average returns. For quantitative researchers, it helps identify the boundaries of model risk arising from the interaction between generated scenarios and the Rachev ratio.",
+      "originalUrl": "https://arxiv.org/abs/2610.26324",
+      "keyPoints": [
+        "四个代理均保持高规则遵守度，97.5%的毛损失控制在声明止损内。",
+        "盈利能力与代理相对于盈亏平衡胜率的获胜频率相关，而非仅由规则遵守决定。",
+        "24次运行中23次遵守持仓上限，日志记录了例外的大小与持续时间。"
+      ],
+      "limitations": "交易级结果不代表账户级回报，也不能证明持续优势；多数头寸为模拟交易，仅18%涉及真实订单；结果基于特定资产范围和时段，策略间结果不同，不能直接推广为投资建议。",
       "sourceGroup": "论文",
-      "score": 78.88,
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
       "summaryModel": "deepseek-v4-flash",
-      "domain": "量化研究",
+      "summaryProvider": "deepseek",
+      "titleEn": "Rule Adherence Evaluation of Four Trading Agents: A New Toolkit to Separate Discipline from Luck",
+      "score": 79.66,
+      "aiGenerated": true,
+      "limitationsEn": "Trade-level results are not account-level returns and do not prove a lasting edge; most positions were simulated and only 18% involved real orders; findings are based on a specific asset universe and period, vary by strategy, and are not investment advice.",
+      "domain": "金融研究",
+      "summary": "研究分析了2026年2月至8月间四个AI交易代理的2627笔平仓头寸，多数为模拟交易，18%为真实Hyperliquid订单。结果显示四个代理规则遵守度均高，包括未盈利代理；盈利能力与相对盈亏平衡胜率的获胜频率相关。作者认为纪律应作为资金配置的入门测试，但强调交易级结果不等于账户级回报或持续优势。",
+      "whyItMattersEn": "It provides a rerunnable rule-adherence test toolkit for evaluating trading agents, helping to use discipline as an entry filter—not the only test—before granting autonomy or capital.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "为量化交易中的代理评估提供了可重跑的规则遵循检验工具，有助于在赋予代理自主权或资金前，将纪律作为入门筛选条件，而非唯一标准。",
+      "title": "四交易代理规则遵守评估：新工具区分纪律与运气",
+      "discoveredBy": [
+        "arXiv cs.LG",
+        "arXiv q-fin"
+      ]
+    },
+    {
+      "tags": [
+        "TimeGAN",
+        "Rachev比率",
+        "组合优化",
+        "生成情景",
+        "模型风险"
+      ],
+      "description": "该研究评估TimeGAN生成情景在Rachev比率组合优化中的可靠性，通过12只ETF比较历史、替换与混合策略，发现合成情景低估波动与尾部损失、扭曲依赖结构，且收益差异不显著。",
+      "originalTitle": "Rachev-Ratio Portfolio Optimization with TimeGAN Scenarios: Replacement versus Supplementation",
+      "publishedAt": "2026-10-20T04:00:00+00:00",
+      "descriptionEn": "This study evaluates the reliability of TimeGAN-generated scenarios in Rachev-ratio portfolio allocation using 12 ETFs, comparing historical, replacement, and hybrid policies; synthetic scenarios understate volatility and tail losses and distort dependence, with return differences not statistically significant.",
       "contentType": "paper",
       "features": [
         {
@@ -1545,16 +1536,9 @@
           "confidence": 0.8
         }
       ],
-      "slug": "rachev-ratio-portfolio-optimization-with-timegan-6b8ddcdb7e",
-      "id": "6b8ddcdb7e7e220a",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The author compares historical, TimeGAN-replacement, and hybrid scenarios in Rachev-ratio portfolio optimization and finds that synthetic scenarios understate volatility and tail losses while distorting cross-asset dependence. Higher-mass hybrids earn larger average net returns in some configurations, but conditional generated-versus-historical return intervals all include zero. The author interprets the results as financial model risk from imperfect scenarios interacting with a tail-sensitive criterion, not as evidence that generated scenarios can replace historical ones.",
-      "whyItMatters": "该研究提示，将时间序列生成模型用于尾部敏感的组合配置时，需同时评估情景保真度、数值行为与已实现投资结果，而不能仅依赖生成误差或平均收益。对量化研究者而言，这有助于识别生成情景与Rachev比率交互产生的模型风险边界。",
-      "description": "该研究检验了TimeGAN生成情景用于Rachev比率组合配置的可靠性与投资后果，通过12只ETF在五种训练种子下比较历史、替代与混合策略，并计入延迟执行与交易成本。其新意在于揭示生成情景在波动率、尾部损失与依赖结构上的失真，以及这些失真与尾部敏感配置准则交互产生的模型风险。",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 8296,
+        "comparisonCohortSize": 8337,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -1591,51 +1575,58 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "limitationsEn": "Evidence is based on 12 ETFs, five training seeds, and a specific TimeGAN implementation, and no causal channel from generation error to investment performance is identified. All conditional generated-versus-historical return intervals include zero at the reference block length, as do paired return, Sharpe ratio, and realized tail-ratio intervals; full-period TimeGAN means exceed resampling controls but do not support a robust replacement conclusion. Findings are limited to the tested implementation and sample and should not be extrapolated into general investment advice.",
-      "originalTitle": "Rachev-Ratio Portfolio Optimization with TimeGAN Scenarios: Replacement versus Supplementation",
-      "descriptionEn": "This study assesses the reliability and investment consequences of TimeGAN-generated scenarios in Rachev-ratio portfolio allocation, comparing historical, replacement, and hybrid policies across 12 ETFs with five training seeds, delayed execution, and transaction costs. Its novelty lies in exposing distortions in volatility, tail losses, and dependence structure, and the financial model risk arising from their interaction with a tail-sensitive allocation criterion.",
-      "keyPoints": [
-        "在固定训练协议下，合成概率质量随抽样次数独立变化，最优生成器保真度未被假设。",
-        "生成情景低估波动率与尾部损失，并扭曲跨资产依赖结构；延长训练仅改善重建损失，未提升相关性精度。",
-        "替代策略提高换手率并对修正目标函数的分母下限敏感；改变下限未统一改善已实现下行风险。"
+      "slug": "rachev-ratio-portfolio-optimization-with-timegan-6b8ddcdb7e",
+      "id": "6b8ddcdb7e7e220a",
+      "keyPointsEn": [
+        "Synthetic probability mass varies independently of draw count under a fixed training protocol, and optimal generator fidelity is not assumed.",
+        "TimeGAN scenarios understate volatility and tail losses and distort dependence; longer training improves reconstruction loss without improving cross-asset correlation accuracy.",
+        "Replacement raises turnover and is sensitive to the modified objective's denominator floor; all conditional generated-versus-historical return intervals include zero at the reference block length."
       ],
-      "publishedAt": "2026-10-20T04:00:00+00:00",
-      "titleEn": "Evaluating TimeGAN Scenarios for Rachev-Ratio Portfolio Optimization: Replacement versus Supplementation",
-      "limitations": "证据基于12只ETF、五种训练种子和特定TimeGAN实现，未建立生成误差与投资绩效的因果通道。所有条件生成与历史收益区间在参考块长度下包含零，配对收益、夏普比率与已实现尾部比率区间也包含零；全期TimeGAN均值虽超重采样控制组，但不足以支持稳健替代结论。结论受限于测试实现与样本，不宜外推为普遍投资建议。",
-      "originalUrl": "https://arxiv.org/abs/2610.24544",
-      "summary": "作者在Rachev比率组合优化中比较历史情景、TimeGAN替代情景与混合情景，发现合成情景低估波动率和尾部损失，并扭曲资产间依赖结构。在某些配置下，高合成质量混合策略获得更高平均净收益，但生成与历史收益的条件区间均包含零。作者认为结果体现了不完美情景与尾部敏感配置准则交互带来的金融模型风险，而非证明生成情景可替代历史情景。",
-      "tags": [
+      "sourceName": "arXiv q-fin",
+      "summaryEn": "The study uses TimeGAN scenarios for Rachev-ratio portfolio allocation under a fixed training protocol, comparing them with historical scenarios and hybrid policies. The author reports that synthetic scenarios understate volatility and tail losses, distort cross-asset dependence, and that replacement raises turnover and is sensitive to the modified objective's denominator floor. The paper concludes that, within the tested implementation, return differences between generated and historical scenarios have intervals including zero, so robust improvement from generated scenarios cannot be confirmed.",
+      "tagsEn": [
         "TimeGAN",
-        "Rachev比率",
-        "组合优化",
-        "生成情景",
-        "模型风险"
+        "Rachev ratio",
+        "portfolio optimization",
+        "generated scenarios",
+        "model risk"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "originalUrl": "https://arxiv.org/abs/2610.24544",
+      "keyPoints": [
+        "合成情景的概率质量在固定训练协议下随抽取次数独立变化，且生成器保真度未被假设为最优。",
+        "TimeGAN情景低估波动与尾部损失并扭曲依赖结构；延长训练仅改善重构损失，未提升跨资产相关性精度。",
+        "替换策略提高换手率并受修正目标分母下限影响；所有条件生成与历史收益区间在参考块长度下包含零。"
+      ],
+      "limitations": "证据基于12只ETF、五个训练种子及特定TimeGAN实现与训练协议，结论外推需谨慎；生成误差与投资绩效的关联为探索性，未识别因果渠道；收益、夏普与尾部比率区间包含零，统计显著性不足；分母下限调整未一致改善实现下行风险。",
+      "sourceGroup": "论文",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Reliability Comparison of TimeGAN Scenario Replacement versus Supplementation in Rachev-Ratio Portfolios",
+      "score": 78.88,
+      "aiGenerated": true,
+      "limitationsEn": "Evidence is based on 12 ETFs, five training seeds, and a specific TimeGAN implementation and training protocol, so extrapolation requires caution; the association between generation error and investment performance is exploratory and does not identify a causal channel; intervals for returns, Sharpe, and realized tail ratios include zero, indicating insufficient statistical significance; adjusting the denominator floor does not uniformly improve realized downside risk.",
+      "domain": "量化研究",
+      "summary": "研究在固定训练协议下，使用TimeGAN生成情景进行Rachev比率组合配置，并与历史情景及混合策略对比。作者报告合成情景低估波动和尾部损失、扭曲跨资产依赖，且替换策略换手率更高、对目标函数分母下限敏感。论文结论认为，在测试实现中，生成情景与历史情景的收益差异区间包含零，无法确认生成情景能带来稳健改进。",
+      "whyItMattersEn": "The study highlights financial model risk arising from the interaction of imperfect generated scenarios and a tail-sensitive allocation criterion, suggesting that fidelity, numerical behavior, and realized outcomes should be jointly evaluated before adopting generative scenarios for portfolio optimization, rather than relying on training loss alone.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "研究揭示了不完美生成情景与尾部敏感配置准则交互产生的金融模型风险，提示在采用生成式情景进行组合优化前需联合评估保真度、数值行为与实现结果，而非仅依赖训练损失。",
+      "title": "TimeGAN情景替换与补充在Rachev比率组合中的可靠性比较",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ]
     },
     {
-      "keyPointsEn": [
-        "Agentic search: retrieve data with multiple search tools from different sources, and use traces plus evals to improve tool selection.",
-        "Context management: use pruning, compaction, and scratchpads to format the information an agent needs to complete a task.",
-        "Agentic memory: store context from user feedback as reusable memories, retrieve them when a task needs them, and update records across sessions as information changes."
+      "tags": [
+        "上下文工程",
+        "AI 智能体",
+        "智能体记忆",
+        "检索增强",
+        "课程"
       ],
-      "sourceName": "DeepLearning.AI",
-      "title": "上下文工程课程：以检索、压缩与记忆缓解智能体上下文退化",
-      "tagsEn": [
-        "context engineering",
-        "AI agents",
-        "context rot",
-        "agentic search",
-        "agent memory"
-      ],
-      "whyItMattersEn": "It frames agent performance as a matter of context quality and organization, offering a hands-on engineering path to reduce interference from irrelevant or conflicting information in long-running tasks.",
-      "sourceGroup": "视频",
-      "score": 74.25,
-      "discoveredBy": [
-        "DeepLearning.AI"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 研究",
+      "description": "该课程介绍智能体长期运行时上下文累积重复、矛盾或过期信息导致模型表现下降的“上下文腐化”问题，并给出可操作的工程方法。其价值在于用 Python 从零构建智能体框架，将检索、上下文管理与记忆作为独立模块来设计，而非仅依赖更大的上下文窗口。",
+      "originalTitle": "Learn to build better AI Agents through better context",
+      "publishedAt": "2026-10-20T15:16:35+00:00",
+      "descriptionEn": "The course addresses \"context rot\": as agents run longer, repeated, contradictory, or stale information accumulates in their context and model performance degrades. Its value lies in building agent harnesses from scratch in Python and treating retrieval, context management, and memory as explicit engineering modules rather than relying only on larger context windows.",
       "contentType": "video",
       "features": [
         {
@@ -1650,19 +1641,12 @@
           "confidence": 0.8
         }
       ],
-      "slug": "learn-to-build-to-better-ai-agents-through-bette-35bcb608be",
-      "id": "35bcb608bee80cfa",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The course description states that the longer an agent works, the more repeated, contradictory, or stale information builds up in its context, and that models perform worse as context grows; Jeff Huber's team at Chroma named this problem Context Rot. The course builds agent harnesses from scratch in Python and teaches agentic search, context management, and agentic memory. These are the course provider's claims; no quantitative performance data is provided.",
-      "whyItMatters": "它把智能体性能问题落到上下文质量与组织方式上，提供一套可动手实现的工程路径，帮助开发者在长任务中减少无关或冲突信息对模型表现的干扰。",
-      "description": "该课程由 DeepLearning.AI 推出、Jeff Huber 与 Drew Breunig 讲授，聚焦智能体长时运行后上下文中重复、矛盾或过时信息累积、模型表现下降的问题（Chroma 团队称之为 Context Rot）。其价值在于把“为智能体提供正确信息、正确格式与正确时机”拆成可动手实现的三类工程手段。",
       "scoreBreakdown": {
         "contentType": "video",
         "comparisonCohortSize": 1,
         "mode": "cohort-metric",
         "primaryMetric": "views",
-        "primaryMetricValue": 108.0,
+        "primaryMetricValue": 4521.0,
         "metricPercentile": 100.0,
         "velocityPercentile": 100.0,
         "objectiveScore": 100.0,
@@ -1689,55 +1673,62 @@
         "freshnessScore": 99.8,
         "sourceQualityScore": 78.0,
         "sourceMetrics": {
-          "views": 108.0
+          "views": 4521.0
         },
         "selectionLane": "primary"
       },
-      "limitationsEn": "The source is course promotional material; it only names the problem and lists course content, without quantitative evidence for Context Rot, comparative method results, or scope conditions. The real benefits and costs of the three approaches require independent evaluation beyond the course and should not be treated as proven general best practices.",
-      "originalTitle": "Learn to build to better AI Agents through better Context",
-      "descriptionEn": "Offered by DeepLearning.AI and taught by Jeff Huber with guest speaker Drew Breunig, the course targets a problem Chroma's team calls Context Rot: as agents run longer, repeated, contradictory, or stale information accumulates in context and model performance degrades. Its value lies in breaking down how to give agents the right information, in the right format, at the right time into three hands-on engineering approaches.",
-      "keyPoints": [
-        "代理式搜索：用来自不同来源的多个搜索工具检索数据，并借助追踪记录与评估改进工具选择。",
-        "上下文管理：通过剪枝、压缩与草稿本，把智能体完成任务所需的信息整理为合适格式。",
-        "代理式记忆：将用户反馈中的上下文存为可复用记忆，在需要时检索，并随信息变化跨会话更新记录。"
+      "slug": "learn-to-build-better-ai-agents-through-better-c-35bcb608be",
+      "id": "35bcb608bee80cfa",
+      "keyPointsEn": [
+        "The course starts from Context Rot: growing context introduces repeated, contradictory, or stale information that hurts model performance.",
+        "Three teaching threads: agentic search across multiple sources and tools with traces used for evals of tool selection; context management via pruning, compaction, and scratchpads; agentic memory that stores user feedback as reusable memories updated across sessions.",
+        "Implementation emphasizes building agent harnesses from scratch in Python, not only calling existing frameworks."
       ],
-      "publishedAt": "2026-10-20T15:16:35+00:00",
-      "titleEn": "Context Engineering Course: Mitigating Agent Context Rot via Search, Compaction, and Memory",
-      "limitations": "来源为课程宣传材料，仅陈述问题命名与课程内容，未给出 Context Rot 的量化证据、方法对比结果或适用范围；三类手段的实际收益与代价需以课程以外的独立评测验证，不应视为已证实的通用最优实践。",
+      "sourceName": "DeepLearning.AI",
+      "summaryEn": "DeepLearning.AI offers a free Context Engineering course taught by Jeff Huber with guest Drew Breunig, addressing the phenomenon Chroma calls Context Rot: the longer an agent works, the more repeated, contradictory, or stale information builds up in its context, and models perform worse as context grows. Students build agent harnesses from scratch in Python and practice agentic search, context management, and agentic memory. The Context Rot problem description and the course's value are source claims; no quantitative impact is given in the input.",
+      "tagsEn": [
+        "context engineering",
+        "AI agents",
+        "agentic memory",
+        "retrieval",
+        "course"
+      ],
       "originalUrl": "https://www.youtube.com/watch?v=CUjHZlvQufk",
-      "summary": "课程介绍指出，智能体运行越久，上下文中重复、矛盾或过时信息越会累积，模型随上下文增长而表现变差，Chroma 团队将这一问题命名为 Context Rot。课程以 Python 从零构建智能体运行框架，讲授代理式搜索、上下文管理与代理式记忆三类方法。以上为课程方的描述与主张，未提供量化效果数据。",
-      "tags": [
-        "上下文工程",
-        "AI 智能体",
-        "上下文退化",
-        "代理式检索",
-        "智能体记忆"
+      "keyPoints": [
+        "课程以 Context Rot 为问题起点：上下文增长会引入重复、矛盾或过期信息，从而拖累模型表现。",
+        "教学内容覆盖三条主线：用多来源、多工具做智能体检索并借轨迹评估改进工具选择；用剪枝、压缩和草稿板管理上下文；把用户反馈存为可复用记忆并跨会话更新。",
+        "实现方式强调用 Python 从零构建智能体框架，而非仅调用现成框架。"
       ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      "limitations": "输入材料仅为一门课程的宣传介绍，未提供 Context Rot 的量化实验结果、基准对比、适用模型范围或失败案例；“上下文越大表现越差”的程度与条件需以原始研究为准。课程所授方法的效果取决于具体任务、检索源与评估设计，输入未给出效果数据或投资、部署建议。",
+      "sourceGroup": "视频",
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Context Engineering Course Targets Agent Context Rot",
+      "score": 74.25,
+      "aiGenerated": true,
+      "limitationsEn": "The input is only a promotional course description and provides no quantitative Context Rot results, benchmark comparisons, supported model scope, or failure cases; the extent and conditions of \"worse performance as context grows\" must be checked against the original research. Method effectiveness depends on the specific task, retrieval sources, and evaluation design; the input gives no performance data or investment/deployment advice.",
+      "domain": "AI 研究",
+      "summary": "DeepLearning.AI 推出由 Jeff Huber 主讲、Drew Breunig 客座的“上下文工程”免费课程，针对智能体工作时间越长、上下文中重复、矛盾或过期信息越多、模型表现越差的现象（Chroma 团队称之为 Context Rot）。课程要求学员用 Python 从零构建智能体框架，练习智能体检索、上下文管理和智能体记忆三类技能。上述“上下文腐化”问题与课程价值属于来源陈述，其量化影响程度未在输入中给出。",
+      "whyItMattersEn": "Agents working on long tasks and multi-turn sessions keep accumulating context; without management, stale retrieved information, conflicting conclusions, and redundancy can degrade output quality. Treating context as an engineering object helps deliver the right information in the right format at the right time under a limited context budget, and makes user feedback reusable across sessions.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "智能体在长任务和多轮会话中会不断累积上下文，若不加管理，检索到的旧信息、相互冲突的结论和冗余内容会降低输出质量。把上下文当作需要主动设计的工程对象，有助于在有限上下文预算下给出“正确信息、正确格式、正确时机”，并让用户反馈在跨会话中可复用。",
+      "title": "上下文工程课程：应对智能体上下文腐化",
+      "discoveredBy": [
+        "DeepLearning.AI"
+      ]
     },
     {
-      "keyPointsEn": [
-        "Positioned as a security-audit skill for coding agents",
-        "Audit is organized in multiple phases rather than a single run",
-        "Claims each finding is independently verified and machine-readable"
+      "tags": [
+        "安全审计",
+        "编码代理",
+        "Cloudflare",
+        "自动化",
+        "可验证发现"
       ],
-      "sourceName": "GitHub Trending Daily",
-      "title": "Cloudflare 发布多阶段安全审计编程代理技能",
-      "tagsEn": [
-        "security audit",
-        "coding agent",
-        "agent skill",
-        "machine-readable",
-        "Cloudflare"
-      ],
-      "whyItMattersEn": "If it works as described, the skill could shift security auditing from one-off manual checks to a repeatable agent workflow, and make findings consumable and reviewable by toolchains. It offers a process-level packaging approach for using agents in security checks.",
-      "sourceGroup": "开源项目",
-      "score": 70.01,
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 研究",
+      "description": "该技能为编码代理提供多阶段安全审计流程，产出可独立验证的机器可读发现，提升审计自动化与可信度。",
+      "originalTitle": "cloudflare/security-audit-skill",
+      "publishedAt": "2026-10-20T15:59:59.999999+00:00",
+      "descriptionEn": "This skill provides a multi-phase security audit workflow for coding agents, producing independently verifiable and machine-readable findings to enhance audit automation and trustworthiness.",
       "contentType": "repository",
       "features": [
         {
@@ -1807,16 +1798,9 @@
           "confidence": 0.8
         }
       ],
-      "slug": "cloudflare-security-audit-skill-9c15e01446",
-      "id": "9c15e014464735eb",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The repository summary describes a coding-agent skill for multi-phase security audits, with machine-readable and independently verified findings. These are factual statements from the source summary only; implementation, applicable scope and verification mechanism are not detailed in the input, so effectiveness and coverage cannot be inferred.",
-      "whyItMatters": "若该技能按描述工作，可将安全审计从人工一次性检查转为可重复调用的代理流程，并让发现结果便于工具链消费和复核；这为把代理用于安全检查提供了流程化封装思路。",
-      "description": "该仓库提供一个可被编程代理调用的安全审计技能，将审计拆分为多个阶段，输出可机器读取且经独立核验的发现。其新意在于把代理能力封装为可复用的审计流程技能，而非一次性脚本；对需要批量、可追踪安全审计的开发团队有参考价值。",
       "scoreBreakdown": {
         "contentType": "repository",
-        "comparisonCohortSize": 37,
+        "comparisonCohortSize": 40,
         "mode": "cohort-metric",
         "primaryMetric": "trending_rank_score",
         "primaryMetricValue": 98.0,
@@ -1847,56 +1831,188 @@
         "sourceMetrics": {
           "trending_rank": 2.0,
           "trending_rank_score": 98.0,
-          "stars": 33490.0,
-          "stars_delta_1d": 849.0,
+          "stars": 35384.0,
+          "stars_delta_1d": 1997.0,
           "metric_age_days": 1.0
         },
         "selectionLane": "primary"
       },
-      "limitationsEn": "The input contains only the source title and a one-sentence summary, with no implementation details, audit-rule coverage, verification method, false-positive or false-negative data, supported languages or project types, nor third-party evaluation or real-world usage cases. Detection capability, reliability and comparison with existing tools therefore cannot be judged; machine readability and independent verification are source claims without independent validation.",
-      "originalTitle": "cloudflare/security-audit-skill",
-      "descriptionEn": "The repository offers a security-audit skill callable by coding agents, splitting audits into multiple phases and emitting machine-readable findings that it says are independently verified. Its novelty lies in packaging agent capability as a reusable audit-workflow skill rather than a one-off script, which is of reference value to teams needing batch, traceable security audits.",
-      "keyPoints": [
-        "定位为供编程代理使用的安全审计技能",
-        "审计按多个阶段组织，而非一次性执行",
-        "声称每条发现均经独立核验并以机器可读格式输出"
-      ],
-      "publishedAt": "2026-10-20T15:59:59.999999+00:00",
-      "titleEn": "Cloudflare Releases Multi-Phase Security Audit Skill for Coding Agents",
-      "limitations": "输入仅含来源标题与一句摘要，未提供实现细节、审计规则覆盖范围、核验方式、误报漏报数据、适用语言或项目类型，也无第三方评测或实际使用案例。因此不能据此判断其检测能力、可靠性或相对现有工具的优劣；机器可读与独立核验仅为来源自述，未见独立验证。",
-      "originalUrl": "https://github.com/cloudflare/security-audit-skill",
-      "summary": "仓库简介称这是一个用于多阶段安全审计的编程代理技能，发现结果可机器读取并经过独立核验。上述内容仅为来源摘要的事实陈述，仓库实际实现、适用范围与核验机制在输入中未展开，因此不宜据此推断其效果或覆盖范围。",
-      "tags": [
-        "安全审计",
-        "编程代理",
-        "代理技能",
-        "机器可读",
-        "Cloudflare"
-      ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
-    },
-    {
+      "slug": "cloudflare-security-audit-skill-9c15e01446",
+      "id": "9c15e014464735eb",
       "keyPointsEn": [
-        "Listed in a mainstream code-hosting platform's trending feed as an AI agent tool",
-        "Core idea is to reduce code writing and favor 'not writing code' solutions",
-        "Uses 'the laziest senior dev' as a behavior metaphor for AI agents"
+        "The repository is positioned as a skill for coding agents to perform multi-phase security audits.",
+        "It claims audit findings are independently verifiable and output in a machine-readable format.",
+        "The project is from Cloudflare, but no author list or detailed documentation is provided."
       ],
       "sourceName": "GitHub Trending Daily",
-      "title": "ponytail：让 AI 代理少写代码的 GitHub 项目",
+      "summaryEn": "A GitHub repository named cloudflare/security-audit-skill has emerged, described as a multi-phase security audit skill for coding agents. It claims to produce independently verifiable and machine-readable findings. The above is based solely on the repository description, without implementation details or validation data.",
       "tagsEn": [
-        "AI agents",
-        "code generation",
-        "developer tools",
-        "open source"
+        "security audit",
+        "coding agent",
+        "Cloudflare",
+        "automation",
+        "verifiable findings"
       ],
-      "whyItMattersEn": "As code-generation tools spread, excessive and redundant code becomes a maintenance burden; this project's 'write less' agent approach is a reference point for developers weighing AI coding efficiency against code quality.",
+      "originalUrl": "https://github.com/cloudflare/security-audit-skill",
+      "keyPoints": [
+        "仓库定位为编码代理的技能，用于执行多阶段安全审计。",
+        "声称审计发现可独立验证并以机器可读格式输出。",
+        "项目来自 Cloudflare，但未提供作者列表或详细文档。"
+      ],
+      "limitations": "证据边界：仅基于 GitHub 仓库标题与摘要，未提供代码实现、使用文档、审计案例或第三方验证；无法确认多阶段流程的具体内容、机器可读格式规范及独立验证机制的有效性；作者与发布时间等信息不完整。",
       "sourceGroup": "开源项目",
-      "score": 68.51,
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Cloudflare Open-Sources Multi-Phase Security Audit Skill for Coding Agents with Verifiable Findings",
+      "score": 70.01,
+      "aiGenerated": true,
+      "limitationsEn": "Evidence boundary: based only on the GitHub repository title and summary, with no code implementation, usage documentation, audit cases, or third-party validation; the specifics of the multi-phase process, machine-readable format specifications, and effectiveness of independent verification mechanisms cannot be confirmed; author and publication date information is incomplete.",
+      "domain": "AI 研究",
+      "summary": "GitHub 上出现名为 cloudflare/security-audit-skill 的仓库，被描述为面向编码代理的多阶段安全审计技能。其宣称的特点是发现结果可独立验证且机器可读。以上仅为仓库描述，未提供具体实现细节或验证数据。",
+      "whyItMattersEn": "If implemented as described, this skill could help development teams conduct structured security audits with coding agent assistance and improve the reviewability of findings; however, only the repository description is available, and actual effectiveness remains to be evaluated.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "若该技能能按描述实现，可帮助开发团队在编码代理辅助下执行结构化安全审计，并提高发现的可复核性，但当前仅有仓库描述，实际效果待评估。",
+      "title": "Cloudflare 开源多阶段安全审计技能：面向编码代理的可验证发现",
       "discoveredBy": [
         "GitHub Trending Daily"
+      ]
+    },
+    {
+      "tags": [
+        "LLM 推理",
+        "推理引擎",
+        "显存效率",
+        "开源项目"
       ],
+      "description": "vLLM 在 GitHub Trending Daily 上榜，其项目自述为面向大语言模型的高吞吐、显存高效的推理与服务引擎。它的新意在于以系统级优化同时追求吞吐与显存效率，对需要部署 LLM 服务的开发者具有直接参考价值。",
+      "originalTitle": "vllm-project/vllm",
+      "publishedAt": "2026-10-20T15:59:59.999999+00:00",
+      "descriptionEn": "vLLM appeared on GitHub Trending Daily and describes itself as a high-throughput, memory-efficient inference and serving engine for large language models. Its novelty lies in system-level optimization targeting both throughput and memory efficiency, which is directly relevant to developers deploying LLM services.",
+      "contentType": "repository",
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        }
+      ],
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 40,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 97.0,
+        "metricPercentile": 97.37,
+        "velocityPercentile": 97.37,
+        "objectiveScore": 97.37,
+        "relevanceScore": 50,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "language-model"
+          ],
+          "sourcePrior": null
+        },
+        "contentValueScore": 22.69,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 0.19,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 3.0,
+          "trending_rank_score": 97.0,
+          "stars": 94746.0,
+          "stars_delta_1d": 439.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "slug": "vllm-project-vllm-e8ba717231",
+      "id": "e8ba7172314e48e9",
+      "keyPointsEn": [
+        "The project is positioned as an LLM inference and serving engine emphasizing high throughput and memory efficiency.",
+        "The source is GitHub Trending Daily, with a publication date of October 20, 2026.",
+        "The input provides no quantitative metrics such as throughput, memory usage, or latency."
+      ],
+      "sourceName": "GitHub Trending Daily",
+      "summaryEn": "Fact: vLLM is an open-source project on GitHub whose description is 'A high-throughput and memory-efficient inference and serving engine for LLMs.' Fact: The project appeared on GitHub Trending Daily on October 20, 2026. Author's view: The positioning suggests a focus on inference performance optimization, but the input provides no benchmarks, implementation details, or comparisons with other engines.",
+      "tagsEn": [
+        "LLM inference",
+        "inference engine",
+        "memory efficiency",
+        "open-source project"
+      ],
+      "originalUrl": "https://github.com/vllm-project/vllm",
+      "keyPoints": [
+        "项目定位为 LLM 推理与服务引擎，强调高吞吐与显存高效。",
+        "来源为 GitHub Trending Daily，发布日期为 2026 年 10 月 20 日。",
+        "输入未给出吞吐量、显存占用或延迟等量化指标。"
+      ],
+      "limitations": "本卡片仅依据 GitHub Trending Daily 的项目标题与一句话简介生成，未核验代码仓库内容、性能基准、许可证或维护状态；项目自述中的“高吞吐”“显存高效”缺乏输入中的量化证据，不能据此推断实际性能或与其他引擎的优劣。",
+      "sourceGroup": "开源项目",
       "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "vLLM: A High-Throughput, Memory-Efficient LLM Inference and Serving Engine",
+      "score": 68.15,
+      "aiGenerated": true,
+      "limitationsEn": "This card is based solely on the project title and one-line description from GitHub Trending Daily; the repository contents, performance benchmarks, license, and maintenance status were not verified. The self-described 'high-throughput' and 'memory-efficient' claims lack quantitative evidence in the input and cannot be used to infer actual performance or comparisons with other engines.",
       "domain": "AI 研究",
+      "summary": "事实：vLLM 是 GitHub 上的一个开源项目，其项目简介为“面向大语言模型的高吞吐和显存高效的推理与服务引擎”。事实：该项目于 2026 年 10 月 20 日出现在 GitHub Trending Daily 榜单。作者观点：该定位暗示其关注推理性能优化，但输入未提供具体基准、实现细节或与其他引擎的对比数据。",
+      "whyItMattersEn": "For teams deploying large language model inference services, throughput and memory efficiency are key factors affecting serving cost and responsiveness; the project's appearance on the trending list indicates community attention and can serve as an entry point for technology selection research.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "对于需要部署大语言模型推理服务的团队，吞吐和显存效率是影响服务成本与响应能力的关键因素；该项目在趋势榜出现说明其受到社区关注，可作为技术选型调研的入口之一。",
+      "title": "vLLM：高吞吐且显存高效的 LLM 推理服务引擎",
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ]
+    },
+    {
+      "tags": [
+        "AI 编程代理",
+        "代码生成",
+        "开发者工具",
+        "GitHub Trending"
+      ],
+      "description": "这是一个出现在 GitHub Trending 的项目，主张让 AI 代理像“最懒的资深开发者”那样思考：最好的代码是没写的代码。它的新意在于把“减少代码量”作为代理行为目标，对关注 AI 编程工具成本与复杂度的人有参考价值。",
+      "originalTitle": "DietrichGebert/ponytail",
+      "publishedAt": "2026-10-20T15:59:59.999999+00:00",
+      "descriptionEn": "A project trending on GitHub that argues AI agents should think like the \"laziest senior dev\": the best code is code you never wrote. Its novelty is framing reduced code output as an agent goal, useful for those watching AI coding tool cost and complexity.",
       "contentType": "repository",
       "features": [
         {
@@ -1944,22 +2060,15 @@
           "confidence": 0.8
         }
       ],
-      "slug": "dietrichgebert-ponytail-38c3408d93",
-      "id": "38c3408d933af173",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The project appears in GitHub Trending Daily and describes itself as making AI agents think like 'the laziest senior dev in the room,' with the motto 'the best code is the code you never wrote.' Only the name, link and a one-line description are available; it is a concept-level tool positioning without implementation or outcome evidence.",
-      "whyItMatters": "代码生成工具普及后，过量、冗余的代码成为维护负担；该项目提出以“少写”为目标的代理思路，对关注 AI 编程效率与代码质量权衡的开发者有参考价值。",
-      "description": "这是一个出现在 GitHub Trending 日报中的开源项目，主张让 AI 代理像“最懒的资深开发者”那样思考，以“最好的代码是你从未写过的代码”为理念，定位为减少不必要代码生成的 AI 工具。",
       "scoreBreakdown": {
         "contentType": "repository",
-        "comparisonCohortSize": 37,
+        "comparisonCohortSize": 40,
         "mode": "cohort-metric",
         "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 96.0,
-        "metricPercentile": 95.71,
-        "velocityPercentile": 95.71,
-        "objectiveScore": 95.71,
+        "primaryMetricValue": 94.0,
+        "metricPercentile": 90.79,
+        "velocityPercentile": 90.79,
+        "objectiveScore": 90.79,
         "relevanceScore": 55,
         "topicClassification": {
           "classification": "ai-engineering",
@@ -1982,170 +2091,52 @@
         "freshnessScore": 100.0,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {
-          "trending_rank": 4.0,
-          "trending_rank_score": 96.0,
-          "stars": 169086.0,
-          "stars_delta_1d": 1007.0,
+          "trending_rank": 6.0,
+          "trending_rank_score": 94.0,
+          "stars": 171017.0,
+          "stars_delta_1d": 2051.0,
           "metric_age_days": 1.0
         },
         "selectionLane": "primary"
       },
-      "limitationsEn": "The input contains only the project name, a one-line self-description and source metadata, with no implementation details, benchmarks, usage cases or performance data; its actual capability, scope and reliability cannot be judged, and the underlying idea remains unverified.",
-      "originalTitle": "DietrichGebert/ponytail",
-      "descriptionEn": "An open-source project listed in GitHub Trending Daily that asks AI agents to think like 'the laziest senior dev in the room,' framing itself as an AI tool aimed at reducing unnecessary code generation.",
-      "keyPoints": [
-        "项目源自主流代码托管平台趋势列表，属于 AI 代理类工具",
-        "核心理念是减少代码编写，推崇“不写代码”的解决方案",
-        "以“最懒的资深开发者”作为 AI 代理的行为隐喻"
-      ],
-      "publishedAt": "2026-10-20T15:59:59.999999+00:00",
-      "titleEn": "Ponytail: a GitHub project that pushes AI agents to write less code",
-      "limitations": "输入内容仅包含项目名称、一句自述与来源信息，没有实现细节、基准测试、使用案例或效果数据；无法据此判断其实际能力、适用范围与可靠性，相关理念也未经验证。",
-      "originalUrl": "https://github.com/DietrichGebert/ponytail",
-      "summary": "该项目在 GitHub Trending Daily 中被列出，项目自述为让 AI 代理像“房间里最懒的资深开发者”一样思考，并强调“最好的代码是从未写过的代码”。目前仅有项目名称、链接与一句自述，属于理念性工具定位，尚无具体实现或效果证据。",
-      "tags": [
-        "AI 代理",
-        "代码生成",
-        "开发者工具",
-        "开源项目"
-      ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
-    },
-    {
+      "slug": "dietrichgebert-ponytail-38c3408d93",
+      "id": "38c3408d933af173",
       "keyPointsEn": [
-        "Accepts code, docs, SQL schemas, configs, and PDFs as inputs, aiming to build a queryable knowledge graph",
-        "Integrates as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI",
-        "Claims local deterministic AST parsing, explainable edges, and no vector-store dependency"
+        "The slogan emphasizes \"the best code is the code you never wrote,\" framing less code output as the agent's goal",
+        "It positions AI agents to imitate how the \"laziest senior dev\" thinks",
+        "Based only on a GitHub Trending blurb; no implementation or effect data"
       ],
       "sourceName": "GitHub Trending Daily",
-      "title": "graphify 把代码库与文档转为可查询知识图谱",
+      "summaryEn": "The project describes making AI agents work with a senior developer's \"write less\" mindset, with the slogan \"the best code is the code you never wrote.\" This is the project's claim, not an independently verified conclusion. The input provides no implementation details, evaluations, or data.",
       "tagsEn": [
-        "knowledge graph",
-        "code understanding",
-        "AST parsing",
-        "coding agents",
-        "local tool"
+        "AI coding agent",
+        "code generation",
+        "developer tools",
+        "GitHub Trending"
       ],
-      "whyItMattersEn": "If the claims hold, such a tool could give coding agents structured, traceable dependency information when understanding large codebases, rather than relying only on approximate vector retrieval; actual effectiveness still needs verification.",
+      "originalUrl": "https://github.com/DietrichGebert/ponytail",
+      "keyPoints": [
+        "项目口号强调“最好的代码是没写的代码”，把减少代码产出作为代理的目标",
+        "定位是让 AI 代理模仿“最懒的资深开发者”的思考方式",
+        "仅依据 GitHub Trending 的简介，缺乏实现与效果数据"
+      ],
+      "limitations": "输入仅包含 GitHub Trending 的项目名与一句简介，没有代码、文档、基准测试或用户反馈。无法判断其实际效果、适用场景或与同类工具的差异；简介中的“懒”与“最好代码”属于项目主张，非已验证结论。",
       "sourceGroup": "开源项目",
-      "score": 62.04,
+      "summaryModel": "deepseek-v4-flash",
+      "summaryProvider": "deepseek",
+      "titleEn": "Ponytail: A Strategy for Making AI Agents Write Less Code",
+      "score": 66.78,
+      "aiGenerated": true,
+      "limitationsEn": "The input contains only a GitHub Trending project name and one-line description, with no code, docs, benchmarks, or user feedback. Actual effects, use cases, or differences from similar tools cannot be judged; the \"lazy\" and \"best code\" claims are project assertions, not verified conclusions.",
+      "domain": "AI 研究",
+      "summary": "该项目自述让 AI 代理以资深开发者“少写代码”的思路工作，并以“最好的代码是没写的代码”作为口号。这是项目的主张，而不是独立验证的结论。输入未提供实现细节、评测或数据。",
+      "whyItMattersEn": "AI coding agents tend to generate more code, which raises maintenance and review costs. Treating \"write less\" as a behavioral constraint could shape agent output style and engineering usability, making its later implementation and evaluation worth watching.",
+      "retrievedAt": "2026-10-20T15:59:59.999999+00:00",
+      "whyItMatters": "AI 编程代理常倾向于生成更多代码，而代码越多意味着维护与审查成本越高。若能把“少写”作为行为约束，可能影响代理输出风格与工程可用性，因此值得关注其后续实现与评测。",
+      "title": "ponytail：让 AI 代理写更少代码的策略",
       "discoveredBy": [
         "GitHub Trending Daily"
-      ],
-      "summaryModel": "deepseek-v4-flash",
-      "domain": "AI 工具",
-      "contentType": "repository",
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "slug": "graphify-labs-graphify-c290a2acf8",
-      "id": "c290a2acf859c75b",
-      "aiGenerated": true,
-      "summaryProvider": "deepseek",
-      "summaryEn": "The tool claims it can turn any codebase, along with docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. It is delivered as a /graphify skill for several coding agent CLIs and emphasizes local deterministic AST parsing, per-edge explanations, and no vector store. These are project self-descriptions; no independent evaluation is available.",
-      "whyItMatters": "若其自述成立，这类工具可能让编程智能体在理解大型代码库时获得结构化、可追溯的依赖关系，而非仅依赖向量检索的近似匹配；但实际效果仍需验证。",
-      "description": "该项目以 Claude Code、Cursor、Codex、Gemini CLI 的 /graphify 技能形式发布，方向是把代码、文档、SQL 模式、配置与 PDF 合并为统一知识图谱，并提供无向量存储的本地确定性 AST 解析与逐边可解释性。",
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 37,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 93.0,
-        "metricPercentile": 87.14,
-        "velocityPercentile": 87.14,
-        "objectiveScore": 87.14,
-        "relevanceScore": 35,
-        "topicClassification": {
-          "classification": "other",
-          "confidence": 0.85,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": null
-        },
-        "contentValueScore": 16.34,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.59,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 7.0,
-          "trending_rank_score": 93.0,
-          "stars": 129804.0,
-          "stars_delta_1d": 906.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "limitationsEn": "Information comes only from a GitHub Trending project page, with no independent benchmarks, accuracy figures, or large-scale codebase tests; there is no evidence on parsing quality for non-code docs and PDFs or on differences across agent CLIs. The real coverage of the queryable graph and the extent of per-edge explainability cannot be judged from available material.",
-      "originalTitle": "Graphify-Labs/graphify",
-      "descriptionEn": "Released as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI, the project aims to merge code, documentation, SQL schemas, configs, and PDFs into a unified knowledge graph, with local deterministic AST parsing and no vector store.",
-      "keyPoints": [
-        "覆盖代码、文档、SQL 模式、配置与 PDF 等多类输入，目标是形成可查询知识图谱",
-        "以 Claude Code、Cursor、Codex、Gemini CLI 的 /graphify 技能方式接入",
-        "宣称本地确定性 AST 解析、每条边可解释，且不依赖向量存储"
-      ],
-      "publishedAt": "2026-10-20T15:59:59.999999+00:00",
-      "titleEn": "graphify converts codebases and docs into queryable knowledge graphs",
-      "limitations": "信息仅来自 GitHub Trending 项目页，未见独立基准测试、准确率数据或大规模代码库实测结果；对代码库以外文档与 PDF 的解析质量、不同智能体间的表现差异均无证据。可查询知识图谱的实际覆盖范围与“每条边可解释”的实现程度无法从现有材料判断。",
-      "originalUrl": "https://github.com/Graphify-Labs/graphify",
-      "summary": "该工具声称可将任意代码库连同文档、SQL 模式、配置和 PDF 转换为可查询的知识图谱。其实现要点是面向多种编程智能体命令行工具的 /graphify 技能，采用本地确定性 AST 解析，并强调每条边都有解释、不使用向量存储。以上均为项目自述，尚无独立评测信息。",
-      "tags": [
-        "知识图谱",
-        "代码理解",
-        "AST 解析",
-        "编程智能体",
-        "本地工具"
-      ],
-      "retrievedAt": "2026-10-20T15:59:59.999999+00:00"
+      ]
     }
   ]
 }
