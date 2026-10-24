@@ -5,37 +5,31 @@
   "edition": "2026-10-23",
   "cards": [
     {
-      "description": "提出Steward系统，将自进化边界写入类型系统，通过不变核心（订单算术、风险规则和纪律代理提示）防止自我编辑触及安全底线；在五个月实盘部署与回放实验中验证了风险控制与抗注入能力。",
-      "title": "自主投资的多智能体LLM治理式自进化系统：不变核心约束",
-      "summaryProvider": "deepseek",
-      "domain": "AI × 量化",
-      "originalUrl": "https://arxiv.org/abs/2610.30557",
+      "contentType": "paper",
+      "id": "c9fb4626fb3f7d61",
+      "sourceName": "arXiv q-fin",
+      "limitationsEn": "Evidence comes from a five-month live deployment (102 trading days) plus replay and backtest, with a short sample period not covering a full market cycle; replay and backtest are simulated results and cannot be directly extrapolated to future live performance; the risk-control effect under specific sector drawdown scenarios needs validation across more independent periods and market states.",
       "tags": [
         "多智能体系统",
         "LLM代理",
         "自主投资",
         "风险控制",
-        "自进化",
-        "不变核心"
+        "自我演化",
+        "实盘部署"
       ],
-      "sourceName": "arXiv q-fin",
-      "limitations": "实盘部署仅五个月、102个交易日，样本期较短；回放实验仅针对五天窗口和单一模型对比；2015-2026回测仅评估核心对最大回撤的影响，未覆盖全部策略表现；系统在更广泛市场条件、长期稳定性和不同资产类别下的泛化能力尚未验证。",
-      "id": "c9fb4626fb3f7d61",
-      "slug": "governed-self-evolution-for-autonomous-investing-c9fb4626fb",
-      "titleEn": "Governed Self-Evolution for Autonomous Investing: A Multi-Agent LLM System with an Invariant Core",
-      "limitationsEn": "The live deployment covers only five months and 102 trading days; replay experiments are limited to five-day windows and a single-model comparison; the 2015-2026 backtest only assesses the core's effect on maximum drawdown, not overall strategy performance; generalisation to broader market conditions, long-term stability, and different asset classes remains unverified.",
-      "contentType": "paper",
-      "whyItMatters": "为基于不可信网络数据的自主投资代理提供了一种可审计、可回放且安全边界不可自我修改的设计范式，有助于在不可逆操作场景中平衡自适应能力与风险控制。",
-      "discoveredBy": [
-        "arXiv cs.CL",
-        "arXiv q-fin"
-      ],
-      "publishedAt": "2026-10-23T04:00:00+00:00",
-      "score": 94.43,
+      "originalUrl": "https://arxiv.org/abs/2610.30557",
+      "summaryProvider": "deepseek",
+      "title": "多智能体LLM自主投资系统Steward：不变核心约束自我演化",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "It offers an auditable, replayable design paradigm for autonomous investment agents operating on untrusted web data, with safety boundaries that cannot be self-modified, helping balance adaptivity and risk control in irreversible-action settings.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "The authors present Steward, a multi-agent LLM system that defines self-evolution boundaries via a type system and an uneditable invariant core. In a five-month live deployment (102 trading days, 1,632 LLM calls), the system contained a 24.6% sector drawdown to a 0.3% loss; replay experiments showed the joint design had no significant loss over five days while a single model lost 1.35 points; a 2015-2026 backtest showed the core reduced maximum drawdown under all 50 random entry policies. The authors report that the reflector traced the dominant failure to its root cause and that the gate applied a learning adopted on trigger evenings and not on control evenings.",
+      "tagsEn": [
+        "multi-agent systems",
+        "LLM agents",
+        "autonomous investing",
+        "risk control",
+        "self-evolution",
+        "live deployment"
+      ],
+      "whyItMattersEn": "It offers an engineering paradigm for LLM agents in irreversible, untrusted-web-content autonomous investing by embedding safety boundaries in the system's types and invariant core, and demonstrates performance differences between joint multi-role design and a single model in live replay.",
       "features": [
         {
           "id": "artifact:paper",
@@ -126,13 +120,18 @@
           "confidence": 0.8
         }
       ],
-      "originalTitle": "Governed Self-Evolution for Autonomous Investing: A Multi-Agent LLM System with an Invariant Core",
-      "descriptionEn": "Proposes Steward, a multi-agent LLM system that encodes the boundary of self-evolution in its type system and protects an invariant core (order arithmetic, risk rules, and discipline-agent prompts) from self-edits; validated through a five-month live deployment and replay experiments for risk control and injection resistance.",
-      "sourceGroup": "论文",
+      "summary": "作者提出Steward多智能体LLM系统，将自我演化边界置于类型系统中，由九个角色专精代理联合决策，并配备七层共享记忆与季度反思学习。实盘五个月（102个交易日、1632次调用）中，系统将24.6%板块回撤控制为0.3%亏损；回放显示单模型在同一原始数据上交易更多且五日相对市场亏损1.35点，而联合设计无显著亏损。作者认为不变核心（订单算术、风险规则、纪律提示）是安全与绩效的关键，但实盘样本仅五个月，回放与回测结果需进一步验证。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T04:00:00+00:00",
       "aiGenerated": true,
+      "score": 94.43,
+      "domain": "AI × 量化",
+      "whyItMatters": "为LLM代理在不可逆、基于不可信网页内容的自主投资场景中，提供了一种将安全边界嵌入系统类型与不变核心的工程范式，并展示了联合多角色设计与单模型在实盘回放中的绩效差异。",
+      "description": "该系统将自我演化边界编码于类型系统，通过九角色分工、七层记忆与可逆门控学习，在五个月实盘部署中将板块回撤24.6%控制为0.3%亏损，回放显示联合设计较单模型显著抗亏，且不变核心在随机入场策略下降低最大回撤。",
+      "originalTitle": "Governed Self-Evolution for Autonomous Investing: A Multi-Agent LLM System with an Invariant Core",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6914,
+        "comparisonCohortSize": 6919,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -171,56 +170,55 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "Steward comprises nine role-specialised agents (four analysts, a portfolio manager, a protected risk manager, etc.) that decide jointly and emit typed reports.",
-        "A seven-layer shared memory, assembled by code from the system's own record, provides each decision with position context, market narrative, calibration, and past decisions.",
-        "The system improves by review: code grades every trade and forecast nightly and writes grades into memory; each quarter a reflector proposes prompt learnings that a deterministic gate applies reversibly and verifies by replaying recorded inputs."
-      ],
-      "summary": "作者提出Steward多智能体LLM系统，通过类型系统界定自进化边界，并设置不可编辑的不变核心。五个月实盘（102个交易日、1632次LLM调用）中，系统将24.6%的板块回撤控制为0.3%亏损；回放实验显示联合设计在五天内无显著亏损，而单一模型亏损1.35个百分点；2015-2026回测表明核心可降低所有50种随机入场策略的最大回撤。作者认为反思器能追溯主要失败根因，且确定性门控应用的学习在触发夜晚被采纳，而在对照夜晚未被采纳。",
-      "tagsEn": [
-        "multi-agent systems",
-        "LLM agents",
-        "autonomous investing",
-        "risk control",
-        "self-evolution",
-        "invariant core"
-      ],
+      "slug": "governed-self-evolution-for-autonomous-investing-c9fb4626fb",
       "keyPoints": [
-        "Steward包含九个角色专业化代理（四名分析师、一名组合经理、一名受保护的风险经理等），共同决策并生成类型化报告。",
-        "七层共享记忆由代码从系统自身记录组装，为每次决策提供头寸背景、市场叙事、校准和过往决策信息。",
-        "系统通过代码每晚评分交易与预测并写入记忆，每季度反思器提出提示学习，经确定性门控可逆应用并回放验证。"
-      ]
+        "九角色代理分工：四名分析师输出类型化报告，组合经理设定目标仓位，受保护的风险经理审计。",
+        "七层共享记忆由代码从系统自身记录组装，为每项决策提供持仓背景、市场叙事、校准与历史决策。",
+        "代码夜间评分交易与预测并写入记忆，季度反射器提出提示学习，由确定性门控可逆应用并回放验证。",
+        "五个月实盘将24.6%板块回撤控制为0.3%亏损；回放中单模型五日相对市场亏1.35点，联合设计无显著亏损。",
+        "不变核心在2015-2026回测中使全部50种随机入场策略的最大回撤均降低。"
+      ],
+      "limitations": "证据来自五个月实盘（102个交易日）及回放与回测，样本期较短且未覆盖完整市场周期；回放与回测为模拟结果，不能直接外推为未来实盘表现；系统在特定板块回撤情境下的风控效果需更多独立期与市场状态验证。",
+      "descriptionEn": "The system encodes self-evolution boundaries in its type system and combines nine role-specialised agents, seven-layer memory, and reversible gated learning; in a five-month live deployment it contained a 24.6% sector drawdown to a 0.3% loss, replay showed the joint design avoided significant loss versus a single model, and the invariant core lowered maximum drawdown under random entry policies.",
+      "keyPointsEn": [
+        "Nine role-specialised agents: four analysts emit typed reports, a Portfolio Manager sets target positions, and a protected Risk Manager audits.",
+        "A seven-layer shared memory assembled by code from the system's own record gives each decision position context, market narrative, calibration, and past decisions.",
+        "Code grades every trade and forecast nightly and writes grades into memory; a quarterly reflector proposes prompt learnings applied reversibly by a deterministic gate and verified by replay.",
+        "In five-month live deployment, a 24.6% sector drawdown was contained to a 0.3% loss; in replay, a single model lost 1.35 points against the market over five days while the joint design showed no significant loss.",
+        "The invariant core lowered maximum drawdown under all 50 random entry policies in a 2015-2026 backtest."
+      ],
+      "titleEn": "Multi-Agent LLM System Steward for Autonomous Investing with Invariant Core Constraints on Self-Evolution",
+      "discoveredBy": [
+        "arXiv cs.CL",
+        "arXiv q-fin"
+      ],
+      "summaryEn": "The authors present Steward, a multi-agent LLM system that draws the boundary of self-evolution in its type system, with nine role-specialised agents deciding jointly, a seven-layer shared memory, and quarterly reflector learning. In a five-month live deployment (102 trading days, 1,632 LLM calls), the system contained a 24.6% sector drawdown to a 0.3% loss; replay showed a single model given the same raw data traded more and lost 1.35 points against the market over five days where the joint design showed no significant loss. The authors argue the invariant core (order arithmetic, risk rules, discipline prompts) is key to safety and performance, but the live sample is only five months and replay/backtest results require further validation.",
+      "sourceGroup": "论文"
     },
     {
-      "description": "提出 CMAS，将元代理架构搜索形式化为带切换成本与风险约束的序贯替换问题，并通过配对影子回放与校准阈值控制晋升风险。",
-      "title": "保守式元代理搜索：非平稳下的架构自适应",
-      "summaryProvider": "deepseek",
-      "domain": "AI × 量化",
-      "originalUrl": "https://arxiv.org/abs/2610.31436",
-      "tags": [
-        "元代理架构搜索",
-        "非平稳环境",
-        "风险约束",
-        "影子回放",
-        "金融测试台"
-      ],
-      "sourceName": "arXiv cs.LG",
-      "limitations": "作者明确指出：校准是经验性的，仅涉及作者设计基准上的更新级回放统计量；不保证全效用提升、不保证模拟金丝雀阶段无损害、不保证序列级错误控制。回测无法认证元层面技能。",
-      "id": "4f4ae748f50f5a35",
-      "slug": "conservative-meta-agent-search-architecture-adap-4f4ae748f5",
-      "titleEn": "Conservative Meta-Agent Search: Architecture Adaptation under Non-Stationarity",
-      "limitationsEn": "The authors state: calibration is empirical, concerning an update-level replay statistic on an author-designed benchmark; it guarantees neither full-utility improvement, nor absence of simulated canary-stage harm, nor sequence-level error control. Backtests cannot certify meta-level skill.",
       "contentType": "paper",
-      "whyItMatters": "为自动化代理架构设计在非平稳环境中的安全替换提供了可操作的风险校准框架，并以金融流作为风险敏感测试台验证元层面泛化，但不声称产生 alpha。",
-      "discoveredBy": [
-        "arXiv cs.LG"
+      "id": "4f4ae748f50f5a35",
+      "sourceName": "arXiv cs.LG",
+      "limitationsEn": "Evidence is bounded: all results come from the author-designed MetaInvest-Bench simulator, with financial streams serving only as a risk-sensitive testbed, not real-market validation. Calibration is an update-level replay statistic; it guarantees neither overall utility improvement, nor absence of simulated canary-stage harm, nor sequence-level error control. The 3.4% and 4.8% false-promotion rates are empirical observations on this specific benchmark and should not be generalized as universal guarantees.",
+      "tags": [
+        "元智能体架构搜索",
+        "非平稳环境",
+        "风险约束替换",
+        "影子回放",
+        "模拟基准"
       ],
-      "publishedAt": "2026-10-23T04:00:00+00:00",
-      "score": 76.66,
+      "originalUrl": "https://arxiv.org/abs/2610.31436",
+      "summaryProvider": "deepseek",
+      "title": "保守式元智能体搜索：非平稳场景下的架构自适应",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "Provides an actionable risk-calibration framework for safe replacement in automated agent architecture design under non-stationarity, using financial streams as a risk-sensitive testbed for meta-level generalization without claiming alpha.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "The paper formalizes meta-agent architecture search as sequential incumbent replacement with switching costs and hard risk constraints, and introduces Conservative Meta-Agent Search (CMAS). CMAS retrieves archived architectures, proposes typed graph edits, and scores candidates via paired shadow replay; promotion requires an empirically calibrated, variance-penalized simultaneous score above a pre-specified margin, followed by a simulated canary stage. Across 96 financial streams, CMAS reduces normalized mean surrogate dynamic-oracle regret from 0.116 to 0.104 and raises held-out utility from 0.44 to 0.48; it contracts to near-single-agent teams when extra workers add no value.",
+      "tagsEn": [
+        "meta-agent architecture search",
+        "non-stationarity",
+        "risk-constrained replacement",
+        "shadow replay",
+        "simulation benchmark"
+      ],
+      "whyItMattersEn": "It offers a conservative replacement and risk-constrained engineering framework for deploying automated agent architectures in non-stationary environments, and stresses that meta-level generalization cannot be certified by backtests alone, requiring dedicated benchmarks and negative controls.",
       "features": [
         {
           "id": "artifact:paper",
@@ -300,13 +298,18 @@
           "confidence": 0.8
         }
       ],
-      "originalTitle": "Conservative Meta-Agent Search: Architecture Adaptation under Non-Stationarity",
-      "descriptionEn": "Introduces CMAS, formalizing meta-agent architecture search as sequential incumbent replacement with switching costs and risk constraints, using paired shadow replay and calibrated thresholds to control promotion risk.",
-      "sourceGroup": "论文",
+      "summary": "论文将元智能体架构搜索形式化为带切换成本和硬风险约束的序贯现任替换问题，提出CMAS方法，通过配对影子回放和干预式组件归因评估候选架构。实验基于作者设计的MetaInvest-Bench模拟器，在96条流上报告了替代动态预言机遗憾和留出效用两项指标。作者明确声称不主张任何超额收益（alpha），且校准仅针对更新级回放统计量，不保证全效用提升或序列级误差控制。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T04:00:00+00:00",
       "aiGenerated": true,
+      "score": 76.66,
+      "domain": "AI × 量化",
+      "whyItMatters": "为自动化智能体架构在非平稳环境中的部署提供了保守替换与风险约束的工程框架，并强调元层面泛化无法由回测认证，需专用基准与负控制检验。",
+      "description": "该研究将元智能体架构搜索建模为带切换代价与硬风险约束的序贯替换问题，提出保守式元智能体搜索（CMAS）方法，并发布MetaInvest-Bench基准用于评估元层面泛化能力。其价值在于提供了一套在非平稳、延迟反馈环境下可审计、可回滚的架构部署流程，并量化了误晋升率等风险指标。",
+      "originalTitle": "Conservative Meta-Agent Search: Architecture Adaptation under Non-Stationarity",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6914,
+        "comparisonCohortSize": 6919,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -343,56 +346,50 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "CMAS formalizes meta-agent architecture search as sequential incumbent replacement with switching costs and hard risk constraints; candidates must pass paired shadow replay and a variance-penalized calibrated score to be promoted.",
-        "Across 96 financial streams, CMAS reduces normalized mean surrogate dynamic-oracle regret from 0.116 to 0.104 and raises held-out utility from 0.44 to 0.48.",
-        "Deployment inference cost is about 6% lower, but search-inclusive token cost is the highest among compared methods; per-update false-promotion rate is 3.4% against a nominal 5% target, and 4.8% in a sealed rerun."
-      ],
-      "summary": "论文将元代理架构搜索建模为带切换成本和硬风险约束的序贯现任替换问题，并引入保守式元代理搜索（CMAS）。CMAS 通过存档检索、类型化图编辑和配对影子回放评分候选架构，晋升需满足经验校准的方差惩罚同时得分阈值，并经过模拟金丝雀阶段。作者在 96 条金融流上报告，CMAS 将归一化平均替代动态预言遗憾从 0.116 降至 0.104，留出效用从 0.44 升至 0.48；当额外工作者无价值时收缩至近单代理团队。",
-      "tagsEn": [
-        "meta-agent architecture search",
-        "non-stationarity",
-        "risk constraints",
-        "shadow replay",
-        "financial testbed"
-      ],
+      "slug": "conservative-meta-agent-search-architecture-adap-4f4ae748f5",
       "keyPoints": [
-        "CMAS 将元代理架构搜索形式化为带切换成本和硬风险约束的序贯现任替换，候选架构需通过配对影子回放与方差惩罚校准评分才能晋升。",
-        "在 96 条金融流上，CMAS 将归一化平均替代动态预言遗憾从 0.116 降至 0.104，留出效用从 0.44 升至 0.48。",
-        "部署推理成本约低 6%，但搜索包含的 token 成本在比较方法中最高；每次更新的误晋升率为 3.4%（名义目标 5%），密封重跑中为 4.8%。"
-      ]
+        "CMAS将架构搜索建模为序贯替换，要求候选架构在方差惩罚后的同时评分超过预设边际，并经模拟金丝雀阶段和预定义回滚才晋升。",
+        "在96条流上，CMAS将归一化平均替代动态预言机遗憾从0.116降至0.104，留出效用从0.44升至0.48，优于最强自适应基线。",
+        "当额外工作者无价值时，CMAS可收缩至近单智能体团队；其部署推理成本约低6%，但含搜索的总token成本为对比方法中最高。"
+      ],
+      "limitations": "证据边界明确：全部结果基于作者设计的MetaInvest-Bench模拟器，金融流仅作为风险敏感测试床，不构成真实市场验证；校准为更新级回放统计量，不保证整体效用提升、不保证模拟金丝雀阶段无损害、也不提供序列级误差控制；误晋升率3.4%和4.8%仅为特定基准上的经验观测，不可外推为通用保证。",
+      "descriptionEn": "This study formalizes meta-agent architecture search as sequential incumbent replacement with switching costs and hard risk constraints, introduces Conservative Meta-Agent Search (CMAS), and releases MetaInvest-Bench, a regime-switching simulator for evaluating meta-level generalization. Its value lies in an auditable, rollback-capable deployment procedure for non-stationary, delayed-feedback settings, with quantified risk metrics such as false-promotion rate.",
+      "keyPointsEn": [
+        "CMAS models architecture search as sequential replacement: a candidate must exceed a pre-specified margin on a variance-penalized simultaneous score, then pass a simulated canary stage with pre-specified rollback before promotion.",
+        "Across 96 streams, CMAS reduces normalized mean surrogate dynamic-oracle regret from 0.116 to 0.104 and raises held-out utility from 0.44 to 0.48 over the strongest adaptive baseline.",
+        "When extra workers add no value, CMAS contracts to near-single-agent teams; its deployment inference cost is ~6% lower, though search-inclusive token cost is the highest among compared methods."
+      ],
+      "titleEn": "Conservative Meta-Agent Search: Architecture Adaptation under Non-Stationarity",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "summaryEn": "The paper formulates meta-agent architecture search as sequential incumbent replacement with switching costs and hard risk constraints, and proposes CMAS, which evaluates candidates via paired shadow replay with interventional component credit. Experiments on the author-designed MetaInvest-Bench simulator over 96 streams report surrogate dynamic-oracle regret and held-out utility. The authors explicitly claim no alpha, and the calibration concerns only an update-level replay statistic on that benchmark, guaranteeing neither full-utility improvement nor sequence-level error control.",
+      "sourceGroup": "论文"
     },
     {
-      "description": "该研究提出残差感知神经谱容量（ResNSC），通过引入残差更新统计与历史依赖的分配器（ResNSC-DP），解决了原方法对层配置重排序不敏感的问题，并在预训练与剪枝任务中验证了其有效性。",
-      "title": "残差感知神经谱容量改进Transformer资源分配",
-      "summaryProvider": "deepseek",
-      "domain": "AI 研究",
-      "originalUrl": "https://arxiv.org/abs/2610.30823",
+      "contentType": "paper",
+      "id": "a7e3477c573e3cbf",
+      "sourceName": "arXiv cs.LG",
+      "limitationsEn": "The study is validated only at 121M and 374M pretraining scales and LLaMA-7B pruning settings, without covering larger models or other architectures; certified bounds are limited to a specified finite candidate set; the magnitude of improvement and generalizability require further testing.",
       "tags": [
         "Transformer架构",
         "资源分配",
         "神经谱容量",
         "残差连接",
-        "模型剪枝",
-        "性能预测"
+        "模型剪枝"
       ],
-      "sourceName": "arXiv cs.LG",
-      "limitations": "证据基于特定模型规模（121M、374M）与数据集（FineWeb-Edu、WikiText-2、LAMBADA），以及LLaMA-7B剪枝实验；认证边界仅针对有限候选集内的数值评分，并非全局最优保证；方法依赖于规格推导的统计参考，其泛化性需进一步验证；配对反转实验揭示了评分盲区，但未提供通用修正方案。",
-      "id": "a7e3477c573e3cbf",
-      "slug": "neural-spectral-capacity-with-residual-context-f-a7e3477c57",
-      "titleEn": "Residual-Aware Neural Spectral Capacity Improves Transformer Resource Allocation",
-      "limitationsEn": "Evidence is based on specific model scales (121M, 374M) and datasets (FineWeb-Edu, WikiText-2, LAMBADA), as well as LLaMA-7B pruning experiments; the certified bounds apply only to numerically evaluated scores within a finite candidate set, not a global optimality guarantee; the method relies on specification-derived statistical references, and its generalizability requires further validation; paired reversal experiments reveal scoring blind spots but do not provide a general fix.",
-      "contentType": "paper",
-      "whyItMatters": "为Transformer架构设计提供了一种无需训练即可预测相对性能的启发式方法，尤其适用于训练成本受限的场景；残差感知的改进提升了分配决策对层配置重排序的敏感性，在预训练与剪枝任务中均带来性能收益。",
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "publishedAt": "2026-10-23T04:00:00+00:00",
-      "score": 76.48,
+      "originalUrl": "https://arxiv.org/abs/2610.30823",
+      "summaryProvider": "deepseek",
+      "title": "残差感知谱容量优化Transformer异构资源分配",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "It provides a training-free heuristic to predict relative performance for Transformer architecture design, especially when training costs limit experimentation; the residual-aware improvement enhances the sensitivity of allocation decisions to compatible reorderings, yielding performance gains in both pretraining and pruning tasks.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "Neural Spectral Capacity (NSC) is a heuristic for predicting post-training performance from architectural specifications, but it scores projections independently and is insensitive to compatible reorderings. The authors propose ResNSC, which uses a specification-derived statistical reference of residual updates to determine input and residual-state statistics in each projection's capacity calculation, and extend the allocator to ResNSC-DP, jointly allocating residual and feed-forward widths. In 121M and 374M pretraining and LLaMA-7B pruning experiments, ResNSC-DP achieves lower perplexity or higher average accuracy at comparable parameter budgets; paired reversal experiments show performance differences hidden by position-independent scoring.",
+      "tagsEn": [
+        "Transformer Architecture",
+        "Resource Allocation",
+        "Neural Spectral Capacity",
+        "Residual Connections",
+        "Model Pruning"
+      ],
+      "whyItMattersEn": "This method provides a training-free heuristic for predicting Transformer performance to guide architecture design when training costs are limited, and demonstrates potential performance gains in pretraining and pruning scenarios.",
       "features": [
         {
           "id": "artifact:paper",
@@ -417,13 +414,18 @@
           "confidence": 1.0
         }
       ],
-      "originalTitle": "Neural Spectral Capacity with Residual Context for Heterogeneous Resource Allocation within Transformers",
-      "descriptionEn": "This study introduces Residual-Aware Neural Spectral Capacity (ResNSC) with a history-dependent allocator (ResNSC-DP), addressing the insensitivity of the original method to compatible reorderings of layer configurations, and validates its effectiveness in pretraining and pruning tasks.",
-      "sourceGroup": "论文",
+      "summary": "Neural Spectral Capacity (NSC) 是一种根据架构规格预测相对训练性能的启发式方法，但独立评分投影且对兼容重排给出相同分数。本文提出ResNSC，利用规格推导的统计参考确定每个投影容量计算中的输入和残差状态统计，并扩展NSC-DP分配器以纳入残差历史。实验表明，在121M和374M预训练规模下，所选架构在可比参数预算下困惑度低于均匀、可变宽度和锥形分配；在LLaMA-7B剪枝中，八任务平均准确率提升3.28-5.46个百分点。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T04:00:00+00:00",
       "aiGenerated": true,
+      "score": 76.48,
+      "domain": "AI 研究",
+      "whyItMatters": "该方法为Transformer架构设计提供了一种无需训练即可预测性能的启发式工具，有助于在训练成本受限时指导资源分配，并在预训练和剪枝场景中展示了性能提升潜力。",
+      "description": "提出残差感知神经谱容量（ResNSC），通过引入残差上下文改进Transformer架构性能预测，并增强分配器以联合分配残差与FFN宽度，在预训练和剪枝任务中验证有效性。",
+      "originalTitle": "Neural Spectral Capacity with Residual Context for Heterogeneous Resource Allocation within Transformers",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6914,
+        "comparisonCohortSize": 6919,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -454,59 +456,50 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "ResNSC introduces a residual-update statistical reference, making capacity computation account for history dependence due to varying residual widths.",
-        "ResNSC-DP jointly allocates residual and feed-forward widths under a resource budget and provides certified bounds on the best score within a finite candidate set.",
-        "In 121M/374M pretraining, selected architectures achieve lower mean perplexity than uniform, variable-width, and tapered allocations on FineWeb-Edu, WikiText-2, and LAMBADA.",
-        "In LLaMA-7B pruning, ResNSC-DP improves eight-task average accuracy over NSC by 3.28–5.46 percentage points across eight matched parameter budgets."
-      ],
-      "summary": "神经谱容量（NSC）是一种从架构规格预测训练后性能的启发式方法，但独立评分各投影且对兼容重排序不敏感。作者提出ResNSC，利用规格推导的残差更新统计参考确定投影输入与残差状态统计，并扩展分配器为ResNSC-DP，联合分配残差与前馈宽度。在121M与374M预训练及LLaMA-7B剪枝实验中，ResNSC-DP在参数预算相当下取得更低困惑度或更高平均准确率；配对反转实验表明性能差异被位置无关评分掩盖。",
-      "tagsEn": [
-        "Transformer architecture",
-        "resource allocation",
-        "neural spectral capacity",
-        "residual connections",
-        "model pruning",
-        "performance prediction"
-      ],
+      "slug": "neural-spectral-capacity-with-residual-context-f-a7e3477c57",
       "keyPoints": [
-        "ResNSC引入残差更新统计参考，使容量计算考虑残差宽度变化带来的历史依赖。",
-        "ResNSC-DP在资源预算下联合分配残差与前馈宽度，并提供有限候选集内最优评分的认证边界。",
-        "在121M/374M预训练中，所选架构在FineWeb-Edu、WikiText-2和LAMBADA上平均困惑度低于均匀、可变宽度和锥形分配。",
-        "在LLaMA-7B剪枝中，ResNSC-DP在八个匹配参数预算下八任务平均准确率比NSC提升3.28–5.46个百分点。"
-      ]
+        "ResNSC引入残差更新统计参考，改进了NSC对投影独立评分的问题。",
+        "ResNSC-DP联合分配残差和FFN宽度，并给出有限候选集内最优分数的认证边界。",
+        "在预训练和剪枝设置中，ResNSC-DP优于基线分配策略，且配对反转实验揭示了位置独立评分忽略的性能差异。"
+      ],
+      "limitations": "研究仅在121M和374M预训练规模及LLaMA-7B剪枝设置中验证，未涉及更大规模模型或其他架构；认证边界限于指定有限候选集；性能提升幅度和泛化性需进一步测试。",
+      "descriptionEn": "Introduces Residual-Aware Neural Spectral Capacity (ResNSC), which improves Transformer performance prediction by incorporating residual context and enhances the allocator to jointly allocate residual and feed-forward widths, validated in pretraining and pruning tasks.",
+      "keyPointsEn": [
+        "ResNSC introduces a statistical reference for residual updates, addressing NSC's independent scoring of projections.",
+        "ResNSC-DP jointly allocates residual and feed-forward widths and provides certified bounds on the best score within a finite candidate set.",
+        "ResNSC-DP outperforms baseline allocation strategies in pretraining and pruning, and paired reversal experiments reveal performance differences hidden by position-independent scoring."
+      ],
+      "titleEn": "Residual-Aware Neural Spectral Capacity for Heterogeneous Resource Allocation in Transformers",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "summaryEn": "Neural Spectral Capacity (NSC) is a heuristic for predicting relative trained performance from architectural specifications, but it scores projections independently and assigns identical scores to compatible reorderings. This work proposes ResNSC, which uses a specification-derived statistical reference for accumulated residual updates to determine input and residual-state statistics in each projection's capacity calculation, and augments the NSC-DP allocator with residual history. Experiments show that at 121M and 374M pretraining scales, selected architectures achieve lower perplexity than uniform, variable-width, and tapered allocations at comparable parameter budgets, and in LLaMA-7B pruning, ResNSC-DP improves eight-task average accuracy by 3.28–5.46 percentage points.",
+      "sourceGroup": "论文"
     },
     {
-      "description": "研究提出专家引导强化学习（EGRL）训练策略，并基于此构建轻量MLP策略DriveMLP；在nuPlan Reactive基准上以86.51分超过此前最佳IL规划器Flow Planner 3.2分，且推理速度提升15倍以上。",
-      "title": "DriveMLP：训练策略胜过模型复杂度的实证研究",
-      "summaryProvider": "deepseek",
-      "domain": "AI 研究",
-      "originalUrl": "https://arxiv.org/abs/2610.29676",
+      "contentType": "paper",
+      "id": "4ddd8bb7a046b863",
+      "sourceName": "arXiv cs.LG",
+      "limitationsEn": "The conclusions are based on controlled empirical studies and the nuPlan benchmark, without real-road deployment. EGRL relies on logged expert data, and its generalizability and effectiveness on other datasets require further validation.",
       "tags": [
         "自动驾驶",
         "运动规划",
         "模仿学习",
         "强化学习",
-        "训练策略",
-        "轻量模型"
+        "训练策略"
       ],
-      "sourceName": "arXiv cs.LG",
-      "limitations": "证据主要来自nuPlan Val14 Reactive基准上的受控实证研究，结论对其他数据集、城市场景或真实道路的泛化性尚未验证；EGRL依赖日志专家数据构建轨迹距离奖励，其有效性可能受数据分布与质量影响；与Flow Planner的比较限于该基准与实验设置，不宜直接外推为普遍优越性。",
-      "id": "4ddd8bb7a046b863",
-      "slug": "drivemlp-when-training-strategy-outperforms-mode-4ddd8bb7a0",
-      "titleEn": "DriveMLP: Training Strategy Outperforms Model Complexity in Autonomous Driving",
-      "limitationsEn": "The evidence mainly comes from a controlled empirical study on the nuPlan Val14 Reactive benchmark; generalization to other datasets, urban scenarios, or real roads has not been validated. EGRL relies on logged expert data to construct trajectory-distance rewards, and its effectiveness may be affected by data distribution and quality. The comparison with Flow Planner is limited to this benchmark and experimental setting and should not be directly extrapolated as general superiority.",
-      "contentType": "paper",
-      "whyItMatters": "该工作提示在自动驾驶运动规划中，改进训练策略可能比单纯增大模型更有效，为开发轻量、高推理效率的规划器提供了可参考的实证路径。",
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "publishedAt": "2026-10-22T04:00:00+00:00",
-      "score": 75.63,
+      "originalUrl": "https://arxiv.org/abs/2610.29676",
+      "summaryProvider": "deepseek",
+      "title": "简化训练策略在自动驾驶中优于复杂模型",
       "retrievedAt": "2026-10-22T15:59:59.999999+00:00",
-      "whyItMattersEn": "The work suggests that in autonomous driving motion planning, improving the training strategy may be more effective than simply scaling up models, offering an empirically grounded path toward lightweight, inference-efficient planners.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "The paper studies a closed-loop imitation learning framework that uses reinforcement learning purely as an optimization tool, guided by a trajectory-distance reward derived from logged expert data, termed Expert-Guided RL (EGRL). Through a controlled empirical study, the authors find that the training procedure, rather than model size and complexity, accounts for a substantial part of the performance gains. They then introduce DriveMLP, a lightweight MLP policy trained with EGRL, achieving 86.51 on the nuPlan Val14 Reactive benchmark, a +3.2 point improvement over the previous best IL planner (Flow Planner), with >15x faster inference.",
+      "tagsEn": [
+        "autonomous driving",
+        "motion planning",
+        "imitation learning",
+        "reinforcement learning",
+        "training strategy"
+      ],
+      "whyItMattersEn": "This work offers an alternative path for autonomous driving planning that does not rely on large models or complex reward engineering. It suggests that training strategy design may be more cost-effective than model scaling, helping lower deployment barriers and improve inference efficiency.",
       "features": [
         {
           "id": "artifact:paper",
@@ -542,13 +535,18 @@
           "confidence": 1.0
         }
       ],
-      "originalTitle": "DriveMLP: When Training Strategy Outperforms Model Complexity in Autonomous Driving",
-      "descriptionEn": "The study proposes Expert-Guided RL (EGRL) as a training strategy and builds DriveMLP, a lightweight MLP policy; it scores 86.51 on the nuPlan Reactive benchmark, outperforming the previous best IL planner Flow Planner by 3.2 points with over 15x faster inference.",
-      "sourceGroup": "论文",
+      "summary": "自动驾驶闭环规划面临分布偏移和复合误差等挑战。作者提出Expert-Guided RL（EGRL）训练策略，利用专家数据导出的轨迹距离奖励，以RL作为优化工具。实验表明训练策略对性能贡献显著，基于EGRL的轻量MLP模型DriveMLP在nuPlan基准上取得86.51分，超越此前最佳IL规划器。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-22T04:00:00+00:00",
       "aiGenerated": true,
+      "score": 75.63,
+      "domain": "AI 研究",
+      "whyItMatters": "该工作为自动驾驶规划提供了一条不依赖大规模模型和复杂奖励工程的替代路径，表明训练策略设计可能比模型规模更具性价比，有助于降低部署门槛并提升推理效率。",
+      "description": "研究发现，在自动驾驶闭环规划中，训练策略而非模型复杂度是性能提升的主要来源。作者提出EGRL策略和轻量MLP模型DriveMLP，在nuPlan基准上超越此前最佳IL规划器，且推理速度更快。",
+      "originalTitle": "DriveMLP: When Training Strategy Outperforms Model Complexity in Autonomous Driving",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6914,
+        "comparisonCohortSize": 6919,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -581,56 +579,52 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "Proposes EGRL training strategy: uses trajectory-distance reward from expert data and RL purely as an optimization tool to train closed-loop IL policies.",
-        "Controlled experiments indicate training strategy contributes more to performance gains than model size and complexity.",
-        "DriveMLP, a lightweight MLP, scores 86.51, outperforming Flow Planner by 3.2 points with over 15x faster inference."
-      ],
-      "summary": "论文研究闭环模仿学习框架，将强化学习仅作为优化工具，用基于专家轨迹距离的奖励引导训练，称为专家引导强化学习（EGRL）。通过受控实验，作者发现训练过程而非模型规模与复杂度贡献了显著性能增益。基于此，他们提出DriveMLP，一个用EGRL训练的轻量级MLP策略，在nuPlan Val14 Reactive基准上取得86.51分，比之前最佳IL规划器Flow Planner高3.2分，推理速度快15倍以上。",
-      "tagsEn": [
-        "autonomous driving",
-        "motion planning",
-        "imitation learning",
-        "reinforcement learning",
-        "training strategy",
-        "lightweight model"
-      ],
+      "slug": "drivemlp-when-training-strategy-outperforms-mode-4ddd8bb7a0",
       "keyPoints": [
-        "提出EGRL训练策略：以专家轨迹距离为奖励，将RL仅用作优化工具来训练闭环IL策略。",
-        "受控实验表明训练策略对性能提升的贡献大于模型规模与复杂度。",
-        "DriveMLP以轻量MLP实现86.51分，超Flow Planner 3.2分，推理速度提升15倍以上。"
-      ]
+        "EGRL策略使用专家数据导出的轨迹距离奖励，以强化学习作为优化工具。",
+        "轻量MLP模型DriveMLP在nuPlan Val14 Reactive基准取得86.51分，较此前最佳IL规划器提升3.2分。",
+        "DriveMLP推理速度超过此前最佳IL规划器15倍。"
+      ],
+      "limitations": "结论基于受控实证研究和nuPlan基准测试，未涉及真实道路部署；EGRL依赖日志专家数据，其泛化性和在其他数据集上的有效性仍需进一步验证。",
+      "descriptionEn": "The study finds that in closed-loop autonomous driving planning, training strategy rather than model complexity accounts for substantial performance gains. The authors propose the EGRL strategy and a lightweight MLP model DriveMLP, which outperforms the previous best IL planner on the nuPlan benchmark with faster inference.",
+      "keyPointsEn": [
+        "EGRL uses a trajectory-distance reward derived from expert data and treats RL purely as an optimization tool.",
+        "The lightweight MLP model DriveMLP scores 86.51 on the nuPlan Val14 Reactive benchmark, a +3.2 point improvement over the previous best IL planner.",
+        "DriveMLP achieves over 15x faster inference than the previous best IL planner."
+      ],
+      "titleEn": "Training Strategy Outperforms Model Complexity in Autonomous Driving",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "summaryEn": "Closed-loop planning in autonomous driving faces challenges such as distribution shift and compounding errors. The authors propose Expert-Guided RL (EGRL), which uses a trajectory-distance reward derived from expert data and RL purely as an optimization tool. Experiments show training procedure contributes significantly to performance, and the lightweight MLP model DriveMLP trained with EGRL achieves 86.51 on the nuPlan benchmark, surpassing the previous best IL planner.",
+      "sourceGroup": "论文"
     },
     {
-      "description": "该研究利用某交易所高频数据，将买卖执行匹配为持仓，并把已实现盈亏与期限匹配的预测代理指标及流动性角色相联系，从而在日内层面量化预测能力与流动性供给对机构自营盈利的贡献。",
-      "title": "机构交易者日内预测能力与流动性供给的盈利关联",
-      "summaryProvider": "deepseek",
-      "domain": "量化研究",
-      "originalUrl": "https://arxiv.org/abs/2610.31141",
+      "contentType": "paper",
+      "id": "c36799dbc723cd73",
+      "sourceName": "arXiv q-fin",
+      "limitationsEn": "Evidence comes from a single-exchange high-frequency dataset and a specific sample of institutional proprietary trading, so external validity is limited; hypothetical flow-following Sharpe ratios are not equivalent to replicable live strategy returns; regression results are statistical associations, not direct causal proof linking forecasting ability or liquidity provision to P&L; the currency unit is not specified in the abstract, limiting cross-market comparison.",
       "tags": [
         "机构交易者",
         "日内预测",
-        "流动性供给",
-        "自营盈亏",
-        "高频数据"
+        "流动性提供",
+        "高频数据",
+        "自营交易",
+        "盈亏归因"
       ],
-      "sourceName": "arXiv q-fin",
-      "limitations": "证据仅来自单一股票交易所的高频样本，结论外推需谨慎；预测能力与盈亏、流动性供给与盈亏均为回归中的统计关联，不能直接解释为因果关系；假设性跟流策略的夏普比率基于事后匹配的执行流构造，未考虑实际交易成本、市场冲击与容量约束；样本期与市场结构特征可能影响结果。",
-      "id": "c36799dbc723cd73",
-      "slug": "intraday-forecasting-ability-and-liquidity-provi-c36799dbc7",
-      "titleEn": "Intraday Forecasting Ability and Liquidity Provision Linked to Institutional Traders' Profitability",
-      "limitationsEn": "Evidence comes from a single stock exchange's high-frequency sample, so external validity requires caution; the links between forecasting ability and P&L, and between liquidity provision and P&L, are statistical associations in regressions and cannot be directly interpreted as causal; the hypothetical flow-following Sharpe ratios are constructed from ex-post matched execution flows and do not account for actual trading costs, market impact, or capacity constraints; sample period and market structure characteristics may affect results.",
-      "contentType": "paper",
-      "whyItMatters": "该研究为理解机构交易者日内盈利的来源提供了可操作的分解框架：将盈亏分别与预测能力和流动性供给角色挂钩，有助于评估交易技能与做市行为在自营交易中的相对贡献。",
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "publishedAt": "2026-10-23T04:00:00+00:00",
-      "score": 75.18,
+      "originalUrl": "https://arxiv.org/abs/2610.31141",
+      "summaryProvider": "deepseek",
+      "title": "机构交易者日内预测能力与做市收益的关联",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "The study offers an operational decomposition framework for understanding the sources of institutional traders' intraday profits: by separately linking P&L to forecasting ability and liquidity-provision roles, it helps assess the relative contributions of trading skill and market-making behavior in proprietary trading.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "Based on high-frequency exchange data, the study finds persistent intraday forecasting ability among institutional traders, with stronger forecasting ability associated with higher P&L per matched position. The authors also report that within matched positions, more passive executions (greater liquidity-provision intensity) are associated with higher P&L. These are associational findings from the authors' sample and regression specifications, not causal conclusions.",
+      "tagsEn": [
+        "institutional traders",
+        "intraday forecasting",
+        "liquidity provision",
+        "high-frequency data",
+        "proprietary trading",
+        "P&L attribution"
+      ],
+      "whyItMattersEn": "If forecasting ability and passive execution are positively associated with intraday P&L, performance evaluation and execution design should consider both information advantages and liquidity-provision roles, not just trade prices or aggregate returns.",
       "features": [
         {
           "id": "artifact:paper",
@@ -677,13 +671,18 @@
           "confidence": 0.96
         }
       ],
-      "originalTitle": "Intraday Forecasting Ability and Liquidity Provision of Institutional Traders",
-      "descriptionEn": "Using high-frequency data from a stock exchange, the study matches buy and sell executions into positions and links realized P&L to horizon-matched forecasting proxies and the liquidity roles of both executions, thereby quantifying the intraday contributions of forecasting ability and liquidity provision to institutional proprietary profitability.",
-      "sourceGroup": "论文",
+      "summary": "研究使用某交易所高频数据考察机构交易者自营日内盈利与预测能力、流动性提供的关系。作者发现预测能力具有持续性，并报告基于技能型交易者执行流的假想跟随策略在不同频率下年化夏普比率为16至63。作者进一步将买卖执行配对为持仓，发现预测能力代理指标每提高一个标准差，单笔配对持仓盈亏高1.02至1.19货币单位，且被动执行次数越多盈亏越高。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T04:00:00+00:00",
       "aiGenerated": true,
+      "score": 75.18,
+      "domain": "量化研究",
+      "whyItMatters": "若预测能力与被动执行确实与日内盈亏同向关联，则评估交易绩效和设计执行策略时需同时关注信息优势与流动性提供角色，而非只看成交价格或总收益。",
+      "description": "该研究利用某交易所高频数据，将机构自营交易的买卖执行配对为持仓，并把已实现盈亏与持有期匹配的预测代理指标及流动性提供角色联系起来，说明预测能力与被动执行如何共同对应更高盈亏。其价值在于为日内交易盈利来源提供可检验的分解框架，而非仅报告总体收益。",
+      "originalTitle": "Intraday Forecasting Ability and Liquidity Provision of Institutional Traders",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6914,
+        "comparisonCohortSize": 6919,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -720,55 +719,50 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "Hypothetical flow-following strategies based on skillful traders' execution flows yield annualized Sharpe ratios ranging from 16 to 63 across trading frequencies.",
-        "A one-standard-deviation increase in the forecasting-ability proxy is associated with 1.02–1.19 currency units higher P&L per matched position.",
-        "P&L is 1.28–1.31 currency units higher for one passive execution than for none, and a further 3.79–3.82 higher for two than for one."
-      ],
-      "summary": "研究基于交易所高频数据发现，机构交易者存在持续的日内预测能力，且预测能力越强，匹配持仓的盈亏越高。作者还报告，在匹配持仓内被动执行次数越多（流动性供给强度越高），盈亏也越高。上述结果是作者在其样本与回归设定下得出的关联性证据，并非因果结论。",
-      "tagsEn": [
-        "Institutional Traders",
-        "Intraday Forecasting",
-        "Liquidity Provision",
-        "Proprietary P&L",
-        "High-Frequency Data"
-      ],
+      "slug": "intraday-forecasting-ability-and-liquidity-provi-c36799dbc7",
       "keyPoints": [
-        "基于熟练交易者执行流构造的假设性跟流策略，在不同交易频率下年化夏普比率为16至63。",
-        "预测能力代理指标每增加一个标准差，匹配持仓盈亏高1.02至1.19货币单位。",
-        "匹配持仓中被动执行次数为一次时，盈亏比零次高1.28至1.31货币单位；两次比一次再高3.79至3.82货币单位。"
-      ]
+        "预测能力在部分机构交易者中表现出持续性，基于其执行流的假想跟随策略在不同交易频率下年化夏普比率为16至63。",
+        "预测能力代理指标每提高一个标准差，匹配持仓的已实现盈亏高1.02至1.19货币单位。",
+        "同一匹配持仓内，一次被动执行较零次盈亏高1.28至1.31货币单位，两次较一次再高3.79至3.82货币单位。"
+      ],
+      "limitations": "证据来自单一交易所的高频数据集与特定机构自营交易样本，结论外推需谨慎；假想跟随策略的夏普比率不等同于可实盘复制的策略收益；回归结果为统计关联，不能直接证明预测能力或流动性提供与盈亏之间的因果关系；货币单位未在摘要中说明，跨市场比较受限。",
+      "descriptionEn": "Using high-frequency exchange data, the study matches institutional proprietary buy and sell executions into positions and links realized P&L to horizon-matched forecasting proxies and each execution's liquidity role. Its value lies in a testable decomposition of intraday trading profitability rather than reporting aggregate returns alone.",
+      "keyPointsEn": [
+        "Forecasting ability is persistent among some institutional traders; hypothetical flow-following strategies based on their execution flows yield annualized Sharpe ratios of 16 to 63 across trading frequencies.",
+        "A one-standard-deviation increase in the forecasting-ability proxy is associated with 1.02–1.19 currency units higher realized P&L per matched position.",
+        "Within a matched position, one passive execution is associated with 1.28–1.31 currency units higher P&L than none, and two are 3.79–3.82 higher than one."
+      ],
+      "titleEn": "Forecasting Ability, Liquidity Provision, and Intraday P&L of Institutional Traders",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "summaryEn": "The study uses high-frequency data from a stock exchange to examine how forecasting ability and liquidity provision relate to institutional traders' proprietary intraday profitability. The authors find persistent forecasting ability and report that hypothetical flow-following strategies based on skillful traders' execution flows yield annualized Sharpe ratios of 16 to 63 across trading frequencies. Matching buy and sell executions into positions, they find that a one-standard-deviation increase in the forecasting proxy is associated with 1.02–1.19 currency units higher P&L per matched position, and P&L rises with the number of passive executions.",
+      "sourceGroup": "论文"
     },
     {
-      "description": "该研究提出MemPlan框架，将大语言模型（LLM）的角色从长程规划器转变为语言与符号规划之间的受限桥梁，在固定PDDL领域的前提下，利用正负记忆重建问题并引导规划，从而降低在线token成本并提升任务完成效率。",
-      "title": "MemPlan：记忆条件化PDDL规划应对部分可观测文本环境",
-      "summaryProvider": "deepseek",
-      "domain": "AI 研究",
-      "originalUrl": "https://arxiv.org/abs/2610.30379",
+      "contentType": "paper",
+      "id": "c28692c0fd6bf48b",
+      "sourceName": "arXiv cs.CL",
+      "limitationsEn": "Evidence is limited to experiments on three text-interaction benchmarks: TextWorld, ALFWorld, and Robotouille; it does not cover real-world or visual environments. Results depend on the quality of the offline fine-tuned language–symbol interface and on candidate hypothesis generation, and the effectiveness of positive and negative memory is affected by the hypothesis space and parsing errors. The efficiency and cost conclusions are author-reported and require independent replication, and nothing here constitutes investment advice.",
       "tags": [
-        "大语言模型",
         "符号规划",
         "部分可观测环境",
-        "文本游戏",
-        "记忆机制"
+        "记忆机制",
+        "文本交互智能体",
+        "大语言模型"
       ],
-      "sourceName": "arXiv cs.CL",
-      "limitations": "实验仅在TextWorld、ALFWorld和Robotouille三个文本环境基准上进行，未涉及真实世界或更复杂的多模态场景。PDDL领域保持固定，可能限制对动态领域变化的适应能力。正负记忆机制依赖观察解析和执行反馈的质量，在噪声或稀疏反馈下的表现尚不明确。与ReAct等基线的token成本比较基于特定实验设置，泛化性需进一步验证。",
-      "id": "c28692c0fd6bf48b",
-      "slug": "memplan-memory-conditioned-pddl-planning-for-par-c28692c0fd",
-      "titleEn": "MemPlan: Memory-Conditioned PDDL Planning for Partially Observable Text Environments",
-      "limitationsEn": "Experiments are limited to three text-environment benchmarks: TextWorld, ALFWorld, and Robotouille, without real-world or more complex multimodal scenarios. The PDDL domain is kept fixed, which may limit adaptability to dynamic domain changes. The positive and negative memory mechanisms depend on the quality of observation parsing and execution feedback, and their performance under noisy or sparse feedback remains unclear. The token cost comparison with baselines such as ReAct is based on specific experimental settings and requires further validation for generalizability.",
-      "contentType": "paper",
-      "whyItMatters": "该方法提供了一种降低LLM在线规划成本并提升符号规划在部分可观测文本环境中鲁棒性的思路。其统一模式条件语言-符号接口经离线监督微调后，可跨TextWorld任务类型复用而无需任务特定微调，为构建可复用的规划接口提供了参考。",
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "publishedAt": "2026-10-23T04:00:00+00:00",
-      "score": 74.75,
+      "originalUrl": "https://arxiv.org/abs/2610.30379",
+      "summaryProvider": "deepseek",
+      "title": "MemPlan：面向部分可观测文本环境的记忆条件PDDL规划",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "This approach offers a way to reduce LLM online planning costs and improve the robustness of symbolic planning in partially observable text environments. The unified schema-conditioned language-symbol interface, trained offline with supervised fine-tuning, can be reused across TextWorld task types without task-specific fine-tuning, providing a reference for building reusable planning interfaces.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "MemPlan is a memory-conditioned PDDL planning framework for partially observable interactive text environments. It keeps the PDDL domain fixed and reconstructs the PDDL problem at each step from parsed observations, candidate hypotheses, and interaction memory, using positive memory to assign action costs and negative memory to compile exclusion constraints. Experiments on TextWorld, ALFWorld, and Robotouille show improved task completion and step efficiency over language-only and PDDL-aware baselines, with substantially reduced online token cost.",
+      "tagsEn": [
+        "symbolic planning",
+        "partially observable environments",
+        "memory mechanisms",
+        "text-interaction agents",
+        "large language models"
+      ],
+      "whyItMattersEn": "If the combination of memory-conditioned PDDL and a lightweight language interface generalizes, long-horizon text interaction tasks could retain symbolic verifiability while reducing reliance on online LLM planning and token cost, offering a methodological reference for low-cost, auditable agent planning pipelines.",
       "features": [
         {
           "id": "artifact:paper",
@@ -804,13 +798,18 @@
           "confidence": 0.8
         }
       ],
-      "originalTitle": "MemPlan: Memory-Conditioned PDDL Planning for Partially Observable Text Environments",
-      "descriptionEn": "This study proposes MemPlan, a framework that shifts LLMs from long-horizon planners to constrained bridges between language and symbolic planning, reconstructing PDDL problems with positive and negative memory under a fixed domain to reduce online token cost and improve task completion efficiency.",
-      "sourceGroup": "论文",
+      "summary": "论文针对大语言模型作为长程规划器成本高且易产生幻觉或无效动作的问题，提出在固定PDDL领域的前提下，每步从解析观测、候选假设与交互记忆中重建PDDL问题。作者称在TextWorld、ALFWorld和Robotouille上，MemPlan相较纯语言与PDDL感知基线提升了任务完成率与步效率，并显著降低在线token开销；这些为作者报告的结果判断，尚需独立复现。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T04:00:00+00:00",
       "aiGenerated": true,
+      "score": 74.75,
+      "domain": "AI 研究",
+      "whyItMatters": "若记忆条件PDDL与轻量语言接口的组合可推广，则长程文本交互任务可在保持符号可验证性的同时减少对大模型在线规划的依赖与token成本，对构建低成本、可审计的智能体规划链路具有方法参考意义。",
+      "description": "该工作提出MemPlan框架，将大语言模型从长程规划主体转为语言与符号规划之间的受限接口，并用正负记忆重建每步PDDL问题。其新意在于以记忆引导候选假设排序、以失败记录排除已证伪选项；对降低在线token开销、提升文本环境任务完成率有参考价值。",
+      "originalTitle": "MemPlan: Memory-Conditioned PDDL Planning for Partially Observable Text Environments",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6914,
+        "comparisonCohortSize": 6919,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -842,55 +841,50 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "MemPlan positions LLMs as constrained interfaces between language and symbolic planning rather than direct long-horizon planners, mitigating hallucinated or invalid actions.",
-        "The framework uses positive graph memory to assign relevance-based action costs to candidate hypotheses for missing objects, locations, or conditions, guiding the planner toward more plausible checks.",
-        "Negative memory records assumptions refuted by execution feedback and compiles them into exclusion constraints, preventing repeated attempts at already contradicted candidates."
-      ],
-      "summary": "MemPlan是一个面向部分可观测交互文本环境的记忆条件化PDDL规划框架。它保持PDDL领域固定，每步根据解析的观察、候选假设和交互记忆重建PDDL问题，并用正记忆分配动作成本、负记忆生成排除约束。实验表明，在TextWorld、ALFWorld和Robotouille上，MemPlan相比纯语言和PDDL感知基线提升了任务完成率与步骤效率，并显著降低在线token消耗。",
-      "tagsEn": [
-        "large language models",
-        "symbolic planning",
-        "partially observable environments",
-        "text games",
-        "memory mechanisms"
-      ],
+      "slug": "memplan-memory-conditioned-pddl-planning-for-par-c28692c0fd",
       "keyPoints": [
-        "MemPlan将LLM定位为语言到符号规划的受约束接口，而非直接的长程规划器，以缓解幻觉和无效动作问题。",
-        "框架通过正图记忆为缺失对象、位置或条件的候选假设分配基于相关性的动作成本，引导规划器优先检查更合理的假设。",
-        "负记忆记录被执行反馈否定的假设，并编译为排除约束，避免重复尝试已被证伪的候选。"
-      ]
-    },
-    {
-      "description": "该研究构建P2NPCBench基准，通过对抗式多智能体重写移除教科书线索，发现模型在NP完全问题上表现显著低于P孪生问题，且加固后差距缩小，表明部分差距源于表述熟悉度而非复杂度类别。",
-      "title": "配对P与NP完全问题测试LLM推理边界",
-      "summaryProvider": "deepseek",
-      "domain": "AI 研究",
-      "originalUrl": "https://arxiv.org/abs/2610.30103",
-      "tags": [
-        "基准测试",
-        "NP完全问题",
-        "对抗重写",
-        "LLM推理",
-        "复杂度类别"
+        "MemPlan固定PDDL领域，并在每一步由解析观测、候选假设和交互记忆重建PDDL问题，形成记忆条件的规划循环。",
+        "正向图记忆按相关性为缺失对象、位置或条件的候选假设计算动作代价，负向记忆把被反驳的假设编译为排除约束。",
+        "经离线监督微调的统一模式条件语言—符号接口，负责观测到事实的解析和符号动作到命令的落地，并被复用于TextWorld多种任务类型。"
       ],
-      "sourceName": "arXiv cs.CL",
-      "limitations": "结论基于12个问题族和12个模型，是否推广到其他复杂度类别或更广泛模型尚不确定；加固后的陈述虽经人工验证，但可能引入其他分布偏差；未评估模型规模或训练数据对类别差距的影响。",
-      "id": "42fa57e6c72f325b",
-      "slug": "did-the-problem-actually-get-harder-testing-llms-42fa57e6c7",
-      "titleEn": "Testing LLM Reasoning Boundaries with Paired P and NP-Complete Problems",
-      "limitationsEn": "Conclusions are based on 12 problem families and 12 models, and generalizability to other complexity classes or broader model sets is uncertain; hardened statements, though human-verified, may introduce other distribution biases; the impact of model scale or training data on the class gap is not assessed.",
-      "contentType": "paper",
-      "whyItMatters": "该基准有助于区分模型是在真正推理问题结构，还是依赖对教科书表述的记忆，为评估LLM的推理能力提供了更受控的测试方法。",
+      "limitations": "证据范围限于TextWorld、ALFWorld和Robotouille三类文本交互基准上的实验，未涉及真实世界或视觉环境；结果依赖离线监督微调的语言—符号接口质量与候选假设生成，正负记忆的有效性受假设空间与解析错误影响；文中的效率与成本结论为作者报告，需独立复现验证，且不构成任何投资建议。",
+      "descriptionEn": "This work proposes MemPlan, which recasts large language models from long-horizon planners into constrained interfaces between language and symbolic planning, reconstructing the PDDL problem at each step from positive and negative memory. Its novelty lies in memory-guided ranking of candidate hypotheses and exclusion constraints from refuted assumptions; it is relevant for reducing online token cost and improving task completion in text environments.",
+      "keyPointsEn": [
+        "MemPlan fixes the PDDL domain and rebuilds the PDDL problem each step from parsed observations, candidate hypotheses, and interaction memory, forming a memory-conditioned planning loop.",
+        "Positive graph memory assigns relevance-based action costs to candidate hypotheses for missing objects, locations, or conditions, while negative memory compiles refuted assumptions into exclusion constraints.",
+        "A unified schema-conditioned language–symbol interface, trained offline with supervised fine-tuning, handles observation-to-fact parsing and symbolic-action-to-command grounding, and is reused across TextWorld task types."
+      ],
+      "titleEn": "MemPlan: Memory-Conditioned PDDL Planning for Partially Observable Text Environments",
       "discoveredBy": [
         "arXiv cs.CL"
       ],
-      "publishedAt": "2026-10-22T04:00:00+00:00",
-      "score": 72.63,
+      "summaryEn": "Addressing the high cost and hallucination-prone nature of LLM long-horizon planners, the paper proposes keeping the PDDL domain fixed while reconstructing the PDDL problem each step from parsed observations, candidate hypotheses, and interaction memory. The authors report that on TextWorld, ALFWorld, and Robotouille, MemPlan improves task completion and step efficiency over language-only and PDDL-aware baselines while substantially reducing online token cost; these are the authors' reported results and require independent replication.",
+      "sourceGroup": "论文"
+    },
+    {
+      "contentType": "paper",
+      "id": "42fa57e6c72f325b",
+      "sourceName": "arXiv cs.CL",
+      "limitationsEn": "Conclusions are based on 12 problem families and 12 models, not covering all NP-complete problems or architectures; hardened statements are adversarially generated with human verification but sample size and verification scope are limited; pass@1 reflects single-generation success and may be affected by sampling strategy; no direct evidence on internal model mechanisms is provided.",
+      "tags": [
+        "NP完全问题",
+        "基准测试",
+        "对抗改写",
+        "大语言模型评估",
+        "算法推理"
+      ],
+      "originalUrl": "https://arxiv.org/abs/2610.30103",
+      "summaryProvider": "deepseek",
+      "title": "配对P与NP完全问题的对抗改写基准：模型在NPC侧准确率显著下降",
       "retrievedAt": "2026-10-22T15:59:59.999999+00:00",
-      "whyItMattersEn": "The benchmark helps distinguish whether models genuinely reason about problem structure or rely on memorized textbook phrasing, offering a more controlled way to evaluate LLM reasoning.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "The authors propose P2NPCBench, covering 12 problem families where each NP-complete problem is paired with a surface-identical P twin, and use the AgentGAN framework to remove textbook cues via adversarial rewriting. Evaluating 12 models, they find NP-complete pass@1 is 35.4% versus 63.8% for P twins, and 95.1% of model pairs fail more often on the NP side. The authors argue that hardening narrows the class gap from 24.8 to 14.6 points, indicating that part of the apparent gap reflects familiarity with textbook phrasing rather than complexity class itself.",
+      "tagsEn": [
+        "NP-complete problems",
+        "benchmark",
+        "adversarial rewriting",
+        "LLM evaluation",
+        "algorithmic reasoning"
+      ],
+      "whyItMattersEn": "The benchmark offers a way to control surface phrasing and separate complexity-class reasoning from memorization, enabling finer-grained evaluation of LLMs' genuine algorithmic reasoning rather than reliance on textbook cues.",
       "features": [
         {
           "id": "artifact:paper",
@@ -926,13 +920,18 @@
           "confidence": 0.8
         }
       ],
-      "originalTitle": "Did the Problem Actually Get Harder? Testing LLMs on Paired P and NP-Complete Problems Hardened by Adversarial Multi-Agent Rewriting",
-      "descriptionEn": "The study introduces P2NPCBench, a benchmark that uses adversarial multi-agent rewriting to remove textbook cues, finding that models perform significantly worse on NP-complete problems than on their P twins and that the gap narrows after hardening, suggesting part of the gap reflects familiarity with textbook phrasing rather than complexity class.",
-      "sourceGroup": "论文",
+      "summary": "作者提出P2NPCBench，通过对抗改写生成2,114条经人工验证的硬化陈述，使NP完全问题与P孪生问题在表面措辞上不可区分。评估12个模型发现所有模型在NPC侧通过率低于P侧（35.4% vs 63.8%），多数模型对表现出此模式，且错误主要来自程序错误而非超时。作者认为类间差距部分源于对教科书措辞的熟悉度，硬化后差距从24.8点缩至14.6点。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-22T04:00:00+00:00",
       "aiGenerated": true,
+      "score": 72.63,
+      "domain": "AI 研究",
+      "whyItMatters": "该基准提供了一种控制表面措辞、区分复杂度类别推理与记忆的方法，有助于更细粒度地评估LLM在算法问题上的真实推理能力，而非仅依赖教科书式线索。",
+      "description": "该研究构建P2NPCBench基准，将12类NP完全问题与其多项式时间孪生问题以相同表面措辞配对，并用AgentGAN对抗多智能体框架改写题干以去除教科书线索。结果显示12个模型在NPC问题上通过率仅35.4%，远低于P孪生问题的63.8%，且95.1%的模型对在NPC侧失败更多；时间限制放宽十倍仅将NPC准确率从28.5%提升至31.9%，说明失败源于程序错误而非速度。",
+      "originalTitle": "Did the Problem Actually Get Harder? Testing LLMs on Paired P and NP-Complete Problems Hardened by Adversarial Multi-Agent Rewriting",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6914,
+        "comparisonCohortSize": 6919,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -964,66 +963,66 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "P2NPCBench contains 2,114 statements hardened by adversarial rewriting, with all rewrites preserving answers and complexity classes.",
-        "Across 12 models, average pass@1 is 35.4% on NP-complete problems and 63.8% on P twins.",
-        "A tenfold increase in time limit raises NP-complete accuracy only from 28.5% to 31.9%, indicating failures stem from wrong or crashing programs rather than speed."
-      ],
-      "summary": "作者提出P2NPCBench，包含12个问题族，每个NP完全问题与一个表面相同的P孪生问题配对，并使用AgentGAN框架通过对抗重写移除教科书线索。评估12个模型发现，NP完全问题pass@1为35.4%，低于P孪生问题的63.8%，且95.1%的模型对在NP侧失败更多。作者认为，加固后类别差距从24.8缩小到14.6点，说明部分表观差距反映的是对教科书措辞的熟悉度而非复杂度类别本身。",
-      "tagsEn": [
-        "benchmark",
-        "NP-complete problems",
-        "adversarial rewriting",
-        "LLM reasoning",
-        "complexity classes"
-      ],
+      "slug": "did-the-problem-actually-get-harder-testing-llms-42fa57e6c7",
       "keyPoints": [
-        "P2NPCBench包含2,114条经过对抗重写加固的陈述，所有重写保持答案和复杂度类别不变。",
-        "12个模型在NP完全问题上平均pass@1为35.4%，在P孪生问题上为63.8%。",
-        "将时间限制提高十倍，NP完全问题准确率仅从28.5%升至31.9%，失败主因是错误或崩溃程序而非速度。"
-      ]
+        "P2NPCBench包含12个问题家族，每个NPC问题与同表面的P孪生问题配对，共2,114条硬化陈述并附人工验证参考解。",
+        "12个模型在NPC陈述上的pass@1为35.4%，在P孪生上为63.8%，95.1%的模型对在NPC侧失败率更高。",
+        "十倍时间限制仅将NPC准确率从28.5%提至31.9%，表明失败源于错误或崩溃程序而非运行慢。"
+      ],
+      "limitations": "结论基于12个问题家族和12个模型的评估，未覆盖所有NP完全问题或模型架构；硬化陈述由对抗生成并人工验证，但样本规模与验证范围有限；pass@1指标反映单次生成成功率，可能受采样策略影响；未涉及模型内部机制的直接证据。",
+      "descriptionEn": "The study builds P2NPCBench, pairing 12 NP-complete problem families with polynomial-time twins under identical surface wording, and uses the AgentGAN adversarial multi-agent framework to rewrite statements and remove textbook cues. Across 12 models, pass@1 on NPC problems is only 35.4% versus 63.8% on P twins, and 95.1% of model pairs fail more on the NPC side; a tenfold time limit raises NPC accuracy only from 28.5% to 31.9%, indicating failures stem from incorrect programs",
+      "keyPointsEn": [
+        "P2NPCBench contains 12 problem families, each pairing an NPC problem with a surface-identical P twin, totaling 2,114 hardened statements with human-verified reference solutions.",
+        "Across 12 models, pass@1 is 35.4% on NPC statements versus 63.8% on P twins, and 95.1% of model pairs fail more often on the NPC side.",
+        "A tenfold time limit raises NPC accuracy only from 28.5% to 31.9%, showing failures stem from wrong or crashing programs rather than slow runtime."
+      ],
+      "titleEn": "Paired P and NP-Complete Problems with Adversarial Rewriting: Models Show Markedly Lower Accuracy on NPC Side",
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ],
+      "summaryEn": "The authors introduce P2NPCBench, generating 2,114 human-verified hardened statements that make NP-complete problems surface-indistinguishable from their P twins via adversarial rewriting. Evaluating 12 models, all score lower on NPC statements than on P twins (35.4% vs 63.8%), most model pairs show this pattern, and errors mainly arise from incorrect programs rather than timeouts. The authors suggest part of the class gap reflects familiarity with textbook phrasing, as hardening narrows the gap from 24.8 to 14.6 points.",
+      "sourceGroup": "论文"
     },
     {
-      "description": "该应用让用户从菜单栏直接运行本地 AI 模型，可根据 Mac 配置筛选模型、一键下载并聊天；对话保留在电脑上且支持离线，兼容 OpenAI API 的应用也可连接。",
-      "title": "Llama 桌面应用：在 Mac 菜单栏本地运行 AI 模型",
-      "summaryProvider": "deepseek",
-      "domain": "AI 研究",
-      "originalUrl": "https://www.youtube.com/watch?v=w6dSNCg9I5k",
-      "tags": [
-        "本地AI",
-        "Mac应用",
-        "Llama",
-        "离线推理",
-        "OpenAI API兼容"
-      ],
-      "sourceName": "Hugging Face",
-      "limitations": "信息来自 Hugging Face 的产品介绍视频，未提供性能基准、模型兼容性列表、硬件最低要求或独立评测；实际体验与隐私、离线能力需以官方文档和实测为准。",
-      "id": "8095eead168035a6",
-      "slug": "llama-local-ai-on-your-mac-8095eead16",
-      "titleEn": "Llama Desktop App: Run AI Models Locally on Mac from the Menu Bar",
-      "limitationsEn": "The information comes from a Hugging Face product introduction video and provides no performance benchmarks, model compatibility list, minimum hardware requirements, or independent review; actual experience and privacy/offline capabilities should be verified against official documentation and testing.",
       "contentType": "video",
-      "whyItMatters": "为希望在 Mac 上本地运行 AI 模型的用户提供菜单栏入口，强调隐私与离线可用性，并借助 OpenAI API 兼容性扩展应用连接场景。",
-      "discoveredBy": [
-        "Hugging Face"
+      "id": "8095eead168035a6",
+      "sourceName": "Hugging Face",
+      "limitationsEn": "The source is a Hugging Face release introduction and provides no model compatibility scope, hardware requirements, performance benchmarks, privacy or security audits, or comparisons with similar tools. The specific boundaries of its 'free and open source' and offline capabilities should be verified against official documentation and hands-on testing, and it should not be used to infer actual experience or investment value.",
+      "tags": [
+        "本地推理",
+        "Mac 应用",
+        "开源工具",
+        "菜单栏",
+        "离线 AI"
       ],
-      "publishedAt": "2026-10-23T07:55:07+00:00",
-      "score": 71.2,
+      "originalUrl": "https://www.youtube.com/watch?v=w6dSNCg9I5k",
+      "summaryProvider": "deepseek",
+      "title": "Llama 推出 Mac 本地菜单栏 AI 运行工具",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "It provides a menu bar entry point for users who want to run AI models locally on Mac, emphasizes privacy and offline availability, and extends app connectivity via OpenAI API compatibility.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "Hugging Face released the Llama desktop app, which supports running AI models locally on Mac from the menu bar with model filtering, one-click download, and chat. The source states conversations stay local, it works offline, and apps compatible with the OpenAI API can connect; the app is free and open source.",
+      "tagsEn": [
+        "local inference",
+        "Mac app",
+        "open-source tool",
+        "menu bar",
+        "offline AI"
+      ],
+      "whyItMattersEn": "The tool integrates local model deployment and a chat interface into the desktop menu bar, lowering the barrier to using local AI on a Mac; it is relevant to users interested in keeping data on-device, offline availability, and open API access.",
       "features": [],
-      "originalTitle": "Llama: Local AI on Your Mac",
-      "descriptionEn": "The app lets users run local AI models directly from the Mac menu bar, find models suited to their Mac, download with one click, and chat; conversations stay on the computer, it works offline, and apps supporting the OpenAI API can connect.",
-      "sourceGroup": "视频",
+      "summary": "Hugging Face 发布 Llama，一个在 Mac 菜单栏中本地运行 AI 模型的工具。据来源介绍，它可按设备匹配模型、一键下载并离线对话，数据留在本机，兼容 OpenAI API 的应用也能连接。该工具免费开源，由 llama.cpp 团队推出。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T07:55:07+00:00",
       "aiGenerated": true,
+      "score": 71.2,
+      "domain": "AI 研究",
+      "whyItMatters": "该工具将本地模型部署与聊天界面整合到桌面菜单栏，降低了在 Mac 上使用本地 AI 的操作门槛；对关注数据留在本机、离线可用和开放接口接入的用户具有参考价值。",
+      "description": "Hugging Face 发布了名为 Llama 的新工具，可在 Mac 上从菜单栏直接本地运行 AI 模型，支持按机型匹配模型、一键下载、离线对话，并允许兼容 OpenAI API 的应用接入。其价值在于把本地推理流程简化为桌面级操作，且对话数据保留在本机。",
+      "originalTitle": "Llama: Local AI on Your Mac",
       "scoreBreakdown": {
         "contentType": "video",
         "comparisonCohortSize": 1,
         "mode": "cohort-metric",
         "primaryMetric": "views",
-        "primaryMetricValue": 1772.0,
+        "primaryMetricValue": 3911.0,
         "metricPercentile": 100.0,
         "velocityPercentile": 100.0,
         "objectiveScore": 100.0,
@@ -1049,59 +1048,54 @@
         "freshnessScore": 97.76,
         "sourceQualityScore": 82.0,
         "sourceMetrics": {
-          "views": 1772.0
+          "views": 3911.0
         },
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "Run local AI models directly from the Mac menu bar",
-        "Find models for your Mac and download and chat with one click",
-        "Conversations stay local, offline use is supported, and OpenAI API-compatible apps can connect"
-      ],
-      "summary": "Hugging Face 发布 Llama 桌面应用，支持在 Mac 菜单栏本地运行 AI 模型，提供模型筛选、一键下载和聊天功能。来源称对话数据留在本地、可离线使用，并允许兼容 OpenAI API 的应用连接，应用免费开源。",
-      "tagsEn": [
-        "local AI",
-        "Mac app",
-        "Llama",
-        "offline inference",
-        "OpenAI API compatibility"
-      ],
+      "slug": "llama-local-ai-on-your-mac-8095eead16",
       "keyPoints": [
-        "可从 Mac 菜单栏直接运行本地 AI 模型",
-        "支持按 Mac 配置查找模型并一键下载聊天",
-        "对话保留在本地、支持离线，兼容 OpenAI API 的应用可连接"
-      ]
+        "工具以 Mac 菜单栏为入口，主打本地运行与离线使用",
+        "提供按 Mac 配置查找模型、一键下载和直接对话的流程",
+        "对话保留在用户电脑上，支持兼容 OpenAI API 的应用接入"
+      ],
+      "limitations": "来源为 Hugging Face 的发布介绍，未提供模型兼容范围、硬件要求、性能基准、隐私安全审计或与同类工具的对比数据；其“免费开源”和离线能力的具体边界需以官方文档和实测为准，不宜据此推断实际体验或投资价值。",
+      "descriptionEn": "Hugging Face released Llama, a tool that runs AI models locally on a Mac directly from the menu bar, with device-matched model discovery, one-click downloads, offline chat, and support for apps compatible with the OpenAI API. Its value lies in simplifying local inference into a desktop workflow while keeping conversations on the machine.",
+      "keyPointsEn": [
+        "The tool uses the Mac menu bar as its entry point and focuses on local, offline use",
+        "It offers a workflow to find models matching the Mac, download them in one click, and start chatting",
+        "Conversations stay on the user's computer, and apps compatible with the OpenAI API can connect"
+      ],
+      "titleEn": "Llama Launches a Menu-Bar Tool for Running AI Locally on Mac",
+      "discoveredBy": [
+        "Hugging Face"
+      ],
+      "summaryEn": "Hugging Face released Llama, a tool for running AI models locally on a Mac from the menu bar. According to the source, it matches models to the device, supports one-click downloads and offline chat, keeps conversations on the computer, and lets apps compatible with the OpenAI API connect. It is free and open source, from the makers of llama.cpp.",
+      "sourceGroup": "视频"
     },
     {
-      "description": "该研究指出，既有文献在评估实时电价下家庭电池对配电网峰值的影响时，通常把批发电价视为外生变量，忽略了电池集体响应价格信号本身会推高批发价、进而抑制充电激励的反馈机制。作者用校准至2025年德国数据的均衡批发电价模型进行模拟，发现计入价格反馈后，同步充电造成的配电网协同进口峰值由无电池基准之上83%变为基准之下6%，风险评估显著小于既有文献。",
-      "title": "价格内生性改变家庭电池同步充电的配电网峰值评估",
-      "summaryProvider": "deepseek",
-      "domain": "其他研究",
-      "originalUrl": "https://arxiv.org/abs/2609.35111",
+      "contentType": "paper",
+      "id": "9f6d81357eb9051f",
+      "sourceName": "arXiv q-fin",
+      "limitationsEn": "The conclusions are based on equilibrium model simulations calibrated to 2025 German data, not on actual deployment observations; the study focuses on wholesale price feedback and does not cover real-world factors such as distribution network congestion pricing, local network constraints, or user behavior heterogeneity that may affect results; the author also notes that new local peaks remain possible in grids where battery deployment runs ahead of the national average. Therefore, extrapolation of the results should be made cautiously in light of specific grid conditions.",
       "tags": [
         "家庭电池",
         "实时电价",
         "配电网峰值",
         "价格内生性",
-        "批发市场均衡"
+        "需求响应"
       ],
-      "sourceName": "arXiv q-fin",
-      "limitations": "证据来自基于德国2025年数据校准的模拟模型，而非实测部署数据；结论依赖所设定的零售电价机制（基于现货的零售电价）、均衡价格模型及情景与年份设定，作者仅称其在上述变体中稳健；研究讨论的是协同进口峰值这一指标，不能直接外推至其他电网指标、其他市场设计或其他国家；电池渗透率快于全国平均的电网仍可能出现新本地峰值，模型未给出此类情形的定量边界。",
-      "id": "9f6d81357eb9051f",
-      "slug": "the-missing-price-feedback-why-studies-overstate-9f6d81357e",
-      "titleEn": "Price Endogeneity Reshapes Estimated Distribution Grid Peaks from Synchronized Home Battery Charging",
-      "limitationsEn": "Evidence comes from a simulation model calibrated to German 2025 data rather than measured deployment data; conclusions depend on the assumed spot-based retail tariff, the equilibrium price model, and the scenario and year settings, with robustness claimed only across those variations; the study addresses the coincident import peak metric and does not directly generalize to other grid metrics, market designs, or countries; new local peaks remain possible in grids where battery penetration runs ahead of the national average, and the model does not quantify bounds for such cases.",
-      "contentType": "paper",
-      "whyItMatters": "该研究提示，评估分布式电池对配电网的影响时若忽略价格反馈，可能高估本地峰值并误导电网加固与灵活性政策设计；对量化研究而言，它说明均衡建模假设会实质性改变结论方向，而非仅影响数值大小。",
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "publishedAt": "2026-10-23T04:00:00+00:00",
-      "score": 70.11,
+      "originalUrl": "https://arxiv.org/abs/2609.35111",
+      "summaryProvider": "deepseek",
+      "title": "价格反馈缺失导致家庭电池同步充电的本地电网峰值被高估",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "The study suggests that ignoring price feedback when assessing distributed batteries' grid impacts may overstate local peaks and misguide grid reinforcement and flexibility policy; for quantitative research, it shows that equilibrium modeling assumptions can change the direction of conclusions, not just their magnitude.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "Facts: under exogenous prices, the simulation reproduces prior findings, with synchronized home battery charging pushing the local grid's coincident import peak 83% above its no-battery level; with endogenous prices, the same fleet leaves that peak 6% below the no-battery benchmark. Author's view: treating prices as non-responsive systematically overstates local peak risk, because charging concentrated in low-price hours raises wholesale prices and spreads charging across hours in equilibrium; real risk and magnitude are therefore smaller than prior literature indicates, though new local peaks remain possible, especially in grids where battery deployment runs ahead of the national average.",
+      "tagsEn": [
+        "home batteries",
+        "real-time pricing",
+        "distribution grid peaks",
+        "price endogeneity",
+        "demand response"
+      ],
+      "whyItMattersEn": "This finding implies that ignoring price feedback may lead policymakers and grid planners to overestimate the peak stress that synchronized home battery charging places on local distribution grids, thereby affecting judgments on grid reinforcement needs, demand response policies, and battery incentives. The conclusion is robust across multiple scenarios and parameter settings, offering an important correction for more accurately assessing the impact of distributed storage on distribution grids.",
       "features": [
         {
           "id": "artifact:paper",
@@ -1137,13 +1131,18 @@
           "confidence": 0.8
         }
       ],
-      "originalTitle": "The missing price feedback: Why studies overstate local grid peaks from synchronized home batteries under real-time pricing",
-      "descriptionEn": "Prior studies assessing how home batteries under real-time pricing affect distribution grids typically treat wholesale prices as exogenous, ignoring that collective battery response itself raises wholesale prices and dampens the charging incentive. Using an equilibrium wholesale-price model calibrated to 2025 German data, the author finds that accounting for this price feedback turns a coincident import peak 83% above the no-battery benchmark into one 6% below it, implying ma",
-      "sourceGroup": "论文",
+      "summary": "既有研究普遍发现，家庭电池依据实时电价同步充电会在本地配电网中制造新的负荷峰值，原因是所有资产对同一价格信号做出同步响应。本文指出，这些研究大多将批发电价视为外生，忽略了电池充电行为本身会推高电价、进而抑制充电激励的反馈机制。作者通过模拟发现，在考虑价格内生性后，同步充电导致的本地电网峰值远低于外生价格假设下的结果。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T04:00:00+00:00",
       "aiGenerated": true,
+      "score": 70.11,
+      "domain": "其他研究",
+      "whyItMatters": "该发现提示，若忽略价格反馈，政策制定者和电网规划者可能高估家庭电池同步充电对本地配电网的峰值压力，从而影响对电网加固需求、需求响应政策和电池激励措施的判断。研究结论在多种情景和参数设定下保持稳健，为更准确地评估分布式储能对配电网的影响提供了重要修正。",
+      "description": "该研究指出，既有文献在评估实时电价下家庭电池对本地配电网峰值的影响时，通常将批发电价视为外生不变，忽略了电池充电行为本身会推高电价并抑制同步充电的反馈机制。作者通过构建校准至2025年德国数据的均衡批发电价模型进行模拟，发现考虑价格内生性后，同步充电造成的本地电网峰值大幅降低，表明此前研究可能显著高估了相关风险。",
+      "originalTitle": "The missing price feedback: Why studies overstate local grid peaks from synchronized home batteries under real-time pricing",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6914,
+        "comparisonCohortSize": 6919,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -1174,56 +1173,52 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "The coincident import peak differs by roughly half the benchmark between exogenous and endogenous price settings: 83% above versus 6% below the no-battery level",
-        "The result is robust across alternative price functions, exogenous price paths, different peak measures, 20 scenario variations, and three historical years",
-        "The author highlights price feedback as the key mechanism: charging in low-price hours raises wholesale prices, weakening synchronized charging incentives and spreading charging in equilibrium"
-      ],
-      "summary": "事实：在价格外生假设下，模拟复现了既有文献的结论，即家庭电池同步充电使本地电网协同进口峰值比无电池情形高83%；改用内生价格后，同一电池车队使该峰值比无电池基准低6%。作者观点：价格被视为不响应会系统性高估本地峰值风险，因为低价时段集中充电会抬升批发价并分散充电时段；因此真实风险与幅度小于既有文献所述，但新本地峰值仍可能出现，尤其是在电池渗透率快于全国平均的电网。",
-      "tagsEn": [
-        "home batteries",
-        "real-time pricing",
-        "distribution grid peaks",
-        "price endogeneity",
-        "wholesale market equilibrium"
-      ],
+      "slug": "the-missing-price-feedback-why-studies-overstate-9f6d81357e",
       "keyPoints": [
-        "价格外生与内生两种设定下，同一电池车队的协同进口峰值结果相差约半个基准：前者高出83%，后者低6%",
-        "结论在替代价格函数、外生价格路径、不同峰值度量、20种情景变体与三个历史年份中均保持稳健",
-        "作者强调价格反馈是关键机制：低价时段充电推高批发价，从而削弱同步充电激励并使充电在均衡中分散"
-      ]
+        "在外生价格假设下，同步充电使本地电网的同时进口峰值较无电池基准高出83%。",
+        "在价格内生（考虑反馈）条件下，同一电池车队使该峰值较无电池基准低6%。",
+        "将价格视为内生可将高电池渗透率下的同时峰值降低近一半。"
+      ],
+      "limitations": "结论基于校准至德国2025年数据的均衡模型模拟，而非实际部署观测；研究聚焦于批发电价反馈，未涵盖配电网拥堵定价、本地网络约束或用户行为异质性等可能影响结果的现实因素；作者也指出，在电池部署领先于全国平均水平的电网中，新的本地峰值仍可能出现。因此，结果的外推需结合具体电网条件谨慎判断。",
+      "descriptionEn": "This study argues that existing literature assessing the impact of home batteries on local distribution grid peaks under real-time pricing typically treats wholesale prices as exogenous, ignoring the feedback that battery charging itself raises prices and dampens synchronized charging. Using a simulation with an equilibrium wholesale price model calibrated to 2025 German data, the author finds that accounting for price endogeneity substantially reduces the estimated local gri",
+      "keyPointsEn": [
+        "With exogenous prices, synchronous charging pushes the coincident import peak of the local grid to 83% above its no-battery level.",
+        "With endogenous prices (including feedback), the same battery fleet leaves the peak 6% below the no-battery benchmark.",
+        "Treating prices as endogenous reduces the coincident peak at high battery penetration nearly by half."
+      ],
+      "titleEn": "Missing Price Feedback Leads to Overestimation of Local Grid Peaks from Synchronized Home Battery Charging",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "summaryEn": "Existing studies consistently find that home batteries optimized against real-time prices create new load peaks in local distribution grids because all assets respond synchronously to the same price signal. This paper points out that most of these studies treat wholesale prices as exogenous, overlooking the feedback that charging raises wholesale prices and dampens the incentive to charge. Simulations show that with endogenous prices, the coincident local grid peak caused by synchronized charging is much lower than under exogenous-price assumptions.",
+      "sourceGroup": "论文"
     },
     {
-      "description": "该研究提出基于模拟推断的框架，学习粗糙Heston模型参数在隐含波动率曲面条件下的后验分布，并将后验不确定性通过异方差神经代理定价器传播到路径依赖奇异期权的价格区间；同时引入Hellinger-SHAP信息论可解释性方法，识别后验信息增益对应的期限-行权价区域。其新意在于将后验不确定性与可解释性结合，为神经网络校准和奇异期权定价提供透明框架。",
-      "title": "粗糙波动率深度学习中的不确定性与可解释性：神经信息论后验方法",
-      "summaryProvider": "deepseek",
-      "domain": "AI × 量化",
-      "originalUrl": "https://arxiv.org/abs/2609.31570",
+      "contentType": "paper",
+      "id": "b6622ec06eba84b7",
+      "sourceName": "arXiv q-fin",
+      "limitationsEn": "Evidence is based on simulation studies covering forward-start, barrier, and realized-variance claims; results are limited to the specified prior-predictive model and are not validated on real market data or across other rough volatility models or broader contract types.",
       "tags": [
         "粗糙Heston模型",
         "模拟推断",
         "神经比率估计",
-        "后验不确定性",
-        "奇异期权定价",
+        "后验预测分布",
+        "不确定性量化",
         "可解释性"
       ],
-      "sourceName": "arXiv q-fin",
-      "limitations": "证据基于模拟研究，覆盖前瞻启动、障碍和已实现方差类合约，结论依赖于指定的先验预测模型与神经代理定价器设置；后验预测区间的校准或保守性尚未在真实市场数据上验证，点代入价格不可靠性的具体合约条件也需进一步检验。",
-      "id": "b6622ec06eba84b7",
-      "slug": "uncertainty-and-explainability-in-deep-rough-vol-b6622ec06e",
-      "titleEn": "Uncertainty and Explainability in Deep Rough Volatility: A Neural Information-Theoretic Posterior Approach",
-      "limitationsEn": "The evidence is based on a simulation study covering forward-start, barrier, and realized-variance claims, and conclusions depend on the specified prior-predictive model and neural surrogate pricer settings. The calibration or conservativeness of posterior-predictive intervals has not been validated on real market data, and the specific contract regimes where point plug-in prices are materially unreliable require further examination.",
-      "contentType": "paper",
-      "whyItMatters": "传统神经网络点校准无法刻画观测隐含波动率曲面后剩余的参数不确定性；该框架将后验不确定性纳入奇异期权定价区间，并借助信息论可解释性方法揭示后验信息在期限-行权价上的来源，有助于提升模型校准与定价的透明度。",
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "publishedAt": "2026-10-23T04:00:00+00:00",
-      "score": 69.97,
+      "originalUrl": "https://arxiv.org/abs/2609.31570",
+      "summaryProvider": "deepseek",
+      "title": "深度粗糙波动率校准：后验不确定性量化与信息论可解释性",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "Neural point calibration alone does not capture the parameter uncertainty remaining after an implied-volatility surface is observed; this framework incorporates posterior uncertainty into exotic option price intervals and uses an information-theoretic explainability method to reveal where posterior information gains arise across maturity and moneyness, enhancing transparency in model calibration and pricing.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "The authors develop a simulation-based inference framework for rough Heston calibration that uses neural ratio estimation to obtain posterior samples of model parameters conditional on an implied-volatility surface, and propagates these through neural surrogate pricers to produce posterior-predictive distributions for path-dependent exotic options. In a simulation study, posterior-predictive intervals provide calibrated or conservative coverage across forward-start, barrier, and realized-variance claims, while point plug-in prices can be materially unreliable for selected contract regimes. The authors further introduce Hellinger-SHAP, applying local-background Kernel SHAP to a posterior-information functional to identify maturity-moneyness regions associated with posterior information gain for individual rHeston parameters. These are reported findings; the authors' view that the framework offers transparent uncertainty-aware calibration and pricing analysis is an opinion.",
+      "tagsEn": [
+        "rough Heston model",
+        "simulation-based inference",
+        "neural ratio estimation",
+        "posterior predictive distribution",
+        "uncertainty quantification",
+        "explainability"
+      ],
+      "whyItMattersEn": "Neural point calibration cannot capture residual uncertainty after observing an IV surface; this framework explicitly propagates posterior uncertainty to exotic option prices and uses information-theoretic attribution to enhance explainability of calibration and pricing, supporting uncertainty-aware risk assessment within the specified model.",
       "features": [
         {
           "id": "artifact:paper",
@@ -1259,13 +1254,18 @@
           "confidence": 0.9
         }
       ],
-      "originalTitle": "Uncertainty and Explainability in Deep Rough Volatility: A Neural Information-Theoretic Posterior Approach",
-      "descriptionEn": "The study develops a simulation-based inference framework that learns the posterior distribution of rough Heston parameters conditional on an implied-volatility surface and propagates posterior uncertainty through heteroscedastic neural surrogate pricers to obtain uncertainty-aware price intervals for path-dependent exotic options. It also introduces Hellinger-SHAP, an information-theoretic explainability method that identifies maturity-moneyness regions associated with poste",
-      "sourceGroup": "论文",
+      "summary": "事实：作者开发了针对 rough Heston 校准的模拟推断框架，利用神经比率估计获得后验样本，并经异方差代理定价器传播，形成后验预测分布和价格区间；还提出 Hellinger-SHAP 方法，用局部背景 Kernel SHAP 归因后验信息泛函。模拟研究表明，后验预测区间在前向启动、障碍和已实现方差索赔上具有校准或保守覆盖，而点代入价格在部分合约情形可能明显不可靠。作者观点：该 UQ 与 XAI 分析为不确定性感知的神经校准及下游奇异期权定价提供了透明框架，但结论限于所指定的先验预测模型。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T04:00:00+00:00",
       "aiGenerated": true,
+      "score": 69.97,
+      "domain": "AI × 量化",
+      "whyItMatters": "神经点校准无法刻画观察到 IV 曲面后的残余不确定性；该框架将后验不确定性显式传播至奇异期权价格，并用信息论归因增强校准与定价过程的可解释性，有助于在指定模型内进行不确定性感知的风险评估。",
+      "description": "该研究提出基于模拟推断的 rough Heston 模型校准框架，学习以隐含波动率曲面为条件的参数后验分布，并将后验不确定性传播至异方差神经代理定价器，产生不确定性感知的价格区间；同时引入 Hellinger-SHAP 解释后验信息增益。其新意在于将后验推断与可解释性结合，为奇异期权定价提供透明的风险量化路径。",
+      "originalTitle": "Uncertainty and Explainability in Deep Rough Volatility: A Neural Information-Theoretic Posterior Approach",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 6914,
+        "comparisonCohortSize": 6919,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
@@ -1302,56 +1302,50 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "A simulation-based inference framework using neural ratio estimation learns the posterior distribution of rough Heston parameters conditional on an implied-volatility surface.",
-        "Posterior parameter uncertainty is propagated through heteroscedastic neural surrogate pricers to generate posterior-predictive price intervals for path-dependent exotic options.",
-        "Hellinger-SHAP applies local-background Kernel SHAP to a posterior-information functional, identifying maturity-moneyness regions associated with posterior information gain for each parameter."
-      ],
-      "summary": "作者开发了面向粗糙Heston校准的模拟推断框架，利用神经比率估计获得参数后验样本，并通过神经代理定价器将后验预测分布用于路径依赖奇异期权的定价区间。模拟研究表明，后验预测区间在前瞻启动、障碍和已实现方差类合约上提供校准或保守覆盖，而点代入价格在部分合约条件下可能严重不可靠。作者进一步提出Hellinger-SHAP，将局部背景Kernel SHAP应用于后验信息泛函，以识别与单个参数后验信息增益相关的期限-行权价区域。以上为论文报告的事实；作者认为该框架能提供透明的不确定性感知校准与定价分析，属于作者观点。",
-      "tagsEn": [
-        "rough Heston model",
-        "simulation-based inference",
-        "neural ratio estimation",
-        "posterior uncertainty",
-        "exotic option pricing",
-        "explainability"
-      ],
+      "slug": "uncertainty-and-explainability-in-deep-rough-vol-b6622ec06e",
       "keyPoints": [
-        "提出基于神经比率估计的模拟推断框架，学习粗糙Heston模型参数在隐含波动率曲面下的后验分布。",
-        "将后验参数不确定性通过异方差神经代理定价器传播，生成路径依赖奇异期权的后验预测价格区间。",
-        "引入Hellinger-SHAP，对后验信息泛函应用局部背景Kernel SHAP，识别各参数后验信息增益对应的期限-行权价区域。"
-      ]
+        "提出基于模拟推断的 rHeston 校准框架，学习以 IV 曲面为条件的参数后验分布。",
+        "将后验样本经异方差神经代理定价器传播，得到结合参数与代理不确定性的后验预测价格区间。",
+        "提出 Hellinger-SHAP，对后验信息泛函进行局部背景 Kernel SHAP 归因，识别与各参数后验信息增益相关的期限—行权价区域。"
+      ],
+      "limitations": "证据基于模拟研究，覆盖前向启动、障碍和已实现方差索赔；结果限于所指定的先验预测模型，未在真实市场数据上验证，也未涵盖其他粗糙波动率模型或更广泛的合约类型。",
+      "descriptionEn": "This study proposes a simulation-based inference framework for rough Heston calibration that learns the posterior distribution of parameters conditional on an implied-volatility surface and propagates posterior uncertainty through heteroscedastic neural surrogate pricers to produce uncertainty-aware price intervals; it also introduces Hellinger-SHAP to explain posterior information gain. Its novelty lies in combining posterior inference with explainability to provide a transp",
+      "keyPointsEn": [
+        "Proposes a simulation-based inference framework for rHeston calibration that learns the posterior distribution of parameters conditional on an IV surface.",
+        "Propagates posterior samples through heteroscedastic neural surrogate pricers to obtain posterior-predictive price intervals combining parameter and surrogate uncertainty.",
+        "Introduces Hellinger-SHAP, applying local-background Kernel SHAP to a posterior-information functional to identify maturity–moneyness regions associated with posterior information gain for each parameter."
+      ],
+      "titleEn": "Deep Rough Volatility Calibration: Posterior Uncertainty Quantification and Information-Theoretic Explainability",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "summaryEn": "Fact: The authors develop a simulation-based inference framework for rough Heston calibration, use neural ratio estimation to obtain posterior samples, propagate them through heteroscedastic surrogate pricers to form posterior-predictive distributions and price intervals, and propose Hellinger-SHAP, which applies local-background Kernel SHAP to a posterior-information functional. Simulation studies show that posterior-predictive intervals provide calibrated or conservative coverage for forward-start, barrier, and realized-variance claims, while point plug-in prices can be materially unreliable in selected contract regimes. Author view: The UQ and XAI analyses provide a transparent framework for uncertainty-aware neural calibration and downstream exotic pricing, but conclusions are limited to the specified prior-predictive model.",
+      "sourceGroup": "论文"
     },
     {
-      "description": "该仓库宣称提供面向自主 AI 智能体的安全、私有运行时，回应智能体执行环境中的隔离与隐私需求；但其具体能力与效果需以仓库文档和实测为准。",
-      "title": "NVIDIA OpenShell：面向自主 AI 智能体的安全私有运行时",
-      "summaryProvider": "deepseek",
-      "domain": "AI 研究",
-      "originalUrl": "https://github.com/NVIDIA/OpenShell",
+      "contentType": "repository",
+      "id": "6eb73169f84ce43f",
+      "sourceName": "GitHub Trending Daily",
+      "limitationsEn": "The input contains only a one-sentence project description and a trending source, lacking architecture details, performance data, security evaluations and license information. Its security should not be assumed independently verified, and this is not adoption or investment advice.",
       "tags": [
-        "AI 智能体",
+        "AI智能体",
         "运行时安全",
         "隐私保护",
         "NVIDIA",
         "开源项目"
       ],
-      "sourceName": "GitHub Trending Daily",
-      "limitations": "输入仅含项目名、一句话简介与榜单来源，缺少架构说明、性能数据、安全模型与第三方评测；不应据此推断其安全性或可用性已获验证，也不构成采用或投资建议。",
-      "id": "6eb73169f84ce43f",
-      "slug": "nvidia-openshell-6eb73169f8",
-      "titleEn": "NVIDIA OpenShell: A Secure, Private Runtime for Autonomous AI Agents",
-      "limitationsEn": "The input contains only the project name, a one-sentence description, and the listing source, lacking architecture details, performance data, security model, and third-party evaluations; it should not be taken as evidence that its security or usability has been validated, nor as adoption or investment advice.",
-      "contentType": "repository",
-      "whyItMatters": "自主智能体需要执行代码与调用工具，运行时层面的隔离与私有性是其落地时的关键关注点；若该项目兑现其简介中的定位，可为智能体部署提供参考方向。",
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "publishedAt": "2026-10-23T15:59:59.999999+00:00",
-      "score": 68.42,
+      "originalUrl": "https://github.com/NVIDIA/OpenShell",
+      "summaryProvider": "deepseek",
+      "title": "OpenShell：自主AI智能体安全运行时",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "Autonomous agents need to execute code and call tools, making runtime-level isolation and privacy a key concern for deployment; if the project delivers on its stated positioning, it could offer a reference direction for agent deployment.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "GitHub Trending featured NVIDIA's OpenShell project, whose description positions it as a safe, private runtime for autonomous AI agents. The available information comes only from the project blurb and trending listing, with no architecture, implementation, or evaluation details. Whether the project name and its 'autonomous agent runtime' positioning match actual security isolation mechanisms still requires checking the repository contents.",
+      "tagsEn": [
+        "AI agents",
+        "runtime security",
+        "privacy",
+        "NVIDIA",
+        "open source"
+      ],
+      "whyItMattersEn": "Autonomous agents perform high-risk operations such as tool calls, making runtime-level security and privacy isolation a key part of deployment; if mature, this project could inform secure agent system design.",
       "features": [
         {
           "id": "artifact:repository",
@@ -1398,19 +1392,24 @@
           "confidence": 0.8
         }
       ],
-      "originalTitle": "NVIDIA/OpenShell",
-      "descriptionEn": "The repository claims to offer a safe, private runtime for autonomous AI agents, addressing isolation and privacy needs in agent execution environments; its actual capabilities and effectiveness should be confirmed against the repository documentation and hands-on testing.",
-      "sourceGroup": "开源项目",
+      "summary": "OpenShell 是 NVIDIA 发布的开源项目，自述为面向自主 AI 智能体的安全、私密运行时。当前可确认的信息仅限于项目定位与来源，未披露实现细节、性能数据或评测结果。其实际能力与适用边界需以项目文档和后续验证为准。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T15:59:59.999999+00:00",
       "aiGenerated": true,
+      "score": 69.96,
+      "domain": "AI 研究",
+      "whyItMatters": "自主智能体需要执行工具调用等高风险操作，运行时层面的安全与隐私隔离是落地部署的关键环节；该项目若成熟，可为智能体系统的安全设计提供参考。",
+      "description": "NVIDIA在GitHub发布的OpenShell项目，将其定位为自主AI智能体的安全、私密运行时环境；其新意在于从运行层为自主智能体提供安全隔离，对部署智能体系统有潜在参考价值。",
+      "originalTitle": "NVIDIA/OpenShell",
       "scoreBreakdown": {
         "contentType": "repository",
-        "comparisonCohortSize": 35,
+        "comparisonCohortSize": 41,
         "mode": "cohort-metric",
         "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 96.0,
-        "metricPercentile": 95.59,
-        "velocityPercentile": 95.59,
-        "objectiveScore": 95.59,
+        "primaryMetricValue": 98.0,
+        "metricPercentile": 100.0,
+        "velocityPercentile": 100.0,
+        "objectiveScore": 100.0,
         "relevanceScore": 55,
         "topicClassification": {
           "classification": "ai-engineering",
@@ -1433,63 +1432,207 @@
         "freshnessScore": 100.0,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {
-          "trending_rank": 4.0,
-          "trending_rank_score": 96.0,
-          "stars": 18477.0,
-          "stars_delta_1d": 1240.0,
+          "trending_rank": 2.0,
+          "trending_rank_score": 98.0,
+          "stars": 19241.0,
+          "stars_delta_1d": 893.0,
           "metric_age_days": 1.0
         },
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "The project is positioned as a safe, private runtime for autonomous AI agents.",
-        "The information source is the GitHub Trending daily listing and the repository description.",
-        "The input provides no public author list or detailed technical documentation."
-      ],
-      "summary": "GitHub Trending 收录了 NVIDIA 的 OpenShell 项目，其简介定位为自主 AI 智能体的安全、私有运行时。现有信息仅来自项目简介与榜单收录，未包含架构、实现或评测细节。项目名与“自主智能体运行时”的定位是否对应实际可用的安全隔离机制，仍需查看仓库内容确认。",
-      "tagsEn": [
-        "AI agents",
-        "runtime security",
-        "privacy",
-        "NVIDIA",
-        "open source"
-      ],
+      "slug": "nvidia-openshell-6eb73169f8",
       "keyPoints": [
-        "项目定位为自主 AI 智能体的安全、私有运行时。",
-        "信息来源为 GitHub Trending 当日收录及仓库简介。",
-        "仓库未提供公开的作者列表与详细技术说明（据输入内容）。"
-      ]
-    },
-    {
-      "description": "该仓库由 Anthropic 开源，提供面向知识工作者的插件集合，主要供其在 Claude Cowork 中使用；新意在于把插件能力聚焦到知识工作场景，为相关用户提供可直接参考的集成入口。",
-      "title": "Anthropic 发布知识工作插件库",
-      "summaryProvider": "deepseek",
-      "domain": "开源工程",
-      "originalUrl": "https://github.com/anthropics/knowledge-work-plugins",
-      "tags": [
-        "开源",
-        "插件",
-        "知识工作",
-        "Claude Cowork",
-        "Anthropic"
+        "项目定位为自主 AI 智能体的安全、私密运行时",
+        "由 NVIDIA 发布并出现在 GitHub Trending 日榜",
+        "提供方未在给定信息中说明具体机制与效果"
       ],
-      "sourceName": "GitHub Trending Daily",
-      "limitations": "输入仅包含一句话来源摘要和仓库链接，缺少插件清单、具体功能、授权条款、维护状态与兼容性说明。未提供任何评测、性能数据或用户案例，因此无法判断实际可用性、安全性及其与其他工具的互操作效果。",
-      "id": "2d6ba8fc0269fd52",
-      "slug": "anthropics-knowledge-work-plugins-2d6ba8fc02",
-      "titleEn": "Anthropic Open-Sources Knowledge Work Plugins Repository",
-      "limitationsEn": "The input contains only a one-sentence source summary and a repository link, lacking a plugin list, specific functions, licensing terms, maintenance status, and compatibility notes. No evaluations, performance data, or user cases are provided, so actual usability, security, and interoperability with other tools cannot be judged.",
-      "contentType": "repository",
-      "whyItMatters": "对关注 Claude Cowork 生态的知识工作者而言，该仓库提供官方开源插件入口，便于了解可用的扩展方向并作为自行集成的起点。",
+      "limitations": "输入仅含项目自述的一句话简介和榜单来源，缺少架构说明、性能数据、安全评测与许可证信息；不能据此推断其安全性已被独立验证，也不构成采用或投资建议。",
+      "descriptionEn": "NVIDIA's OpenShell project on GitHub positions itself as a safe, private runtime for autonomous AI agents; its novelty lies in runtime-level isolation for agents, which may be relevant to deploying agent systems.",
+      "keyPointsEn": [
+        "Positioned as a safe, private runtime for autonomous AI agents",
+        "Published by NVIDIA and listed on GitHub Trending Daily",
+        "Specific mechanisms and effects are not described in the given information"
+      ],
+      "titleEn": "OpenShell: A Secure Runtime for Autonomous AI Agents",
       "discoveredBy": [
         "GitHub Trending Daily"
       ],
-      "publishedAt": "2026-10-23T15:59:59.999999+00:00",
-      "score": 68.4,
+      "summaryEn": "OpenShell is an NVIDIA open-source project describing itself as a safe, private runtime for autonomous AI agents. The available information is limited to this positioning and its source; implementation details, performance data and evaluations are not disclosed. Its actual capabilities and applicable boundaries require verification against project documentation.",
+      "sourceGroup": "开源项目"
+    },
+    {
+      "contentType": "repository",
+      "id": "a50b0e08dbaee74a",
+      "sourceName": "GitHub Trending Daily",
+      "limitationsEn": "The input contains only the project title and a one-sentence source summary. It does not specify which MCP servers, skills, or plugins are included, nor does it give feature scope, supported service lists, release status, license, or any tested results. Maturity and applicable boundaries therefore cannot be judged, and the value statements above are inferences from positioning rather than verified conclusions.",
+      "tags": [
+        "AWS",
+        "AI 智能体",
+        "MCP",
+        "开发者工具",
+        "云服务集成"
+      ],
+      "originalUrl": "https://github.com/aws/agent-toolkit-for-aws",
+      "summaryProvider": "deepseek",
+      "title": "AWS 推出面向 AI 智能体的官方工具包",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "For knowledge workers following the Claude Cowork ecosystem, this repository provides an official open-source plugin entry point, making it easier to understand available extension directions and use it as a starting point for their own integrations.",
+      "tagsEn": [
+        "AWS",
+        "AI agents",
+        "MCP",
+        "developer tools",
+        "cloud integration"
+      ],
+      "whyItMattersEn": "For teams building AWS applications with AI agents, an official toolkit may reduce the work of wrapping service interfaces and adapting protocols; including MCP servers also signals that cloud vendors are paying attention to standardizing how agents interact with cloud services.",
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "summary": "GitHub 项目 aws/agent-toolkit-for-aws 是 AWS 支持的官方工具包，包含 MCP 服务器、技能和插件。按来源描述，其目标是帮助 AI 智能体在 AWS 上构建应用。仓库未提供具体组件清单、功能细节或性能数据，相关能力需以仓库实际内容为准。",
       "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "GitHub Trending Daily lists the anthropics/knowledge-work-plugins repository. The source describes it as an open-source library of plugins primarily intended for knowledge workers to use in Claude Cowork. Plugin functions and implementation details are not elaborated in the provided information; the above is only a source statement, without verification of effects.",
+      "publishedAt": "2026-10-23T15:59:59.999999+00:00",
+      "aiGenerated": true,
+      "score": 68.68,
+      "domain": "AI 研究",
+      "whyItMatters": "对使用 AI 智能体开发 AWS 应用的团队而言，官方工具包有望减少自行封装服务接口和协议适配的工作量；MCP 服务器的纳入也表明智能体与云服务交互的标准化受到云厂商重视。",
+      "description": "该仓库由 AWS 官方维护，提供 MCP 服务器、技能与插件，让 AI 智能体能够构建在 AWS 之上；其新意在于以官方统一入口整合智能体接入所需组件，有用之处是降低开发者对接 AWS 服务的集成成本。",
+      "originalTitle": "aws/agent-toolkit-for-aws",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 41,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 97.0,
+        "metricPercentile": 96.25,
+        "velocityPercentile": 96.25,
+        "objectiveScore": 96.25,
+        "relevanceScore": 55,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "agents"
+          ],
+          "sourcePrior": null
+        },
+        "contentValueScore": 24.97,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 0.22,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 3.0,
+          "trending_rank_score": 97.0,
+          "stars": 3020.0,
+          "stars_delta_1d": 11.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "slug": "aws-agent-toolkit-for-aws-a50b0e08db",
+      "keyPoints": [
+        "由 AWS 官方支持，定位为 AI 智能体接入 AWS 的工具集合。",
+        "涵盖 MCP 服务器、技能与插件三类组件。",
+        "目标场景是让 AI 智能体在 AWS 上构建应用。"
+      ],
+      "limitations": "输入仅含项目标题与一句来源摘要，未说明具体包含哪些 MCP 服务器、技能和插件，也未给出功能范围、支持服务列表、版本状态、许可证或任何实测效果。因此无法判断其成熟度与适用边界，上述价值判断属于基于定位的推断而非验证结论。",
+      "descriptionEn": "This AWS-maintained repository offers MCP servers, skills, and plugins so AI agents can build on AWS. Its novelty is a single official entry point bundling agent-facing components, and its usefulness lies in reducing integration effort with AWS services.",
+      "keyPointsEn": [
+        "Officially supported by AWS and positioned as a tool collection for AI agents to access AWS.",
+        "Covers three component types: MCP servers, skills, and plugins.",
+        "Targets scenarios where AI agents build applications on AWS."
+      ],
+      "titleEn": "AWS Releases Official Toolkit for AI Agents",
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "summaryEn": "The GitHub project aws/agent-toolkit-for-aws is an AWS-supported official toolkit containing MCP servers, skills, and plugins. According to the source description, it aims to help AI agents build on AWS. The repository provides no component list, feature details, or performance data, so actual capabilities must be checked against the repository itself.",
+      "sourceGroup": "开源项目"
+    },
+    {
+      "contentType": "repository",
+      "id": "2d6ba8fc0269fd52",
+      "sourceName": "GitHub Trending Daily",
+      "limitationsEn": "The input contains only the repository name, a brief description, and source information; it lacks a plugin directory, license, maintenance status, compatible versions, and tested results. Plugin quality, security, and applicability cannot be judged from this, and nothing here constitutes adoption or investment advice.",
+      "tags": [
+        "开源",
+        "插件",
+        "Claude Cowork",
+        "知识工作",
+        "GitHub 趋势"
+      ],
+      "originalUrl": "https://github.com/anthropics/knowledge-work-plugins",
+      "summaryProvider": "deepseek",
+      "title": "Claude Cowork 知识工作者插件开源仓库",
+      "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
+      "tagsEn": [
+        "open source",
+        "plugins",
+        "Claude Cowork",
+        "knowledge work",
+        "GitHub trending"
+      ],
+      "whyItMattersEn": "For knowledge workers using Claude Cowork, the repository may offer a grouped entry point to plugins, reducing time spent searching for and screening plugins. Being open source, it also gives teams a reference for evaluation and possible secondary development.",
       "features": [
         {
           "id": "artifact:repository",
@@ -1525,19 +1668,24 @@
           "confidence": 1.0
         }
       ],
-      "originalTitle": "anthropics/knowledge-work-plugins",
-      "descriptionEn": "This repository, open-sourced by Anthropic, offers a plugin collection aimed at knowledge workers for use in Claude Cowork; its value lies in focusing plugin capabilities on knowledge-work scenarios and giving users a concrete integration entry point to reference.",
-      "sourceGroup": "开源项目",
+      "summary": "该仓库的公开定位是供知识工作者在 Claude Cowork 中使用的插件集合，由 Anthropic 相关账号托管并开源。现阶段可确认的信息限于仓库描述与来源标签，未提供插件清单、功能说明或性能数据。作者观点或未来规划无法从现有输入中判断。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T15:59:59.999999+00:00",
       "aiGenerated": true,
+      "score": 67.08,
+      "domain": "开源工程",
+      "whyItMatters": "对使用 Claude Cowork 的知识工作者而言，该仓库可能提供成组的插件入口，降低自行寻找和筛选插件的时间成本；同时以开源方式发布，便于团队评估和二次开发参考。",
+      "description": "GitHub 趋势榜收录的 anthropics/knowledge-work-plugins 仓库，定位为面向知识工作者的插件集合，主要供 Claude Cowork 使用。其新意在于把插件按知识工作场景打包开源，便于相关用户查找和接入；有用性在于提供了可直接参考的插件来源，但实际能力需以仓库文档为准。",
+      "originalTitle": "anthropics/knowledge-work-plugins",
       "scoreBreakdown": {
         "contentType": "repository",
-        "comparisonCohortSize": 35,
+        "comparisonCohortSize": 41,
         "mode": "cohort-metric",
         "primaryMetric": "trending_rank_score",
         "primaryMetricValue": 97.0,
-        "metricPercentile": 100.0,
-        "velocityPercentile": 100.0,
-        "objectiveScore": 100.0,
+        "metricPercentile": 96.25,
+        "velocityPercentile": 96.25,
+        "objectiveScore": 96.25,
         "relevanceScore": 35,
         "topicClassification": {
           "classification": "other",
@@ -1560,187 +1708,52 @@
         "sourceMetrics": {
           "trending_rank": 3.0,
           "trending_rank_score": 97.0,
-          "stars": 32032.0,
+          "stars": 32134.0,
           "stars_delta_1d": 643.0,
           "metric_age_days": 1.0
         },
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "The repository name indicates a plugin collection positioned for knowledge-work scenarios",
-        "The source says the plugins are mainly for knowledge workers using Claude Cowork",
-        "The project is released as an open-source repository accessible on GitHub"
-      ],
-      "summary": "GitHub Trending Daily 收录了 anthropics/knowledge-work-plugins 仓库。来源描述称这是主要供知识工作者在 Claude Cowork 中使用的插件开源库。插件具体功能与实现细节在给定信息中未展开，以上仅为来源陈述，不含效果验证。",
-      "tagsEn": [
-        "open source",
-        "plugins",
-        "knowledge work",
-        "Claude Cowork",
-        "Anthropic"
-      ],
+      "slug": "anthropics-knowledge-work-plugins-2d6ba8fc02",
       "keyPoints": [
-        "仓库名称表明其定位为知识工作场景的插件集合",
-        "来源称插件主要面向在 Claude Cowork 中使用的知识工作者",
-        "项目以开源仓库形式发布，可从 GitHub 获取"
-      ]
-    },
-    {
-      "description": "新在开源实现了倪海厦《天纪》体系的紫微斗数排盘，包含完整算法、四化系统、格局知识库与古籍原文数据；对命理研究者和开发者具有参考与集成价值。",
-      "title": "紫微斗数开源排盘引擎：基于倪海厦天纪体系",
-      "summaryProvider": "deepseek",
-      "domain": "AI 工具",
-      "originalUrl": "https://github.com/Renhuai123/ziwei-doushu",
-      "tags": [
-        "紫微斗数",
-        "排盘引擎",
-        "开源项目",
-        "倪海厦",
-        "天纪",
-        "命理"
+        "仓库定位为面向知识工作者的插件集合，主要使用场景为 Claude Cowork",
+        "来源为 GitHub Trending Daily，说明短期内受到关注",
+        "输入未包含插件数量、具体功能或使用案例"
       ],
-      "sourceName": "GitHub Trending Daily",
-      "limitations": "该项目仅为 GitHub 开源代码，未提供学术同行评议或独立验证；排盘结果依赖所采用的流派规则，不同流派可能存在差异；紫微斗数属传统命理范畴，其预测有效性未经科学证实，不应作为实际决策依据；古籍原文数据的完整性与准确性需用户自行核对。",
-      "id": "3cb2b485f02c0e6c",
-      "slug": "renhuai123-ziwei-doushu-3cb2b485f0",
-      "titleEn": "Open-Source Zi Wei Dou Shu Charting Engine Based on Ni Haixia's Tian Ji System",
-      "limitationsEn": "This is only a GitHub open-source code project without academic peer review or independent verification; charting results depend on the adopted lineage rules and may differ across lineages; Zi Wei Dou Shu is a traditional divination practice whose predictive validity has not been scientifically proven and should not be used as a basis for practical decisions; the completeness and accuracy of classical text data require users' own verification.",
-      "contentType": "repository",
-      "whyItMatters": "为紫微斗数数字化提供了一套特定流派的参考实现，有助于传统命理知识的整理与工具化，但仅适合文化研究与技术学习，不构成任何预测或决策依据。",
+      "limitations": "输入仅有仓库名称、简短描述与来源信息，缺少插件目录、许可协议、维护状态、兼容版本与实测效果。无法据此判断插件质量、安全性或适用边界，也不构成采用或投资建议。",
+      "descriptionEn": "The anthropics/knowledge-work-plugins repository appears on GitHub Trending as a plugin collection aimed at knowledge workers using Claude Cowork. Its novelty lies in packaging plugins by knowledge-work use case as open source; its usefulness is as a discoverable starting point, though actual capabilities must be verified from repository documentation.",
+      "keyPointsEn": [
+        "The repository is positioned as a plugin collection for knowledge workers, primarily for use in Claude Cowork",
+        "It appeared on GitHub Trending Daily, indicating short-term attention",
+        "The input does not include plugin counts, specific features, or use cases"
+      ],
+      "titleEn": "Open-source Claude Cowork plugin repo for knowledge workers",
       "discoveredBy": [
         "GitHub Trending Daily"
       ],
-      "publishedAt": "2026-10-23T15:59:59.999999+00:00",
-      "score": 65.26,
-      "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "It offers a reference implementation of a specific lineage for digitizing Zi Wei Dou Shu, which can assist in organizing and tooling traditional astrological knowledge, but it is suitable only for cultural research and technical learning, not as a basis for prediction or decision-making.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "The GitHub project ziwei-doushu provides a Zi Wei Dou Shu charting engine based on Ni Haixia's Tian Ji system, including complete charting algorithms, the Four Transformations system, a pattern knowledge base, and classical text data. It is open-source code intended to replicate the charting logic of a specific lineage. Note that the accuracy of its algorithms and data has not been independently verified, and Zi Wei Dou Shu is a traditional divination practice without scientifically proven predictive validity.",
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        }
-      ],
-      "originalTitle": "Renhuai123/ziwei-doushu",
-      "descriptionEn": "New in that it openly implements the Zi Wei Dou Shu charting system of Ni Haixia's Tian Ji lineage, including complete algorithms, the Four Transformations system, a pattern knowledge base, and classical text data; useful for researchers and developers in traditional astrology.",
-      "sourceGroup": "开源项目",
-      "aiGenerated": true,
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 35,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 95.0,
-        "metricPercentile": 91.18,
-        "velocityPercentile": 91.18,
-        "objectiveScore": 91.18,
-        "relevanceScore": 35,
-        "topicClassification": {
-          "classification": "other",
-          "confidence": 0.85,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": null
-        },
-        "contentValueScore": 20.87,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 5.0,
-          "novelty": 0.0,
-          "specificity": 0.12,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 5.0,
-          "trending_rank_score": 95.0,
-          "stars": 6737.0,
-          "stars_delta_1d": 547.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "keyPointsEn": [
-        "Includes complete charting algorithms and the Four Transformations system based on Ni Haixia's Tian Ji system",
-        "Comes with a pattern knowledge base and classical text data for reference",
-        "Open-source project available for developer integration or researcher reference"
-      ],
-      "summary": "GitHub 项目 ziwei-doushu 提供了基于倪海厦《天纪》体系的紫微斗数排盘引擎，包含完整排盘算法、四化系统、格局知识库及古籍原文数据。该项目为开源代码，旨在还原特定流派的排盘逻辑。需注意，其算法与数据准确性未经独立验证，且紫微斗数属于传统命理，不具备科学预测效力。",
-      "tagsEn": [
-        "Zi Wei Dou Shu",
-        "charting engine",
-        "open-source project",
-        "Ni Haixia",
-        "Tian Ji",
-        "astrology"
-      ],
-      "keyPoints": [
-        "包含完整排盘算法与四化系统，基于倪海厦《天纪》体系",
-        "附有格局知识库与古籍原文数据，便于对照查阅",
-        "项目开源，可供开发者集成或研究者参考"
-      ]
+      "summaryEn": "The repository describes itself as a collection of plugins for knowledge workers to use in Claude Cowork, hosted under an Anthropic-related account and open source. The available information is limited to the repository description and trending-source label, with no plugin list, feature details, or performance data. Author views or future plans cannot be determined from the input.",
+      "sourceGroup": "开源项目"
     },
     {
-      "description": "本期量化通讯汇总了AI与量化金融领域的最新动态，为从业者提供技术进展与行业趋势的参考。",
-      "title": "量化通讯第124期：AI与量化金融周报",
-      "summaryProvider": "deepseek",
-      "domain": "其他研究",
-      "originalUrl": "https://blog.ml-quant.com/p/quant-letter-oct-2026-week-3",
+      "contentType": "article",
+      "id": "89eaea89ba4f27e5",
+      "sourceName": "Machine Learning & Quant Finance",
+      "limitationsEn": "The input only provides the title, author, publication date, and issue number; it does not include the newsletter's specific article list, research findings, data, or conclusions. Therefore, the quality, methodological rigor, or practical value of its content cannot be assessed; this knowledge card only reflects its existence as a periodic publication.",
       "tags": [
         "量化金融",
         "人工智能",
-        "通讯",
-        "周报"
+        "每周通讯"
       ],
-      "sourceName": "Machine Learning & Quant Finance",
-      "limitations": "输入信息仅包含标题、作者、发布时间和来源摘要，缺乏具体研究内容、数据或结论，无法评估其技术细节或可靠性。",
-      "id": "89eaea89ba4f27e5",
-      "slug": "quant-letter-oct-2026-week-3-89eaea89ba",
-      "titleEn": "Quant Letter Issue 124: AI and Quant Finance Weekly",
-      "limitationsEn": "The input only includes the title, author, publication date, and source summary, lacking specific research content, data, or conclusions, making it impossible to evaluate technical details or reliability.",
-      "contentType": "article",
-      "whyItMatters": "该通讯可作为跟踪AI在量化金融中应用进展的渠道之一，帮助读者了解该领域的动态。",
-      "discoveredBy": [
-        "Machine Learning & Quant Finance"
-      ],
-      "publishedAt": "2026-10-23T14:08:25+00:00",
-      "score": 45.72,
+      "originalUrl": "https://blog.ml-quant.com/p/quant-letter-oct-2026-week-3",
+      "summaryProvider": "deepseek",
+      "title": "量化通讯第124期：2026年10月第3周内容概述",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "This newsletter can serve as a channel to track progress in AI applications in quantitative finance, helping readers stay informed about developments in the field.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "This is the 124th edition of the newsletter by Dr. Derek Snow, covering the intersection of AI and quantitative finance. The original content only provides the title and source summary, without specific research or data.",
+      "tagsEn": [
+        "quantitative finance",
+        "artificial intelligence",
+        "weekly newsletter"
+      ],
+      "whyItMattersEn": "This newsletter can serve as a periodic information source for tracking developments in AI applications in quantitative finance, helping readers learn about weekly progress.",
       "features": [
         {
           "id": "artifact:newsletter",
@@ -1754,10 +1767,15 @@
           "confidence": 1.0
         }
       ],
-      "originalTitle": "Quant Letter: Oct 2026, Week-3",
-      "descriptionEn": "This issue of Quant Letter summarizes recent developments in AI and quantitative finance, providing practitioners with references on technical progress and industry trends.",
-      "sourceGroup": "Newsletter",
+      "summary": "该通讯是AI与量化金融领域的定期出版物，本期为第124期，发布时间为2026年10月23日。据标题和来源摘要，其内容为2026年10月第3周的汇编。作者为Dr. Derek Snow，但具体文章列表未在输入中给出，因此无法总结具体研究发现或观点。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T14:08:25+00:00",
       "aiGenerated": true,
+      "score": 45.72,
+      "domain": "其他研究",
+      "whyItMatters": "该通讯可作为跟踪AI在量化金融领域应用动态的定期信息来源，帮助读者了解每周相关进展。",
+      "description": "该通讯为2026年10月第3周的第124期，提供AI与量化金融交叉领域的内容汇编；新内容在于按周梳理该领域动态，便于读者跟进。",
+      "originalTitle": "Quant Letter: Oct 2026, Week-3",
       "scoreBreakdown": {
         "contentType": "article",
         "comparisonCohortSize": 2,
@@ -1789,58 +1807,56 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "124th edition of the newsletter by Dr. Derek Snow",
-        "Focuses on the intersection of AI and quantitative finance",
-        "Published on October 23, 2026"
-      ],
-      "summary": "该通讯为系列第124期，由Dr. Derek Snow发布，内容涉及AI与量化金融的交叉领域。原文仅提供标题和来源摘要，未涉及具体研究或数据。",
-      "tagsEn": [
-        "quantitative finance",
-        "artificial intelligence",
-        "newsletter",
-        "weekly"
-      ],
+      "slug": "quant-letter-oct-2026-week-3-89eaea89ba",
       "keyPoints": [
-        "由Dr. Derek Snow发布的系列通讯第124期",
-        "聚焦AI与量化金融的交叉领域",
-        "发布时间为2026年10月23日"
-      ]
+        "第124期通讯发布于2026年10月23日，覆盖2026年10月第3周。",
+        "领域为AI与量化金融的交叉，作者为Dr. Derek Snow。",
+        "通讯内容的具体文章与发现未在输入中提供。"
+      ],
+      "limitations": "输入仅提供标题、作者、发布时间和期号，未包含通讯的具体文章列表、研究发现、数据或结论。因此无法评估其内容质量、方法严谨性或实际应用价值；本知识卡仅反映其作为定期出版物的存在。",
+      "descriptionEn": "This newsletter is the 124th issue for the third week of October 2026, providing a compilation of content at the intersection of AI and quantitative finance; its novelty lies in weekly curation for readers to follow developments.",
+      "keyPointsEn": [
+        "Issue 124 was published on October 23, 2026, covering the third week of October 2026.",
+        "The domain is the intersection of AI and quantitative finance, authored by Dr. Derek Snow.",
+        "Specific articles and findings of the newsletter are not provided in the input."
+      ],
+      "titleEn": "Quant Letter Issue 124: Overview of Week 3 October 2026",
+      "discoveredBy": [
+        "Machine Learning & Quant Finance"
+      ],
+      "summaryEn": "This newsletter is a periodic publication in AI and quantitative finance; this issue is the 124th, published on October 23, 2026. Based on the title and source summary, it covers the third week of October 2026. The author is Dr. Derek Snow, but specific articles are not provided in the input, so no specific findings or opinions can be summarized.",
+      "sourceGroup": "Newsletter"
     },
     {
-      "description": "这是Quantocracy于2026年10月22日汇总的量化研究链接清单，核心条目介绍用变化率（ROC）对动量进行择时，并以标普500历史上十条最陡趋势为分析对象。它的用处是提示研究者关注动量信号与趋势强度度量之间可能存在的条件关系，并提供可进一步查阅的原始文章入口。",
-      "title": "量化研究链接合集：动量择时与标普500趋势",
-      "summaryProvider": "deepseek",
-      "domain": "金融研究",
-      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-10222026",
-      "tags": [
-        "动量",
-        "择时",
-        "标普500",
-        "量化链接"
-      ],
-      "sourceName": "Quantocracy",
-      "limitations": "摘要仅列出链接标题与一句话描述，未提供ROC的计算参数、择时阈值、样本区间、交易成本假设与绩效数据，无法验证该择时方法是否有效；十条最陡趋势的界定标准与选取是否含事后偏差也不明确。清单为聚合性质，不代表同行评议或独立验证。",
-      "id": "5efebd3b4791d521",
-      "slug": "recent-quant-links-from-quantocracy-as-of-10-22--5efebd3b47",
-      "titleEn": "Quant Link Roundup: Momentum Timing and S&P 500 Trends",
-      "limitationsEn": "The summary provides only link titles and a one-line description, with no ROC parameters, timing thresholds, sample period, transaction-cost assumptions, or performance data, so the method's effectiveness cannot be verified; the criteria for the ten steepest trends and possible look-ahead bias are also unclear. As an aggregator list, it implies no peer review or independent validation.",
       "contentType": "article",
-      "whyItMatters": "对量化研究者而言，该条目提供了一个将动量信号与趋势强度（ROC）结合的条件择时思路，可作为文献线索去核查其回测设计与稳健性，而非直接作为策略依据。",
-      "discoveredBy": [
-        "Quantocracy"
+      "id": "5efebd3b4791d521",
+      "sourceName": "Quantocracy",
+      "limitationsEn": "This page is only a list of links, lacking analysis, data, methods, and conclusions of specific articles, and cannot be used for verification or citation; all information is inferred from titles and may be incomplete or inaccurate.",
+      "tags": [
+        "量化研究",
+        "动量策略",
+        "链接汇总"
       ],
-      "publishedAt": "2026-10-23T05:15:05+00:00",
-      "score": 43.51,
+      "originalUrl": "https://quantocracy.com/recent-quant-links-from-quantocracy-as-of-10222026",
+      "summaryProvider": "deepseek",
+      "title": "量化聚合站Quantocracy近期链接概览",
       "retrievedAt": "2026-10-23T15:59:59.999999+00:00",
-      "whyItMattersEn": "For quant researchers, the item offers a lead on conditioning momentum signals on trend strength (ROC), useful for checking the original backtest design and robustness rather than as a direct strategy basis.",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryEn": "The item is a periodic link roundup from the quant blog aggregator Quantocracy, dated October 22, 2026. As a matter of fact, one listed link discusses timing momentum using rate of change (ROC) applied to the S&P 500's ten steepest trends, and momentum is described as one of the oldest trading ideas. The summary gives no ROC rules, backtest period, or performance results, so no conclusions can be drawn from it.",
+      "tagsEn": [
+        "quantitative research",
+        "momentum strategy",
+        "link summary"
+      ],
+      "whyItMattersEn": "This summary serves as an index of recent topics in quantitative research, helping researchers discover potential relevant articles, but it does not provide substantive research content itself.",
       "features": [],
-      "originalTitle": "Recent Quant Links from Quantocracy as of 10/22/2026",
-      "descriptionEn": "This is Quantocracy's roundup of quant research links dated October 22, 2026; the featured item concerns timing momentum with rate of change (ROC) on the S&P 500's ten steepest trends. It is useful as a pointer to a conditional timing idea linking momentum signals with trend-strength measures, and as an entry point to the original posts.",
-      "sourceGroup": "网站与论坛",
+      "summary": "这是Quantocracy网站近期链接的汇总页面，日期为2026年10月22日。内容仅列出链接标题，其中提及一篇关于用变化率（ROC）对S&P 500十大趋势进行动量择时的文章，但未提供具体分析或结论。",
+      "summaryModel": "deepseek-v4-flash",
+      "publishedAt": "2026-10-23T05:15:05+00:00",
       "aiGenerated": true,
+      "score": 43.51,
+      "domain": "金融研究",
+      "whyItMatters": "该汇总可作为量化研究领域近期话题的索引，帮助研究者发现潜在的相关文章，但本身不提供实质性研究内容。",
+      "description": "该内容汇总了Quantocracy截至2026年10月22日的近期链接，涵盖动量策略等主题，但仅提及一个具体链接标题，无详细摘要或结果。",
+      "originalTitle": "Recent Quant Links from Quantocracy as of 10/22/2026",
       "scoreBreakdown": {
         "contentType": "article",
         "comparisonCohortSize": 2,
@@ -1874,23 +1890,25 @@
         "sourceMetrics": {},
         "selectionLane": "primary"
       },
-      "keyPointsEn": [
-        "Presented as a link list covering momentum timing and steep S&P 500 trends.",
-        "The cited approach times momentum signals using rate of change (ROC).",
-        "Momentum is described as one of the oldest trading ideas, a background remark."
-      ],
-      "summary": "该内容为量化博客聚合站Quantocracy的定期链接汇总，日期标注为2026年10月22日。事实层面，清单中一条链接讨论以ROC对动量做择时，对象为标普500的十条最陡趋势；动量被描述为交易中最古老的想法之一。ROC择时的具体规则、回测区间与绩效结论未在摘要中给出，不能据此外推。",
-      "tagsEn": [
-        "momentum",
-        "timing",
-        "S&P 500",
-        "quant links"
-      ],
+      "slug": "recent-quant-links-from-quantocracy-as-of-10-22--5efebd3b47",
       "keyPoints": [
-        "汇总为链接清单形式，主题涉及动量择时与标普500陡峭趋势。",
-        "提到的做法是用变化率（ROC）对动量信号进行择时。",
-        "摘要把动量描述为交易中最古老的想法之一，属于背景性陈述。"
-      ]
+        "汇总了Quantocracy截至2026年10月22日的近期链接。",
+        "提及一篇关于S&P 500十大趋势中动量与变化率（ROC）择时的链接。",
+        "未包含链接文章的详细内容、数据或结论。"
+      ],
+      "limitations": "该页面仅为链接列表，缺乏具体文章的分析、数据、方法和结论，无法用于验证或引用；所有信息基于标题推断，可能存在不完整或不准确之处。",
+      "descriptionEn": "This content summarizes recent links on Quantocracy as of October 22, 2026, covering topics like momentum strategies, but only mentions one specific link title without detailed summary or results.",
+      "keyPointsEn": [
+        "Summarizes recent links from Quantocracy as of October 22, 2026.",
+        "Mentions a link about momentum timing with rate of change (ROC) on S&P 500's ten steepest trends.",
+        "Does not include detailed content, data, or conclusions of the linked articles."
+      ],
+      "titleEn": "Overview of Recent Quant Links from Quantocracy",
+      "discoveredBy": [
+        "Quantocracy"
+      ],
+      "summaryEn": "This is a summary page of recent links from Quantocracy, dated October 22, 2026. It only lists link titles, including one about momentum timing with rate of change (ROC) on S&P 500's ten steepest trends, but provides no specific analysis or conclusions.",
+      "sourceGroup": "网站与论坛"
     }
   ]
 }
