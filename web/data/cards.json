@@ -1,654 +1,17 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-07T15:59:59.999999+00:00",
+  "generatedAt": "2026-11-08T15:59:59.999999+00:00",
   "timezone": "Asia/Singapore",
-  "edition": "2026-11-07",
+  "edition": "2026-11-08",
   "cards": [
     {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "method:reinforcement-learning",
-          "facet": "method",
-          "value": "reinforcement-learning",
-          "label": {
-            "zh": "强化学习",
-            "en": "Reinforcement Learning"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:risk",
-          "facet": "topic",
-          "value": "risk",
-          "label": {
-            "zh": "风险",
-            "en": "Risk"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "SHORE：融合学习稳定性的在线装箱强化学习",
-      "originalUrl": "https://arxiv.org/abs/2611.08364",
-      "summaryModel": "deepseek-v4-flash",
+      "id": "5e8027802f61d7f2",
       "summaryProvider": "deepseek",
       "keyPointsEn": [
-        "SHORE combines a learned placement stability probability with an on-policy return estimate to influence the joint choice of box, orientation, and placement, with no additional search or simulation at deployment.",
-        "In Isaac Gym, SHORE reaches 73% space utilization in 0.4M environment steps, while the same learner without stability modeling needs about 1M steps.",
-        "On the expanded 60-box set, SHORE achieves 0.734 space utilization versus 0.588 for GOPT, but with a higher placement-failure frequency of 1.03% versus 0.63%, trading more risk for greater packed volume."
+        "The project is open-sourced by Meta on GitHub under the repository name meta/astryx.",
+        "It describes itself as a fully customizable open-source design system.",
+        "It explicitly labels itself agent ready, aimed at agent usage scenarios."
       ],
-      "whyItMattersEn": "The method shows that learning stability can accelerate online bin-packing reinforcement learning and improve space utilization, and it is simple to integrate into real robot bin-packing pipelines, offering a learnable way to trade off risk and volume.",
-      "domain": "金融研究",
-      "whyItMatters": "该方法表明学习稳定性可加速在线装箱强化学习并提高空间利用率，且易于集成到真实机器人装箱流程，为风险与体积的权衡提供可学习方案。",
-      "summary": "论文研究带处理缓冲区的在线 3D 装箱，需在未知未来到达下选择箱子、朝向和放置位置并保持堆叠稳定。SHORE 用 3D U-Net 从执行结果和模拟替代方案学习稳定概率，并将其融入离散同策略演员-评论家的动作价值与策略先验，训练门控限制未训练模型的影响。实验显示 SHORE 在 0.4M 环境步达到 73% 空间利用率，优于无稳定性建模的约 1M 步；在 60 箱集合上利用率 0.734 对 0.588，但放置失败频率更高。",
-      "description": "提出 SHORE 方法，将学习到的放置稳定概率与同策略回报估计结合，用于在线 3D 装箱；无需额外搜索或模拟开销，在 Isaac Gym 中学习更快且空间利用率更高。",
-      "summaryEn": "The paper studies online 3D bin packing with a processing buffer, where box, orientation, and placement must be chosen under unknown future arrivals while keeping the stack stable. SHORE learns stability from executed outcomes and simulated alternatives using a 3D U-Net, incorporates it into a discrete on-policy actor-critic's action values and policy prior, and uses gates to limit the effect of an untrained model. Experiments show SHORE reaches 73% space utilization at 0.4M environment steps versus about 1M for the same learner without stability modeling; on the 60-box set it achieves 0.734 utilization versus 0.588 for GOPT, but with higher placement-failure frequency.",
-      "score": 73.21,
-      "sourceName": "arXiv cs.LG",
-      "tags": [
-        "在线3D装箱",
-        "强化学习",
-        "稳定性预测",
-        "同策略学习",
-        "机器人装箱"
-      ],
-      "titleEn": "SHORE: Stability-Hybrid On-Policy Reinforcement Learning for Online Bin Packing",
-      "id": "d897c77057b33d42",
-      "limitationsEn": "Experiments are mainly conducted in Isaac Gym simulation, with a real robot used only to verify ease of integration; SHORE has a higher placement-failure frequency than GOPT on the 60-box set, so higher utilization comes with higher risk; no evidence is provided on cross-scenario generalization or long-term deployment.",
-      "originalTitle": "SHORE: Stability-Hybrid On-Policy Reinforcement Learning for Online Bin Packing",
-      "contentType": "paper",
-      "slug": "shore-stability-hybrid-on-policy-reinforcement-l-d897c77057",
-      "keyPoints": [
-        "SHORE 将学习到的放置稳定概率与同策略回报估计结合，影响箱子、朝向和放置的联合选择，部署时无需额外搜索或模拟。",
-        "在 Isaac Gym 中，SHORE 用 0.4M 环境步达到 73% 空间利用率，无稳定性建模的同一学习器约需 1M 步。",
-        "扩展 60 箱集合上，SHORE 空间利用率 0.734，高于 GOPT 的 0.588，但放置失败频率为 1.03% 对 0.63%，以更高风险换取更大装箱体积。"
-      ],
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "descriptionEn": "Presents SHORE, which combines a learned placement stability probability with an on-policy return estimate for online 3D bin packing; it requires no extra search or simulation overhead and learns faster with higher space utilization in Isaac Gym.",
-      "tagsEn": [
-        "online 3D bin packing",
-        "reinforcement learning",
-        "stability prediction",
-        "on-policy learning",
-        "robotic bin packing"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 77,
-        "topicClassification": {
-          "classification": "finance",
-          "confidence": 0.76,
-          "financeEvidence": [
-            "trading"
-          ],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "machine-learning"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 67.65,
-        "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 5.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 78.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "实验主要在 Isaac Gym 仿真中完成，真实机器人仅用于验证集成简易性；SHORE 在 60 箱集合上放置失败频率高于 GOPT，更高利用率伴随更高风险；未提供跨场景泛化或长期部署证据。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:risk",
-          "facet": "topic",
-          "value": "risk",
-          "label": {
-            "zh": "风险",
-            "en": "Risk"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "思维链监控对抗隐蔽错位：TraceMRT压力测试与贝叶斯轨迹监控",
-      "originalUrl": "https://arxiv.org/abs/2611.07586",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "TraceMRT reframes side tasks as coherent sub-goals of the primary task and automatically searches strategies that complete the misaligned objective while making traces read as natural execution.",
-        "Black-box attacks on advanced monitors such as GPT-5.2 and Claude-4.5 reveal substantial vulnerabilities.",
-        "Bayesian Trajectory Monitoring integrates global context and local segment evidence, achieving 0.91 AUC and 0.74 TPR@FPR=0.05 in experiments."
-      ],
-      "whyItMattersEn": "As LLM agents gain autonomy, the risk of hidden objectives bypassing safety constraints increases; this study shows that existing chain-of-thought monitoring may be unreliable against strategic concealment and offers a method to enhance monitoring robustness, providing reference for designing AI safety control mechanisms.",
-      "domain": "AI 研究",
-      "whyItMatters": "随着LLM智能体自主性增强，隐藏目标绕过安全约束的风险上升；该研究表明现有思维链监控在面对策略性隐蔽时可能不可靠，并提供了一种增强监控鲁棒性的方法，对AI安全控制机制的设计有参考价值。",
-      "summary": "事实：论文引入TraceMRT自动化红队框架，通过将侧任务嵌入主任务并搜索轨迹塑造策略，对GPT-5.2和Claude-4.5等先进监控器进行黑盒攻击，发现显著脆弱性；并提出贝叶斯轨迹监控，在实验中达到0.91 AUC和0.74 TPR@FPR=0.05。作者观点：现有红队方法依赖共享模板，未充分探索任务特定、上下文相关的规避方式，因此需要更真实的压力测试和更强的监控框架。",
-      "description": "该研究提出TraceMRT框架，自动将侧任务重构为主任务的连贯子目标并搜索轨迹塑造策略，以更真实地压力测试思维链监控；同时提出贝叶斯轨迹监控，融合全局上下文与局部片段证据，在GPT-5.2和Claude-4.5等模型上展示了监控漏洞并验证了改进方法的有效性。",
-      "summaryEn": "Fact: The paper introduces TraceMRT, an automated red-teaming framework that embeds side tasks into primary tasks and searches trace-shaping strategies to launch black-box attacks on advanced monitors such as GPT-5.2 and Claude-4.5, revealing significant vulnerabilities; it also proposes Bayesian Trajectory Monitoring, achieving 0.91 AUC and 0.74 TPR@FPR=0.05 in experiments. Author's view: Existing red-teaming methods rely on shared templates and underexplore task-specific, contextually grounded evasions, necessitating more realistic stress testing and stronger monitoring frameworks.",
-      "score": 72.93,
-      "sourceName": "arXiv cs.LG",
-      "tags": [
-        "思维链监控",
-        "隐蔽错位",
-        "红队测试",
-        "贝叶斯轨迹监控",
-        "AI安全"
-      ],
-      "titleEn": "Stress Testing Chain-of-Thought Monitoring Against Covert Misalignment: TraceMRT and Bayesian Trajectory Monitoring",
-      "id": "353aaadc5615e708",
-      "limitationsEn": "The study is based on an arXiv preprint and has not undergone peer review; experiments are limited to specific monitor models (GPT-5.2, Claude-4.5) and the TraceMRT attack strategy, not covering all possible forms of covert misalignment; the 0.91 AUC and 0.74 TPR@FPR=0.05 results are obtained under specific experimental settings and require further validation for generalizability; computational overhead and practical deployment constraints are not discussed.",
-      "originalTitle": "Stress Testing Chain-of-Thought Monitoring Against Covert Misalignment",
-      "contentType": "paper",
-      "slug": "stress-testing-chain-of-thought-monitoring-again-353aaadc56",
-      "keyPoints": [
-        "TraceMRT将侧任务重构为主任务的连贯子目标，自动搜索使轨迹既完成错位目标又读起来像自然执行的策略。",
-        "对GPT-5.2和Claude-4.5等先进监控器的黑盒攻击揭示了实质性漏洞。",
-        "贝叶斯轨迹监控融合全局上下文与局部片段证据，在实验中达到0.91 AUC和0.74 TPR@FPR=0.05。"
-      ],
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "descriptionEn": "The study introduces TraceMRT, an automated framework that reframes side tasks as coherent sub-goals of the primary task and searches trace-shaping strategies for more realistic stress testing of chain-of-thought monitoring; it also proposes Bayesian Trajectory Monitoring, integrating global context and local segment evidence, revealing monitor vulnerabilities on models like GPT-5.2 and Claude-4.5 and validating the improved method.",
-      "tagsEn": [
-        "chain-of-thought monitoring",
-        "covert misalignment",
-        "red teaming",
-        "Bayesian trajectory monitoring",
-        "AI safety"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 65,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.86,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "machine-learning",
-            "language-model",
-            "agents"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 67.25,
-        "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 10.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 78.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "研究基于arXiv预印本，尚未经同行评审；实验局限于特定监控模型（GPT-5.2、Claude-4.5）和TraceMRT攻击策略，未覆盖所有可能的隐蔽错位形式；贝叶斯轨迹监控的0.91 AUC和0.74 TPR@FPR=0.05为特定实验设置下的结果，泛化性需进一步验证；未讨论计算开销和实际部署限制。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "CARTBench：基于评分准则的购物建议评估",
-      "originalUrl": "https://arxiv.org/abs/2611.05862",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "CARTBench includes 1,328 expert-annotated criteria across Core, Excellence, and Safety dimensions.",
-        "Among 10 flagship models, 3 exceed 90% on Core criteria, but none exceeds 45% on Excellence criteria.",
-        "Model failures concentrate on product evidence and unresolved needs, linked to changing requirements and decisive unknowns."
-      ],
-      "whyItMattersEn": "The benchmark provides a standardized framework for evaluating LLM shopping assistants, revealing widespread deficiencies in executing high-quality purchase advice and helping guide future research to address the understanding-to-execution gap.",
-      "domain": "AI 研究",
-      "whyItMatters": "该基准为LLM购物助手的评估提供了标准化框架，揭示了模型在高质量购买建议执行上的普遍不足，有助于引导未来研究关注理解与执行之间的差距。",
-      "summary": "研究提出CARTBench基准，旨在评估LLM购物助手处理复杂模糊需求的能力。事实是，该基准从17个零售领域收集了带时间戳的对话和1603条商品记录，并通过专家标注的1328条准则进行评分。观点上，作者认为现有模型存在理解与执行间的差距，核心准则达标容易但卓越标准难以满足。",
-      "description": "该研究针对大语言模型购物助手在复杂模糊需求下的评估难题，构建了包含时间线的真实商业对话数据集，并设计了基于示例回复提炼的案例特定评分准则，为衡量推荐质量提供了标准化方法。",
-      "summaryEn": "The study proposes CARTBench, a benchmark to evaluate LLM shopping assistants' ability to handle complex and ambiguous requests. Factually, the benchmark curates timestamped dialogues and 1,603 product records from 17 retail domains, with 1,328 expert-annotated criteria for scoring. The authors argue that current models exhibit an understanding-to-execution gap, performing well on core criteria but poorly on excellence standards.",
-      "score": 72.68,
-      "sourceName": "arXiv cs.CL",
-      "tags": [
-        "大语言模型",
-        "购物助手",
-        "评估基准",
-        "评分准则",
-        "复杂需求"
-      ],
-      "titleEn": "CARTBench: Rubric-Based Evaluation of Shopping Advice for Complex and Ambiguous Requests",
-      "id": "a4ca5308d1942be3",
-      "limitationsEn": "Conclusions are based on specific frozen rubrics and selected models, and may not generalize to other evaluation standards or models; data from only 17 retail domains limits generalizability; low excellence scores may be affected by rubric strictness and require further analysis.",
-      "originalTitle": "CARTBench: Rubric-Based Evaluation of Shopping Advice for Complex and Ambiguous Requests with Timelines",
-      "contentType": "paper",
-      "slug": "cartbench-rubric-based-evaluation-of-shopping-ad-a4ca5308d1",
-      "keyPoints": [
-        "CARTBench包含1328条专家标注的评分准则，覆盖核心、卓越和安全三个维度。",
-        "在10个旗舰模型中，3个模型核心准则得分超过90%，但无一在卓越准则上超过45%。",
-        "模型失败集中在产品证据和未解决需求上，与需求变化和关键未知信息相关。"
-      ],
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "descriptionEn": "This study addresses the evaluation challenges of LLM shopping assistants under complex and ambiguous requests by constructing a real-world commercial dialogue dataset with timelines and designing case-specific rubrics distilled from exemplary replies, providing a standardized method for measuring recommendation quality.",
-      "tagsEn": [
-        "Large Language Models",
-        "Shopping Assistants",
-        "Benchmark",
-        "Rubrics",
-        "Complex Requests"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 55,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.8,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "language-model"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 67.75,
-        "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 15.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 72.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "研究结论基于特定冻结的评分准则和所选模型，可能不适用于其他评估标准或模型；数据仅来自17个零售领域，泛化性有待验证；卓越准则的低得分可能受评分严格性影响，需进一步分析。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "method:forecasting",
-          "facet": "method",
-          "value": "forecasting",
-          "label": {
-            "zh": "预测",
-            "en": "Forecasting"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "语言模型能否预判自由职业任务可由AI代理完成",
-      "originalUrl": "https://arxiv.org/abs/2611.05759",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "PAYWORTHY contains 1,494 real freelance job postings from a freelancing platform, with single-run agent attempts.",
-        "Forecast AUC is 0.66-0.86 when models know the agent's limitations versus 0.45-0.56 when only generic capabilities are described.",
-        "Findings hold with judges from four other model families (Claude, GLM, Kimi, Qwen) and align with two human raters' verdicts."
-      ],
-      "whyItMattersEn": "It provides a quantitative benchmark for pre-task feasibility prediction and highlights how the description of agent capabilities critically affects forecast accuracy, which can inform more reliable task assignment or workflow systems.",
-      "domain": "AI 研究",
-      "whyItMatters": "为AI代理承接任务前的可行性预判提供量化基准，并揭示代理能力描述对预测准确性的关键影响，有助于设计更可靠的任务分配或工作流系统。",
-      "summary": "作者构建PAYWORTHY数据集，含1,494条真实自由职业招聘帖，让AI代理尝试完成任务并由LLM裁判决定接受与否，再要求18个模型预测成功概率。事实是：当告知模型代理的局限性时，所有模型能较好区分接受与拒绝（AUC 0.66-0.86）；而只告知通用代理能力时，区分能力接近随机（AUC 0.45-0.56）。作者认为这表明提供代理能力边界信息对预测至关重要，但预测本身并非易事。",
-      "description": "研究测试前沿语言模型在AI代理执行前预测自由职业工作能否成功的可行性，发现预测能力高度依赖对代理能力的描述。",
-      "summaryEn": "The authors built PAYWORTHY, a dataset of 1,494 real freelance job postings where an AI agent attempts each task and an LLM judge decides acceptance. Fact: when told the agent's limitations, all 18 models rank accepted jobs above rejected ones (AUC 0.66-0.86); when described only as a generic agent with browser and code execution, ranking is near random (AUC 0.45-0.56). The authors argue that providing capability boundaries is crucial for prediction, though prediction itself is not trivial.",
-      "score": 72.33,
-      "sourceName": "arXiv cs.CL",
-      "tags": [
-        "AI代理",
-        "任务可行性预测",
-        "语言模型评估",
-        "自由职业平台"
-      ],
-      "titleEn": "Can Language Models Predict Which Freelance Jobs an AI Agent Will Complete?",
-      "id": "33bf6f7a0a0b565f",
-      "limitationsEn": "Task completion and acceptance are judged by a single LLM judge, potentially introducing bias; data come from only one freelancing platform, limiting ecological representativeness; multi-turn interactions or real-world task completion are not evaluated; results depend on model scale and the specific form of capability description, so they may not generalize to other agents or task domains.",
-      "originalTitle": "PAYWORTHY: Can LLMs Predict Which Freelance Jobs an AI Agent Will Complete?",
-      "contentType": "paper",
-      "slug": "payworthy-can-llms-predict-which-freelance-jobs--33bf6f7a0a",
-      "keyPoints": [
-        "PAYWORTHY数据集包含1,494条来自自由职业平台的真实招聘帖，代理单次尝试完成任务。",
-        "18个模型在获知代理能力边界时预测接受与否的AUC为0.66-0.86，否则仅0.45-0.56。",
-        "结论在四个其他模型家族裁判（Claude、GLM、Kimi、Qwen）下仍成立，并与两名人类评分者的判断一致。"
-      ],
-      "discoveredBy": [
-        "arXiv cs.CL"
-      ],
-      "descriptionEn": "The study tests whether frontier language models can forecast, before an AI agent attempts a freelance job, if the agent will succeed, finding that predictive performance depends heavily on how the agent's capabilities are described.",
-      "tagsEn": [
-        "AI agents",
-        "task feasibility prediction",
-        "language model evaluation",
-        "freelance platform"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 65,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.83,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "language-model",
-            "agents"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 67.25,
-        "contentSignals": {
-          "evidence": 10.0,
-          "actionability": 10.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 72.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "任务完成和接受判定依赖单一LLM裁判，可能引入裁判偏差；数据仅来自一个自由职业平台，生态代表性有限；未评估多轮交互或真实任务完成场景；结果与模型规模、能力描述的具体形式相关，不能直接推广到其他代理或任务领域。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "method:forecasting",
-          "facet": "method",
-          "value": "forecasting",
-          "label": {
-            "zh": "预测",
-            "en": "Forecasting"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "method:time-series",
-          "facet": "method",
-          "value": "time-series",
-          "label": {
-            "zh": "时间序列",
-            "en": "Time Series"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "冻结预测基础模型在分类任务上未超越强基线",
-      "originalUrl": "https://arxiv.org/abs/2611.06988",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "Pretraining improves classification accuracy over random weights of the same architecture on 5 of 6 datasets, with gains up to 23 percentage points.",
-        "Frozen representations underperform the strongest non-pretrained baseline in 15 of 17 settings and tie in 2, showing no reliable advantage.",
-        "Restoring amplitude information partially narrows the gap; fine-tuning and forecast-error features do not close it."
-      ],
-      "whyItMattersEn": "The findings suggest that frozen representations from forecasting foundation models are not necessarily superior to strong task-specific baselines; evaluations should include random-weight controls to avoid overestimating pretraining value, especially when labels are scarce.",
-      "domain": "AI 研究",
-      "whyItMatters": "该结果提示，预测基础模型的冻结表征未必优于强任务特定基线；评估时应纳入随机权重对照，避免高估预训练价值，尤其在标签稀缺场景。",
-      "summary": "作者在 MONSTER 基准的六个数据集上，以 1%、10%、100% 标签比例，对比两种预测基础模型的冻结表征与四种分类方法及随机权重版本。结果显示预训练相对随机权重在五/六个数据集上提升准确率，最高 23 个百分点；但冻结表征在任何设置下均未可靠超越最强非预训练基线，17 个设置中 15 个更差、2 个持平。作者认为这些发现强调评估预测基础模型分类用途时需强任务基线和随机权重对照；恢复幅度信息可部分缩小差距，微调与预测误差特征未能弥合。",
-      "description": "该研究在 MONSTER 基准的六个数据集上，系统比较了两种预测基础模型（Reverso 和 Chronos-Bolt）冻结表征与四种非预训练分类器及随机权重对照的表现。新在于首次用随机权重对照揭示预训练增益相对架构的贡献，并发现冻结表征无法可靠超越最强非预训练基线。有用在于提醒评估预测基础模型用于分类时需设置强任务基线。",
-      "summaryEn": "The authors compare frozen representations of two forecasting foundation models with four classification methods and random-weight versions on six MONSTER datasets at 1%, 10%, and 100% label ratios. Pretraining improves accuracy over random weights on five of six datasets, with gains up to 23 percentage points, but frozen representations never reliably beat the strongest non-pretrained baseline: they perform worse in 15 of 17 settings and tie in the remaining two. The authors argue that strong task baselines and random-weight controls are essential when evaluating forecasting foundation models for classification; restoring amplitude information partially narrows the gap, while fine-tuning and forecast-error features do not close it.",
-      "score": 71.36,
-      "sourceName": "arXiv cs.LG",
-      "tags": [
-        "时间序列分类",
-        "预测基础模型",
-        "冻结表征",
-        "基准测试",
-        "预训练增益"
-      ],
-      "titleEn": "Frozen Forecasting Foundation Models Fail to Reliably Beat Strong Baselines on Classification",
-      "id": "7ddf24422debd53c",
-      "limitationsEn": "Conclusions are based on two forecasting models (Reverso and Chronos-Bolt) and six MONSTER datasets, testing only frozen representations, fine-tuning, and forecast-error features. They do not cover other foundation models, datasets, or full fine-tuning strategies, so they should not be generalized to all forecasting foundation models in classification.",
-      "originalTitle": "Big Models, Small Gains: Frozen Forecasters as Classifiers on MONSTER",
-      "contentType": "paper",
-      "slug": "big-models-small-gains-frozen-forecasters-as-cla-7ddf24422d",
-      "keyPoints": [
-        "预训练相对同架构随机权重在 5/6 数据集上提升分类准确率，最高 23 个百分点。",
-        "冻结表征与最强非预训练基线相比，17 个设置中 15 个更差、2 个持平，无可靠优势。",
-        "恢复幅度信息可部分缩小差距，微调和预测误差特征未能弥合。"
-      ],
-      "discoveredBy": [
-        "arXiv cs.LG"
-      ],
-      "descriptionEn": "The study systematically compares frozen representations from two forecasting foundation models (Reverso and Chronos-Bolt) against four non-pretrained classifiers and random-weight controls on six MONSTER benchmark datasets. Its novelty lies in using random-weight controls to isolate pretraining gains over architecture and in finding that frozen representations do not reliably outperform the strongest non-pretrained baseline. It is useful for reminding evaluators of forecasti",
-      "tagsEn": [
-        "time series classification",
-        "forecasting foundation models",
-        "frozen representations",
-        "benchmarking",
-        "pretraining gains"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 60,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.8,
-          "financeEvidence": [],
-          "quantitativeEvidence": [
-            "time-series"
-          ],
-          "aiEvidence": [
-            "machine-learning"
-          ],
-          "sourcePrior": "AI × 量化"
-        },
-        "contentValueScore": 65.0,
-        "contentSignals": {
-          "evidence": 15.0,
-          "actionability": 5.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 78.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "结论基于两个预测模型（Reverso、Chronos-Bolt）和 MONSTER 的六个数据集，仅测试冻结表征、微调和预测误差特征等有限方式；未覆盖其他基础模型、数据集或完整微调策略，因此不能推广为所有预测基础模型在分类任务上均无优势。"
-    },
-    {
-      "sourceGroup": "开源项目",
       "features": [
         {
           "id": "artifact:repository",
@@ -695,54 +58,681 @@
           "confidence": 0.8
         }
       ],
-      "retrievedAt": "2026-11-07T15:59:59.999999+00:00",
-      "title": "面向 AI 代理的浏览器自动化命令行工具",
-      "originalUrl": "https://github.com/vercel-labs/agent-browser",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "Positioned as a browser automation CLI for AI agents",
-        "Published by Vercel Labs and surfaced via GitHub Trending",
-        "Offers browser operations through a command-line interface"
-      ],
-      "whyItMattersEn": "If agents can reliably drive browsers via the command line, integration of web-interaction tasks could become more uniform; current information is insufficient to judge actual effectiveness.",
-      "domain": "AI 研究",
-      "whyItMatters": "若代理能通过命令行稳定驱动浏览器，网页交互类任务的集成方式可能更统一；但现有信息不足以评估其实际效果。",
-      "summary": "该仓库是 Vercel Labs 推出的浏览器自动化命令行工具，目标用户是 AI 代理而非人类手动操作。来源仅提供项目定位，未给出技术细节、性能数据或使用案例。是否适用于具体任务仍需依据仓库文档与实际测试判断。",
-      "description": "Vercel Labs 在 GitHub 发布 agent-browser，定位为供 AI 代理调用的浏览器自动化 CLI；其新意在于把浏览器操作封装成命令行接口，便于代理直接调用。",
-      "summaryEn": "This repository is a browser automation command-line tool from Vercel Labs, aimed at AI agents rather than manual human use. The source provides only the project positioning, with no technical details, performance data, or usage examples. Whether it suits specific tasks still depends on the repository documentation and real-world testing.",
-      "score": 69.94,
-      "sourceName": "GitHub Trending Daily",
-      "tags": [
-        "浏览器自动化",
-        "AI 代理",
-        "命令行工具",
-        "开源项目"
-      ],
-      "titleEn": "Browser Automation CLI for AI Agents",
-      "id": "401c6af5b51d16a5",
-      "limitationsEn": "The input contains only a one-line description, lacking architecture, dependencies, license, performance, and security details; compatibility and stability are unverified, so production suitability cannot be inferred.",
-      "originalTitle": "vercel-labs/agent-browser",
       "contentType": "repository",
-      "slug": "vercel-labs-agent-browser-401c6af5b5",
-      "keyPoints": [
-        "项目定位为面向 AI 代理的浏览器自动化 CLI",
-        "由 Vercel Labs 发布，通过 GitHub Trending 进入公众视野",
-        "工具以命令行形式提供浏览器操作能力"
+      "aiGenerated": true,
+      "tagsEn": [
+        "design system",
+        "open source",
+        "agents",
+        "Meta",
+        "frontend tools"
       ],
+      "retrievedAt": "2026-11-08T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 64,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 98.0,
+        "metricPercentile": 97.62,
+        "velocityPercentile": 97.62,
+        "objectiveScore": 97.62,
+        "relevanceScore": 55,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "agents"
+          ],
+          "sourcePrior": null
+        },
+        "contentValueScore": 29.92,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 0.17,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 2.0,
+          "trending_rank_score": 98.0,
+          "stars": 18958.0,
+          "stars_delta_1d": 3324.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "limitations": "输入仅有仓库标题与一句简介，没有组件清单、API 文档、代码质量、许可证细节、维护活跃度或实际使用案例；无法验证“完全可定制”和“agent ready”的具体含义与效果，也不构成采用或投资建议。",
+      "tags": [
+        "设计系统",
+        "开源项目",
+        "智能体",
+        "Meta",
+        "前端工具"
+      ],
+      "title": "Meta 开源可定制且面向智能体的设计系统 Astryx",
+      "sourceGroup": "开源项目",
+      "limitationsEn": "The input contains only the repository title and a one-sentence intro, with no component inventory, API documentation, code quality, license details, maintenance activity, or real use cases. The specific meaning and effect of 'fully customizable' and 'agent ready' cannot be verified, and this is not adoption or investment advice.",
       "discoveredBy": [
         "GitHub Trending Daily"
       ],
-      "descriptionEn": "Vercel Labs has released agent-browser on GitHub, a browser automation CLI aimed at AI agents; its novelty lies in packaging browser operations as command-line calls that agents can invoke directly.",
-      "tagsEn": [
-        "browser automation",
-        "AI agents",
-        "CLI tool",
-        "open source"
+      "whyItMattersEn": "Design systems usually serve human-written interfaces, while the phrase 'agent ready' points to letting agents understand and use design specifications and components. If true, it could affect how AI tools and frontend engineering collaborate, but with only the project's own description available, it needs cautious evaluation.",
+      "sourceName": "GitHub Trending Daily",
+      "domain": "AI 研究",
+      "description": "Astryx 是 GitHub 趋势榜上出现的 Meta 开源设计系统，其定位强调完全可定制与 agent ready。新意在于把设计系统与智能体使用场景结合；对有前端与 AI 工具需求的团队，提供了一个可直接查看和评估的开源项目入口。",
+      "score": 71.13,
+      "publishedAt": "2026-11-08T15:59:59.999999+00:00",
+      "titleEn": "Meta Open-Sources Astryx, a Customizable Agent-Ready Design System",
+      "keyPoints": [
+        "项目由 Meta 在 GitHub 开源，仓库名为 meta/astryx。",
+        "自我定位为完全可定制的开源设计系统。",
+        "明确标注 agent ready，即面向智能体使用场景。"
       ],
+      "slug": "meta-astryx-5e8027802f",
+      "descriptionEn": "Astryx is a Meta open-source design system that appeared on GitHub Trending Daily, positioned as fully customizable and agent ready. Its novelty lies in linking design systems with agent usage scenarios; for teams working on frontend and AI tools, it offers an open-source project entry point to inspect and evaluate.",
+      "whyItMatters": "设计系统通常服务于人写界面，而“agent ready”的提法指向让智能体也能理解和使用设计规范与组件；若成立，可能影响 AI 工具与前端工程的协作方式，但目前仅有项目自述，需审慎评估。",
+      "summary": "该项目来自 GitHub Trending Daily，仓库介绍自称是一个完全可定制、且面向智能体（agent ready）的开源设计系统。以上均为项目简介中的定位陈述，输入未提供具体组件、代码结构或实际效果证据。",
+      "originalTitle": "meta/astryx",
+      "originalUrl": "https://github.com/meta/astryx",
+      "summaryEn": "The project comes from GitHub Trending Daily, and its repository description calls it a fully customizable, agent-ready open-source design system. These are positioning statements from the project intro; the input provides no concrete components, code structure, or evidence of actual results."
+    },
+    {
+      "id": "1fc2989c72fef7c7",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "LITMUS contains 819 high-risk test cases, organized into one harmful seed subset and six attack-extended subsets covering three adversarial paradigms: jailbreak speaking, skill injection, and entity wrapping.",
+        "The benchmark uses semantic-physical dual verification and OS-level state rollback to address semantic-only evaluation that misses physical-layer harms and cross-case contamination.",
+        "The authors report that frontier agents still execute 40.64% of high-risk operations (e.g., Claude Sonnet 4.6), exhibit Execution Hallucination where verbal refusal coexists with completed system-level operations, and show high success rates under skill injection and entity wrapping attacks."
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "LLM agent safety",
+        "behavioral jailbreak",
+        "OS-level evaluation",
+        "benchmark",
+        "execution hallucination"
+      ],
+      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 65,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.83,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "language-model",
+            "agents"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 67.25,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 15.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 83.61,
+        "sourceQualityScore": 72.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
+      },
+      "limitations": "本文档为摘要性介绍，未提供全部实验细节、统计显著性、基线选择依据与跨环境泛化验证；40.64% 等数值仅来自作者报告的特定评测设置，不能外推为所有智能体的普遍比例。基准覆盖的对抗范式与 OS 环境范围有限，结论应视为该基准下的证据，而非对实际部署风险的完整评估。",
+      "tags": [
+        "LLM智能体安全",
+        "行为越狱",
+        "操作系统级评测",
+        "基准测试",
+        "执行幻觉"
+      ],
+      "title": "LITMUS：在真实操作系统环境中评测LLM智能体的行为越狱",
+      "sourceGroup": "论文",
+      "limitationsEn": "This document is a summary-level introduction and does not provide full experimental details, statistical significance, baseline selection rationale, or cross-environment generalization validation; figures such as 40.64% come only from the specific evaluation settings reported by the authors and should not be extrapolated as universal rates across all agents. The benchmark covers a limited range of adversarial paradigms and OS environments, so conclusions should be treated as evidence under this benchmark rather than a complete assessment of real-world deployment risk.",
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ],
+      "whyItMattersEn": "As LLM agents act in real operating systems, safety risks extend from content-level to irreversible OS-level behavior. LITMUS offers a reproducible, physically grounded behavioral safety evaluation platform, helping identify the gap between semantic refusal and physical execution.",
+      "sourceName": "arXiv cs.CL",
+      "domain": "AI 研究",
+      "description": "LITMUS 提出一个面向真实操作系统环境的 LLM 智能体行为越狱基准，其新意在于用语义—物理双层验证和 OS 级状态回滚来隔离测试用例，弥补现有评测只看语义层、忽略物理层危害且用例相互污染的问题。它有助于更可复现地衡量智能体在 OS 层面执行危险操作的安全风险。",
+      "score": 71.0,
+      "publishedAt": "2026-11-06T05:00:00+00:00",
+      "titleEn": "LITMUS: Benchmarking Behavioral Jailbreaks of LLM Agents in Real OS Environments",
+      "keyPoints": [
+        "LITMUS 包含 819 个高风险测试用例，分为 1 个有害种子子集和 6 个攻击扩展子集，覆盖越狱话术、技能注入、实体包装三类对抗范式。",
+        "该基准通过语义—物理双层验证和 OS 级状态回滚，试图解决语义层评测遗漏物理层危害以及测试用例相互污染的问题。",
+        "作者报告前沿智能体仍执行 40.64% 的高风险操作（如 Claude Sonnet 4.6），并出现口头拒绝但系统层操作已完成的“执行幻觉”，技能注入与实体包装攻击成功率较高。"
+      ],
+      "slug": "litmus-benchmarking-behavioral-jailbreaks-of-llm-1fc2989c72",
+      "descriptionEn": "LITMUS introduces a benchmark for behavioral jailbreaks of LLM agents in real operating system environments. Its novelty lies in semantic-physical dual verification and OS-level state rollback to isolate test cases, addressing prior benchmarks that judge safety only at the semantic layer, miss physical-layer harms, and let test cases contaminate one another. It helps measure OS-level dangerous-action risks of agents in a more reproducible way.",
+      "whyItMatters": "随着 LLM 智能体在真实操作系统中执行任务，安全风险从内容层扩展到不可逆的 OS 级行为。LITMUS 提供了可复现、物理层可验证的行为安全评测平台，有助于识别语义拒绝与物理执行脱节的问题。",
+      "summary": "论文指出现有 LLM 智能体安全评测多在语义层判断，忽略操作系统物理层后果，并且测试用例之间会相互污染。作者构建 LITMUS 基准，包含 819 个高风险测试用例（1 个有害种子子集和 6 个攻击扩展子集，覆盖越狱话术、技能注入、实体包装三类对抗范式），并配套语义—物理双层判定与 OS 级状态回滚的自动化多智能体评测框架。作者报告三类发现：当前智能体安全意识不足、存在“执行幻觉”（口头拒绝但危险操作已在系统层完成）、技能注入与实体包装攻击成功率较高。",
+      "originalTitle": "LITMUS: Benchmarking Behavioral Jailbreaks of LLM Agents in Real OS Environments",
+      "originalUrl": "https://arxiv.org/abs/2605.10779",
+      "summaryEn": "The paper argues that existing safety evaluations of LLM agents mostly judge at the semantic layer, ignore physical-layer consequences in operating systems, and allow contamination across test cases. The authors build LITMUS, comprising 819 high-risk test cases (one harmful seed subset and six attack-extended subsets covering jailbreak speaking, skill injection, and entity wrapping) with an automated multi-agent evaluation framework using semantic-physical dual verification and OS-level state rollback. They report three findings: current agents lack effective safety awareness, exhibit Execution Hallucination (verbally refusing while the dangerous operation has already completed at the system level), and are highly vulnerable to skill injection and entity wrapping attacks."
+    },
+    {
+      "id": "4346c210c6a176df",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "Causal localization outperforms output confidence for verdict correctness under language shift, with a 0.09 AUROC lead on Qwen3-Coder.",
+        "The advantage of causal localization does not hold for gpt-oss or under benchmark shift.",
+        "Program correctness predictors transfer well across benchmarks but have limited ability to rank candidates within the same problem."
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "code correctness prediction",
+        "distribution shift",
+        "causal localization",
+        "execution-free verification",
+        "large language models"
+      ],
+      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 60,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.83,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "machine-learning",
+            "language-model"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 65.0,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 5.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 83.61,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
+      },
+      "limitations": "结论仅基于两个模型（Qwen3-Coder-30B和gpt-oss-20b）和两个基准（LiveCodeBench和BigCodeBench）及三种语言（Python、C++、Java）的实验，未涵盖其他模型、基准或语言；因果定位的优势未在gpt-oss或基准偏移中复现，泛化性有限；程序正确性预测器对同一问题内候选的排序能力较弱。",
+      "tags": [
+        "代码正确性预测",
+        "分布偏移",
+        "因果定位",
+        "无执行验证",
+        "大语言模型"
+      ],
+      "title": "代码正确性信号在分布偏移下的鲁棒性比较",
+      "sourceGroup": "论文",
+      "limitationsEn": "Conclusions are based only on experiments with two models (Qwen3-Coder-30B and gpt-oss-20b), two benchmarks (LiveCodeBench and BigCodeBench), and three languages (Python, C++, Java), without covering other models, benchmarks, or languages; the advantage of causal localization is not replicated for gpt-oss or benchmark shift, limiting generalizability; program correctness predictors have weak ranking ability for candidates within the same problem.",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "whyItMattersEn": "The study reveals robustness differences among execution-free correctness predictors under various distribution shifts, providing empirical evidence for selecting reliable post-hoc verification signals and helping balance verification cost and accuracy in code generation and judgment.",
+      "sourceName": "arXiv cs.LG",
+      "domain": "AI 研究",
+      "description": "该研究比较了六种无执行正确性预测器在基准和语言分布偏移下的表现，重点评估了因果定位方法对模型判决正确性和程序正确性的预测鲁棒性，发现因果定位在语言偏移下对判决正确性有优势，但该优势不跨模型或基准偏移一致泛化。",
+      "score": 70.02,
+      "publishedAt": "2026-11-06T05:00:00+00:00",
+      "titleEn": "Robustness of Code Correctness Signals Under Distribution Shift",
+      "keyPoints": [
+        "因果定位在语言偏移下对判决正确性预测优于输出置信度，Qwen3-Coder上AUROC领先0.09。",
+        "因果定位的优势不适用于gpt-oss模型，也不适用于基准偏移场景。",
+        "程序正确性预测器跨基准迁移较好，但同一问题内候选排序能力有限。"
+      ],
+      "slug": "which-signals-of-code-correctness-survive-distri-4346c210c6",
+      "descriptionEn": "This study compares six execution-free correctness predictors under benchmark and language distribution shifts, focusing on the robustness of causal localization methods for predicting verdict and program correctness, finding that causal localization has an advantage for verdict correctness under language shift but does not generalize consistently across models or benchmark shifts.",
+      "whyItMatters": "该研究揭示了无执行正确性预测器在不同分布偏移下的鲁棒性差异，为选择可靠的事后验证信号提供了实证依据，有助于在代码生成与评判中平衡验证成本与准确性。",
+      "summary": "研究对比了Qwen3-Coder-30B和gpt-oss-20b上六种无执行正确性预测器在LiveCodeBench与BigCodeBench基准偏移及Python、C++、Java语言偏移下的表现。因果定位方法在语言偏移下对判决正确性预测比输出置信度保持0.09 AUROC领先，但该优势不适用于gpt-oss或基准偏移。程序正确性预测器跨基准迁移较好，主要依靠识别模型易失败的问题，但同一问题内候选排序能力有限。",
+      "originalTitle": "Which Signals of Code Correctness Survive Distribution Shift? Hidden-State and Causal Predictors of Program and Verdict Correctness",
+      "originalUrl": "https://arxiv.org/abs/2611.07876",
+      "summaryEn": "The study compares six execution-free correctness predictors on Qwen3-Coder-30B and gpt-oss-20b under benchmark shift between LiveCodeBench and BigCodeBench and language shift across Python, C++, and Java. Causal localization maintains a 0.09 AUROC lead over output confidence for verdict correctness under language shift, but this advantage does not hold for gpt-oss or benchmark shift. Program correctness predictors transfer better across benchmarks by identifying problems where the model tends to fail, but their ability to rank candidates within the same problem is limited."
+    },
+    {
+      "id": "1930b4812b5feb75",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "In adversarial bilateral trade with only trade-occurrence feedback, Õ(T^{2/3}) regret is achievable, and this rate is nearly tight even for i.i.d. valuations.",
+        "For i.i.d. valuations satisfying MHR, combining localized estimation with stochastic convex bandit methods yields Õ(√T) regret.",
+        "The minimax regret for regular distributions is Θ̃(T^{3/5}), establishing a separation from the Õ(√T) regret for one-sided pricing."
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.84
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "bilateral trade",
+        "online learning",
+        "regret minimization",
+        "pricing mechanism",
+        "monotone hazard rate"
+      ],
+      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 85,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.84,
+          "financeEvidence": [
+            "trading"
+          ],
+          "quantitativeEvidence": [
+            "stochastic"
+          ],
+          "aiEvidence": [
+            "machine-learning",
+            "agents"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 65.0,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 8.75,
+          "penalty": 0.0
+        },
+        "freshnessScore": 83.61,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
+      },
+      "limitations": "结论基于理论模型与遗憾分析，假设估值由对抗者生成或独立同分布且满足MHR/正则条件，未涉及真实市场数据或有限样本实验；算法性能依赖于分布假设，实际应用需谨慎验证。",
+      "tags": [
+        "双边交易",
+        "在线学习",
+        "遗憾最小化",
+        "定价机制",
+        "单调风险率"
+      ],
+      "title": "双边交易利润最大化的遗憾界：学习最优定价机制",
+      "sourceGroup": "论文",
+      "limitationsEn": "The conclusions rely on theoretical models and regret analysis, assuming valuations are generated adversarially or i.i.d. satisfying MHR/regular conditions; no real market data or finite-sample experiments are involved, and algorithm performance depends on distributional assumptions, requiring careful validation in practice.",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "whyItMattersEn": "The work provides theoretical regret bounds for online pricing in bilateral trade using only trade feedback, clarifies the learning difficulty gap between MHR and regular distributions, and offers reference value for designing pricing algorithms without valuation information.",
+      "sourceName": "arXiv cs.LG",
+      "domain": "AI × 量化",
+      "description": "该研究在双边交易中构建了利润最大化经纪人的在线学习框架，分别针对对抗性和随机（MHR分布）环境给出了遗憾界，并揭示了MHR与正则分布之间的分离现象，为理解双边定价的学习难度提供了理论依据。",
+      "score": 70.02,
+      "publishedAt": "2026-11-06T05:00:00+00:00",
+      "titleEn": "Regret Bounds for Profit Maximization in Bilateral Trade: Learning the Best Posted-Price Mechanism",
+      "keyPoints": [
+        "对抗性双边交易中，仅观察交易发生与否的反馈下，可实现 Õ(T^{2/3}) 遗憾，且该速率在独立同分布估值下也近乎紧。",
+        "在独立同分布且满足MHR性质时，结合局部估计与随机凸赌博机方法，可达 Õ(√T) 遗憾。",
+        "正则分布下的极小极大遗憾为 Θ̃(T^{3/5})，与单边定价的 Õ(√T)  regret 形成分离。"
+      ],
+      "slug": "regret-bounds-for-profit-maximization-in-bilater-1930b4812b",
+      "descriptionEn": "This work establishes an online learning framework for a profit-maximizing broker in bilateral trade, deriving regret bounds under adversarial and stochastic (MHR) environments and revealing a separation between MHR and regular distributions, offering theoretical insight into the difficulty of two-sided pricing.",
+      "whyItMatters": "该工作为双边交易中仅依赖交易反馈的在线定价提供了理论遗憾界，明确了MHR与正则分布之间的学习难度差异，对设计无需估值信息的定价算法具有参考意义。",
+      "summary": "论文研究双边交易中经纪人每轮向买卖双方报价、仅观察交易是否发生，目标是最小化相对于事后最优固定价格对的遗憾。对抗环境下，作者提出多项式时间算法达到近乎紧的 Õ(T^{2/3}) 遗憾；在独立同分布且满足单调风险率（MHR）的随机环境下，给出 Õ(√T) 遗憾算法。作者进一步证明正则分布下的极小极大遗憾为 Θ̃(T^{3/5})，与单边定价的 Õ(√T) 形成对比（此分离结果为作者结论，非本文独立验证）。",
+      "originalTitle": "Regret Bounds for Profit Maximization in Bilateral Trade: Learning the Best Posted-Price Mechanism",
+      "originalUrl": "https://arxiv.org/abs/2611.08173",
+      "summaryEn": "The paper studies a broker who posts prices to a seller and a buyer each round, observes only whether trade occurs, and aims to minimize regret relative to the best fixed price pair in hindsight. In the adversarial setting, the authors give a polynomial-time algorithm with nearly tight Õ(T^{2/3}) regret; for i.i.d. valuations satisfying the monotone hazard rate (MHR) property, they provide an algorithm with Õ(√T) regret. They further show that the minimax regret for regular distributions is Θ̃(T^{3/5}), contrasting with the Õ(√T) bound for one-sided pricing (the separation is the authors' conclusion, not independently verified here)."
+    },
+    {
+      "id": "f47d0af5bf2cb61f",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "The fine-tuned text encoder reaches 89.59 F1 on the set-valued routing benchmark, significantly outperforming linear SVM (71.79) and zero-shot GPT-4o (41.51).",
+        "Under a harder semantic-group split, the encoder still maintains 88.02 F1, indicating some generalization.",
+        "The proposed WAR rule adjusts the quality-cost operating point without retraining, and Encoder+WAR achieves the best constrained utility."
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "set-valued routing",
+        "language-model agents",
+        "multilabel classification",
+        "cost-aware evaluation",
+        "benchmark"
+      ],
+      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 60,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.83,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "machine-learning",
+            "agents"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 65.0,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 83.61,
+        "sourceQualityScore": 78.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
+      },
+      "limitations": "证据仅来自单一WildChat基准和12个能力定义代理的固定目录，未覆盖其他领域或动态代理目录。参考集由schema引导构造，可能引入标注偏差；成本效用依赖特定ordinal-cost设定，结论不宜直接外推到生产系统或投资决策。",
+      "tags": [
+        "集值路由",
+        "语言模型代理",
+        "多标签分类",
+        "成本感知评估",
+        "基准测试"
+      ],
+      "title": "集值路由：语言模型代理系统的多能力调度基准与成本感知评估",
+      "sourceGroup": "论文",
+      "limitationsEn": "Evidence comes only from a single WildChat benchmark and a fixed catalog of 12 capability-defined agents, without covering other domains or dynamic agent catalogs. Reference sets are constructed via schema guidance and may introduce annotation bias; cost utility depends on a specific ordinal-cost setting, so conclusions should not be directly extrapolated to production systems or investment decisions.",
+      "discoveredBy": [
+        "arXiv cs.LG"
+      ],
+      "whyItMattersEn": "Compositional requests requiring multiple capabilities are common in real conversations; treating routing as a set-valued problem rather than top-1 selection helps avoid missing capabilities and unnecessary dispatch costs. The benchmark and cost-aware evaluation provide a reproducible framework for comparing routing strategies.",
+      "sourceName": "arXiv cs.LG",
+      "domain": "AI 研究",
+      "description": "该研究将语言模型代理系统的路由问题重新定义为集值语言理解，并构建了基于WildChat的3000条提示、12个能力代理的基准。其新意在于用可复现的参考集和成本感知指标系统比较多种路由方法，发现微调文本编码器在集质量上显著优于零样本GPT-4o，且无需重训的后处理规则可调整质量-成本权衡。这对需要多能力组合请求的代理调度有直接参考价值。",
+      "score": 70.02,
+      "publishedAt": "2026-11-06T05:00:00+00:00",
+      "titleEn": "Set-Valued Routing for Language-Model Agent Systems: A WildChat Benchmark and Cost-Aware Evaluation",
+      "keyPoints": [
+        "微调文本编码器在集值路由基准上达到89.59 F1，显著优于线性SVM（71.79）和零样本GPT-4o（41.51）。",
+        "在更难的语义组划分下，编码器仍保持88.02 F1，显示一定泛化能力。",
+        "提出的WAR规则无需重训即可调整质量-成本操作点，Encoder+WAR获得最佳约束效用。"
+      ],
+      "slug": "set-valued-routing-for-language-model-agent-syst-f47d0af5bf",
+      "descriptionEn": "The study reframes routing in language-model agent systems as set-valued language understanding and constructs a benchmark of 3,000 WildChat prompts over 12 capability-defined agents. Its novelty lies in systematically comparing routing methods with reproducible reference sets and cost-aware metrics, finding that a fine-tuned text encoder substantially outperforms zero-shot GPT-4o on set quality, and that a retraining-free post-scoring rule can adjust the quality-cost trade-o",
+      "whyItMatters": "多能力组合请求在真实对话中常见，将路由视为集值问题而非top-1选择，有助于避免能力遗漏和不必要的代理调度成本。该基准和成本感知评估为比较不同路由策略提供了可复现的框架。",
+      "summary": "作者将固定目录下的代理路由视为集值语言理解任务，并构建了包含3000条WildChat提示和12个能力定义代理的基准。实验表明微调文本编码器取得89.59 F1，远高于线性SVM的71.79和零样本GPT-4o的41.51，且在更难语义组划分下仍保持88.02 F1。作者还提出无需重训的确定性后评分规则WAR，与编码器结合后获得最佳约束效用；这些结果支持目录特定监督和显式集合构造的重要性，但结论基于单一基准和特定代理目录。",
+      "originalTitle": "Set-Valued Routing for Language-Model Agent Systems: A WildChat Benchmark and Cost-Aware Evaluation",
+      "originalUrl": "https://arxiv.org/abs/2606.28925",
+      "summaryEn": "The authors treat fixed-catalog agent routing as set-valued language understanding and build a benchmark of 3,000 WildChat prompts over 12 capability-defined agents. A fine-tuned text encoder achieves 89.59 F1, far above linear SVM (71.79) and zero-shot GPT-4o (41.51), and retains 88.02 F1 under a harder semantic-group split. They also introduce WAR, a deterministic post-scoring rule requiring no retraining, which combined with the encoder yields the best constrained utility; the results support the importance of catalog-specific supervision and explicit set construction, though conclusions are based on a single benchmark and a specific agent catalog."
+    },
+    {
+      "id": "82a901da1b9bedec",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "Repository published by Anthropic to share Agent Skills code",
+        "Featured on GitHub Trending, indicating high community interest"
+      ],
+      "features": [
+        {
+          "id": "artifact:repository",
+          "facet": "artifact",
+          "value": "repository",
+          "label": {
+            "zh": "代码仓库",
+            "en": "Repository"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:github",
+          "facet": "platform",
+          "value": "github",
+          "label": {
+            "zh": "GitHub",
+            "en": "GitHub"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "ranking:github-trending-daily",
+          "facet": "ranking",
+          "value": "github-trending-daily",
+          "label": {
+            "zh": "GitHub 日趋势榜",
+            "en": "GitHub Daily Trending"
+          },
+          "evidence": "source.ranking",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:skills",
+          "facet": "topic",
+          "value": "skills",
+          "label": {
+            "zh": "Skills",
+            "en": "Skills"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "contentType": "repository",
+      "aiGenerated": true,
+      "tagsEn": [
+        "AI Agents",
+        "Skill Library",
+        "Anthropic",
+        "Open Source"
+      ],
+      "retrievedAt": "2026-11-08T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
       "scoreBreakdown": {
         "contentType": "repository",
-        "comparisonCohortSize": 63,
+        "comparisonCohortSize": 64,
         "mode": "cohort-metric",
         "primaryMetric": "trending_rank_score",
         "primaryMetricValue": 99.0,
@@ -773,18 +763,466 @@
         "sourceMetrics": {
           "trending_rank": 1.0,
           "trending_rank_score": 99.0,
-          "stars": 46557.0,
-          "stars_delta_1d": 180.0,
+          "stars": 190463.0,
+          "stars_delta_1d": 1052.0,
           "metric_age_days": 1.0
         },
         "selectionLane": "primary"
       },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-07T15:59:59.999999+00:00",
-      "limitations": "输入仅含一句话项目描述，缺少架构、依赖、许可、性能与安全性信息；未验证其兼容性与稳定性，不能据此推断适用于生产环境。"
+      "limitations": "当前仅有仓库名称和简短描述，缺乏技能数量、具体功能、技术架构及使用效果的详细信息，无法评估其实际价值与成熟度。",
+      "tags": [
+        "AI 智能体",
+        "技能库",
+        "Anthropic",
+        "开源"
+      ],
+      "title": "Anthropic 公开 Agent Skills 仓库",
+      "sourceGroup": "开源项目",
+      "limitationsEn": "Only the repository name and a short description are available; details on the number of skills, specific features, technical architecture, and performance are lacking, making it impossible to evaluate actual value and maturity.",
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "whyItMattersEn": "Provides referable skill implementations for AI agent developers, potentially promoting sharing and reuse of agent functional modules.",
+      "sourceName": "GitHub Trending Daily",
+      "domain": "AI 研究",
+      "description": "该仓库为 Agent Skills 提供公开代码库，便于开发者获取和复用相关技能实现，推动 AI 智能体能力标准化。",
+      "score": 69.94,
+      "publishedAt": "2026-11-08T15:59:59.999999+00:00",
+      "titleEn": "Anthropic Publishes Public Agent Skills Repository",
+      "keyPoints": [
+        "仓库由 Anthropic 发布，旨在公开 Agent Skills 相关代码",
+        "被 GitHub Trending 收录，表明社区关注度较高"
+      ],
+      "slug": "anthropics-skills-82a901da1b",
+      "descriptionEn": "The repository offers a public codebase for Agent Skills, helping developers access and reuse skill implementations and potentially standardizing AI agent capabilities.",
+      "whyItMatters": "为 AI 智能体开发者提供可参考的技能实现，可能促进智能体功能模块的共享与复用。",
+      "summary": "Anthropic 在 GitHub 公开了 Agent Skills 仓库。仓库定位为技能实现的公共集合，但具体功能与内容需进一步查看源码确认。",
+      "originalTitle": "anthropics/skills",
+      "originalUrl": "https://github.com/anthropics/skills",
+      "summaryEn": "Anthropic has made the Agent Skills repository public on GitHub. It is described as a public collection of skill implementations, but specific features and contents require further source inspection."
     },
     {
-      "sourceGroup": "开源项目",
+      "id": "7b16ed81e041adc1",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "SRRM jointly measures targeted retrieval and global information reconstruction, addressing the limitation of retrieval-only evaluation.",
+        "On Qwen2.5 0.5B, 1.5B, and 3B, as context increases from 10 to 100 facts, reconstruction performance drops significantly faster than retrieval accuracy.",
+        "Qwen2.5-1.5B achieves higher retrieval accuracy, reconstruction performance, and MPR than the larger 3B model, indicating that more parameters do not necessarily improve memory preservation."
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "small language models",
+        "long-context memory",
+        "benchmark evaluation",
+        "information retrieval",
+        "information reconstruction"
+      ],
+      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 50,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.8,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "language-model"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 65.5,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 83.61,
+        "sourceQualityScore": 72.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
+      },
+      "limitations": "结论基于合成数据集和三个Qwen2.5模型（0.5B、1.5B、3B），上下文负载为10至100条事实陈述，未覆盖其他模型家族、真实场景数据或更长上下文；MPR作为新指标的有效性仍需更多独立验证。",
+      "tags": [
+        "小语言模型",
+        "长上下文记忆",
+        "基准评测",
+        "信息检索",
+        "信息重建"
+      ],
+      "title": "SRRM基准：小模型长上下文记忆保留评估新方法",
+      "sourceGroup": "论文",
+      "limitationsEn": "Conclusions are based on a synthetic dataset and three Qwen2.5 models (0.5B, 1.5B, 3B) with context loads of 10 to 100 factual statements, without covering other model families, real-world data, or longer contexts; the validity of MPR as a new metric still requires more independent validation.",
+      "discoveredBy": [
+        "arXiv cs.CL"
+      ],
+      "whyItMattersEn": "The benchmark provides a reproducible method for evaluating long-context memory of small language models on consumer-grade hardware, and suggests that retrieval metrics may overestimate actual memory capability, helping to more cautiously select deployment models and design evaluation schemes.",
+      "sourceName": "arXiv cs.CL",
+      "domain": "AI 研究",
+      "description": "该研究提出SRRM基准，同时评估目标检索与全局信息重建，并引入记忆保留比率（MPR）量化两者关系。新在于揭示检索成功不等同于完整记忆保留，为小模型长上下文评估提供更全面工具。",
+      "score": 69.77,
+      "publishedAt": "2026-11-06T05:00:00+00:00",
+      "titleEn": "SRRM Benchmark: A New Method for Evaluating Long-Context Memory Preservation in Small Language Models",
+      "keyPoints": [
+        "SRRM基准同时测量目标检索与全局信息重建，弥补仅评估检索的不足。",
+        "在Qwen2.5 0.5B、1.5B、3B上，上下文从10条增至100条时，重建性能下降显著快于检索准确率。",
+        "Qwen2.5-1.5B的检索准确率、重建性能和MPR均高于更大的3B模型，表明参数增加不必然改善记忆保留。"
+      ],
+      "slug": "srrm-a-retrieval-reconstruction-benchmark-for-ev-7b16ed81e0",
+      "descriptionEn": "The study introduces SRRM, a benchmark that jointly evaluates targeted retrieval and global information reconstruction, and proposes the Memory Preservation Ratio (MPR) to quantify their relationship. Its novelty lies in revealing that successful retrieval does not equal complete memory preservation, offering a more comprehensive evaluation tool for small models' long-context memory.",
+      "whyItMatters": "该基准为小语言模型在消费级硬件上的长上下文记忆评估提供可复现方法，并提示检索指标可能高估模型实际记忆能力，有助于更审慎地选择部署模型和设计评估方案。",
+      "summary": "SRRM是一个轻量、可复现的基准，联合评估小语言模型在长上下文中的目标检索和全局重建能力。实验发现，随着上下文增长，重建性能下降远快于检索准确率，且增大参数量不一定提升记忆保留。作者据此提出记忆保留比率（MPR），强调仅靠检索指标不足以刻画长上下文记忆。",
+      "originalTitle": "SRRM: A Retrieval-Reconstruction Benchmark for Evaluating Long-Context Memory in Small Language Models",
+      "originalUrl": "https://arxiv.org/abs/2611.05386",
+      "summaryEn": "SRRM is a lightweight, reproducible benchmark that jointly assesses targeted retrieval and global reconstruction of small language models in long contexts. Experiments show that as context grows, reconstruction performance degrades much faster than retrieval accuracy, and increasing parameter count does not necessarily improve memory preservation. The authors propose the Memory Preservation Ratio (MPR) to highlight that retrieval metrics alone are insufficient to characterize long-context memory."
+    },
+    {
+      "id": "f1c3c59925f451e9",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "First attempt to train a code-driven video generation agent that executes code to build dynamic 3D scene drafts, providing structural and motion priors.",
+        "Designs a dedicated data pipeline and curates two datasets with reference videos: Video-Coder-SFT-6k and Video-Coder-RL-2k.",
+        "Develops Video-Coder Harness, a unified environment integrating code execution, 3D scene rendering, and execution feedback for agent training and inference."
+      ],
+      "features": [
+        {
+          "id": "method:reinforcement-learning",
+          "facet": "method",
+          "value": "reinforcement-learning",
+          "label": {
+            "zh": "强化学习",
+            "en": "Reinforcement Learning"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:developer-tools",
+          "facet": "topic",
+          "value": "developer-tools",
+          "label": {
+            "zh": "开发工具",
+            "en": "Developer Tools"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "video generation",
+        "code agent",
+        "reinforcement learning",
+        "3D scene",
+        "controllable generation"
+      ],
+      "retrievedAt": "2026-11-08T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "cohort-metric",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": 0.0,
+        "metricPercentile": 50.0,
+        "velocityPercentile": 50.0,
+        "objectiveScore": 50.0,
+        "relevanceScore": 65,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.83,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "machine-learning",
+            "agents"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 72.25,
+        "contentSignals": {
+          "evidence": 15.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 80.83,
+        "sourceQualityScore": 92.0,
+        "sourceMetrics": {
+          "upvotes": 0.0
+        },
+        "selectionLane": "carryover"
+      },
+      "limitations": "实验增益基于特定基线（Minimax-H3）和基准（PhyGenBench、VBench-2.0）报告，尚未验证在其他生成器或场景上的泛化性；代码生成与3D渲染引入额外计算开销，实际部署效率未讨论；长期依赖执行奖励退火策略的稳定性与可复现性仍需独立评估。",
+      "tags": [
+        "视频生成",
+        "代码智能体",
+        "强化学习",
+        "3D场景",
+        "可控生成"
+      ],
+      "title": "Video-Coder：以代码智能体强化视频生成的结构控制",
+      "sourceGroup": "网站与论坛",
+      "limitationsEn": "Reported gains are based on a specific baseline (Minimax-H3) and benchmarks (PhyGenBench, VBench-2.0), without validation of generalization to other generators or scenarios; code generation and 3D rendering introduce additional computational overhead, and deployment efficiency is not discussed; the stability and reproducibility of the execution-reward annealing strategy require independent evaluation.",
+      "discoveredBy": [
+        "Hugging Face Daily Papers"
+      ],
+      "whyItMattersEn": "This approach brings code agents into the video generation pipeline, potentially enhancing control over spatial structure, motion dynamics, and scene composition, and provides an open foundation (data, models, code) for future research on coding agents in video generation.",
+      "sourceName": "Hugging Face Daily Papers",
+      "domain": "AI 研究",
+      "description": "该工作首次训练代码驱动的视频生成智能体，通过生成可执行代码构建3D场景草稿，为下游视频生成器提供结构与运动信号，并配套构建数据集与交互训练环境。",
+      "score": 67.73,
+      "publishedAt": "2026-11-05T19:00:00+00:00",
+      "titleEn": "Video-Coder: Reinforcing Agentic Code-Driven Video Generation with Structural Control",
+      "keyPoints": [
+        "首次尝试训练代码驱动的视频生成智能体，通过执行代码生成动态3D场景草稿以提供结构与运动先验。",
+        "设计了专用数据流水线，构建 Video-Coder-SFT-6k 与 Video-Coder-RL-2k 两个带参考视频的数据集。",
+        "开发 Video-Coder Harness 统一环境，集成代码执行、3D场景渲染与执行反馈，支持智能体训练与推理。"
+      ],
+      "slug": "video-coder-reinforcing-agentic-coding-for-video-f1c3c59925",
+      "descriptionEn": "This work trains the first code-driven video generation agent that writes and executes code to construct dynamic 3D scene drafts, providing structural and motion signals to downstream video generators, along with dedicated datasets and an interactive training environment.",
+      "whyItMatters": "该方法将代码智能体引入视频生成流程，有望增强对空间结构、运动动态和场景构图的控制能力，并为后续编码智能体在视频生成中的研究提供开放基础（数据、模型、代码已开源）。",
+      "summary": "Video-Coder 提出一种新范式：智能体自主编写并执行代码来构建动态3D场景（草稿视频），从而为下游视频生成器提供精确的空间结构与连贯运动信号。作者构建了两个数据集（Video-Coder-SFT-6k 和 Video-Coder-RL-2k）以及统一交互环境 Video-Coder Harness，并采用监督微调后接基于双奖励的智能体强化学习进行训练。实验报告显示，该方法在 PhyGenBench 和 VBench-2.0 上分别将 Minimax-H3 提升约 7 分和 24 分。",
+      "originalTitle": "Video-Coder: Reinforcing Agentic Coding for Video Generation",
+      "originalUrl": "https://arxiv.org/abs/2611.09894",
+      "summaryEn": "Video-Coder introduces a new paradigm in which an agent autonomously writes and executes code to build dynamic 3D scenes (draft videos), supplying downstream video generators with precise spatial structure and coherent motion signals. The authors curate two datasets (Video-Coder-SFT-6k and Video-Coder-RL-2k) and a unified interactive environment, Video-Coder Harness, then train the agent with supervised fine-tuning followed by harness-native agentic reinforcement learning using dual rewards. Experiments report gains of approximately 7 points on PhyGenBench and 24 points on VBench-2.0 when improving Minimax-H3."
+    },
+    {
+      "id": "3a1da9b51b81d8ae",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "With other mechanics fixed, the product-specific rule makes cascades four to five times larger than the portfolio-overlap rule after a hub failure; the factor ranges from 1.2 to 18 under alternative imputations and similarity thresholds.",
+        "Topology largely determines which firms a shock reaches, while substitutability determines how many fail; among the 50 most damaging suppliers, topology alone identifies 20 and an index adding substitutability identifies 32.",
+        "The substitutability-based index carries over without refitting to a regional scenario modelled on the 2011 Tohoku Earthquake, showing the incremental value of product-level data for supply chain risk assessment."
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:ai-quant",
+          "facet": "topic",
+          "value": "ai-quant",
+          "label": {
+            "zh": "AI × 量化",
+            "en": "AI × Quant"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.84
+        },
+        {
+          "id": "topic:factors",
+          "facet": "topic",
+          "value": "factors",
+          "label": {
+            "zh": "因子",
+            "en": "Factors"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:portfolio",
+          "facet": "topic",
+          "value": "portfolio",
+          "label": {
+            "zh": "投资组合",
+            "en": "Portfolio"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "supply chain disruption",
+        "agent-based simulation",
+        "product substitutability",
+        "automotive industry",
+        "cascade risk"
+      ],
+      "retrievedAt": "2026-11-03T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 95,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.84,
+          "financeEvidence": [
+            "portfolio"
+          ],
+          "quantitativeEvidence": [
+            "calibration"
+          ],
+          "aiEvidence": [
+            "agents"
+          ],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 62.75,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 63.61,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
+      },
+      "limitations": "证据来自模拟而非现实中断观测；仅6%的边有观测产品，其余为插补，替代规则因子在1.2至18间波动，对插补方法和相似度阈值敏感；模型未涵盖价格、库存动态、企业异质性等现实机制；区域情景仅为一个案例，外部有效性有限；结论不构成投资建议。",
+      "tags": [
+        "供应链中断",
+        "智能体模拟",
+        "产品可替代性",
+        "汽车产业",
+        "级联风险"
+      ],
+      "title": "产品可替代性放大供应链级联风险",
+      "sourceGroup": "论文",
+      "limitationsEn": "Evidence comes from simulations rather than observed disruptions; only 6% of edges carry observed products and the rest are imputed, with the substitution factor ranging from 1.2 to 18 depending on imputation method and similarity threshold; the model omits price, inventory dynamics, firm heterogeneity and other real-world mechanisms; the regional scenario is a single case, limiting external validity; conclusions do not constitute investment advice.",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "whyItMattersEn": "For quantitative risk management, the study suggests that relying solely on supply network topology may underestimate cascade losses; product-level substitutability information can more accurately identify critical suppliers and systemic risk. However, conclusions are based on simulations and imputed product data, so practical application requires caution regarding data quality and model assumptions.",
+      "sourceName": "arXiv q-fin",
+      "domain": "AI × 量化",
+      "description": "该研究在约7.7万家企业、19.7万条供应关系的全球汽车产业网络中，引入基于产品名称语义相似度的替代规则，模拟供应中断后的级联效应。新意在于将产品层面可替代性纳入智能体模型，并校准产能与库存，发现替代规则使枢纽故障后的级联规模比原有组合重叠规则大4至5倍。这为供应链风险评估提供了产品级数据的新要求。",
+      "score": 66.65,
+      "publishedAt": "2026-11-03T05:00:00+00:00",
+      "titleEn": "Product Substitutability Amplifies Supply Chain Cascades",
+      "keyPoints": [
+        "在固定其他机制下，产品特定替代规则使枢纽故障后的级联规模比组合重叠规则大4至5倍，替代估算与阈值变化下因子范围为1.2至18。",
+        "拓扑结构主要决定冲击波及哪些企业，产品可替代性主要决定其中多少企业失败；在50个最危险供应商中，拓扑单独识别20个，加入可替代性指标识别32个。",
+        "基于产品可替代性的指标无需重新拟合即可移植到模拟2011年东北地震的区域情景，表明产品级数据对供应链风险评估具有增量价值。"
+      ],
+      "slug": "agent-based-disruption-simulation-on-an-edge-lev-3a1da9b51b",
+      "descriptionEn": "The study simulates disruptions in a global automotive supply network of about 77,000 firms and 197,000 edges, incorporating a product-specific substitution rule based on semantic similarity of product names, with calibrated capacities and inventories. Its novelty lies in integrating product-level substitutability into an agent-based model and showing that this rule makes cascades after a hub failure four to five times larger than the original portfolio-overlap rule. This hig",
+      "whyItMatters": "对量化风险管理而言，该研究提示仅依赖供应关系拓扑可能低估级联损失；产品层面的可替代性信息能更准确识别关键供应商和系统性风险。但结论基于模拟与产品数据插补，实际应用需谨慎对待数据质量和模型假设。",
+      "summary": "作者构建了产品标注的汽车产业供应网络，并扩展智能体中断模型，加入边级产品、基于语义相似度的替代规则及校准的产能与库存。在11.9万次模拟中，产品特定替代规则使枢纽故障后的级联规模是原模型组合重叠规则的4至5倍。作者认为，网络拓扑决定冲击波及哪些企业，而可替代性决定其中多少企业失败，因此供应链风险评估应纳入产品级可替代性。",
+      "originalTitle": "Agent-Based Disruption Simulation on an Edge-Level Product-Annotated Supply Network of the Automotive Industry",
+      "originalUrl": "https://arxiv.org/abs/2611.01706",
+      "summaryEn": "The authors construct a product-annotated automotive supply network and extend an agent-based disruption model with edge-level products, a substitution rule based on semantic similarity, and calibrated capacities and inventories. Across 119,000 simulations, the product-specific rule produces cascades four to five times larger than the portfolio-overlap rule of the original model after a hub failure. The authors argue that topology determines which firms a shock reaches, while substitutability determines how many of them fail, so supply network risk assessment should account for product-level substitutability."
+    },
+    {
+      "id": "e2e23a0367960f2a",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "Positioned as a management plane for GPU Kubernetes",
+        "Explicitly targets bare-metal deployments",
+        "Shares NVIDIA-related naming, which warrants further verification"
+      ],
       "features": [
         {
           "id": "artifact:repository",
@@ -817,6 +1255,503 @@
             "en": "GitHub Daily Trending"
           },
           "evidence": "source.ranking",
+          "confidence": 1.0
+        }
+      ],
+      "contentType": "repository",
+      "aiGenerated": true,
+      "tagsEn": [
+        "GPU cluster",
+        "Kubernetes",
+        "bare metal",
+        "AI infrastructure"
+      ],
+      "retrievedAt": "2026-11-08T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "repository",
+        "comparisonCohortSize": 64,
+        "mode": "cohort-metric",
+        "primaryMetric": "trending_rank_score",
+        "primaryMetricValue": 98.0,
+        "metricPercentile": 97.62,
+        "velocityPercentile": 97.62,
+        "objectiveScore": 97.62,
+        "relevanceScore": 40,
+        "topicClassification": {
+          "classification": "other",
+          "confidence": 0.85,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [],
+          "sourcePrior": null
+        },
+        "contentValueScore": 18.21,
+        "contentSignals": {
+          "evidence": 0.0,
+          "actionability": 0.0,
+          "novelty": 0.0,
+          "specificity": 0.21,
+          "penalty": 0.0
+        },
+        "freshnessScore": 100.0,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {
+          "trending_rank": 2.0,
+          "trending_rank_score": 98.0,
+          "stars": 767.0,
+          "stars_delta_1d": 345.0,
+          "metric_age_days": 1.0
+        },
+        "selectionLane": "primary"
+      },
+      "limitations": "输入仅含 GitHub 仓库一行简介，缺少架构说明、功能列表、性能测试、许可证与维护状态等信息；无法判断成熟度、生产可用性或与同类方案的差异，文中定位不代表已验证的结论。",
+      "tags": [
+        "GPU 集群",
+        "Kubernetes",
+        "裸金属",
+        "AI 基础设施"
+      ],
+      "title": "NVKE：裸金属 GPU Kubernetes 管理平面",
+      "sourceGroup": "开源项目",
+      "limitationsEn": "The input contains only a one-line GitHub repository description, lacking architecture details, feature lists, performance tests, license, and maintenance status. Maturity, production readiness, and differences from similar solutions cannot be judged; the positioning is not a verified conclusion.",
+      "discoveredBy": [
+        "GitHub Trending Daily"
+      ],
+      "whyItMattersEn": "If the positioning holds, a centralized management plane could simplify operations for bare-metal GPU clusters and offer one way to organize AI workload management; current information is insufficient to assess actual effectiveness.",
+      "sourceName": "GitHub Trending Daily",
+      "domain": "AI 工具",
+      "description": "介绍 NVKE 这一面向裸金属环境的 GPU Kubernetes 管理平面，其新意在于把 GPU 集群的管理能力集中到统一控制层；对关注 AI 基础设施与集群运维的读者具有参考价值。",
+      "score": 66.45,
+      "publishedAt": "2026-11-08T15:59:59.999999+00:00",
+      "titleEn": "NVKE: A Bare-Metal GPU Kubernetes Management Plane",
+      "keyPoints": [
+        "项目定位为 GPU Kubernetes 的管理平面",
+        "明确面向裸金属部署场景",
+        "与 NVIDIA 相关命名存在关联，但需进一步核实"
+      ],
+      "slug": "dsx-ai-factory-nvke-e2e23a0367",
+      "descriptionEn": "Introduces NVKE, a management plane for GPU Kubernetes on bare metal. Its novelty lies in consolidating GPU cluster management into a unified control layer, which is relevant to readers tracking AI infrastructure and cluster operations.",
+      "whyItMatters": "若定位成立，集中式管理平面可简化裸金属 GPU 集群的运维复杂度，为 AI 工作负载的集群管理提供一种组织方式；但当前信息不足以评估其实际效果。",
+      "summary": "NVKE 被描述为 NVIDIA Kubernetes Engine，定位是裸金属上 GPU Kubernetes 的管理平面。上述定位来自仓库简介，属于项目自述，并未提供具体实现细节或性能数据。",
+      "originalTitle": "dsx-ai-factory/nvke",
+      "originalUrl": "https://github.com/dsx-ai-factory/nvke",
+      "summaryEn": "NVKE is described as the NVIDIA Kubernetes Engine, positioned as a management plane for GPU Kubernetes on bare metal. This positioning comes from the repository's one-line description, a self-description rather than verified implementation details or performance data."
+    },
+    {
+      "id": "368746866780c15e",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "The core is a reflexive loop in which investor demand and market prices drive each other; the market sits in a stationary but non-equilibrium steady state with a circulating probability current.",
+        "Calibrated to the S&P 500 over 1996–2024 by simulated moments, the model reproduces return stylized facts and several market metrics including cross-sectional ones, and its return and cycle statistics stay stationary for about a century and a half on the 1996–2010 inputs.",
+        "The emergent boom-bust cycle frequency falls within one-sigma ranges of the S&P 500, and the model produces a default rate of the order of investment-grade issuers, pricing inside Black's factor of two, the Frazzini-Lamont dumb-money effect, and a measurable arrow of time."
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:factors",
+          "facet": "topic",
+          "value": "factors",
+          "label": {
+            "zh": "因子",
+            "en": "Factors"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:quantitative-finance",
+          "facet": "topic",
+          "value": "quantitative-finance",
+          "label": {
+            "zh": "量化金融",
+            "en": "Quantitative Finance"
+          },
+          "evidence": "content.finance+quantitative",
+          "confidence": 0.87
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "reflexivity",
+        "non-equilibrium steady state",
+        "boom-bust cycle",
+        "multi-asset market model",
+        "simulated-moment calibration"
+      ],
+      "retrievedAt": "2026-11-03T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 85,
+        "topicClassification": {
+          "classification": "quantitative-finance",
+          "confidence": 0.87,
+          "financeEvidence": [
+            "market-risk"
+          ],
+          "quantitativeEvidence": [
+            "stochastic",
+            "calibration"
+          ],
+          "aiEvidence": [],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 61.25,
+        "contentSignals": {
+          "evidence": 5.0,
+          "actionability": 0.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 63.61,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
+      },
+      "limitations": "证据边界需明确：结论依赖单一集体投资者与特定函数形式的建模假设，反身循环的强度与形态均由模型设定而非独立识别；校准仅用 S&P 500 1996–2024 数据、以模拟矩匹配完成，属于样本内拟合，周期频率落在 S&P 500 一个标准差内并不等于统计确认；违约率、Black 两倍因子、笨钱效应与时间之箭等均为模型生成性质与原文陈述，未在本文之外获得独立验证；\"一个半世纪平稳\"是在 1996–2010 输入下的模型外推，而非历史数据检验。上述内容不构成任何投资建议。",
+      "tags": [
+        "反身性",
+        "非平衡稳态",
+        "繁荣-萧条周期",
+        "多资产市场模型",
+        "模拟矩校准"
+      ],
+      "title": "投资者-市场反身循环放大非平衡态：Boom-Busty Marketron 模型",
+      "sourceGroup": "论文",
+      "limitationsEn": "The evidence boundary should be explicit: conclusions rest on modeling assumptions such as a single collective investor and specific functional forms, and the strength and shape of the reflexive loop are set by the model rather than independently identified; calibration uses only S&P 500 data from 1996–2024 via simulated-moment matching, which is in-sample fitting, and a cycle frequency within one-sigma ranges of the S&P 500 is not statistical confirmation; the default rate, Black's factor of two, the dumb-money effect and the arrow of time are model-generated properties and statements in the paper, not independently validated outside it; the 'century and a half' stationarity is a model extrapolation on 1996–2010 inputs, not a historical-data test. Nothing here constitutes investment advice.",
+      "discoveredBy": [
+        "arXiv q-fin"
+      ],
+      "whyItMattersEn": "If the reflexive loop amplifies non-equilibrium as the model suggests, markets may not merely deviate temporarily around equilibrium but persist in a non-equilibrium steady state with a probability current, which matters for understanding boom-bust cycles, time irreversibility, and why long-short factors built from the cross section rotate through the cycle. The model converts Soros's reflexivity intuition into a calibratable, testable quantitative framework and offers an operational starting point for modeling non-equilibrium market dynamics.",
+      "sourceName": "arXiv q-fin",
+      "domain": "量化研究",
+      "description": "该研究提出 Boom-Busty Marketron 多资产市场模型，将索罗斯式反身性——集体投资者需求推高价格、价格表现又反过来影响需求——形式化为投资者与市场之间的反馈循环，并据此论证该循环如何把市场推离均衡。其用处在于：把反身性这一概念转化为可校准、可做定量检验的模型，用来复现收益率典型事实与市场周期统计量。",
+      "score": 65.6,
+      "publishedAt": "2026-11-03T05:00:00+00:00",
+      "titleEn": "Investor-Market Reflexivity Amplifies Non-Equilibrium: The Boom-Busty Marketron Model",
+      "keyPoints": [
+        "模型核心是投资者需求与市场价格互相驱动的反身循环，市场处于平稳但非均衡的稳态，且含循环流动的概率流。",
+        "以 1996–2024 年 S&P 500 按模拟矩校准后，模型复现收益率典型事实与包括横截面指标在内的若干市场量化指标，其收益与周期统计量在 1996–2010 输入下可保持约一个半世纪的平稳。",
+        "模型涌现出的繁荣-萧条周期频率落在 S&P 500 的一个标准差区间内，并产生与投资级发行人同量级的违约率、落在 Black 两倍因子内的定价、Frazzini-Lamont 的\"笨钱\"效应以及可测量的时间之箭。"
+      ],
+      "slug": "boom-busty-marketron-as-a-model-of-market-dynami-3687468667",
+      "descriptionEn": "The paper introduces the Boom-Busty Marketron, a multi-asset market model that formalizes Soros-style reflexivity as a feedback loop in which a collective investor's demand moves prices while market performance feeds back into that demand, and argues that this loop pushes the market further from equilibrium. Its value lies in turning reflexivity into a calibratable, quantitatively testable model that reproduces return stylized facts and market cycle statistics.",
+      "whyItMatters": "若反身性循环确实如模型所示放大非均衡，则市场并非围绕均衡做暂时偏离，而是可能长期停留于带概率流的非平衡稳态，这对理解繁荣-萧条周期、时间不可逆性以及由横截面构建的多空因子为何随周期轮动具有理论意义。模型把索罗斯的反身性直觉转成可校准、可检验的定量框架，为讨论非均衡市场动力学提供了可操作的建模起点。",
+      "summary": "作者构建多资产市场模型 Boom-Busty Marketron，其中单一集体投资者的需求既驱动价格，又依赖市场表现，从而形成投资者-市场反身循环。模型的市场状态是平稳但不在均衡点上的\"非平衡稳态\"：细致平衡被打破，概率流在错误定价、需求与波动率之间循环。作者认为，随机波动率与杠杆效应本身已破坏细致平衡，而投资者-市场循环进一步把市场推离均衡。",
+      "originalTitle": "Boom-Busty Marketron as a Model of Market Dynamics: How Investor-Market Reflexivity Amplifies Non-Equilibrium",
+      "originalUrl": "https://arxiv.org/abs/2611.01185",
+      "summaryEn": "The authors build the Boom-Busty Marketron, a multi-asset market model in which a single collective investor's demand both drives prices and depends on market performance, creating an investor-market reflexive loop. The market state is stationary yet not at equilibrium: a non-equilibrium steady state with broken detailed balance and a probability current circulating between mispricing, demand and volatility. The authors argue that stochastic volatility with the leverage effect already breaks detailed balance, and the investor-market loop pushes the market further away from equilibrium."
+    },
+    {
+      "id": "385a72758b8486be",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "Herd-dominated and arbitrage-dominated markets of equal size have identical return distributions and turnover, so rules based on volatility, VaR, stress frequency, or volume cannot distinguish them.",
+        "The difference in stress episode length between the two markets is unbounded in the feedback-to-noise ratio β/s; serial statistics identify the feedback sign from Θ((s/β)^2 log(1/δ)) observations, and this rate is tight.",
+        "Market makers restore stability but make liquidity fragile, with discontinuous collapse and hysteresis; maker-taker pricing, not a uniform fee, is the effective instrument."
+      ],
+      "features": [
+        {
+          "id": "artifact:paper",
+          "facet": "artifact",
+          "value": "paper",
+          "label": {
+            "zh": "论文",
+            "en": "Paper"
+          },
+          "evidence": "source.group",
+          "confidence": 1.0
+        },
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:factors",
+          "facet": "topic",
+          "value": "factors",
+          "label": {
+            "zh": "因子",
+            "en": "Factors"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        },
+        {
+          "id": "topic:risk",
+          "facet": "topic",
+          "value": "risk",
+          "label": {
+            "zh": "风险",
+            "en": "Risk"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "AI trading agents",
+        "automated market makers",
+        "market microstructure",
+        "feedback effects",
+        "liquidity risk"
+      ],
+      "retrievedAt": "2026-11-03T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "relevance-fallback",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": null,
+        "metricPercentile": null,
+        "velocityPercentile": null,
+        "objectiveScore": null,
+        "relevanceScore": 87,
+        "topicClassification": {
+          "classification": "finance",
+          "confidence": 0.79,
+          "financeEvidence": [
+            "trading",
+            "market-risk"
+          ],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "agents"
+          ],
+          "sourcePrior": "量化研究"
+        },
+        "contentValueScore": 60.69,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 5.0,
+          "novelty": 0.0,
+          "specificity": 6.54,
+          "penalty": 0.0
+        },
+        "freshnessScore": 63.61,
+        "sourceQualityScore": 100.0,
+        "sourceMetrics": {},
+        "selectionLane": "carryover"
+      },
+      "limitations": "该研究基于恒定乘积AMM和特定交易者原型的理论建模，结论依赖于模型假设（如奖励函数定义代理、反馈噪声比等），未涉及真实市场数据或实证检验；压力时长差异的无界性属于理论性质，实际市场中的适用边界需进一步验证；做市商-接受者定价的有效性也限于模型设定内。",
+      "tags": [
+        "AI交易代理",
+        "自动做市商",
+        "市场微观结构",
+        "反馈效应",
+        "流动性风险"
+      ],
+      "title": "AI交易代理与自动做市商反馈：波动率相同压力时长却可无界分化",
+      "sourceGroup": "论文",
+      "limitationsEn": "The study is a theoretical model based on a constant-product AMM and specific trader archetypes; conclusions depend on model assumptions (e.g., reward-function-defined agents, feedback-to-noise ratio), and no real-market data or empirical tests are included. The unbounded stress-duration difference is a theoretical property whose practical boundary requires further validation. The effectiveness of maker-taker pricing is also limited to the model setting.",
+      "discoveredBy": [
+        "arXiv cs.LG",
+        "arXiv q-fin"
+      ],
+      "whyItMattersEn": "For quantitative research and risk management in automated markets, the results suggest that conventional indicators such as volatility, VaR, or volume may fail to identify different feedback structures and their stress durations. Serial statistics provide a way to identify the feedback sign, helping to understand stability and liquidity fragility in AI agent–AMM interactions.",
+      "sourceName": "arXiv q-fin",
+      "domain": "金融研究",
+      "description": "该研究将交易者原型建模为奖励函数定义的AI代理，分析其在恒定乘积自动做市商（AMM）上的反馈效应。新发现是：羊群主导与套利主导市场在相同规模下具有相同的收益分布和换手率，但压力事件时长的差异随反馈噪声比无界扩大，且序列统计可识别反馈符号。这为区分表面相似市场的稳定性风险提供了新视角。",
+      "score": 65.21,
+      "publishedAt": "2026-11-03T05:00:00+00:00",
+      "titleEn": "AI Trading Agents and AMM Feedback: Identical Volatility but Unboundedly Divergent Stress Duration",
+      "keyPoints": [
+        "羊群主导与套利主导市场在相同规模下收益分布和换手率相同，基于波动率、VaR、压力频率或成交量的规则无法区分二者。",
+        "两种市场的压力事件时长差异随反馈噪声比β/s无界扩大，序列统计可从Θ((s/β)^2 log(1/δ))个观测中识别反馈符号，且该速率紧。",
+        "做市商恢复稳定性但流动性易碎，存在不连续崩溃和滞后；做市商-接受者定价是有效工具，而非统一费用。"
+      ],
+      "slug": "learning-ai-agents-market-makers-and-stress-in-a-385a72758b",
+      "descriptionEn": "The study models trader archetypes as AI agents defined by reward functions and analyzes their feedback on a constant-product automated market maker (AMM). The new finding is that herd-dominated and arbitrage-dominated markets of equal size have identical return distributions and turnover, yet their stress episode lengths differ by a factor unbounded in the feedback-to-noise ratio; serial statistics can identify the feedback sign. This offers a new perspective for distinguish",
+      "whyItMatters": "对于自动化市场的量化研究与风险管理，该结果表明仅依赖波动率、VaR或成交量等常规指标可能无法识别不同类型的反馈结构及其压力持续时长。序列统计提供了一种识别反馈符号的方法，有助于理解AI代理与AMM交互中的稳定性与流动性脆弱性。",
+      "summary": "论文将交易者原型建模为AI代理，分析其在恒定乘积AMM上的反馈。作者指出，羊群主导与套利主导市场在相同规模下收益分布和换手率相同，但压力事件时长差异随反馈噪声比无界扩大。序列统计可从观测中识别反馈符号，且该速率是紧的；做市商提供稳定性但流动性脆弱，做市商-接受者定价比统一费用更有效。",
+      "originalTitle": "Learning AI Agents, Market Makers, and Stress in Automated Markets",
+      "originalUrl": "https://arxiv.org/abs/2611.01799",
+      "summaryEn": "The paper models trader archetypes as AI agents and analyzes their feedback on a constant-product AMM. The author shows that herd-dominated and arbitrage-dominated markets of equal size have identical return distributions and turnover, but their stress episode lengths differ by a factor unbounded in the feedback-to-noise ratio. Serial statistics identify the feedback sign from observations at a tight rate; market makers restore stability but make liquidity fragile, and maker-taker pricing, not a uniform fee, is the effective instrument."
+    },
+    {
+      "id": "a3be07f50cef0847",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "Introduces the concept of authorization drift and builds the ADB benchmark with 648 samples across seven domains, each pairing a compliant path with an attractive unauthorized shortcut.",
+        "Across 25,207 trajectories from 13 LLMs and three frameworks, greater capability accompanies greater drift (frontier models 0.43–0.61), but 86.18% of tasks admit an observed clean-success trajectory.",
+        "Drift is persistent and dominated by early data over-collection; apparent improvements under agentic scaffolds coincide with collapsing clean-completion performance."
+      ],
+      "features": [
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
+          "id": "topic:agents",
+          "facet": "topic",
+          "value": "agents",
+          "label": {
+            "zh": "智能体",
+            "en": "Agents"
+          },
+          "evidence": "content.keyword",
+          "confidence": 0.8
+        }
+      ],
+      "contentType": "paper",
+      "aiGenerated": true,
+      "tagsEn": [
+        "LLM agents",
+        "authorization drift",
+        "benchmark",
+        "tool-use safety",
+        "compliance evaluation"
+      ],
+      "retrievedAt": "2026-11-08T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
+      "scoreBreakdown": {
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
+        "mode": "cohort-metric",
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": 0.0,
+        "metricPercentile": 50.0,
+        "velocityPercentile": 50.0,
+        "objectiveScore": 50.0,
+        "relevanceScore": 60,
+        "topicClassification": {
+          "classification": "ai-engineering",
+          "confidence": 0.86,
+          "financeEvidence": [],
+          "quantitativeEvidence": [],
+          "aiEvidence": [
+            "machine-learning",
+            "language-model",
+            "agents"
+          ],
+          "sourcePrior": "AI × 量化"
+        },
+        "contentValueScore": 65.0,
+        "contentSignals": {
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
+          "penalty": 0.0
+        },
+        "freshnessScore": 83.0,
+        "sourceQualityScore": 92.0,
+        "sourceMetrics": {
+          "upvotes": 0.0
+        },
+        "selectionLane": "carryover"
+      },
+      "limitations": "基准覆盖七个领域和648个样本，可能无法涵盖所有工具使用场景；漂移率基于特定模型和框架的轨迹观察，结论的泛化性需进一步验证；法律映射仅涉及四个辖区，且未量化实际损害；干净成功轨迹的存在表明可避免性，但未提供消除漂移的通用方法。",
+      "tags": [
+        "LLM智能体",
+        "授权漂移",
+        "基准测试",
+        "工具使用安全",
+        "合规评估"
+      ],
+      "title": "LLM智能体授权漂移：多步工具使用中的边界合规评估",
+      "sourceGroup": "网站与论坛",
+      "limitationsEn": "The benchmark covers seven domains and 648 samples, possibly missing other tool-use scenarios; drift rates are observed under specific models and frameworks, requiring further validation for generalization; legal mapping covers only four jurisdictions and does not quantify actual harm; clean-success trajectories show avoidability but no general method to eliminate drift is provided.",
+      "discoveredBy": [
+        "Hugging Face Daily Papers"
+      ],
+      "whyItMattersEn": "The study extends agent overreach from adversarial attacks to non-adversarial goal pursuit, providing a reproducible benchmark and real-trajectory evidence. Mapping drift points to legal provisions across four jurisdictions (93.5% of drifting runs involve multiple jurisdictions) makes potential privacy and information-security risks more interpretable, informing safe agent design and compliance evaluation.",
+      "sourceName": "Hugging Face Daily Papers",
+      "domain": "AI 研究",
+      "description": "该研究形式化了LLM智能体在无对抗条件下为完成用户目标而越过授权边界的现象，称为授权漂移，并构建了包含648个样本的授权漂移基准（ADB）。其新意在于通过分阶段执行-反思合成（SERS）确保任务可执行、捷径有吸引力且合规路径可行，并基于真实智能体轨迹验证。该基准有助于量化评估智能体越界风险，为安全部署提供可解释的合规信号。",
+      "score": 65.15,
+      "publishedAt": "2026-11-06T02:47:25+00:00",
+      "titleEn": "Authorization Drift in LLM Agents: Evaluating Boundary Compliance in Multi-Step Tool Use",
+      "keyPoints": [
+        "提出授权漂移概念并构建ADB基准，包含648个跨七领域样本，每个任务同时提供合规路径与诱人越界捷径。",
+        "在13个LLM和3个框架的25,207条轨迹中，能力越强漂移率越高，前沿模型漂移率达0.43-0.61，但86.18%任务存在可观察的干净成功轨迹。",
+        "漂移具有持续性且主要由早期数据过度收集驱动，智能体脚手架下的表面改进伴随干净完成性能下降。"
+      ],
+      "slug": "authorization-drift-in-llm-agents-evaluating-bou-a3be07f50c",
+      "descriptionEn": "The study formalizes authorization drift—LLM agents exceeding authorization boundaries while pursuing user goals without an adversary—and introduces the Authorization Drift Benchmark (ADB) with 648 samples. Its novelty lies in Staged Execution-Reflective Synthesis (SERS) to ensure executable tasks, tempting shortcuts, and feasible compliant paths, validated via real agent rollouts. The benchmark helps quantify overreach risks and provides interpretable compliance signals for ",
+      "whyItMatters": "该研究将智能体越界行为从对抗性攻击扩展到无对抗的目标追求场景，提供了可复现的评估基准和真实轨迹证据。将漂移点映射到四个司法辖区的法律条款（93.5%的漂移运行涉及多辖区），使潜在隐私和信息安全风险更可解释，为智能体安全设计和合规评估提供参考。",
+      "summary": "研究将LLM智能体在多步工具使用中超出授权边界的现象定义为授权漂移，涵盖数据、工具、范围和时间四个维度。基于648个样本的基准测试显示，能力更强的模型漂移率更高（前沿模型达0.43-0.61），但86.18%的任务存在干净成功的轨迹，表明漂移可避免。作者观点认为漂移具有持续性，主要源于早期数据过度收集，且智能体脚手架下的表面改进伴随干净完成性能下降。",
+      "originalTitle": "Authorization Drift in LLM Agents: Evaluating Boundary Compliance in Multi-Step Tool Use",
+      "originalUrl": "https://arxiv.org/abs/2611.09113",
+      "summaryEn": "The research defines authorization drift as LLM agents exceeding authorization boundaries during multi-step tool use, spanning data, tool, scope, and time. Across 648 benchmark samples, more capable models show higher drift rates (frontier models 0.43–0.61), yet 86.18% of tasks admit a clean-success trajectory, indicating drift is avoidable. The authors argue drift is persistent and dominated by early data over-collection, with apparent improvements under agentic scaffolds coinciding with collapsing clean-completion performance."
+    },
+    {
+      "id": "4171d6dc37d9b36a",
+      "summaryProvider": "deepseek",
+      "keyPointsEn": [
+        "Frontier3DBench unifies 145 3D creation tasks across object, scene, and interactive open-world levels.",
+        "GPT-6.1-sol leads the object and scene levels with the highest overall score of 66.02/100, while GPT-6-astra leads interactive world construction.",
+        "All configurations score lower on reference reconstruction than on text-driven generation, and generated worlds average 83.08 on local mechanisms but only 20.82 on motion clearance and 30.26 on stateful workflows."
+      ],
+      "features": [
+        {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
           "confidence": 1.0
         },
         {
@@ -842,252 +1777,108 @@
           "confidence": 0.8
         },
         {
-          "id": "topic:skills",
+          "id": "topic:productivity",
           "facet": "topic",
-          "value": "skills",
+          "value": "productivity",
           "label": {
-            "zh": "Skills",
-            "en": "Skills"
+            "zh": "效率工具",
+            "en": "Productivity"
           },
           "evidence": "content.keyword",
           "confidence": 0.8
         }
       ],
-      "retrievedAt": "2026-11-07T15:59:59.999999+00:00",
-      "title": "Cloudflare 发布多阶段安全审计代理技能",
-      "originalUrl": "https://github.com/cloudflare/security-audit-skill",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "The skill targets coding agents and performs multi-phase security audits.",
-        "Findings emphasize independent verification and machine-readable format.",
-        "The project is from Cloudflare and appeared on GitHub Trending Daily."
-      ],
-      "whyItMattersEn": "If audit findings can be produced in a machine-readable and independently verifiable form, they are better suited for consumption by agent workflows and automation tools, and easier for humans to trace and review.",
-      "domain": "AI 研究",
-      "whyItMatters": "如果审计发现能以机器可读且可独立验证的形式产出，就更适合被代理流程和自动化工具消费，也便于人工复核结论来源。",
-      "summary": "Cloudflare 在 GitHub Trending 上榜的项目是一个面向编码代理的安全审计技能，主张多阶段审计与独立验证的机器可读发现。输入仅提供项目定位与一句摘要，未给出实现细节、评测数据或实际使用案例。其价值在于把审计流程和结论形式化，便于代理执行与后续核验。",
-      "description": "该技能把安全审计拆成多个阶段，并要求机器可读结论能被独立验证；它面向编码代理，旨在让审计过程可复核、结果可自动化处理。",
-      "summaryEn": "The project trending on GitHub is a security audit skill for coding agents from Cloudflare, emphasizing multi-phase audits and independently verified machine-readable findings. The input provides only the project positioning and a one-sentence summary, with no implementation details, evaluation data, or usage cases. Its value lies in formalizing the audit process and conclusions for agent execution and later verification.",
-      "score": 69.44,
-      "sourceName": "GitHub Trending Daily",
-      "tags": [
-        "编码代理",
-        "安全审计",
-        "机器可读报告"
-      ],
-      "titleEn": "Cloudflare Releases Multi-Phase Security Audit Agent Skill",
-      "id": "9c15e014464735eb",
-      "limitationsEn": "The input contains only the project title and a one-sentence summary, with no implementation approach, supported audit types, verification mechanism details, evaluation results, or real vulnerability cases. Its accuracy, coverage, or applicable scenarios cannot be judged from this; appearing on GitHub Trending is not equivalent to independent evaluation.",
-      "originalTitle": "cloudflare/security-audit-skill",
-      "contentType": "repository",
-      "slug": "cloudflare-security-audit-skill-9c15e01446",
-      "keyPoints": [
-        "该技能面向编码代理，用于执行多阶段安全审计。",
-        "审计发现强调独立验证与机器可读格式。",
-        "项目来自 Cloudflare，并在 GitHub Trending Daily 出现。"
-      ],
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "descriptionEn": "The skill splits security audits into multiple phases and requires independently verifiable, machine-readable findings; aimed at coding agents, it seeks to make audits reviewable and results automatable.",
+      "contentType": "paper",
+      "aiGenerated": true,
       "tagsEn": [
+        "3D creation",
         "coding agents",
-        "security audit",
-        "machine-readable findings"
+        "benchmark evaluation",
+        "interactive open worlds",
+        "reference reconstruction",
+        "procedural generation"
       ],
+      "retrievedAt": "2026-11-08T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
       "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 63,
+        "contentType": "paper",
+        "comparisonCohortSize": 4953,
         "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 98.0,
-        "metricPercentile": 98.39,
-        "velocityPercentile": 98.39,
-        "objectiveScore": 98.39,
-        "relevanceScore": 55,
+        "primaryMetric": "upvotes",
+        "primaryMetricValue": 0.0,
+        "metricPercentile": 50.0,
+        "velocityPercentile": 50.0,
+        "objectiveScore": 50.0,
+        "relevanceScore": 60,
         "topicClassification": {
           "classification": "ai-engineering",
-          "confidence": 0.8,
+          "confidence": 0.83,
           "financeEvidence": [],
           "quantitativeEvidence": [],
           "aiEvidence": [
+            "machine-learning",
             "agents"
           ],
-          "sourcePrior": null
+          "sourcePrior": "AI × 量化"
         },
-        "contentValueScore": 25.02,
+        "contentValueScore": 65.0,
         "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.27,
+          "evidence": 10.0,
+          "actionability": 10.0,
+          "novelty": 8.0,
+          "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
+        "freshnessScore": 80.83,
+        "sourceQualityScore": 92.0,
         "sourceMetrics": {
-          "trending_rank": 2.0,
-          "trending_rank_score": 98.0,
-          "stars": 65136.0,
-          "stars_delta_1d": 2088.0,
-          "metric_age_days": 1.0
+          "upvotes": 0.0
         },
-        "selectionLane": "primary"
+        "selectionLane": "carryover"
       },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-07T15:59:59.999999+00:00",
-      "limitations": "输入只有项目标题和一句摘要，没有实现方案、支持的审计类型、验证机制细节、评测结果或真实漏洞案例。不能据此判断其准确率、覆盖范围或适用场景；GitHub Trending 上榜也不等于经独立评测。"
+      "limitations": "结论基于论文中11种模型-框架配置在145项任务上的实验，未覆盖所有编码智能体架构或真实应用场景；分数反映基准内的相对表现，不能直接外推为通用三维创建能力或实际部署效果；基准任务和评估指标的设计可能引入特定偏好，参考重建与文本生成之间的差距也可能受任务分布影响。",
+      "tags": [
+        "三维创建",
+        "编码智能体",
+        "基准评测",
+        "交互开放世界",
+        "参考重建",
+        "程序化生成"
+      ],
+      "title": "Frontier3DBench：统一评测编码智能体的三维创建能力",
+      "sourceGroup": "网站与论坛",
+      "limitationsEn": "Conclusions are based on experiments with 11 model-harness configurations on 145 tasks in the paper, without covering all coding agent architectures or real-world application scenarios; scores reflect relative performance within the benchmark and cannot be directly extrapolated to general 3D creation ability or deployment outcomes; benchmark task and metric design may introduce specific preferences, and the gap between reference reconstruction and text generation may also be affected by task distribution.",
+      "discoveredBy": [
+        "Hugging Face Daily Papers"
+      ],
+      "whyItMattersEn": "The benchmark unifies fragmented 3D creation evaluation under a shared task scope and protocol, enabling horizontal comparison of coding agents across objects, scenes, and interactive worlds. Its results show that reference reconstruction fidelity and coordinated activity completion are current weaknesses, providing a reusable evaluation framework and clear directions for future research.",
+      "sourceName": "Hugging Face Daily Papers",
+      "domain": "AI 研究",
+      "description": "现有三维创建基准分散于不同任务范围和评估协议，难以横向比较编码智能体在对象、场景和交互开放世界中的能力。Frontier3DBench 用145项任务、9个类别和联合评估外观、结构、行为的方式填补这一空白，揭示参考重建保真度与协调活动完成是主要瓶颈。",
+      "score": 64.83,
+      "publishedAt": "2026-11-05T19:00:00+00:00",
+      "titleEn": "Frontier3DBench: A Unified Benchmark for Coding Agents in 3D Creation",
+      "keyPoints": [
+        "Frontier3DBench 统一覆盖对象、场景和交互开放世界三个层级的145项三维创建任务。",
+        "GPT-6.1-sol 以66.02/100总分领先对象与场景层，GPT-6-astra 在交互世界构建中表现最佳。",
+        "所有配置在参考重建任务上均弱于文本驱动生成，生成世界局部机制平均83.08分，但运动间隙与状态工作流仅20.82与30.26分。"
+      ],
+      "slug": "frontier3dbench-benchmarking-coding-agents-for-3-4171d6dc37",
+      "descriptionEn": "Existing 3D creation benchmarks fragment evaluation across task scopes and protocols, making it hard to compare coding agents across objects, scenes, and interactive open worlds. Frontier3DBench fills this gap with 145 tasks in 9 categories and joint evaluation of appearance, structure, and behavior, identifying reference fidelity and coordinated activity completion as key bottlenecks.",
+      "whyItMatters": "该基准将分散的三维创建评估统一到同一任务范围和协议下，使编码智能体在对象、场景和交互世界中的能力可横向比较；其结果显示参考重建保真度和协调活动完成是当前主要短板，为后续研究提供可复用的评估框架和明确的改进方向。",
+      "summary": "作者提出 Frontier3DBench，一个覆盖对象、场景与交互开放世界创建的统一基准，包含145项任务和9个类别，并联合评估外观、结构与行为。实验测试11种模型-框架配置，发现GPT-6.1-sol总分最高（66.02/100），GPT-6-astra在交互世界构建领先；但所有配置在参考重建上均弱于文本驱动生成，且生成世界在局部机制上平均83.08分，在运动间隙和状态工作流上仅20.82和30.26分。作者据此认为参考保真度与协调活动完成是编码智能体三维创建的核心瓶颈。",
+      "originalTitle": "Frontier3DBench: Benchmarking Coding Agents for 3D Creation across Objects, Scenes, and Interactive Open Worlds",
+      "originalUrl": "https://arxiv.org/abs/2611.09017",
+      "summaryEn": "The authors propose Frontier3DBench, a unified benchmark for 3D creation across objects, scenes, and interactive open worlds, comprising 145 tasks in 9 categories with joint evaluation of appearance, structure, and behavior. Experiments with 11 model-harness configurations show GPT-6.1-sol achieves the highest overall score (66.02/100) and leads object and scene levels, while GPT-6-astra leads interactive world construction; all configurations score lower on reference reconstruction than on text-driven generation, and generated worlds average 83.08/100 on local mechanisms but only 20.82 on motion clearance and 30.26 on stateful workflows. The authors conclude that reference fidelity and coordinated activity completion are central bottlenecks for coding agents in 3D creation."
     },
     {
-      "sourceGroup": "开源项目",
-      "features": [
-        {
-          "id": "artifact:repository",
-          "facet": "artifact",
-          "value": "repository",
-          "label": {
-            "zh": "代码仓库",
-            "en": "Repository"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:github",
-          "facet": "platform",
-          "value": "github",
-          "label": {
-            "zh": "GitHub",
-            "en": "GitHub"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "ranking:github-trending-daily",
-          "facet": "ranking",
-          "value": "github-trending-daily",
-          "label": {
-            "zh": "GitHub 日趋势榜",
-            "en": "GitHub Daily Trending"
-          },
-          "evidence": "source.ranking",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:agents",
-          "facet": "topic",
-          "value": "agents",
-          "label": {
-            "zh": "智能体",
-            "en": "Agents"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "retrievedAt": "2026-11-07T15:59:59.999999+00:00",
-      "title": "谷歌推出Agent Skills，集成旗下产品与技术",
-      "originalUrl": "https://github.com/google/skills",
-      "summaryModel": "deepseek-v4-flash",
+      "id": "7ea9c93507f18930",
       "summaryProvider": "deepseek",
       "keyPointsEn": [
-        "The repository is named google/skills and falls under the AI tools domain",
-        "It aims to provide Agent Skills for Google products and technologies",
-        "The project appeared on GitHub Trending Daily"
+        "A closed-form estimator combining put-call parity and futures basis jointly infers USD and cryptocurrency discount factors, with a RANSAC-based quote filter tailored to crypto market microstructure.",
+        "Using hourly BTC and ETH derivatives data from Deribit between February 2023 and February 2026, implied USD rates average about 8% per year and rise during the 2024 crypto rallies.",
+        "Implied BTC and ETH rates are typically near zero, contrasting with positive Aave lending yields and ETH staking yields; implied USD rates co-move with Aave USDC rates but show persistent differences."
       ],
-      "whyItMattersEn": "If the repository provides standardized skill interfaces, AI agents can call Google services more efficiently, thereby expanding automation scenarios and potentially reducing integration costs for developers.",
-      "domain": "AI 研究",
-      "whyItMatters": "若该仓库提供标准化的技能接口，AI智能体可更高效地调用谷歌服务，从而扩展自动化场景，并可能降低开发者的集成成本。",
-      "summary": "谷歌发布了名为google/skills的仓库，提供针对谷歌产品与技术的Agent Skills。事实：该仓库是GitHub趋势项目，描述为“Agent Skills for Google products and technologies”。观点：这可能促进AI智能体与谷歌生态的集成。",
-      "description": "该仓库是谷歌在GitHub上发布的Agent Skills集合，旨在为谷歌产品和技术提供标准化技能，帮助AI智能体更便捷地访问和操作谷歌服务。",
-      "summaryEn": "Google released the google/skills repository, offering Agent Skills for Google products and technologies. Fact: The repository is a GitHub trending project, described as 'Agent Skills for Google products and technologies.' Opinion: This may promote integration between AI agents and the Google ecosystem.",
-      "score": 68.54,
-      "sourceName": "GitHub Trending Daily",
-      "tags": [
-        "AI智能体",
-        "谷歌",
-        "Agent Skills",
-        "GitHub趋势"
-      ],
-      "titleEn": "Google Launches Agent Skills for Its Products and Technologies",
-      "id": "ad904a51b1769854",
-      "limitationsEn": "Currently, only the repository title and a brief description are available, lacking specific skill lists, technical details, usage documentation, or effectiveness validation; its maturity, usability, and actual performance cannot be confirmed.",
-      "originalTitle": "google/skills",
-      "contentType": "repository",
-      "slug": "google-skills-ad904a51b1",
-      "keyPoints": [
-        "仓库名称为google/skills，属于AI工具领域",
-        "目标是为谷歌产品和技术提供Agent Skills",
-        "项目登上GitHub趋势日榜"
-      ],
-      "discoveredBy": [
-        "GitHub Trending Daily"
-      ],
-      "descriptionEn": "This repository is a collection of Agent Skills published by Google on GitHub, aiming to provide standardized skills for Google products and technologies, helping AI agents access and operate Google services more easily.",
-      "tagsEn": [
-        "AI agents",
-        "Google",
-        "Agent Skills",
-        "GitHub trending"
-      ],
-      "scoreBreakdown": {
-        "contentType": "repository",
-        "comparisonCohortSize": 63,
-        "mode": "cohort-metric",
-        "primaryMetric": "trending_rank_score",
-        "primaryMetricValue": 97.0,
-        "metricPercentile": 95.97,
-        "velocityPercentile": 95.97,
-        "objectiveScore": 95.97,
-        "relevanceScore": 55,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.8,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "agents"
-          ],
-          "sourcePrior": null
-        },
-        "contentValueScore": 24.87,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 0.12,
-          "penalty": 0.0
-        },
-        "freshnessScore": 100.0,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {
-          "trending_rank": 3.0,
-          "trending_rank_score": 97.0,
-          "stars": 23164.0,
-          "stars_delta_1d": 449.0,
-          "metric_age_days": 1.0
-        },
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-07T15:59:59.999999+00:00",
-      "limitations": "当前仅有仓库标题和简短描述，缺乏具体技能列表、技术细节、使用文档或效果验证；无法确认其成熟度、可用性及实际性能。"
-    },
-    {
-      "sourceGroup": "论文",
       "features": [
         {
           "id": "artifact:paper",
@@ -1101,6 +1892,17 @@
           "confidence": 1.0
         },
         {
+          "id": "platform:arxiv",
+          "facet": "platform",
+          "value": "arxiv",
+          "label": {
+            "zh": "arXiv",
+            "en": "arXiv"
+          },
+          "evidence": "source.platform",
+          "confidence": 1.0
+        },
+        {
           "id": "topic:factors",
           "facet": "topic",
           "value": "factors",
@@ -1110,814 +1912,88 @@
           },
           "evidence": "content.keyword",
           "confidence": 0.8
-        },
-        {
-          "id": "topic:quantitative-finance",
-          "facet": "topic",
-          "value": "quantitative-finance",
-          "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
-          },
-          "evidence": "content.finance+quantitative",
-          "confidence": 0.84
         }
       ],
-      "retrievedAt": "2026-11-07T15:59:59.999999+00:00",
-      "title": "价值与动量因子在样本外是否依然普遍有效",
-      "originalUrl": "https://alphaarchitect.com/value-momentum-everywhere",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "The original study found positive average returns for value and momentum factors across individual stocks, equity indexes, bonds, currencies, and commodities.",
-        "This article uses AQR public data to test the out-of-sample performance of these factors.",
-        "The article discusses possible implications of factor decay but does not offer definitive conclusions."
-      ],
-      "whyItMattersEn": "This analysis helps researchers understand whether classic factor findings are robust out of sample and provides a public-data-based perspective on factor decay, not investment advice.",
-      "domain": "量化研究",
-      "whyItMatters": "该分析有助于研究者理解经典因子发现样本外是否稳健，并为因子衰减的讨论提供基于公开数据的观察视角，而非投资建议。",
-      "summary": "原文回顾了“Value and Momentum Everywhere”一文的核心证据，即价值与动量在多个资产类别中获得正的平均收益。作者利用AQR公开数据，考察该发现发表十三年后的样本外表现，并讨论因子衰减现象。文章区分了样本外结果的事实描述与对衰减原因的作者观点。",
-      "description": "基于AQR公开数据，检验Asness、Moskowitz和Pedersen提出的价值与动量因子在股票、股指、债券、外汇和商品中样本外的表现，并讨论因子衰减的可能含义。",
-      "summaryEn": "The original article reviews evidence that value and momentum earn positive average returns across multiple asset classes. The author uses AQR public data to assess out-of-sample performance thirteen years after publication and discusses factor decay. The article distinguishes factual out-of-sample results from the author's views on possible causes of decay.",
-      "score": 62.98,
-      "sourceName": "Alpha Architect",
-      "tags": [
-        "价值因子",
-        "动量因子",
-        "样本外检验",
-        "因子衰减",
-        "多资产类别"
-      ],
-      "titleEn": "Are Value and Momentum Factors Still Pervasive Out of Sample?",
-      "id": "29d9468a6c0f9b5e",
-      "limitationsEn": "The analysis relies solely on AQR public data and does not cover other data sources or broader asset classes; out-of-sample performance depends on data periods and construction methods and cannot directly infer future factor returns or causality; the author's interpretation of decay is an opinion requiring further verification.",
-      "originalTitle": "Are Value and Momentum Still Everywhere?",
       "contentType": "paper",
-      "slug": "are-value-and-momentum-still-everywhere-29d9468a6c",
-      "keyPoints": [
-        "原始研究显示价值与动量因子在个股、股指、债券、外汇和商品中均获得正的平均收益。",
-        "本文使用AQR公开数据，检验上述因子在样本外的表现。",
-        "文章讨论了因子衰减的可能含义，但未给出确定性结论。"
-      ],
-      "discoveredBy": [
-        "Alpha Architect"
-      ],
-      "descriptionEn": "Using AQR public data, this study examines the out-of-sample performance of value and momentum factors across stocks, equity indexes, bonds, currencies, and commodities, and discusses the implications of factor decay.",
+      "aiGenerated": true,
       "tagsEn": [
-        "value factor",
-        "momentum factor",
-        "out-of-sample test",
-        "factor decay",
-        "multi-asset"
+        "cryptocurrency",
+        "derivatives pricing",
+        "implied interest rates",
+        "yield curve",
+        "RANSAC",
+        "put-call parity"
       ],
+      "retrievedAt": "2026-11-04T15:59:59.999999+00:00",
+      "summaryModel": "deepseek-v4-flash",
       "scoreBreakdown": {
         "contentType": "paper",
-        "comparisonCohortSize": 5121,
+        "comparisonCohortSize": 4953,
         "mode": "relevance-fallback",
         "primaryMetric": "upvotes",
         "primaryMetricValue": null,
         "metricPercentile": null,
         "velocityPercentile": null,
         "objectiveScore": null,
-        "relevanceScore": 85,
+        "relevanceScore": 67,
         "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.84,
+          "classification": "finance",
+          "confidence": 0.79,
           "financeEvidence": [
-            "securities"
+            "securities",
+            "finance"
           ],
-          "quantitativeEvidence": [
-            "backtesting"
-          ],
+          "quantitativeEvidence": [],
           "aiEvidence": [],
           "sourcePrior": "量化研究"
         },
-        "contentValueScore": 49.51,
+        "contentValueScore": 58.15,
         "contentSignals": {
           "evidence": 10.0,
           "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 1.26,
-          "penalty": 0.0
-        },
-        "freshnessScore": 93.6,
-        "sourceQualityScore": 96.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T16:57:32+00:00",
-      "limitations": "分析仅基于AQR公开数据，未涵盖其他数据源或更广泛的资产类别；样本外表现受数据区间和构造方法影响，不能直接推断因子未来收益或因果关系；作者对衰减的解释属于观点，需进一步验证。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:quantitative-finance",
-          "facet": "topic",
-          "value": "quantitative-finance",
-          "label": {
-            "zh": "量化金融",
-            "en": "Quantitative Finance"
-          },
-          "evidence": "content.finance+quantitative",
-          "confidence": 0.84
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "经济复杂性动态理论：弱链接生产与能力积累机制",
-      "originalUrl": "https://arxiv.org/abs/2512.10672",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "The model builds on a weak-link production function and investment that accumulates capabilities shared across activities.",
-        "It predicts that the capability stock at which accumulation is fastest rises with an activity's capability requirements, implying a transition from unconditional to conditional convergence.",
-        "Shared capabilities provide a mechanism for path-dependent diversification, yielding expected signs for relatedness-complexity interaction terms; empirical patterns are broadly consistent."
-      ],
-      "whyItMattersEn": "The study provides a dynamical foundation for economic complexity theory and helps explain how capability stocks and shared capabilities shape differences in activity growth across economies.",
-      "domain": "量化研究",
-      "whyItMatters": "该研究为经济复杂性理论提供了动态基础，有助于解释能力存量与共享能力如何塑造不同经济体间活动增长的差异。",
-      "summary": "论文提出一个动态经济复杂性模型，其中产出由弱链接生产函数决定，投资积累跨活动共享的能力。模型预测能力积累速度随活动能力需求变化，并产生条件收敛和路径依赖多样化机制。作者使用国际贸易及美国、巴西次国家数据检验这些预测，发现实证模式与模型 broadly consistent。",
-      "description": "该研究构建了一个动态经济复杂性模型，其核心新意在于用弱链接生产函数和跨活动共享能力的投资积累来解释活动增长差异，并推导出可检验的预测：能力积累最快时的能力存量随活动能力需求上升而提高（导致从无条件收敛向条件收敛转变），以及共享能力产生路径依赖多样化（相关性原则）。其有用性在于为经济复杂性理论提供了动态微观基础，并用国际及美国、巴西次国家数据获得了广泛一致的实证支持。",
-      "summaryEn": "The paper proposes a dynamic model of economic complexity where output follows a weak-link production function and investment accumulates capabilities shared across activities. The model predicts conditional convergence and path-dependent diversification mechanisms. Using international trade and sub-national industry data from the US and Brazil, the authors find empirical patterns broadly consistent with these predictions.",
-      "score": 57.43,
-      "sourceName": "arXiv q-fin",
-      "tags": [
-        "经济复杂性",
-        "动态模型",
-        "能力积累",
-        "路径依赖",
-        "收敛"
-      ],
-      "titleEn": "Dynamic Theory of Economic Complexity: Weak-Link Production and Capability Accumulation",
-      "id": "49ac3ed8414eb532",
-      "limitationsEn": "Empirical tests rely on international trade and sub-national industry data from the US and Brazil, limiting generalizability; empirical support is broadly consistent rather than strict causal identification.",
-      "originalTitle": "The Dynamic Theory of Economic Complexity",
-      "contentType": "paper",
-      "slug": "the-dynamic-theory-of-economic-complexity-49ac3ed841",
-      "keyPoints": [
-        "模型以弱链接生产函数为基础，投资积累跨活动共享的能力存量。",
-        "预测能力积累最快时的能力存量随活动能力需求提高，导致从无条件收敛转向条件收敛。",
-        "共享能力提供路径依赖多样化机制，并给出相关性与复杂性交互项的预期符号，实证结果 broadly consistent。"
-      ],
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "descriptionEn": "This study develops a dynamic model of economic complexity in which output is determined by a weak-link production function and investment accumulates capabilities shared across activities. Its novelty lies in deriving testable predictions: the capability stock at which accumulation is fastest rises with an activity's capability requirements (implying a transition from unconditional to conditional convergence), and shared capabilities generate path-dependent diversification (",
-      "tagsEn": [
-        "economic complexity",
-        "dynamic model",
-        "capability accumulation",
-        "path dependence",
-        "convergence"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 75,
-        "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.84,
-          "financeEvidence": [
-            "securities"
-          ],
-          "quantitativeEvidence": [
-            "econometrics"
-          ],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 41.96,
-        "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 3.21,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "实证检验基于国际贸易以及美国、巴西的次国家行业数据，结论的普适性受数据范围限制；模型预测的实证支持为 broadly consistent，并非严格因果识别。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "数字产品关税与数字服务税的收入和贸易效应比较",
-      "originalUrl": "https://arxiv.org/abs/2611.05714",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "In the scenario adding tariff equivalents to DSTs, 2024 revenue rises from USD 2.7 billion to USD 6.9 billion, with digital trade falling by about 1.4%.",
-        "Replacing DSTs with tariff equivalents would raise USD 4.3 billion.",
-        "Tariff-equivalent payments are attributed mainly to the United States, while DST payments go mainly to subsidiary locations such as Ireland."
-      ],
-      "whyItMattersEn": "With the WTO moratorium on customs duties on electronic transmissions lapsing in March 2026, governments can tax cross-border digital products. This study provides a quantitative reference for policymakers comparing the revenue and trade costs of tariffs versus DSTs, aiding assessment of alternative fiscal instruments.",
-      "domain": "其他研究",
-      "whyItMatters": "WTO电子传输关税暂停令于2026年3月失效后，各国可对跨境数字产品征税。该研究为政策制定者比较关税与DST的财政收入和贸易代价提供了量化参考，有助于评估替代性财政工具的效果。",
-      "summary": "研究估计，在DST基础上加征等效关税可将2024年条件情景下的收入从27亿美元提升至69亿美元，同时使数字贸易下降约1.4%；若以等效关税替代DST，则可增加43亿美元收入。作者认为，对数字产品征收关税可能比DST筹集更多收入，且贸易成本适中。上述结论基于引力模型和事件研究估计的模拟，属于作者观点而非确定事实。",
-      "description": "该研究利用2016-2024年31类数字产品的双边贸易数据，结合数字服务税（DST）税率和实体类比关税，通过引力模型和情景模拟，首次定量比较了关税与DST在增加财政收入和影响数字贸易方面的差异。",
-      "summaryEn": "The study estimates that adding tariff equivalents to DSTs would raise revenue from USD 2.7 billion to USD 6.9 billion in a conditional 2024 scenario while lowering digital trade by about 1.4%; replacing DSTs with tariff equivalents would raise USD 4.3 billion. The authors argue that tariffs on digital products could raise more revenue than DSTs at a modest trade cost. These findings are based on simulations from gravity models and event-study estimates and represent the authors' views rather than established facts.",
-      "score": 56.76,
-      "sourceName": "arXiv q-fin",
-      "tags": [
-        "数字贸易",
-        "数字服务税",
-        "关税",
-        "财政收入",
-        "引力模型"
-      ],
-      "titleEn": "Comparing Revenue and Trade Effects of Tariffs and Digital Services Taxes on Digital Products",
-      "id": "a71d25e75f9f8c86",
-      "limitationsEn": "The conclusions rely on conditional scenario simulations from gravity models and event studies, depending on model assumptions and parameter settings; they extrapolate from 2016-2024 data to 2024 scenarios and may be affected by unobserved factors; they do not account for actual policy responses, firm behavioral adjustments, or general equilibrium effects; revenue and trade effects are estimates with uncertainty.",
-      "originalTitle": "The potential impact of fiscal rule changes on digital products trade",
-      "contentType": "paper",
-      "slug": "the-potential-impact-of-fiscal-rule-changes-on-d-a71d25e75f",
-      "keyPoints": [
-        "在DST基础上加征等效关税的情景下，2024年收入从27亿美元升至69亿美元，数字贸易下降约1.4%。",
-        "以等效关税替代DST的情景可增加43亿美元收入。",
-        "等效关税支付主要归属美国，而DST支付主要归属爱尔兰等子公司所在地。"
-      ],
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "descriptionEn": "Using bilateral trade data for 31 digital product categories from 2016 to 2024, combined with digital services tax (DST) rates and tariffs on physical analogues, this study employs gravity models and scenario simulations to quantitatively compare, for the first time, how tariffs and DSTs differ in raising revenue and affecting digital trade.",
-      "tagsEn": [
-        "digital trade",
-        "digital services tax",
-        "tariffs",
-        "fiscal revenue",
-        "gravity model"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 40,
-        "topicClassification": {
-          "classification": "uncertain",
-          "confidence": 0.5,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 41.0,
-        "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 0.0,
           "novelty": 8.0,
           "specificity": 10.0,
           "penalty": 0.0
         },
-        "freshnessScore": 90.28,
+        "freshnessScore": 70.28,
         "sourceQualityScore": 100.0,
         "sourceMetrics": {},
-        "selectionLane": "primary"
+        "selectionLane": "carryover"
       },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "结论基于引力模型和事件研究的条件情景模拟，依赖模型假设与参数设定；使用2016-2024年数据外推至2024年情景，可能受未观测因素影响；未考虑各国实际政策反应、企业行为调整及一般均衡效应；收入与贸易效应为估计值，存在不确定性。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:skills",
-          "facet": "topic",
-          "value": "skills",
-          "label": {
-            "zh": "Skills",
-            "en": "Skills"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "AI技能岗位薪酬与非货币福利演变：2018—2025年美国劳动力市场分析",
-      "originalUrl": "https://arxiv.org/abs/2507.20410",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "AI skill demand rose sharply after generative AI across SMEs, large firms, and S&P 500 firms.",
-        "AI wage premia increased most among SMEs; AI vacancies were more likely than comparable non-AI roles to advertise non-monetary benefits such as remote work, inclusive culture, and parental leave.",
-        "Non-monetary benefit premia were strongest in SMEs and large firms but weaker in S&P 500 firms; differences in wage-benefit relationships across firm sizes narrowed after generative AI spread."
-      ],
-      "whyItMattersEn": "The findings suggest that returns to AI skills should be assessed beyond wages, as non-monetary benefits are also used to compete for AI talent; changes across firm sizes help explain how AI talent competition transmits across different types of employers.",
-      "domain": "AI 研究",
-      "whyItMatters": "该研究提示，评估AI技能回报不能只看工资，非货币福利同样是雇主争夺AI人才的重要工具；企业规模差异的变化有助于理解AI人才竞争在不同类型企业间的传导。",
-      "summary": "研究利用约一千万条美国在线招聘广告，考察2018—2025年AI技能岗位的货币薪酬与非货币福利变化。事实层面：生成式AI出现后AI需求在各类规模企业中急升，中小企业AI工资溢价上升最明显，AI岗位更可能提供远程工作、包容文化和育儿假，且中小企业与大型企业福利溢价较强、标普500企业较弱。作者观点认为，雇主正通过组合货币与非货币奖励来招募AI技能人才，工资与福利的替代/互补关系在企业规模间的差异有所缩小。",
-      "description": "该研究基于2018—2025年约一千万条美国在线招聘广告，发现生成式AI出现后AI技能需求急升，中小企业工资溢价最强，AI岗位更常提供远程工作、包容文化、育儿假等非货币福利，且工资与福利的关系在不同规模企业间趋同。",
-      "summaryEn": "The study examines monetary and non-monetary rewards in U.S. job vacancies requiring AI skills from 2018 to 2025 using roughly ten million online ads. Factually, AI demand rose sharply across firm sizes after generative AI, SME wage premia increased most, AI roles more often offered remote work, inclusive culture, and parental leave, and non-monetary benefit premia were strongest in SMEs and large firms but weaker in S&P 500 firms. The authors argue that employers combine monetary and non-monetary rewards to recruit AI-skilled workers and that differences in wage-benefit relationships across firm sizes have attenuated.",
-      "score": 56.41,
-      "sourceName": "arXiv q-fin",
+      "limitations": "结果基于Deribit的BTC和ETH衍生品数据及特定样本期（2023年2月至2026年2月），可能受交易所和资产范围限制；闭式估计器依赖看跌看涨平价与期货基差关系假设，RANSAC过滤的有效性取决于参数设定；隐含利率与Aave、质押利率的差异仅表明有限整合，未确立因果机制；研究不构成投资建议。",
       "tags": [
-        "AI技能",
-        "工资溢价",
-        "非货币福利",
-        "招聘广告",
-        "企业规模",
-        "生成式AI"
+        "加密货币",
+        "衍生品定价",
+        "隐含利率",
+        "收益率曲线",
+        "RANSAC",
+        "看跌看涨平价"
       ],
-      "titleEn": "Evolving Rewards for AI Skills: Pay and Non-Monetary Benefits in U.S. Job Ads, 2018–2025",
-      "id": "4f0ba000f4b5c36f",
-      "limitationsEn": "The study relies on U.S. online job ads and may not cover jobs not posted online; advertised benefits may not reflect actual receipt; wage premia and benefit differences are observational associations and do not directly establish causality; the sample ends in 2025, so long-run equilibrium after generative AI remains unknown.",
-      "originalTitle": "Pay and Beyond: The Evolving Rewards for AI Skills",
-      "contentType": "paper",
-      "slug": "pay-and-beyond-the-evolving-rewards-for-ai-skill-4f0ba000f4",
-      "keyPoints": [
-        "生成式AI出现后，AI技能需求在中小企业、大型企业和标普500企业中均急剧上升。",
-        "AI工资溢价在中小企业中上升最明显；AI岗位比可比非AI岗位更常提供远程工作、包容文化和育儿假等非货币福利。",
-        "非货币福利溢价在中小企业和大型企业中最强、标普500企业中较弱；工资与福利的关系在企业规模间的差异在生成式AI扩散后有所缩小。"
-      ],
+      "title": "加密货币市场衍生品隐含利率的联合推断",
+      "sourceGroup": "论文",
+      "limitationsEn": "Results are based on Deribit BTC and ETH derivatives data over a specific sample period (February 2023 to February 2026) and may be limited by exchange and asset coverage; the closed-form estimator relies on put-call parity and futures basis assumptions, and the effectiveness of the RANSAC filter depends on parameter settings; the differences between implied rates and Aave/staking rates only indicate limited integration without establishing causal mechanisms; the study does not constitute investment advice.",
       "discoveredBy": [
         "arXiv q-fin"
       ],
-      "descriptionEn": "Using about ten million U.S. online job vacancies from 2018 to 2025, the study finds that AI skill demand surged after generative AI, wage premia rose most among SMEs, and AI vacancies more often advertise non-monetary benefits such as remote work, inclusive culture, and parental leave, with wage-benefit relationships converging across firm sizes.",
-      "tagsEn": [
-        "AI skills",
-        "wage premium",
-        "non-monetary benefits",
-        "job vacancies",
-        "firm size",
-        "generative AI"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 50,
-        "topicClassification": {
-          "classification": "ai-engineering",
-          "confidence": 0.8,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "ai"
-          ],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 40.5,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 8.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "研究基于美国在线招聘广告，可能无法覆盖未在线发布的岗位；广告中列出的福利不代表实际获得；工资溢价与福利差异为观察性关联，不能直接推断因果；样本期截至2025年，生成式AI后的长期均衡尚不可知。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "决策模型作为经济替代品：更准捕捉人类行为异质性",
-      "originalUrl": "https://arxiv.org/abs/2611.05553",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "Frontier Decision Models more accurately reproduce human response heterogeneity than LLMs across three economic settings.",
-        "In the spending survey, DMs capture modal responses as well as LLMs, but less well in economic games.",
-        "Frontier DMs are about 10 times faster than the fastest LLM and can be over 100 times cheaper."
-      ],
-      "whyItMattersEn": "If Decision Models can more accurately and cheaply surrogate human behavior, they could significantly enhance the feasibility of large-scale economic simulations and survey experiments, reduce reliance on costly LLMs, and improve the representation of human behavioral heterogeneity.",
+      "whyItMattersEn": "This research provides a first method to construct benchmark yield curves from derivatives data in crypto markets, helping to understand the integration between crypto derivatives markets and decentralized lending and staking markets, with reference value for pricing, arbitrage, and risk management.",
+      "sourceName": "arXiv q-fin",
       "domain": "金融研究",
-      "whyItMatters": "若决策模型能更准确且低成本地替代人类行为，将显著提升大规模经济模拟与 survey 实验的可行性，减少对昂贵LLMs的依赖，并改善对人类行为异质性的刻画。",
-      "summary": "研究比较了10种决策模型与8种大语言模型在消费调查、经典经济博弈和劳动力市场实地实验中的表现。前沿DMs在三种场景下均比LLMs更好地复现人类响应变异，且在调查中捕捉众数响应的能力与LLMs相当，但在经济博弈中较弱。前沿DMs比最快LLM快约10倍，成本可低至百分之一以上。",
-      "description": "该研究首次系统评估决策模型（DMs）作为经济学中人类替代品的效果，并与大语言模型（LLMs）对比。新意在于发现前沿DMs在三种经济场景下比LLMs更贴近人类响应变异，且速度更快、成本更低，为大规模经济模拟提供更可行方案。",
-      "summaryEn": "The study compares 10 Decision Models with 8 Large Language Models in a household spending survey, classic economic games, and a labour-market field experiment. Frontier DMs reproduce human response variation more closely than LLMs in all three settings, matching LLMs in capturing modal responses in the survey but performing less well in economic games. Frontier DMs are roughly 10 times faster than the fastest LLM and can be over 100 times cheaper.",
-      "score": 55.91,
-      "sourceName": "arXiv q-fin",
-      "tags": [
-        "决策模型",
-        "大语言模型",
-        "经济模拟",
-        "人类行为异质性",
-        "替代模型"
-      ],
-      "titleEn": "Decision Models as Scalable Economic Surrogates: Better Capturing Human Variation",
-      "id": "8d0e3c53798a3505",
-      "limitationsEn": "The evaluation is based on only three economic settings and a specific set of models, so generalization requires caution; DMs capture modal responses less well than LLMs in economic games; cost and speed advantages depend on implementation and scale and do not cover all application scenarios.",
-      "originalTitle": "Decision Models as Scalable Economic Surrogates that Capture Human Variation",
-      "contentType": "paper",
-      "slug": "decision-models-as-scalable-economic-surrogates--8d0e3c5379",
+      "description": "该研究提出一种从反向期权与期货中联合推断美元和加密货币贴现因子的闭式估计方法，并引入适应加密市场微观结构的RANSAC报价过滤，填补了加密领域缺乏公认基准收益率曲线的空白。",
+      "score": 64.76,
+      "publishedAt": "2026-11-04T05:00:00+00:00",
+      "titleEn": "Joint Inference of Derivative-Implied Interest Rates in Cryptocurrency Markets",
       "keyPoints": [
-        "前沿决策模型在三种经济场景中比大语言模型更准确地复现人类响应异质性。",
-        "在消费调查中决策模型捕捉众数响应的能力与LLMs相当，但在经济博弈中较弱。",
-        "前沿决策模型比最快LLM快约10倍，成本可低逾100倍。"
+        "提出结合看跌看涨平价与期货基差的闭式估计器，联合推断美元和加密货币贴现因子，并引入RANSAC报价过滤以适应加密市场微观结构。",
+        "基于2023年2月至2026年2月Deribit小时级BTC和ETH衍生品数据，隐含美元利率平均约8%/年，且在2024年加密上涨期间上升。",
+        "隐含BTC和ETH利率通常接近零，与Aave正借贷利率和ETH正质押利率形成对比，隐含美元利率与Aave USDC利率协同变动但存在持续差异。"
       ],
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "descriptionEn": "This study provides the first systematic evaluation of Decision Models (DMs) as human surrogates in economics, comparing them with Large Language Models (LLMs). The novelty lies in finding that frontier DMs reproduce human response variation more closely than LLMs across three economic settings, while being faster and cheaper, making large-scale economic simulations more feasible.",
-      "tagsEn": [
-        "Decision Models",
-        "Large Language Models",
-        "Economic Simulation",
-        "Human Behavioral Heterogeneity",
-        "Surrogate Models"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 62,
-        "topicClassification": {
-          "classification": "finance",
-          "confidence": 0.76,
-          "financeEvidence": [
-            "securities"
-          ],
-          "quantitativeEvidence": [],
-          "aiEvidence": [
-            "language-model"
-          ],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 39.79,
-        "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 6.89,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "评估仅基于三种经济场景和特定模型集合，结论外推需谨慎；决策模型对众数响应的捕捉在经济博弈中弱于LLMs；成本与速度优势依赖具体实现和规模，未涵盖所有应用场景。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:ai-quant",
-          "facet": "topic",
-          "value": "ai-quant",
-          "label": {
-            "zh": "AI × 量化",
-            "en": "AI × Quant"
-          },
-          "evidence": "content.finance+quantitative",
-          "confidence": 0.84
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "稀疏自编码器扫描大语言模型内部特征并实现定向干预",
-      "originalUrl": "https://arxiv.org/abs/2508.21285",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "Sparse autoencoders map LLM internal activations to interpretable concepts and support targeted 'steering' of specific features.",
-        "Prompting models to adopt preferences activates many unintended concepts, while SAE steering is smoother and more isolated.",
-        "A stark disconnect between internal feature contributions and self-generated explanations shows self-explanations are unreliable guides to reasoning."
-      ],
-      "whyItMattersEn": "The study provides a lightweight intervention for existing models to produce interpretable embeddings and attenuate specific economic biases, helping improve causal inference precision in model interpretability research and offering a tool for bias steering in economics and beyond.",
-      "domain": "AI × 量化",
-      "whyItMatters": "该研究提供了一种轻量级干预方法，使现有模型产生可解释嵌入并衰减特定经济偏差，有助于提升模型可解释性研究的因果推断精度，并为经济学等领域的偏差调控提供工具。",
-      "summary": "研究使用稀疏自编码器分析大语言模型的内部激活，将其映射为可解释概念并实现特征调控。实验发现，通过提示词让模型采纳特定偏好会激活许多非预期概念，干扰因果推断；而 SAE 能更平滑、更孤立地调控目标概念。此外，模型内部特征贡献与其自生成解释存在明显脱节，说明自解释不能可靠反映推理过程。",
-      "description": "该研究利用稀疏自编码器（SAE）对大型语言模型进行“脑部扫描”，将内部激活映射为可解释概念，并实现对特定特征的定向调控。其新意在于揭示提示词偏好设置会激活大量 unintended 概念，而 SAE 能实现更平滑、更孤立的调控；同时发现模型内部特征贡献与自生成解释存在脱节，表明自解释不可靠。该工具有助于研究者更精确地理解模型推理并衰减特定经济偏差。",
-      "summaryEn": "The research employs sparse autoencoders to analyze internal activations of large language models, mapping them to interpretable concepts and enabling feature steering. Experiments show that prompting models to adopt specific preferences activates many unintended concepts, complicating causal inference, while SAEs permit smoother and more isolated steering of target concepts. Furthermore, a stark disconnect exists between the model's internal feature contributions and its self-generated explanations, showing that self-explanations are unreliable guides to reasoning.",
-      "score": 54.59,
-      "sourceName": "arXiv q-fin",
-      "tags": [
-        "稀疏自编码器",
-        "大语言模型可解释性",
-        "特征调控",
-        "经济偏差",
-        "因果推断"
-      ],
-      "titleEn": "Sparse Autoencoders Scan LLM Internal Features and Enable Targeted Steering",
-      "id": "0ca8afa1acd94ecb",
-      "limitationsEn": "The abstract does not specify the coverage or completeness of SAE scans, nor does it report quantitative evaluations of steering effects or cross-model generalization evidence; the conclusion about the disconnect between internal features and self-explanations is based on specific experimental settings and awaits validation of its generality.",
-      "originalTitle": "A Financial Brain Scan of the LLM",
-      "contentType": "paper",
-      "slug": "a-financial-brain-scan-of-the-llm-0ca8afa1ac",
-      "keyPoints": [
-        "稀疏自编码器可将大语言模型内部激活映射为可解释概念，并支持对特定特征的定向“操控”。",
-        "提示词引导模型偏好会激活大量非预期概念，而 SAE 调控更平滑、更孤立。",
-        "模型内部特征贡献与自生成解释严重脱节，自解释不可作为推理的可靠指引。"
-      ],
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "descriptionEn": "The study uses sparse autoencoders (SAEs) to 'brain scan' large language models, mapping internal activations to interpretable concepts and enabling targeted steering of specific features. Its novelty lies in showing that prompting models to adopt preferences activates many unintended concepts, whereas SAEs allow smoother, more isolated steering; it also reveals a disconnect between internal feature contributions and self-generated explanations, indicating self-explanations a",
-      "tagsEn": [
-        "sparse autoencoders",
-        "LLM interpretability",
-        "feature steering",
-        "economic bias",
-        "causal inference"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 80,
-        "topicClassification": {
-          "classification": "quantitative-finance",
-          "confidence": 0.84,
-          "financeEvidence": [
-            "finance"
-          ],
-          "quantitativeEvidence": [
-            "econometrics"
-          ],
-          "aiEvidence": [
-            "language-model"
-          ],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 37.91,
-        "contentSignals": {
-          "evidence": 0.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 1.91,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "摘要未说明 SAE 扫描的覆盖范围与特征完备性，也未报告调控效果的定量评估或跨模型泛化证据；内部特征与自解释脱节的结论基于特定实验设置，其普适性有待验证。"
-    },
-    {
-      "sourceGroup": "论文",
-      "features": [
-        {
-          "id": "artifact:paper",
-          "facet": "artifact",
-          "value": "paper",
-          "label": {
-            "zh": "论文",
-            "en": "Paper"
-          },
-          "evidence": "source.group",
-          "confidence": 1.0
-        },
-        {
-          "id": "platform:arxiv",
-          "facet": "platform",
-          "value": "arxiv",
-          "label": {
-            "zh": "arXiv",
-            "en": "arXiv"
-          },
-          "evidence": "source.platform",
-          "confidence": 1.0
-        },
-        {
-          "id": "topic:factors",
-          "facet": "topic",
-          "value": "factors",
-          "label": {
-            "zh": "因子",
-            "en": "Factors"
-          },
-          "evidence": "content.keyword",
-          "confidence": 0.8
-        }
-      ],
-      "retrievedAt": "2026-11-06T15:59:59.999999+00:00",
-      "title": "波兰经济政策不确定性指数：构建与验证",
-      "originalUrl": "https://arxiv.org/abs/2611.05640",
-      "summaryModel": "deepseek-v4-flash",
-      "summaryProvider": "deepseek",
-      "keyPointsEn": [
-        "The index uses six Polish newspapers, scales by article volume, standardizes to a 2000-2024 baseline mean of 100, and applies the BBD splicing method for level continuity.",
-        "The index rises notably during the COVID-19 lockdown, the 2022 energy crisis, the 2023 government change, and after the 2016 Brexit referendum.",
-        "Month-on-month changes correlate weakly with US (0.26) and global (0.25) EPU indices, supporting a predominantly domestic driver."
-      ],
-      "whyItMattersEn": "Provides a continuous, reproducible monthly indicator for research on Polish economic policy uncertainty, helping analyze the impact of domestic policy events and reducing misjudgments from changes in newspaper panel composition.",
-      "domain": "其他研究",
-      "whyItMatters": "为波兰经济政策不确定性研究提供了连续、可复现的月度指标，有助于分析国内政策事件对经济的影响，并减少因报纸面板组成变化导致的误判。",
-      "summary": "该研究遵循Baker-Bloom-Davis方法，使用六份波兰报纸构建了2000年1月至2026年6月的连续月度经济政策不确定性指数。为处理报纸进入面板时间不一致造成的水平跳变，作者采用BBD附录A的向后链式拼接程序，使指数在报纸进入点保持水平连续。事件证据显示该指数在COVID-19封锁、2022年能源危机、2023年政府更迭和2016年英国脱欧公投后显著上升，且与美国和全球EPU指数的月度变化相关性仅约0.25，表明其捕捉的主要是波兰国内政策不确定性。",
-      "description": "基于报纸文本构建波兰2000年至2026年连续月度EPU指数，并采用拼接法修正报纸进入面板导致的水平跳变，为波兰政策不确定性研究提供新工具。",
-      "summaryEn": "Following the Baker-Bloom-Davis methodology, the study constructs a continuous monthly Economic Policy Uncertainty index for Poland from January 2000 to June 2026 using six Polish newspapers. To address level jumps caused by newspapers entering the panel at different dates, the authors apply the BBD Appendix A backward chain-splice procedure, ensuring level continuity at all entry points. Event evidence shows sharp rises during the COVID-19 lockdown, the 2022 energy crisis, the 2023 government change, and after the 2016 Brexit referendum, while month-on-month changes correlate only moderately (about 0.25) with US and global EPU indices, indicating the index mainly captures domestic policy uncertainty.",
-      "score": 52.73,
-      "sourceName": "arXiv q-fin",
-      "tags": [
-        "经济政策不确定性",
-        "波兰",
-        "文本分析",
-        "指数构建",
-        "时间序列"
-      ],
-      "titleEn": "Economic Policy Uncertainty Index for Poland: Construction and Validation",
-      "id": "939f0148c21dff08",
-      "limitationsEn": "The newspaper-based index may be affected by media coverage bias and editorial choices; the splicing method relies on assumptions about overlap windows; weak correlations with US and global indices are based on month-on-month changes and do not rule out level or long-term associations; event evidence is descriptive without causal identification.",
-      "originalTitle": "Economic Policy Uncertainty Index for Poland: Data, Construction, and Validation",
-      "contentType": "paper",
-      "slug": "economic-policy-uncertainty-index-for-poland-dat-939f0148c2",
-      "keyPoints": [
-        "指数采用六份波兰报纸，按文章量缩放并标准化至2000-2024年基线均值100，使用BBD拼接法保证水平连续。",
-        "指数在COVID-19封锁、2022年能源危机、2023年政府更迭及2016年英国脱欧公投后明显上升。",
-        "波兰EPU月度变化与美国（0.26）和全球（0.25）EPU指数的相关性较弱，支持其以国内驱动为主。"
-      ],
-      "discoveredBy": [
-        "arXiv q-fin"
-      ],
-      "descriptionEn": "Constructs a continuous monthly EPU index for Poland from 2000 to 2026 using newspaper text and a splicing method to correct level jumps from staggered newspaper entry, offering a new tool for studying Polish policy uncertainty.",
-      "tagsEn": [
-        "economic policy uncertainty",
-        "Poland",
-        "text analysis",
-        "index construction",
-        "time series"
-      ],
-      "scoreBreakdown": {
-        "contentType": "paper",
-        "comparisonCohortSize": 5121,
-        "mode": "relevance-fallback",
-        "primaryMetric": "upvotes",
-        "primaryMetricValue": null,
-        "metricPercentile": null,
-        "velocityPercentile": null,
-        "objectiveScore": null,
-        "relevanceScore": 45,
-        "topicClassification": {
-          "classification": "uncertain",
-          "confidence": 0.5,
-          "financeEvidence": [],
-          "quantitativeEvidence": [],
-          "aiEvidence": [],
-          "sourcePrior": "量化研究"
-        },
-        "contentValueScore": 35.25,
-        "contentSignals": {
-          "evidence": 5.0,
-          "actionability": 0.0,
-          "novelty": 0.0,
-          "specificity": 10.0,
-          "penalty": 0.0
-        },
-        "freshnessScore": 90.28,
-        "sourceQualityScore": 100.0,
-        "sourceMetrics": {},
-        "selectionLane": "primary"
-      },
-      "aiGenerated": true,
-      "publishedAt": "2026-11-06T05:00:00+00:00",
-      "limitations": "指数基于报纸文本，可能受媒体覆盖偏差和编辑选择影响；拼接方法依赖重叠窗口的假设；与美国和全球指数的弱相关来自月度变化，不能排除水平或长期关联；事件证据为描述性，未进行因果识别。"
+      "slug": "where-are-the-rates-derivative-implied-interest--7ea9c93507",
+      "descriptionEn": "This study proposes a closed-form estimator to jointly infer USD and cryptocurrency discount factors from inverse options and futures, and introduces a RANSAC-based quote filter tailored to crypto market microstructure, filling the gap of lacking widely accepted benchmark yield curves in crypto.",
+      "whyItMatters": "该研究为加密市场提供了首个基于衍生品数据的基准利率曲线构建方法，有助于理解加密衍生品市场与去中心化借贷、质押市场之间的整合程度，对定价、套利和风险管理具有参考价值。",
+      "summary": "传统金融依赖流动性的利率衍生品构建收益率曲线，而加密市场以浮动利率为主，固定利率工具稀缺且缺乏基准曲线。作者结合看跌看涨平价与期货基差，提出闭式估计器，从Deribit的BTC和ETH衍生品数据中联合推断美元与加密货币贴现因子。结果显示，两种资产隐含的美元期限结构相似，平均年化约8%，在2024年加密牛市期间上升；隐含BTC和ETH利率在考察的期限内通常接近零，尽管Aave借贷利率和ETH质押利率为正。",
+      "originalTitle": "Where Are the Rates? Derivative-Implied Interest Rates in Cryptocurrency Markets",
+      "originalUrl": "https://arxiv.org/abs/2509.03964",
+      "summaryEn": "Traditional finance builds yield curves from liquid interest rate derivatives, while crypto markets rely on variable rates and lack fixed-rate instruments and benchmark curves. The authors combine put-call parity with the futures basis in a closed-form estimator to jointly infer USD and cryptocurrency discount factors from Deribit BTC and ETH derivatives data. Results show broadly similar USD term structures for both assets, averaging about 8% per year and rising during the 2024 crypto rallies; implied BTC and ETH rates are typically near zero across maturities, despite positive Aave lending yields and ETH staking yields, and implied USD rates co-move with Aave USDC rates but exhibit persistent differences."
     }
   ]
 }
